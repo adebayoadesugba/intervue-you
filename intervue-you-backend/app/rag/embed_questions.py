@@ -1,86 +1,112 @@
 """
 embed_questions.py
-
-Walks the knowledge_base/question_bank/ folder, loads every JSON question file,
+ 
+Walks the data/question_bank/ folder, loads every JSON question file,
 and embeds all questions into a local Chroma vector store.
-
+ 
 Run this once to build the store, and again any time you add or edit
 question files.
-
+ 
 Usage:
     python embed_questions.py
 """
 
 import glob
+import hashlib
 import json
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
-# Adjust this path if you run the script from a different working directory.
-# Expected layout: knowledge-base/question_bank/<category>/<difficulty>.json
-
 QUESTION_BANK_PATH = "knowledge-base/question_bank/**/*.json"
 DB_NAME = "vector_db"
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # free, local, small, fast, and good enough for our use case
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+BATCH_SIZE = 500
 
-def load_questions() -> list[Document]:
-    """Load every question JSON file and turn each question into a Document."""
-    documents = []
-    files = glob.glob(QUESTION_BANK_PATH, recursive=True)
-    print(f"Found {len(files)} question bank files")
 
-    for file_path in files:
+def sha(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_questions() -> dict[str, Document]:
+    docs = {}
+
+    for file_path in glob.glob(QUESTION_BANK_PATH, recursive=True):
         with open(file_path, "r", encoding="utf-8") as f:
             questions = json.load(f)
 
         for q in questions:
-            # Chroma metadata values must be str / int / float / bool —
-            # a list like reference_points has to be flattened into a string.
-            # Split it back out on " | " wherever you read metadata later.
+            text = q["question"].strip()
+            refs = q.get("reference_points", [])
+
+            # Original values for UI display
+            orig_cat = q.get("category", "General").strip()
+            orig_sub = q.get("subcategory", "").strip()
+            orig_diff = q.get("difficulty", "Unspecified").strip()
+
             metadata = {
-                "category": q["category"],
-                "subcategory": q.get("subcategory", ""),
-                "difficulty": q["difficulty"],
-                "question_type": q.get("question_type", "technical"),
-                "reference_points": " | ".join(q.get("reference_points", [])),
+                # Normalized metadata for case-insensitive Chroma filtering
+                "category": orig_cat.lower(),
+                "subcategory": orig_sub.lower(),
+                "difficulty": orig_diff.lower(),
+                "question_type": q.get("question_type", "technical").strip().lower(),
+                "reference_points": " | ".join(refs) if isinstance(refs, list) else str(refs),
                 "source_file": file_path,
+                # Preserved original strings for clean display output
+                "display_category": orig_cat,
+                "display_subcategory": orig_sub,
+                "display_difficulty": orig_diff,
             }
 
-            documents.append(Document(page_content=q["question"], metadata=metadata))
-            print(documents)
+            # Hash covers content and metadata
+            payload = {"text": text, **metadata}
+            metadata["content_hash"] = sha(json.dumps(payload, sort_keys=True))
 
-    return documents
+            doc_id = sha(f"{file_path}::{text}")
+            docs[doc_id] = Document(page_content=text, metadata=metadata)
+
+    return docs
 
 
 def main():
-    documents = load_questions()
-    print(f"Loaded {len(documents)} questions total")
-
-    if not documents:
-        print("No questions found — check that knowledge-base/question_bank/ exists and has .json files in it.")
+    current = load_questions()
+    if not current:
+        print("No questions found.")
         return
 
     embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+    store = Chroma(persist_directory=DB_NAME, embedding_function=embeddings)
 
-    Chroma.from_documents(
-        documents=documents,
-        embedding=embeddings,
-        persist_directory=DB_NAME,
-    )
+    existing = store.get(include=["metadatas"]) or {}
+    existing_ids = existing.get("ids") or []
+    existing_metas = existing.get("metadatas") or []
 
-    print(f"Embedded and stored {len(documents)} questions in '{DB_NAME}/'")
+    existing_hashes = {
+        doc_id: (meta or {}).get("content_hash")
+        for doc_id, meta in zip(existing_ids, existing_metas)
+    }
 
-    # Quick sanity check: how many questions landed in each category/difficulty
-    breakdown = {}
-    for doc in documents:
-        key = (doc.metadata["category"], doc.metadata["difficulty"])
-        breakdown[key] = breakdown.get(key, 0) + 1
+    # 1. Purge stale
+    stale = [i for i in existing_hashes if i not in current]
+    if stale:
+        for start in range(0, len(stale), BATCH_SIZE):
+            store.delete(ids=stale[start : start + BATCH_SIZE])
 
-    print("\nBreakdown by category / difficulty:")
-    for (category, difficulty), count in sorted(breakdown.items()):
-        print(f"  {category:<15} {difficulty:<10} {count}")
+    # 2. Upsert changed / new
+    to_upsert = [
+        i for i, d in current.items()
+        if existing_hashes.get(i) != d.metadata["content_hash"]
+    ]
+    if to_upsert:
+        for start in range(0, len(to_upsert), BATCH_SIZE):
+            batch_ids = to_upsert[start : start + BATCH_SIZE]
+            store.add_documents(
+                documents=[current[i] for i in batch_ids],
+                ids=batch_ids,
+            )
+
+    print(f"Sync complete. Active: {len(current)} | Embedded: {len(to_upsert)} | Removed: {len(stale)}")
 
 
 if __name__ == "__main__":
