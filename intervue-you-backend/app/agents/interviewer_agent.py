@@ -52,6 +52,7 @@ def _get_client() -> OpenAI:
     return _client
 
 
+
 def _build_query_text(session: InterviewSession) -> str:
     """Turns recent conversation history into text used to semantically
     rank candidate questions. Empty on the very first turn — retriever.py
@@ -74,6 +75,8 @@ ongoing conversation. You may briefly acknowledge the candidate's last
 answer first if that fits, but do not change the technical substance of
 the question, and do not answer it yourself. Return only the question
 you would say next — no preamble, no labels.
+Act like a professional interviewer dont answer any question that is not related to the interview, 
+Keep it concise and clear and also ask follow-up questions if need else ask the next question.
 
 Question to ask:
 {raw_question}

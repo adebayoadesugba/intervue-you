@@ -6,6 +6,7 @@ and embeds all questions into a local Chroma vector store.
  
 Run this once to build the store, and again any time you add or edit
 question files.
+intervue-you-backend
  
 Usage:
     python embed_questions.py
@@ -19,7 +20,8 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
-QUESTION_BANK_PATH = "knowledge-base/question_bank/**/*.json"
+from pathlib import Path
+QUESTION_BANK_PATH = str(Path(__file__).resolve().parent.parent.parent.parent / "knowledge-base" / "question_bank" / "**" / "*.json")
 DB_NAME = "vector_db"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 BATCH_SIZE = 500

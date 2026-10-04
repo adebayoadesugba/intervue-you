@@ -16,7 +16,20 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Literal
 
-DIFFICULTY_LADDER = ["junior", "mid", "senior"]
+# Not every interview category fits a junior/mid/senior progression —
+# a graduate-trainee or NYSC screening interview typically has one tier,
+# not three. Each category gets its own ladder here; anything not
+# listed falls back to DEFAULT_LADDER. Add a category's own entry only
+# when it genuinely needs more than one difficulty level.
+DIFFICULTY_LADDERS: dict[str, list[str]] = {
+    "graduate-trainee": ["general"],
+    "nysc-trainee": ["general"],
+}
+DEFAULT_LADDER = ["junior", "mid", "senior"]
+
+
+def get_ladder(category: str) -> list[str]:
+    return DIFFICULTY_LADDERS.get(category, DEFAULT_LADDER)
 
 
 @dataclass
@@ -70,9 +83,11 @@ class InterviewSession:
         self.category = self.category.strip().lower()
         self.difficulty = self.difficulty.strip().lower()
 
-        if self.difficulty not in DIFFICULTY_LADDER:
+        ladder = get_ladder(self.category)
+        if self.difficulty not in ladder:
             raise ValueError(
-                f"Invalid difficulty '{self.difficulty}'. Must be one of {DIFFICULTY_LADDER}."
+                f"Invalid difficulty '{self.difficulty}' for category "
+                f"'{self.category}'. Must be one of {ladder}."
             )
 
     # --- mutators -----------------------------------------------------
@@ -91,12 +106,13 @@ class InterviewSession:
         self._apply_difficulty_shift(evaluation.next_question_difficulty)
 
     def _apply_difficulty_shift(self, direction: str) -> None:
-        idx = DIFFICULTY_LADDER.index(self.difficulty)
+        ladder = get_ladder(self.category)
+        idx = ladder.index(self.difficulty)
         if direction == "harder":
-            idx = min(idx + 1, len(DIFFICULTY_LADDER) - 1)
+            idx = min(idx + 1, len(ladder) - 1)
         elif direction == "easier":
             idx = max(idx - 1, 0)
-        self.difficulty = DIFFICULTY_LADDER[idx]
+        self.difficulty = ladder[idx]
 
     # --- state checks ---------------------------------------------------
 
