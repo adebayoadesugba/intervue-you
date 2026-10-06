@@ -57,6 +57,8 @@ class AskedQuestion:
     raw_text: str | None = None  # original question-bank wording, before phrasing;
                                   # falls back to `text` when there's no bank entry
                                   # (e.g. a follow-up question has nothing to fall back from)
+    reference_points: list[str] = field(default_factory=list)  # empty for follow-ups
+    is_follow_up: bool = False
     asked_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
 
@@ -75,6 +77,8 @@ class InterviewSession:
 
     max_questions: int = 8
     ended: bool = False
+    original_question_count: int = 0  # fresh topics only — follow-ups don't increment this
+    consecutive_follow_ups: int = 0
 
     def __post_init__(self) -> None:
         # Normalize once, here, so every downstream file (retriever,
@@ -92,10 +96,28 @@ class InterviewSession:
 
     # --- mutators -----------------------------------------------------
 
-    def add_question(self, question_text: str, raw_text: str | None = None) -> None:
+    def add_question(
+        self,
+        question_text: str,
+        raw_text: str | None = None,
+        reference_points: list[str] | None = None,
+        is_follow_up: bool = False,
+    ) -> None:
+        if is_follow_up:
+            self.consecutive_follow_ups += 1
+        else:
+            self.consecutive_follow_ups = 0
+            self.original_question_count += 1
+
         self.history.append({"role": "assistant", "content": question_text})
         self.questions_asked.append(
-            AskedQuestion(text=question_text, difficulty=self.difficulty, raw_text=raw_text)
+            AskedQuestion(
+                text=question_text,
+                difficulty=self.difficulty,
+                raw_text=raw_text,
+                reference_points=reference_points or [],
+                is_follow_up=is_follow_up,
+            )
         )
 
     def add_answer(self, answer_text: str) -> None:
@@ -125,14 +147,16 @@ class InterviewSession:
 
     def pending_follow_up(self) -> str | None:
         """Returns the follow-up question to ask next, if the previous
-        evaluation flagged one — otherwise None, meaning the ask-question
-        step should retrieve a fresh question instead."""
-        if self.scores and self.scores[-1].should_follow_up:
+        evaluation flagged one AND we haven't exceeded 2 follow-ups. Otherwise None."""
+        if not self.scores or self.consecutive_follow_ups >= 2:
+            return None
+            
+        if self.scores[-1].should_follow_up:
             return self.scores[-1].follow_up_question
         return None
 
     def should_end(self) -> bool:
-        return self.ended or len(self.questions_asked) >= self.max_questions
+        return self.ended or self.original_question_count >= self.max_questions
 
     def end(self) -> None:
         self.ended = True

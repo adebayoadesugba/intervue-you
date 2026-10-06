@@ -36,10 +36,21 @@ HISTORY_WINDOW = 6           # how many recent turns to use as context
 _client: OpenAI | None = None
 
 
+class QuestionBankExhausted(RuntimeError):
+    """Raised when no unused questions remain for a session's current
+    category/difficulty. Deliberately a distinct type from plain
+    RuntimeError, so callers can catch this specifically and end the
+    session gracefully — without also accidentally swallowing an
+    unrelated RuntimeError (e.g. an evaluator API failure) as if it
+    meant the same thing."""
+
+
 @dataclass
 class NextQuestion:
     phrased: str   # what the candidate actually sees/hears
     raw: str       # original question-bank wording, for dedup — equals `phrased` for follow-ups
+    reference_points: list[str]  # for the evaluator; empty for follow-ups (no bank entry)
+    is_follow_up: bool  # explicit, not inferred — lets session.py exclude follow-ups from max_questions
 
 
 def _get_client() -> OpenAI:
@@ -50,7 +61,6 @@ def _get_client() -> OpenAI:
             raise RuntimeError("OPENAI_API_KEY not set — check that your .env file is loaded.")
         _client = OpenAI(api_key=api_key)
     return _client
-
 
 
 def _build_query_text(session: InterviewSession) -> str:
@@ -68,15 +78,29 @@ def _phrase_question(raw_question: str, session: InterviewSession) -> str:
     of an ongoing conversation, rather than a flat recital."""
     client = _get_client()
 
+    # Check if this is the very first question of the session
+    is_first_question = len(session.history) == 0
+
+    if is_first_question:
+        bridge_instruction = (
+            "This is the very first question of the interview. Start with a brief, warm "
+            "introductory phrase (e.g., 'Let's start with...', 'To kick things off...', or "
+            "'Welcome!'). DO NOT compliment or refer to previous answers, because the candidate "
+            "has not said anything yet."
+        )
+    else:
+        bridge_instruction = (
+            "CRITICAL INSTRUCTION: Since this is an interactive interview, ALWAYS start your response "
+            "by briefly and naturally reacting to the candidate's last answer (e.g., 'That's a solid explanation.', "
+            "'Great point.', 'Makes perfect sense. Moving on...', or 'Good attempt.') before transitioning "
+            "to the new question. Do not answer the question for them, just bridge the conversation smoothly."
+        )
+
     system_prompt = f"""
 You are conducting a {session.difficulty}-level {session.category} interview.
-Rephrase the question below so it reads naturally as the next line in an
-ongoing conversation. You may briefly acknowledge the candidate's last
-answer first if that fits, but do not change the technical substance of
-the question, and do not answer it yourself. Return only the question
-you would say next — no preamble, no labels.
-Act like a professional interviewer dont answer any question that is not related to the interview, 
-Keep it concise and clear and also ask follow-up questions if need else ask the next question.
+Rephrase the question below so it reads naturally in conversation.
+
+{bridge_instruction}
 
 Question to ask:
 {raw_question}
@@ -106,8 +130,9 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
     follow_up = session.pending_follow_up()
     if follow_up:
         # Already generated in context by the evaluator agent — no
-        # question-bank entry to track, so raw == phrased here.
-        return NextQuestion(phrased=follow_up, raw=follow_up)
+        # question-bank entry to track, so raw == phrased and there
+        # are no reference_points to carry forward.
+        return NextQuestion(phrased=follow_up, raw=follow_up, reference_points=[], is_follow_up=True)
 
     query_text = _build_query_text(session)
     candidates = get_relevant_questions(
@@ -119,7 +144,7 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
     )
 
     if not candidates:
-        raise RuntimeError(
+        raise QuestionBankExhausted(
             f"No unused questions left for category='{session.category}', "
             f"difficulty='{session.difficulty}'. Widen the question bank "
             f"or end the session."
@@ -127,10 +152,15 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
 
     # Pick among the top few rather than always the single best match —
     # avoids every same-state session feeling identically scripted.
-    chosen_raw = random.choice(candidates)["question"]
-    phrased = _phrase_question(chosen_raw, session)
+    chosen = random.choice(candidates)
+    phrased = _phrase_question(chosen["question"], session)
 
-    return NextQuestion(phrased=phrased, raw=chosen_raw)
+    return NextQuestion(
+        phrased=phrased,
+        raw=chosen["question"],
+        reference_points=chosen.get("reference_points", []),
+        is_follow_up=False,
+    )
 
 
 if __name__ == "__main__":

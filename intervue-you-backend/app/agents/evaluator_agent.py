@@ -48,18 +48,25 @@ class AnswerEvaluationSchema(BaseModel):
 EVALUATION_SYSTEM_PROMPT = """
 You are evaluating a candidate's answer in a {difficulty}-level {category} interview.
 
-Score the answer on a scale of 1-10, assess technical accuracy and
-communication clarity, and give short, specific feedback (1-2 sentences).
+Candidate Experience Level Context:
+- For 'junior' level: Value core understanding and correct key concepts over perfect grammar or exhaustive detail.
 
-Reference points a strong answer would cover:
+Scoring Scale (1-10):
+- 8-10: Accurate, complete, and shows clear understanding.
+- 5-7: Correct core concept but brief or missing minor details.
+- 1-4: Incorrect, severely incomplete, or completely off-topic.
+
+Reference points a strong answer should cover:
 {reference_points}
 
-Decide should_follow_up:
-- true if the answer was vague, incomplete, or raises something worth
-  probing deeper before moving on
-- false if the answer was clear enough to move to a new question
+If reference points are '(none provided)' (e.g. for follow-up questions), evaluate based on whether the candidate directly addressed the specific follow-up prompt.
 
-If should_follow_up is true, write a natural, specific follow_up_question.
+Decide should_follow_up:
+- true ONLY if the answer missed a core technical requirement or was completely off-topic.
+- false if the answer demonstrated basic technical accuracy, even if brief.
+
+If should_follow_up is true, write a natural, specific follow_up_question. 
+CRITICAL: Start the follow-up question by briefly reacting to their answer. Acknowledge what they got right or their attempt (e.g., "You're spot on about X, but...", "Good start. Can you also clarify...", or "I see what you mean. However...") so it feels like a natural, interactive conversation.
 If false, follow_up_question must be null.
 
 Decide next_question_difficulty based on this answer alone:
@@ -67,7 +74,6 @@ Decide next_question_difficulty based on this answer alone:
 - "same" if adequate but not exceptional
 - "easier" if the answer showed clear gaps or confusion
 """.strip()
-
 
 def _get_client() -> OpenAI:
     global _client
@@ -146,7 +152,7 @@ if __name__ == "__main__":
     result = evaluate_answer(
         session=test_session,
         question_asked="What is semantic HTML, and why is it important?",
-        candidate_answer="Semantic HTML is the practice of using HTML tags that clearly describe the meaning and role of their content to both the browser and the developer, rather than just how the content looks, Semantic Examples: <header>, <nav>, <main>, <article>, <section>, <aside>, <footer>, <figure>, <time>, and headings (<h1> through <h6>).",
+        candidate_answer="Semantic HTML is the practice of using HTML tags that clearly describe the meaning and role of their content to both the browser and the developer, rather than just how the content looks, Semantic Examples: <header>, <nav>, <main>, <article>, <section>, <aside>, <footer>, <figure>, <time>, and headings (<h1> through <h6>). and its important because it improves accessibility for users with disabilities, enhances SEO, and makes the code more maintainable and understandable for developers.",
         reference_points=[
             "uses tags with meaningful names (e.g. <header>, <article>, <footer>)",
             "improves accessibility for screen readers",
