@@ -1,39 +1,28 @@
 """
 interview_loop.py
 
-Orchestrates one full interview session: repeatedly calls the
-interviewer agent to get the next question, waits for the candidate's
-answer, calls the evaluator agent to score it, and mutates the session
-with the results — until session.should_end() is true.
+Core turn logic for running an interview session.
 
-This is the one place that owns session mutation end to end. Both
-agents stay read-only / return-value-only, exactly as designed.
-
-This module does NOT handle text vs. voice I/O or FastAPI routing —
-get_answer_fn is injected by the caller, so this same loop works
-whether answers come from stdin (this file's own CLI runner), a web
-request, or a transcribed voice clip.
+ask_next() and record_answer() are the two primitives everything else
+is built from. run_session() below is a blocking CLI/local-test loop
+built on top of them; app/api/routes_interview.py calls the same two
+primitives directly, one per HTTP request, instead of blocking in a
+loop. The actual business logic lives in exactly one place either way.
 """
 
 import time
 from collections.abc import Callable
 
 from app.agents import evaluator_agent, interviewer_agent
-from app.models.session import InterviewSession
+from app.agents.interviewer_agent import NextQuestion
+from app.models.session import AnswerEvaluation, InterviewSession
 
 
-def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> None:
-    """
-    Runs exactly one question-and-answer turn:
-      ask -> get_answer_fn(question) -> evaluate -> record.
-
-    get_answer_fn receives the phrased question and must return the
-    candidate's answer as plain text (already transcribed, if voice).
-
-    Raises whatever interviewer_agent.get_next_question() raises if the
-    question bank is exhausted — callers should catch RuntimeError and
-    end the session gracefully rather than let it propagate unhandled.
-    """
+def ask_next(session: InterviewSession) -> NextQuestion:
+    """Gets the next question (follow-up or fresh) and records it on
+    the session. Raises interviewer_agent.QuestionBankExhausted if
+    nothing is left to ask — callers should catch this and end the
+    session gracefully rather than let it propagate as a crash."""
     next_q = interviewer_agent.get_next_question(session)
     session.add_question(
         next_q.phrased,
@@ -41,10 +30,15 @@ def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> 
         reference_points=next_q.reference_points,
         is_follow_up=next_q.is_follow_up,
     )
+    return next_q
 
-    answer = get_answer_fn(next_q.phrased)
+
+def record_answer(session: InterviewSession, answer: str) -> AnswerEvaluation:
+    """Records the candidate's answer to the most recently asked
+    question, evaluates it, and applies the evaluation — which may
+    shift session.difficulty and/or set up a pending follow-up for
+    the next call to ask_next()."""
     session.add_answer(answer)
-
     evaluation = evaluator_agent.evaluate_answer(
         session=session,
         question_asked=session.questions_asked[-1].text,
@@ -52,6 +46,17 @@ def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> 
         reference_points=session.questions_asked[-1].reference_points,
     )
     session.add_evaluation(evaluation)
+    return evaluation
+
+
+def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> None:
+    """One full ask -> answer -> evaluate cycle, blocking on
+    get_answer_fn for the candidate's response. Used by run_session()
+    for local/CLI testing only — the API uses ask_next()/record_answer()
+    directly instead, since it can't block on a callback per request."""
+    next_q = ask_next(session)
+    answer = get_answer_fn(next_q.phrased)
+    record_answer(session, answer)
 
 
 def run_session(
@@ -60,15 +65,11 @@ def run_session(
     time_limit_seconds: int | None = None,
 ) -> None:
     """
-    Runs turns until the session ends — max_questions is hit, the time
-    limit is reached, session.end() was called externally, or the
-    question bank runs dry.
-
-    The time check happens BETWEEN turns, not mid-turn: a turn already
-    in progress is always allowed to finish. This means actual elapsed
-    time can run slightly past time_limit_seconds (by however long one
-    question-answer-evaluate cycle takes) — a deliberate choice, not
-    an oversight; see the design discussion this was built from.
+    Blocking loop for local/CLI testing — runs turns until the session
+    ends (max_questions hit, time limit reached, session.end() called
+    externally, or the question bank runs dry). The time check happens
+    between turns, before whatever would come next, follow-up included
+    — a turn already in progress always finishes.
     """
     start_time = time.monotonic() if time_limit_seconds else None
 
@@ -81,31 +82,23 @@ def run_session(
         try:
             run_turn(session, get_answer_fn)
         except interviewer_agent.QuestionBankExhausted as e:
-            # Genuinely unrecoverable without more data — end gracefully.
-            # Any OTHER RuntimeError (e.g. the evaluator failing to parse
-            # a response) is deliberately NOT caught here — it propagates
-            # as a real error rather than being mislabeled as "interview
-            # complete."
             print(f"\n[ending session early: {e}]")
             session.end()
             break
 
 
 def _cli_get_answer(question: str) -> str:
-    """Simple text-mode answer source for local testing — swap this out
-    for a FastAPI request handler or the voice pipeline later."""
     print(f"\nInterviewer: {question}")
     return input("You: ")
 
 
 if __name__ == "__main__":
-    # Manual end-to-end smoke test — requires OPENAI_API_KEY set and
-    # vector_db/ already built. Answer in the terminal to try it live.
     test_session = InterviewSession(category="frontend", difficulty="junior", max_questions=5)
-    run_session(test_session, _cli_get_answer, time_limit_seconds=600)  # Fixed to 600 seconds
+    run_session(test_session, _cli_get_answer, time_limit_seconds=600)
 
     print("\n--- Session summary ---")
-    print(f"Questions asked: {len(test_session.questions_asked)}")
+    print(f"Questions asked: {test_session.original_question_count}")  # topics only, not follow-ups
+    print(f"Total turns (incl. follow-ups): {len(test_session.questions_asked)}")
     print(f"Average score: {test_session.average_score():.1f}")
     print(f"Final difficulty: {test_session.difficulty}")
     print(f"By difficulty: {test_session.scores_by_difficulty()}")
