@@ -168,6 +168,20 @@ class InterviewSession:
             return 0.0
         return sum(e.score for e in self.scores) / len(self.scores)
 
+    def percentage_score(self) -> int:
+        """Calculates a strict 0-100% score that penalizes unanswered main questions."""
+        if not self.scores or self.max_questions <= 0:
+            return 0
+        
+        # 1. How much of the interview did they actually complete? (e.g., 7 / 10 = 0.7)
+        completion_ratio = min(self.original_question_count / self.max_questions, 1.0)
+        
+        # 2. What was the quality of the answers they DID give? (e.g., 8.0 / 10 = 0.8)
+        quality_ratio = self.average_score() / 10.0
+        
+        # 3. Combine for final penalty (0.7 * 0.8 * 100 = 56%)
+        return round(completion_ratio * quality_ratio * 100)
+
     def scores_by_difficulty(self) -> dict[str, list[int]]:
         """Pairs each evaluation with the difficulty its question was
         actually asked at — only possible because AskedQuestion records

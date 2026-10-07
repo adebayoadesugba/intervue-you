@@ -30,6 +30,8 @@ from pydantic import BaseModel
 from app.agents import interviewer_agent
 from app.interview_loop import ask_next, record_answer
 from app.models.session import InterviewSession
+from app.agents import report_agent  
+
 
 router = APIRouter(prefix="/interview", tags=["interview"])
 
@@ -100,16 +102,26 @@ def start_interview(req: StartRequest):
 def submit_answer(session_id: str, req: AnswerRequest):
     session = _get_session(session_id)
 
-    if session.should_end():
+    # Reject only if nothing is actually waiting for an answer — NOT
+    # just because should_end() is true. The question that pushes the
+    # session over its limit is still unanswered at the moment it's
+    # asked, and deserves to be recorded before the session actually
+    # ends. Checking should_end() alone here would silently drop that
+    # final answer, exactly as it did before this fix.
+    has_pending_question = len(session.questions_asked) > len(session.scores)
+
+    # Time check happens here — between turns, before whatever would
+    # come next (follow-up or fresh) — same principle as the CLI loop.
+
+    if not has_pending_question:
         return AnswerResponse(ended=True, reason="already_ended")
 
     record_answer(session, req.answer)
 
-    # Time check happens here — between turns, before whatever would
-    # come next (follow-up or fresh) — same principle as the CLI loop.
     if _time_is_up(session_id):
         session.end()
         return AnswerResponse(ended=True, reason="time_limit")
+   
 
     if session.should_end():
         return AnswerResponse(ended=True, reason="max_questions")
@@ -126,14 +138,24 @@ def submit_answer(session_id: str, req: AnswerRequest):
 @router.get("/{session_id}/report")
 def get_report(session_id: str):
     session = _get_session(session_id)
+    
     if not session.should_end():
         raise HTTPException(status_code=400, detail="Session is still in progress")
 
+    # Generate the AI written report
+    ai_feedback = report_agent.generate_report(session)
+
+    # Combine the raw metrics with the AI feedback
     return {
         "session_id": session.session_id,
         "category": session.category,
-        "questions_asked": session.original_question_count,
-        "total_turns_incl_follow_ups": len(session.questions_asked),
-        "average_score": session.average_score(),
-        "scores_by_difficulty": session.scores_by_difficulty(),
+        "metrics": {
+            "questions_asked": session.original_question_count,
+            "max_questions": session.max_questions,
+            "total_turns_incl_follow_ups": len(session.questions_asked),
+            "average_score": round(session.average_score(), 1),
+            "overall_percentage": f"{session.percentage_score()}%", # <--- New strict percentage
+            "scores_by_difficulty": session.scores_by_difficulty(),
+        },
+        "feedback": ai_feedback,
     }
