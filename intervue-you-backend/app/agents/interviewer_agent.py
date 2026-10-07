@@ -84,15 +84,16 @@ def _phrase_question(raw_question: str, session: InterviewSession) -> str:
     if is_first_question:
         bridge_instruction = (
             "This is the very first question of the interview. Start with a brief, warm "
-            "introductory phrase (e.g., 'Let's start with...', 'To kick things off...', or "
-            "'Welcome!'). DO NOT compliment or refer to previous answers, because the candidate "
+            "introductory phrase that will set the tone for the conversation. DO NOT compliment or refer to previous answers, because the candidate "
             "has not said anything yet."
         )
     else:
         bridge_instruction = (
             "CRITICAL INSTRUCTION: Since this is an interactive interview, ALWAYS start your response "
-            "by briefly and naturally reacting to the candidate's last answer (e.g., 'That's a solid explanation.', "
-            "'Great point.', 'Makes perfect sense. Moving on...', or 'Good attempt.') before transitioning "
+            "by briefly and naturally reacting to the candidate's last answer depending on how good their response was "
+            "(e.g., 'That's a solid explanation.' if they gave a really good answer and no follow-up is needed, "
+            "'Great point.' if they gave a decent answer and a follow-up is needed, "
+            "'Makes perfect sense. Moving on...', or 'Good attempt.' if their response was fair but could be improved) before transitioning "
             "to the new question. Do not answer the question for them, just bridge the conversation smoothly."
         )
 

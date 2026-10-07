@@ -94,7 +94,7 @@ def _cli_get_answer(question: str) -> str:
 
 if __name__ == "__main__":
     test_session = InterviewSession(category="frontend", difficulty="junior", max_questions=5)
-    run_session(test_session, _cli_get_answer, time_limit_seconds=600)
+    run_session(test_session, _cli_get_answer, time_limit_seconds=300)
 
     print("\n--- Session summary ---")
     print(f"Questions asked: {test_session.original_question_count}")  # topics only, not follow-ups
