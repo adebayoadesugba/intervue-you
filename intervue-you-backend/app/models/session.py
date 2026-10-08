@@ -24,9 +24,10 @@ from typing import Literal
 DIFFICULTY_LADDERS: dict[str, list[str]] = {
     "graduate-trainee": ["general"],
     "nysc-trainee": ["general"],
+    "uiux": ["entry", "advanced", "expert"],  # <--- Add your custom progression here
+    "copywriting": ["entry", "expert"]        # <--- Or a simple two-tier ladder
 }
 DEFAULT_LADDER = ["junior", "mid", "senior"]
-
 
 def get_ladder(category: str) -> list[str]:
     return DIFFICULTY_LADDERS.get(category, DEFAULT_LADDER)
@@ -66,7 +67,8 @@ class AskedQuestion:
 class InterviewSession:
     category: str
     difficulty: str
-    mode: Literal["text", "voice"] = "text"
+    stack: list[str] = field(default_factory=lambda: ["core"]) # Stores the specific framework/stack chosen
+    mode: Literal["text", "voice", "video"] = "text"
 
     session_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     started_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
@@ -86,6 +88,7 @@ class InterviewSession:
         # and a valid ladder entry — no need to re-check everywhere.
         self.category = self.category.strip().lower()
         self.difficulty = self.difficulty.strip().lower()
+        self.stack = [s.strip().lower() for s in self.stack]
 
         ladder = get_ladder(self.category)
         if self.difficulty not in ladder:

@@ -43,6 +43,7 @@ SESSION_TIME_LIMITS: dict[str, int | None] = {}
 class StartRequest(BaseModel):
     category: str
     difficulty: str
+    stack: list[str] = ["core"]  # Defaults to core if no specific framework is requested
     mode: str = "text"
     max_questions: int = 8
     time_limit_seconds: int | None = None  # None = no time limit, only max_questions applies
@@ -82,6 +83,7 @@ def start_interview(req: StartRequest):
     session = InterviewSession(
         category=req.category,
         difficulty=req.difficulty,
+        stack=req.stack,
         mode=req.mode,
         max_questions=req.max_questions,
     )

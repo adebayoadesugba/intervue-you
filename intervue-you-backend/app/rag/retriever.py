@@ -40,6 +40,7 @@ def _doc_to_question(doc: Document) -> dict:
         "category": doc.metadata.get("display_category", doc.metadata.get("category", "")),
         "subcategory": doc.metadata.get("display_subcategory", doc.metadata.get("subcategory", "")),
         "difficulty": doc.metadata.get("display_difficulty", doc.metadata.get("difficulty", "")),
+        "stack": doc.metadata.get("display_stack", doc.metadata.get("stack", "")),
         "question_type": doc.metadata.get("question_type", "technical"),
         "reference_points": parsed_refs,
         "source_file": doc.metadata.get("source_file", ""),
@@ -49,22 +50,26 @@ def _doc_to_question(doc: Document) -> dict:
 def get_relevant_questions(
     category: str,
     difficulty: str,
+    stack: list[str] = None,
     query_text: str = "",
     exclude_questions: Optional[list[str]] = None,
     k: int = 10,
 ) -> list[dict]:
     """
-    Retrieve up to k candidate questions matching category + difficulty,
+    Retrieve up to k candidate questions matching category + difficulty + stack,
     optionally semantically ranked by query_text, excluding already asked items.
     """
     exclude_questions = exclude_questions or []
+    stack = stack or ["core"]  # Default to core if no specific framework is requested
     store = _get_vectorstore()
 
-    # Hard metadata filter
+    allowed_stacks = stack + ["core", "none", "universal"]
+    # Hard metadata filter: Match Domain, Difficulty, and (Specific Stack OR Universal Core questions)
     filter_dict = {
         "$and": [
             {"category": {"$eq": category}},
             {"difficulty": {"$eq": difficulty}},
+            {"stack": {"$in": allowed_stacks}},
         ]
     }
 
@@ -95,8 +100,8 @@ def get_relevant_questions(
 
 if __name__ == "__main__":
     # Test retrieval
-    results = get_relevant_questions(category="frontend", difficulty="junior")
+    results = get_relevant_questions(category="frontend", difficulty="junior", stack="core")
     print(f"Retrieved {len(results)} questions:\n")
     for r in results:
-        print(f"- {r['question']} [{r['subcategory']}]")
+        print(f"- {r['question']} [{r['stack']}]")
         print(f"  Reference Points: {r['reference_points']}")

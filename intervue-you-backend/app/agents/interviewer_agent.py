@@ -139,6 +139,7 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
     candidates = get_relevant_questions(
         category=session.category,
         difficulty=session.difficulty,
+        stack=session.stack,
         query_text=query_text,
         exclude_questions=session.asked_question_texts(),
         k=RETRIEVAL_K,
@@ -147,7 +148,7 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
     if not candidates:
         raise QuestionBankExhausted(
             f"No unused questions left for category='{session.category}', "
-            f"difficulty='{session.difficulty}'. Widen the question bank "
+            f"difficulty='{session.difficulty}', stack='{session.stack}'. Widen the question bank "
             f"or end the session."
         )
 
@@ -167,7 +168,7 @@ def get_next_question(session: InterviewSession) -> NextQuestion:
 if __name__ == "__main__":
     # Manual smoke test — requires OPENAI_API_KEY to be set in .env,
     # and vector_db/ to already exist (run embed_questions.py first).
-    test_session = InterviewSession(category="frontend", difficulty="junior")
+    test_session = InterviewSession(category="frontend", difficulty="junior", stack="core")
     result = get_next_question(test_session)
     print("Phrased (shown to candidate):\n", result.phrased)
     print("\nRaw (used for dedup):\n", result.raw)

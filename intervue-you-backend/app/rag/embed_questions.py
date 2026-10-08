@@ -46,12 +46,14 @@ def load_questions() -> dict[str, Document]:
             orig_cat = q.get("category", "General").strip()
             orig_sub = q.get("subcategory", "").strip()
             orig_diff = q.get("difficulty", "Unspecified").strip()
+            orig_stack = q.get("stack", "core").strip()
 
             metadata = {
                 # Normalized metadata for case-insensitive Chroma filtering
                 "category": orig_cat.lower(),
                 "subcategory": orig_sub.lower(),
                 "difficulty": orig_diff.lower(),
+                "stack": orig_stack.lower(),
                 "question_type": q.get("question_type", "technical").strip().lower(),
                 "reference_points": " | ".join(refs) if isinstance(refs, list) else str(refs),
                 "source_file": file_path,
@@ -59,6 +61,7 @@ def load_questions() -> dict[str, Document]:
                 "display_category": orig_cat,
                 "display_subcategory": orig_sub,
                 "display_difficulty": orig_diff,
+                "display_stack": orig_stack,
             }
 
             # Hash covers content and metadata
