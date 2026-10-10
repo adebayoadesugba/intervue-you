@@ -3,4 +3,4 @@ vector_db/
 __pycache__/
 .env
 question_bank/
-node_modules
+node_modules/
