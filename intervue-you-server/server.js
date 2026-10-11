@@ -8,11 +8,31 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:8080", // Your Vite React frontend URL
-  credentials: true
-}));
 
+const allowedOrigins = [
+  process.env.DEV_ENV || "http://localhost:8080",
+  process.env.PROD_ENV || "https://intervue-you.netlify.app",
+  "https://intervue-you.netlify.app",
+  process.env.CLIENT_URL, // Optional: add env variable for flexibility
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or Postman)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/sessions", sessionRoutes);

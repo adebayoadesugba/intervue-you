@@ -1,0 +1,125 @@
+[
+  {
+    "question": "What is a RESTful API and what are standard HTTP methods?",
+    "reference_points": [
+      "stateless architectural style using standard HTTP protocols",
+      "GET for retrieving data",
+      "POST for creating resources",
+      "PUT/PATCH for updates, DELETE for removals"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between SQL and NoSQL databases?",
+    "reference_points": [
+      "SQL databases are relational, structured, and schema-driven",
+      "NoSQL databases are document, key-value, or graph-based",
+      "SQL uses standard SQL query language (e.g. PostgreSQL, MySQL)",
+      "NoSQL scales horizontally easily (e.g. MongoDB)"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is Middleware in backend frameworks like Express or FastAPI?",
+    "reference_points": [
+      "functions executing between request receipt and response sending",
+      "can inspect, modify, or block incoming requests",
+      "common uses: authentication, logging, CORS, body parsing"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain Primary Keys and Foreign Keys in relational databases.",
+    "reference_points": [
+      "Primary Key uniquely identifies each row in a table",
+      "Foreign Key establishes a link between two tables",
+      "Foreign Keys enforce referential integrity"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do environment variables (.env files) help secure backend applications?",
+    "reference_points": [
+      "keeps secret credentials out of source code repositories",
+      "allows different configurations for dev, staging, and production",
+      "accessed at runtime via system processes"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "In Node.js, what is Express routing and how does it map requests?",
+    "reference_points": [
+      "maps HTTP verbs and URL paths to handler functions",
+      "uses route parameters (req.params) and query strings (req.query)",
+      "organizes endpoints using express.Router()"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is an ORM (Object-Relational Mapping) and what are its pros and cons?",
+    "reference_points": [
+      "maps database tables to programming language objects",
+      "pros: speeds up development, prevents SQL injection",
+      "cons: abstraction overhead, complex query inefficiency"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between synchronous and asynchronous code execution?",
+    "reference_points": [
+      "synchronous code blocks thread until operation finishes",
+      "asynchronous code lets runtime continue processing other work",
+      "critical for backend I/O operations like DB calls or disk read"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "In Python, what is the difference between lists and tuples?",
+    "reference_points": [
+      "lists are mutable (can be changed)",
+      "tuples are immutable (cannot be altered once created)",
+      "tuples use parentheses (), lists use square brackets []",
+      "tuples are faster and memory-efficient"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "python",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are common HTTP status code ranges (2xx, 4xx, 5xx)?",
+    "reference_points": [
+      "2xx indicates successful requests (200 OK, 201 Created)",
+      "4xx indicates client-side errors (400 Bad Request, 404 Not Found)",
+      "5xx indicates server-side errors (500 Internal Server Error)"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  }
+]

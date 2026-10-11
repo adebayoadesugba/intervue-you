@@ -1,0 +1,129 @@
+[
+  {
+    "question": "What is semantic HTML, and why is it important for web development?",
+    "reference_points": [
+      "uses meaningful tags like <header>, <article>, <footer>",
+      "improves accessibility for screen readers",
+      "helps search engines understand page structure (SEO)",
+      "improves code readability and maintainability"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain the CSS Box Model and its core components.",
+    "reference_points": [
+      "consists of content, padding, border, and margin",
+      "padding adds space inside the border",
+      "margin adds space outside the border",
+      "explains box-sizing: border-box"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between var, let, and const in JavaScript?",
+    "reference_points": [
+      "var is function-scoped and hoisted",
+      "let and const are block-scoped",
+      "const cannot be reassigned",
+      "let can be reassigned"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between Flexbox and CSS Grid?",
+    "reference_points": [
+      "Flexbox is one-dimensional (rows or columns)",
+      "CSS Grid is two-dimensional (rows and columns simultaneously)",
+      "Flexbox is content-driven, Grid is layout-driven"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is Event Delegation in JavaScript and why would you use it?",
+    "reference_points": [
+      "attaching a single event listener to a parent element",
+      "uses event bubbling to catch events on child elements",
+      "saves memory and works dynamically added elements"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "In React, what is JSX and how does it differ from HTML?",
+    "reference_points": [
+      "JSX stands for JavaScript XML",
+      "allows writing HTML-like code inside JavaScript",
+      "uses className instead of class",
+      "requires self-closing tags and single root element"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useState hook in React and how do you use it?",
+    "reference_points": [
+      "allows functional components to manage local state",
+      "returns an array with current state and update function",
+      "triggers a re-render when state changes"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain CSS specificity and how browser decides which styles apply.",
+    "reference_points": [
+      "inline styles have highest specificity",
+      "IDs beat classes and pseudo-classes",
+      "classes beat element tags",
+      "!important overrides normal specificity rules"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between Promises and async/await in JavaScript?",
+    "reference_points": [
+      "async/await is syntactic sugar over Promises",
+      "Promises use .then() and .catch()",
+      "async/await uses try/catch blocks for error handling",
+      "async/await makes asynchronous code read synchronously"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "In Vue.js, what is the difference between v-if and v-show directives?",
+    "reference_points": [
+      "v-if conditionally renders or destroys element in DOM",
+      "v-show toggles CSS display property (display: none)",
+      "v-show is better for frequent toggling",
+      "v-if has higher switch cost"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical"
+  }
+]

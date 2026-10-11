@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Tell me about yourself and why you want to transition into technology post-NYSC.",
+    "reference_points": [
+      "summarizes academic background and NYSC service experience",
+      "expresses clear interest in technology career path",
+      "articulates personal motivation and learning goals"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "Describe a scenario where you worked in a diverse team during NYSC or university.",
+    "reference_points": [
+      "highlights adaptability to different personalities and backgrounds",
+      "demonstrates clear communication and active listening",
+      "focuses on achieving a shared goal despite differences"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "How do you prioritize your tasks when given tight deadlines or multiple tasks?",
+    "reference_points": [
+      "uses prioritization frameworks (e.g. urgent vs important)",
+      "breaks complex goals into actionable daily tasks",
+      "communicates proactively with supervisors if delays occur"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "Describe a complex problem you encountered during your NYSC PPA and how you solved it.",
+    "reference_points": [
+      "uses STAR method (Situation, Task, Action, Result)",
+      "shows critical thinking and initiative",
+      "explains positive outcome and lesson learned"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "What soft skills do you consider your greatest strength, and how do you apply them?",
+    "reference_points": [
+      "identifies key soft skills (e.g., problem-solving, empathy, adaptability)",
+      "gives concrete examples from past work or school projects",
+      "links soft skills to workplace performance"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "How do you respond when receiving constructive criticism from a team lead?",
+    "reference_points": [
+      "views feedback as a learning opportunity rather than personal attack",
+      "asks clarifying questions to understand areas for improvement",
+      "takes concrete steps to adjust and improve work quality"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "Explain a non-technical project or concept you managed to someone with zero context.",
+    "reference_points": [
+      "uses simple, clear, jargon-free language",
+      "uses relatable analogies",
+      "verifies listener comprehension"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "general"
+  },
+  {
+    "question": "Tell me about a time you made a mistake on a project and how you handled it.",
+    "reference_points": [
+      "takes immediate ownership of the mistake without shifting blame",
+      "communicates error early to affected parties",
+      "implements a solution and process to prevent recurrence"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  },
+  {
+    "question": "How do you stay updated with industry trends and continue learning independently?",
+    "reference_points": [
+      "mentions self-learning platforms (e.g., Udemy, YouTube, technical documentation)",
+      "builds personal projects or practices regularly",
+      "follows technical communities or industry blogs"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "general"
+  },
+  {
+    "question": "Where do you see yourself professionally in the next 3 to 5 years?",
+    "reference_points": [
+      "presents realistic career growth milestones",
+      "shows commitment to continuous skill acquisition",
+      "aligns personal career goals with business value"
+    ],
+    "category": "nysc-trainee",
+    "difficulty": "general",
+    "stack": "none",
+    "question_type": "behavioral"
+  }
+]

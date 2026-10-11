@@ -1,0 +1,131 @@
+[
+  {
+    "question": "How does the React Virtual DOM work and why is it beneficial for performance?",
+    "reference_points": [
+      "in-memory representation of real DOM",
+      "uses diffing algorithm to compare state changes",
+      "batch updates real DOM to minimize layout thrashing",
+      "improves UI rendering efficiency"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain JavaScript closures and provide a practical real-world use case.",
+    "reference_points": [
+      "a function bound together with its lexical environment",
+      "inner function has access to outer function variables",
+      "use cases: data privacy/encapsulation, currying, event handlers"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does the JavaScript Event Loop process asynchronous tasks?",
+    "reference_points": [
+      "explains call stack, microtask queue, and macrotask queue",
+      "Promises/process.nextTick go to microtask queue",
+      "setTimeout/setInterval go to macrotask (task) queue",
+      "microtasks execute completely before next macrotask"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Why is the cleanup function necessary in React's useEffect hook?",
+    "reference_points": [
+      "prevents memory leaks when component unmounts",
+      "clears active timers or intervals",
+      "unsubscribes from websockets or event listeners",
+      "runs before re-running effect on dependency change"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are Web Vitals, and how do you optimize Core Web Vitals like LCP and CLS?",
+    "reference_points": [
+      "LCP (Largest Contentful Paint) measures loading performance",
+      "CLS (Cumulative Layout Shift) measures visual stability",
+      "LCP optimization: image compression, CDN, caching",
+      "CLS optimization: setting explicit dimensions on images/iframes"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is CORS (Cross-Origin Resource Sharing) and how do frontend developers handle it?",
+    "reference_points": [
+      "browser security feature preventing unauthorized cross-origin requests",
+      "preflight OPTIONS requests sent by browser",
+      "backend configures Access-Control-Allow-Origin headers",
+      "frontend developers use dev proxies to bypass during local dev"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain the difference between Debouncing and Throttling.",
+    "reference_points": [
+      "debouncing delays execution until a delay passes after last event",
+      "throttling limits execution to once every fixed time interval",
+      "debouncing use case: search input auto-complete",
+      "throttling use case: window scroll or resize events"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Compare State Management via React Context API vs Redux Toolkit.",
+    "reference_points": [
+      "Context API is built-in and great for low-frequency global state",
+      "Context API can cause unnecessary re-renders in deep trees",
+      "Redux Toolkit provides predictable state container and middleware",
+      "Redux is better suited for large-scale, complex state trees"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "In Vue 3, how does Pinia state management differ from Vuex?",
+    "reference_points": [
+      "Pinia eliminates mutations (uses direct state edits)",
+      "Pinia offers full TypeScript auto-completion support out of the box",
+      "Pinia uses lighter store architecture with modular stores",
+      "Pinia is the official recommended state store over Vuex"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is Code Splitting and dynamic import() in modern web development?",
+    "reference_points": [
+      "breaking large JS bundles into smaller chunks loaded on demand",
+      "reduces initial page load time",
+      "implemented using dynamic import() statements",
+      "used in router-level lazy loading (e.g., React.lazy)"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  }
+]

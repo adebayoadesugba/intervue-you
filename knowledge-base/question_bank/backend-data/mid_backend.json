@@ -1,0 +1,129 @@
+[
+  {
+    "question": "How do database indexes speed up read operations and what is their impact on writes?",
+    "reference_points": [
+      "indexes create data structures (B-Trees) for fast lookup",
+      "reduces full table scans to log time lookups",
+      "slows down WRITE operations (INSERT, UPDATE) due to index maintenance",
+      "occupies additional disk space"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Compare JWT (JSON Web Tokens) with Session-based authentication.",
+    "reference_points": [
+      "JWT is stateless, stored client-side, self-contained payload",
+      "Sessions are stateful, stored server-side (in memory or database)",
+      "JWT difficult to invalidate before expiration without blacklist",
+      "Sessions scale poorly across multiple server instances without Redis"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain Database Transactions and the ACID properties.",
+    "reference_points": [
+      "Atomicity: all steps succeed or whole transaction rolls back",
+      "Consistency: database moves from one valid state to another",
+      "Isolation: concurrent transactions do not interfere with each other",
+      "Durability: committed data persists permanently"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the N+1 query problem in ORMs and how do you resolve it?",
+    "reference_points": [
+      "fetching 1 parent record causes N additional queries for child relations",
+      "causes severe database performance bottlenecks",
+      "resolved using eager loading / JOIN fetching (e.g. select_related, include)"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you implement caching using Redis in a backend architecture?",
+    "reference_points": [
+      "storing frequent database query results in in-memory Redis key-value store",
+      "checks cache first before querying database (Cache-Aside pattern)",
+      "uses TTL (Time-To-Live) for cache invalidation",
+      "reduces primary database load"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does Node.js single-threaded event loop handle heavy CPU-bound tasks?",
+    "reference_points": [
+      "heavy CPU tasks block the main thread and freeze the server",
+      "offloaded using Worker Threads or child processes",
+      "distinguishes between I/O bound operations (libuv pool) and CPU tasks"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical"
+  },
+  {
+    "question": "What strategies are used for API Rate Limiting in microservices or web apps?",
+    "reference_points": [
+      "prevents abuse, DDoS, and brute force attacks",
+      "Token Bucket and Sliding Window algorithms",
+      "tracks user IP or API key using Redis memory store",
+      "returns 429 Too Many Requests status code"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain SQL JOIN types (INNER, LEFT, RIGHT, FULL) and when to use them.",
+    "reference_points": [
+      "INNER JOIN returns matching rows from both tables",
+      "LEFT JOIN returns all rows from left table and matching from right",
+      "RIGHT JOIN returns all rows from right table and matching from left",
+      "FULL JOIN returns all records when there is a match in either table"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  },
+  {
+    "question": "In Python FastAPI or Django, how do asynchronous handlers (async def) operate?",
+    "reference_points": [
+      "uses event loop via asyncio framework",
+      "await keyword yields control back to event loop during I/O operations",
+      "allows single process to handle thousands of concurrent requests"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "python",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the core trade-offs between Microservices and Monolithic architecture?",
+    "reference_points": [
+      "Monoliths are simpler to develop, test, and deploy initially",
+      "Microservices allow independent scaling, tech stack flexibility",
+      "Microservices add network latency, distributed logging complexity",
+      "Microservices require advanced devops/CI-CD pipelines"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical"
+  }
+]

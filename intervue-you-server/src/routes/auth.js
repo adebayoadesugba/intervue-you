@@ -3,24 +3,12 @@ const crypto = require("crypto");
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
 const User = require("../models/User");
+const Profile = require("../models/Profile");
 const { OAuth2Client } = require("google-auth-library");
 
 const router = express.Router();
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
-// Safe helper to retrieve profile if a Profile model is registered in Mongoose
-async function getProfileSafely(userId) {
-  try {
-    if (mongoose.models.Profile) {
-      return await mongoose.models.Profile.findOne({ userId });
-    }
-  } catch (_) {
-    // Return null if model/collection doesn't exist yet
-  }
-  return null;
-}
 
 // Nodemailer SMTP Transporter
 const transporter = nodemailer.createTransport({
@@ -30,6 +18,19 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS,
   },
 });
+
+// Middleware to verify JWT token
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (!token) return res.status(401).json({ error: "Access token required" });
+
+  jwt.verify(token, process.env.JWT_SECRET || "your_jwt_secret", (err, user) => {
+    if (err) return res.status(403).json({ error: "Invalid or expired token" });
+    req.user = user;
+    next();
+  });
+};
 
 // POST /api/auth/register
 router.post("/register", async (req, res) => {
@@ -73,13 +74,14 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ error: "Invalid email or password." });
     }
 
-    const userProfile = await getProfileSafely(user._id);
+    // Retrieve onboarding profile from MongoDB
+    const userProfile = await Profile.findOne({ userId: user._id });
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || "your_jwt_secret", { expiresIn: "7d" });
 
     res.status(200).json({
       token,
       user: { id: user._id, name: user.name, email: user.email },
-      profile: userProfile,
+      profile: userProfile || null,
     });
   } catch (error) {
     console.error(error);
@@ -124,7 +126,8 @@ router.post("/google", async (req, res) => {
       });
     }
 
-    const userProfile = await getProfileSafely(user._id);
+    // Retrieve onboarding profile from MongoDB
+    const userProfile = await Profile.findOne({ userId: user._id });
     const appToken = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET || "your_jwt_secret",
@@ -134,11 +137,29 @@ router.post("/google", async (req, res) => {
     return res.json({
       token: appToken,
       user: { id: user._id, name: user.name, email: user.email },
-      profile: userProfile,
+      profile: userProfile || null,
     });
   } catch (error) {
     console.error("Google auth server error:", error);
     return res.status(500).json({ message: "Internal server error during Google login" });
+  }
+});
+
+// POST /api/auth/profile - Save onboarding choices to MongoDB
+router.post("/profile", authenticateToken, async (req, res) => {
+  try {
+    const { role, level } = req.body;
+
+    const profile = await Profile.findOneAndUpdate(
+      { userId: req.user.userId },
+      { role, level },
+      { new: true, upsert: true }
+    );
+
+    res.json({ profile });
+  } catch (err) {
+    console.error("Error saving profile:", err);
+    res.status(500).json({ error: "Failed to save profile onboarding info" });
   }
 });
 
@@ -158,7 +179,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = Date.now() + 15 * 60 * 1000;
     await user.save();
 
-    const resetUrl = `http://localhost:5173/reset-password?token=${resetToken}&id=${user._id}`;
+    const resetUrl = `${process.env.DEV_ENV || "http://localhost:8080"}/reset-password?token=${resetToken}&id=${user._id}`;
 
     await transporter.sendMail({
       to: user.email,
