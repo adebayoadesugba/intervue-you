@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema(
     },
     googleId: { type: String },
     isGoogleAuth: { type: Boolean, default: false },
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date },
+    hasCompletedOnboarding: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

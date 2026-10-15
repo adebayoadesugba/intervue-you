@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// Detailed feedback schema to preserve STAR breakdown
 const feedbackSchema = new mongoose.Schema({
   q: { type: String, required: true },
   a: { type: String, required: true },
@@ -11,29 +10,33 @@ const feedbackSchema = new mongoose.Schema({
     S: { type: Boolean, default: false },
     T: { type: Boolean, default: false },
     A: { type: Boolean, default: false },
-    R: { type: Boolean, default: false }
-  }
+    R: { type: Boolean, default: false },
+  },
 });
 
 const sessionSchema = new mongoose.Schema(
   {
-    userId: { 
-      type: mongoose.Schema.Types.ObjectId, 
-      ref: "User", 
-      required: true 
-    },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: false },
+    fastapiId: { type: String }, // Links to the Python session ID
+    pendingQuestion: { type: String }, // Holds the RAG question awaiting an answer
     role: { type: String, required: true },
-    experienceLevel: { type: String, default: "Mid-level" },
-    mode: { type: String, required: true },
-    overallScore: { type: Number, required: true },
+    experienceLevel: { type: String, default: "junior" },
+    timeframe: { type: String, default: "" },
+    cv: { type: String, default: "" },
+    mode: { type: String, required: true, default: "text" },
+    minutes: { type: Number, default: 10 },
+    company: { type: String, default: "" },
+    status: { type: String, enum: ["in_progress", "completed"], default: "in_progress" },
+    overallScore: { type: Number },
     scores: {
-      technical: Number,
-      communication: Number,
-      problemSolving: Number,
-      teamwork: Number
+      technical: { type: Number },
+      communication: { type: Number },
+      problemSolving: { type: Number },
+      teamwork: { type: Number },
     },
-    feedback: [feedbackSchema], // <--- Preserves full STAR array per question
-    transcript: { type: Array, default: [] }
+    feedback: [feedbackSchema],
+    transcript: { type: Array, default: [] },
+    evaluation: { type: Object },
   },
   { timestamps: true }
 );

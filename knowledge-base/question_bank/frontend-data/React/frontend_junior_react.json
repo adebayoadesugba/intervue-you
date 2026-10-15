@@ -1,0 +1,487 @@
+[
+  {
+    "question": "What is React, and what are its main features?",
+    "reference_points": [
+      "JavaScript library developed by Meta/Facebook for building user interfaces",
+      "Component-driven architecture with reusable, self-managing UI modules",
+      "Uses Virtual DOM for optimized, fast UI updates",
+      "Declarative programming approach for enhanced readability and predictability"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is JSX and how does it work in React?",
+    "reference_points": [
+      "Syntax extension for JavaScript that enables HTML-like markup inside code",
+      "Compiles into JavaScript function calls (`React.createElement`) via tools like Babel",
+      "Simplifies component layout creation and visual structure"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain the concept and purpose of the Virtual DOM in React.",
+    "reference_points": [
+      "Lightweight, in-memory representation of the real DOM",
+      "Minimizes slow direct DOM updates by calculating UI diffs",
+      "Uses reconciliation process to update only modified real DOM nodes",
+      "Significantly improves application rendering performance"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between Shadow DOM and Virtual DOM?",
+    "reference_points": [
+      "Shadow DOM is a native web standard for scoping DOM and CSS styles",
+      "Virtual DOM is a React-specific pattern for batching and optimizing UI updates",
+      "Shadow DOM focuses on encapsulation; Virtual DOM focuses on render performance"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between React Node, React Element, and React Component?",
+    "reference_points": [
+      "React Node: Any renderable unit (Element, string, number, fragment, or null)",
+      "React Element: Immutable object describing a DOM node or component to render",
+      "React Component: Function or class returning React Elements based on props and state"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are React Fragments used for?",
+    "reference_points": [
+      "Groups multiple adjacent elements without adding extra wrapper nodes to the DOM",
+      "Prevents invalid HTML semantics and unnecessary DOM nesting",
+      "Can be written as `<React.Fragment>` or shorthand syntax `<>...</>`"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are props in React, and how do they differ from state?",
+    "reference_points": [
+      "Props: Read-only inputs passed down from parent to child components",
+      "State: Mutable local data managed internally by a component",
+      "Props configure component behavior; state tracks dynamic changes over time"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between class components and functional components in React?",
+    "reference_points": [
+      "Class components use ES6 classes, lifecycle methods, and `this.state`",
+      "Functional components are plain JS functions using React Hooks for state and effects",
+      "Functional components are modern React standard; class components are legacy"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are stateless components in React?",
+    "reference_points": [
+      "Components that do not manage or hold internal state",
+      "Receive props as input and purely render corresponding UI",
+      "Implemented as plain functional components for presentational purposes",
+      "Easier to test, debug, and reuse across applications"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are stateful components in React?",
+    "reference_points": [
+      "Components that hold, track, and update internal state",
+      "Re-render automatically when local state changes occur",
+      "Essential for managing user interactions and dynamic UI data flow"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What was the role of PropTypes in React, and why is TypeScript preferred now?",
+    "reference_points": [
+      "PropTypes provided runtime prop type-checking during development mode",
+      "Deprecated in React 19 and removed from core package export",
+      "TypeScript is preferred for compile-time validation and rich IDE support"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the recommended methods for type checking React component props?",
+    "reference_points": [
+      "TypeScript is the primary industry standard for compile-time prop checking",
+      "Provides autocomplete, inline error detection, and refactoring safety in IDEs",
+      "Legacy PropTypes checked types at runtime in dev mode, but is deprecated as of React 19"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Why can the logical AND expression `count && <Badge />` unexpectedly render a `0`?",
+    "reference_points": [
+      "JavaScript `&&` short-circuits and returns the left operand when falsy",
+      "When `count` is `0`, the expression evaluates to `0`, which React renders as text",
+      "Fixed by using boolean comparison (`count > 0 && <Badge />`) or explicit ternary"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between passing `onClick={save}` and `onClick={save()}` in React?",
+    "reference_points": [
+      "`onClick={save}` passes the function reference to execute on user click",
+      "`onClick={save()}` invokes the function immediately during component render",
+      "Calling functions during render causes accidental side effects or infinite loops",
+      "Use inline functions `onClick={() => save(id)}` to pass parameters safely"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the purpose of the key prop when rendering lists in React?",
+    "reference_points": [
+      "Uniquely identifies list items across component re-renders",
+      "Enables React diffing algorithm to accurately reorder, insert, or delete items",
+      "Prevents unnecessary DOM element recreations and state bugs"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the consequences of using array indices as keys in React?",
+    "reference_points": [
+      "Causes state mismatch and bugs when list items are reordered or filtered",
+      "Triggers unnecessary re-renders of list items, degrading performance",
+      "Prevents React from reliably tracking item identity across updates"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between Controlled and Uncontrolled components in React?",
+    "reference_points": [
+      "Controlled: Form inputs are driven by component state via event handlers",
+      "Uncontrolled: Form data is managed by the browser DOM and accessed via refs",
+      "Controlled offers real-time validation and control; uncontrolled simplifies basic inputs"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How and why do you lift state up in a React application?",
+    "reference_points": [
+      "Lifting state moves shared state to the closest common parent component",
+      "Passes state values down as props and change callbacks to children",
+      "Ensures single source of truth and keeps sibling components synchronized"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Why does React strongly discourage direct state mutation?",
+    "reference_points": [
+      "React relies on shallow reference equality checks to detect changes",
+      "Direct mutations preserve old object references, skipping needed re-renders",
+      "Immutable updates enable predictable state tracking and debugging tools"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What does re-rendering mean in React and what triggers it?",
+    "reference_points": [
+      "Process where React calls component functions to construct a new Virtual DOM",
+      "Triggered by changes in state, props, or parent component re-renders",
+      "React diffs new output with previous tree to selectively update real DOM"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What internal steps occur when calling state setter functions in React?",
+    "reference_points": [
+      "Schedules state update and flags component for re-rendering",
+      "Batches state setters in event handlers to optimize rendering work",
+      "Updates execute asynchronously relative to caller execution flow",
+      "Triggers component re-render using updated state snapshot"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is prop drilling in React and how can it be avoided?",
+    "reference_points": [
+      "Passing props through intermediate components that do not need the data",
+      "Leads to verbose, tightly coupled component hierarchies",
+      "Mitigated using React Context API or state management tools like Redux/Zustand"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are SyntheticEvents in React and how do they work?",
+    "reference_points": [
+      "Cross-browser wrapper around browser native DOM events",
+      "Provides unified API with standard methods like `preventDefault()`",
+      "Attaches event delegation listeners at root container level since React 17"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What happens when multiple state setters are invoked within a single click handler?",
+    "reference_points": [
+      "`setCount(count + 1)` called 3 times uses current render snapshot, yielding +1",
+      "Functional state setters `setCount(c => c + 1)` queue updates, yielding +3",
+      "State setters schedule updates asynchronously and do not return promises"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Why does initializing state with `useState(props.name)` not react to subsequent prop changes?",
+    "reference_points": [
+      "`useState` initial value evaluates only during component initial mount",
+      "Subsequent prop changes do not overwrite initialized state value automatically",
+      "Fixed by reading props directly, using `key` prop reset, or controlled state"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you resolve an uncontrolled-to-controlled input warning in React?",
+    "reference_points": [
+      "Occurs when input value switches from `undefined`/`null` to a defined value",
+      "Initialize state with empty string `''` or use `value={name ?? ''}`",
+      "Maintain consistent controlled or uncontrolled status throughout component lifecycle"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the main benefits of using React Hooks?",
+    "reference_points": [
+      "Allows state management and side effects inside functional components",
+      "Enables stateful logic extraction and reuse via custom hooks",
+      "Reduces boilerplates and replaces complex class lifecycle methods"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the essential Rules of Hooks in React?",
+    "reference_points": [
+      "Call hooks only at top level (never inside loops, conditions, or nested functions)",
+      "Call hooks exclusively from React functional components or custom hooks",
+      "Ensures deterministic hook order across every component re-render"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does the dependency array affect the execution of `useEffect`?",
+    "reference_points": [
+      "Empty array `[]`: Effect executes once after initial component mount",
+      "Array with values `[a, b]`: Effect executes on mount and whenever listed dependencies change",
+      "Omitted dependency array: Effect executes after every component render"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the `useRef` hook in React and when should it be used?",
+    "reference_points": [
+      "Returns mutable object with `.current` property persisting across renders",
+      "Updating ref `.current` value does not trigger component re-render",
+      "Used for accessing DOM elements, storing timers, and keeping mutable values"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the `useId` hook in React and when should it be used?",
+    "reference_points": [
+      "Generates unique, stable IDs across server and client renders",
+      "Enhances accessibility by linking form inputs and labels reliably",
+      "Prevents ID clashes when rendering component instances multiple times"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain the composition pattern in React and its benefits.",
+    "reference_points": [
+      "Builds complex components by combining smaller, focused reusable components",
+      "Uses `children` prop or explicit component props for dynamic markup assembly",
+      "Provides flexible code architecture over object-oriented inheritance"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Do two components calling the same custom Hook share state?",
+    "reference_points": [
+      "No, custom hooks share stateful logic, not state instances",
+      "Each custom hook call creates independent state bound to that component",
+      "To share state values across components, lift state up or use Context"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is React Router and what problem does it solve?",
+    "reference_points": [
+      "Declarative client-side routing library for React single-page applications",
+      "Maps browser URL paths to component view hierarchies",
+      "Enables page transitions without full browser page reloads"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does React Router work and how do you implement dynamic routing?",
+    "reference_points": [
+      "Synchronizes component renders with current browser URL path",
+      "Supports dynamic URL route patterns (e.g. `/users/:id`)",
+      "Extracts dynamic route params inside components using `useParams` hook"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you navigate programmatically in React Router v6?",
+    "reference_points": [
+      "Use `useNavigate` hook imported from `react-router-dom`",
+      "Call returned navigate function inside handlers or effects (`navigate('/path')`)",
+      "Supports passing navigation state and relative route offsets"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the recommended strategy for testing React applications?",
+    "reference_points": [
+      "Combine Jest as test runner/assertion framework with React Testing Library",
+      "Focus tests on end-user interactions rather than internal implementation details",
+      "Balance component integration tests, utility unit tests, and E2E flows"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is Jest and how is it used for testing React applications?",
+    "reference_points": [
+      "JavaScript test runner providing assertion utilities and mocking tools",
+      "Offers parallel execution, code coverage reports, and snapshot testing",
+      "Integrates natively with React Testing Library and modern build setups"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is React Testing Library and how does it approach component testing?",
+    "reference_points": [
+      "Testing library focused on testing React components from user perspective",
+      "Queries DOM elements using accessible roles, labels, and text content",
+      "Discourages testing implementation details like internal component state"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do `getBy`, `queryBy`, and `findBy` query variants differ in React Testing Library?",
+    "reference_points": [
+      "`getBy`: Synchronous search returning element; throws error if missing",
+      "`queryBy`: Synchronous search returning element or `null`; ideal for non-existence assertions",
+      "`findBy`: Asynchronous search returning Promise; retries until element appears or times out"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical"
+  }
+]

@@ -27,11 +27,9 @@ import time
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from app.agents import interviewer_agent
+from app.agents import interviewer_agent, report_agent
 from app.interview_loop import ask_next, record_answer
 from app.models.session import InterviewSession
-from app.agents import report_agent  
-
 
 router = APIRouter(prefix="/interview", tags=["interview"])
 
@@ -52,6 +50,7 @@ class StartRequest(BaseModel):
 class StartResponse(BaseModel):
     session_id: str
     question: str
+    is_follow_up: bool = False
 
 
 class AnswerRequest(BaseModel):
@@ -62,6 +61,7 @@ class AnswerResponse(BaseModel):
     ended: bool
     next_question: str | None = None
     reason: str | None = None  # "time_limit" | "max_questions" | "bank_exhausted" | "already_ended"
+    is_follow_up: bool = False
 
 
 def _time_is_up(session_id: str) -> bool:
@@ -97,23 +97,19 @@ def start_interview(req: StartRequest):
     except interviewer_agent.QuestionBankExhausted as e:
         raise HTTPException(status_code=422, detail=str(e))
 
-    return StartResponse(session_id=session.session_id, question=next_q.phrased)
+    return StartResponse(
+        session_id=session.session_id,
+        question=next_q.phrased,
+        is_follow_up=getattr(next_q, "is_follow_up", False),
+    )
 
 
 @router.post("/{session_id}/answer", response_model=AnswerResponse)
 def submit_answer(session_id: str, req: AnswerRequest):
     session = _get_session(session_id)
 
-    # Reject only if nothing is actually waiting for an answer — NOT
-    # just because should_end() is true. The question that pushes the
-    # session over its limit is still unanswered at the moment it's
-    # asked, and deserves to be recorded before the session actually
-    # ends. Checking should_end() alone here would silently drop that
-    # final answer, exactly as it did before this fix.
+    # Reject only if nothing is actually waiting for an answer
     has_pending_question = len(session.questions_asked) > len(session.scores)
-
-    # Time check happens here — between turns, before whatever would
-    # come next (follow-up or fresh) — same principle as the CLI loop.
 
     if not has_pending_question:
         return AnswerResponse(ended=True, reason="already_ended")
@@ -123,7 +119,6 @@ def submit_answer(session_id: str, req: AnswerRequest):
     if _time_is_up(session_id):
         session.end()
         return AnswerResponse(ended=True, reason="time_limit")
-   
 
     if session.should_end():
         return AnswerResponse(ended=True, reason="max_questions")
@@ -134,7 +129,11 @@ def submit_answer(session_id: str, req: AnswerRequest):
         session.end()
         return AnswerResponse(ended=True, reason="bank_exhausted")
 
-    return AnswerResponse(ended=False, next_question=next_q.phrased)
+    return AnswerResponse(
+        ended=False,
+        next_question=next_q.phrased,
+        is_follow_up=getattr(next_q, "is_follow_up", False),
+    )
 
 
 @router.get("/{session_id}/report")
@@ -144,10 +143,8 @@ def get_report(session_id: str):
     if not session.should_end():
         raise HTTPException(status_code=400, detail="Session is still in progress")
 
-    # Generate the AI written report
     ai_feedback = report_agent.generate_report(session)
 
-    # Combine the raw metrics with the AI feedback
     return {
         "session_id": session.session_id,
         "category": session.category,
@@ -156,7 +153,7 @@ def get_report(session_id: str):
             "max_questions": session.max_questions,
             "total_turns_incl_follow_ups": len(session.questions_asked),
             "average_score": round(session.average_score(), 1),
-            "overall_percentage": f"{session.percentage_score()}%", # <--- New strict percentage
+            "overall_percentage": f"{session.percentage_score()}%",
             "scores_by_difficulty": session.scores_by_difficulty(),
         },
         "feedback": ai_feedback,

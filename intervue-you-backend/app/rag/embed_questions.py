@@ -22,7 +22,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 from pathlib import Path
 QUESTION_BANK_PATH = str(Path(__file__).resolve().parent.parent.parent.parent / "knowledge-base" / "question_bank" / "**" / "*.json")
-DB_NAME = "vector_db"
+BACKEND_DIR = Path(__file__).resolve().parent.parent.parent  # intervue-you-backend
+DB_NAME = str(BACKEND_DIR / "vector_db")
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 BATCH_SIZE = 500
 
@@ -116,3 +117,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

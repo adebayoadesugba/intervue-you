@@ -1,0 +1,588 @@
+[
+  {
+    "question": "What is the difference between useEffect and useLayoutEffect in React?",
+    "reference_points": [
+      "useEffect runs asynchronously after DOM paint, preventing render blocking",
+      "useLayoutEffect runs synchronously after DOM mutations but before browser paint",
+      "useLayoutEffect is used for DOM measurements and preventing visual flicker",
+      "useEffect is preferred for asynchronous operations like data fetching and event listeners"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the purpose of the callback updater form in setState or useState?",
+    "reference_points": [
+      "Ensures state updates receive the guaranteed latest state snapshot",
+      "Prevents bugs caused by stale closures during batched state updates",
+      "Syntax uses function parameter: `setState(prevState => newState)`",
+      "Critical when new state value depends directly on previous state value"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are Pure Components in React and how are they implemented?",
+    "reference_points": [
+      "Components that re-render only when props or state shallowly change",
+      "Class components extend `React.PureComponent` using shallow equality checks",
+      "Function components wrap render functions with `React.memo`",
+      "Optimizes render performance by skipping unnecessary sub-tree renders"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useCallback hook and when should it be used?",
+    "reference_points": [
+      "Memoizes function references across component re-renders",
+      "Prevents unnecessary child component re-renders that rely on reference equality",
+      "Re-creates function reference only when listed dependencies change",
+      "Primarily used when passing callbacks to memoized child components"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useMemo hook and when should it be used?",
+    "reference_points": [
+      "Memoizes calculated return values across component re-renders",
+      "Prevents execution of expensive computations on every render",
+      "Recalculates cached value only when specified dependencies change",
+      "Used for complex data transformations and costly calculations"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useReducer hook in React and when is it preferred over useState?",
+    "reference_points": [
+      "Manages complex state logic via dispatching action objects to a reducer function",
+      "Consolidates complex state transitions and sub-value logic in one place",
+      "Preferred when state updates depend on complex nested logic or multiple sub-values",
+      "Provides predictable state transition patterns similar to Redux"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "When would you need to use a class component over a function component in modern React?",
+    "reference_points": [
+      "Function components with hooks are the default standard for modern React",
+      "Class components are only strictly required for creating Error Boundaries",
+      "Error Boundaries require `componentDidCatch` or `getDerivedStateFromError` lifecycle methods",
+      "Modern React features (RSC, Actions, Compiler) target function components"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between React.createElement and React.cloneElement?",
+    "reference_points": [
+      "createElement: Instantiates a brand new React element from type, props, and children",
+      "cloneElement: Clones an existing React element and merges new or overridden props",
+      "cloneElement preserves original element children and internal reference structure",
+      "cloneElement is typically used for dynamic prop injection into child components"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is React StrictMode and what benefits does it provide?",
+    "reference_points": [
+      "Development-only wrapper that detects potential runtime bugs and bad practices",
+      "Double-invokes component renders and effects to surface side-effect bugs",
+      "Warns about deprecated APIs, legacy lifecycle methods, and unexpected mutations",
+      "Does not impact or run in production builds"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are Higher-Order Components (HOCs) in React?",
+    "reference_points": [
+      "Design pattern function that takes a component and returns an enhanced component",
+      "Used historically for cross-cutting concerns like authorization, layout, and data wrapping",
+      "Largely replaced in modern codebases by custom React Hooks",
+      "Can cause component nesting wrapper hell if overused"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Explain the Presentational and Container component design pattern.",
+    "reference_points": [
+      "Presentational components focus purely on UI styling and markup using props",
+      "Container components manage state, data fetching, and business logic execution",
+      "Promotes separation of concerns and component reusability",
+      "Largely superseded by custom hooks for logic extraction in functional React"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the Render Props pattern in React and when is it useful?",
+    "reference_points": [
+      "Pattern where a component prop is a function returning a React element",
+      "Allows sharing stateful logic while delegating rendering control to consumer",
+      "Replaced mostly by custom hooks for state sharing",
+      "Still useful in headless UI libraries needing flexible user-defined rendering"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How should subscription effects and dependencies be handled in useEffect?",
+    "reference_points": [
+      "Effect setup function must return a cleanup function to teardown old subscriptions",
+      "All reactive values used inside the effect must be included in the dependency array",
+      "Dependency changes trigger cleanup execution before new connection setup",
+      "Prevents duplicate connections, memory leaks, and stale event listeners"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Why can setInterval inside useEffect trap stale state values, and how do you fix it?",
+    "reference_points": [
+      "Interval callback creates a closure capturing state from initial render",
+      "Empty dependency array `[]` prevents interval recreation when state updates",
+      "Fixed using functional state updates (`setCount(c => c + 1)`) inside interval",
+      "Alternatively include reactive state in dependencies and clear interval in cleanup"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useImperativeHandle hook and when should it be used?",
+    "reference_points": [
+      "Customizes the ref instance value exposed from child to parent components",
+      "Exposes controlled imperative methods (e.g. `focus()`, `scrollTo()`) instead of raw DOM",
+      "Used alongside `forwardRef` (or ref props in React 19)",
+      "Encapsulates internal DOM implementation details from parent access"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does the Virtual DOM work, and what are its pros and cons?",
+    "reference_points": [
+      "In-memory JS representation of actual DOM nodes",
+      "Diffs new Virtual DOM tree with old tree to compute minimal real DOM updates",
+      "Pros: Declarative UI model, abstracts browser DOM differences, fast batch updates",
+      "Cons: Memory overhead for tree tracking, diffing computation costs"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is React Reconciliation and how does it optimize updates?",
+    "reference_points": [
+      "Algorithm React uses to diff two Virtual DOM trees",
+      "Determines minimal set of DOM operations required to keep UI updated",
+      "Uses element types and `key` props to track node identities efficiently",
+      "Avoids full DOM tree teardowns and rebuilds on state changes"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are Error Boundaries in React and what are their limitations?",
+    "reference_points": [
+      "Class components that catch JS errors in child component trees during rendering",
+      "Displays fallback UI instead of crashing the entire application root tree",
+      "Uses `static getDerivedStateFromError` and `componentDidCatch` methods",
+      "Cannot catch errors in async code, event handlers, or SSR"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is React Suspense and how is it used?",
+    "reference_points": [
+      "Component wrapper that displays fallback UI while child components await async resources",
+      "Coordinates code splitting when paired with `React.lazy()`",
+      "Integrates with React 19 async data resources and streaming SSR",
+      "Provides seamless loading states without manual loading flags"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is code splitting in React and how do you implement it?",
+    "reference_points": [
+      "Splits single JavaScript bundle into smaller chunks loaded on demand",
+      "Decreases initial application load time and resource footprint",
+      "Implemented via dynamic `import()` statements paired with `React.lazy()` and `Suspense`",
+      "Commonly configured at route boundaries or for heavy components"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you handle asynchronous data fetching safely inside React components?",
+    "reference_points": [
+      "Fetch data inside `useEffect` and store response in `useState`",
+      "Track loading, success, and error state indicators explicitly",
+      "Implement cleanup logic or abort controllers to handle unmounted components",
+      "Use modern abstractions like React 19 `use` hook, Actions, or TanStack Query"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are common pitfalls in React data fetching and how can they be avoided?",
+    "reference_points": [
+      "Ignoring race conditions when rapid prop changes occur during pending requests",
+      "Forgetting to handle unhandled rejection errors and UI loading indicators",
+      "Missing cleanup functions leading to memory leaks on unmounted components",
+      "Solution: AbortController, dedicated data-fetching libraries, or React 19 Server Actions"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What key features and improvements were introduced in React 19?",
+    "reference_points": [
+      "Actions API for async handling and built-in transition management",
+      "`use` hook for consuming Promises and Context directly in render",
+      "Native Server Components and Server Actions integration",
+      "Direct `ref` passing as standard props without `forwardRef` wrapping",
+      "React Compiler for automated build-time memoization"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are Actions in React 19 and how do they simplify state management?",
+    "reference_points": [
+      "Async functions passed to React APIs running within transition boundaries",
+      "Automatically handles pending states, error handling, and UI responsiveness",
+      "Eliminates boilerplate flags like manual `isLoading` or `try/catch` wrappers",
+      "Integrates natively with `<form action>` elements and `useActionState`"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useActionState hook in React 19 and how does it operate?",
+    "reference_points": [
+      "Hook managing state updates tied to an async action function",
+      "Returns tuple: `[state, dispatchAction, isPending]`",
+      "Replaces multiple state setters for data, pending, and error handling",
+      "Designed to integrate directly with form action bindings"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the useOptimistic hook in React 19 and what is its primary use case?",
+    "reference_points": [
+      "Renders optimistic UI state immediately while network action is in flight",
+      "Automatically reverts to actual server data once async action resolves",
+      "Enhances perceived UI responsiveness during mutations like likes or text posts",
+      "Handles failure rollbacks automatically when action rejections occur"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the `use` hook in React 19 and how does it differ from useEffect fetching?",
+    "reference_points": [
+      "Reads values from Promises or Context directly inside render functions",
+      "Suspends component rendering when reading unresolved Promises until fulfillment",
+      "Can be called conditionally and inside loops unlike standard hooks",
+      "Eliminates manual loading state piping by delegating to `<Suspense>` boundaries"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does the form action prop work in React 19?",
+    "reference_points": [
+      "Accepts async functions directly on `<form action>` and `<button formAction>`",
+      "Invokes action function with FormData argument automatically on submit",
+      "Runs within React Transitions to maintain page UI responsiveness",
+      "Resets uncontrolled form fields automatically upon successful action execution"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do deferred rendering and debouncing differ when optimizing search input UIs?",
+    "reference_points": [
+      "Deferred rendering (`useDeferredValue`): Prioritizes typing responsiveness without adding fixed delays",
+      "Debouncing: Introduces explicit time delay before triggering execution handler",
+      "Debouncing minimizes network requests; deferred value minimizes rendering lag",
+      "Deferred value auto-adjusts based on user device CPU speeds"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you handle nested routes and dynamic route parameters in React Router?",
+    "reference_points": [
+      "Nested routes define hierarchy where child views render inside parent layouts",
+      "`<Outlet>` component renders child route components inside parent layout",
+      "`useParams` hook extracts dynamic path parameters (e.g. `:id`) from URL",
+      "Keeps persistent layout structure while dynamic content updates"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between BrowserRouter and HashRouter in React Router?",
+    "reference_points": [
+      "BrowserRouter uses clean HTML5 History API paths (`/path`)",
+      "BrowserRouter requires backend web server routing support to prevent 404s",
+      "HashRouter uses URL hash strings (`/#/path`) to simulate routing client-side",
+      "HashRouter requires no server config, making it ideal for static file hosts"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How does React Router relate to and build upon the browser history library?",
+    "reference_points": [
+      "History library manages raw browser navigation history stack and location state",
+      "React Router wraps history library with declarative React component routes",
+      "React Router maps URL updates to component tree rendering",
+      "History library operates independently of UI framework layers"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the core Router components in React Router v6?",
+    "reference_points": [
+      "BrowserRouter: HTML5 History router for standard web applications",
+      "HashRouter: Hash-based URL router for static file environments",
+      "MemoryRouter: In-memory location history router for testing and non-browser platforms",
+      "StaticRouter: SSR router for server-side static rendering environments"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is the difference between history push and replace methods in navigation?",
+    "reference_points": [
+      "push: Appends a new entry to the browser history navigation stack",
+      "replace: Overwrites current history entry without adding new back-button step",
+      "Use push for user-initiated navigation through app flows",
+      "Use replace for redirects or temporary state sync to prevent broken back-button navigation"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "Which application states belong in the URL versus local React component state?",
+    "reference_points": [
+      "URL state: Shareable, bookmarkable UI views (search params, filters, pagination)",
+      "Local state: Transient UI interactions (hover effects, modal toggles, draft inputs)",
+      "URL state enables deep linking and persistent back/forward navigation",
+      "Local state prevents cluttering URL query strings with minor UI noise"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do Declarative, Data, and Framework modes differ in React Router?",
+    "reference_points": [
+      "Declarative mode: Basic route path matching via component structures",
+      "Data mode: Introduces data loaders, actions, and pending state routing",
+      "Framework mode: Complete build tooling, SSR, and route module conventions",
+      "Data routing APIs require data router wrappers like `createBrowserRouter`"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are React Portals and what problems do they solve?",
+    "reference_points": [
+      "Renders children into DOM node outside parent hierarchy (`ReactDOM.createPortal`)",
+      "Escapes parent CSS overflow clipping and `z-index` stacking constraints",
+      "Maintains React event bubbling through parent component hierarchy",
+      "Commonly used for modals, tooltips, popovers, and notifications"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you implement localization in React applications using react-intl?",
+    "reference_points": [
+      "Wrap application in `IntlProvider` with locale and message bundles",
+      "Use `<FormattedMessage>` component for declarative translated string rendering",
+      "Use `useIntl` hook for imperative string, date, and currency formatting in code",
+      "Supports pluralization, rich text formatting, and date/number localization"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What requirements make a portal-based modal dialog accessible?",
+    "reference_points": [
+      "Use semantic `role=\"dialog\"` and `aria-modal=\"true\"` attributes",
+      "Focus management: Trap focus inside modal and focus initial element on open",
+      "Keyboard accessibility: Support Escape key to close dialog",
+      "Restore focus to triggering element when modal closes"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you build accessible form validation for screen readers and keyboard users?",
+    "reference_points": [
+      "Associate labels explicitly with inputs using `htmlFor` and matching `id`",
+      "Link input error messages using `aria-describedby`",
+      "Set `aria-invalid=\"true\"` on inputs failing validation",
+      "Move focus to first error field or error summary on submit failure"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you mock API calls in React component tests using Jest?",
+    "reference_points": [
+      "Use `jest.mock` to mock API client module calls",
+      "Use `jest.spyOn` or MSW (Mock Service Worker) for network layer intercepting",
+      "Return mock resolved promises containing expected payload structures",
+      "Assert on rendered loading states and async DOM updates using RTL `findBy` queries"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you test custom React hooks using React Testing Library?",
+    "reference_points": [
+      "Use `renderHook` helper from `@testing-library/react`",
+      "Access hook state and return values via `result.current`",
+      "Wrap hook invocation in `act()` when testing internal hook state updates",
+      "Provide custom wrapper options for hooks requiring Context providers"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What is Snapshot Testing in React and what are its trade-offs?",
+    "reference_points": [
+      "Captures rendered component tree structure and saves reference file",
+      "Fails test run if rendered markup output changes unexpectedly",
+      "Pros: Quick setup for catching unintended regression changes",
+      "Cons: Prone to test brittleness and developer blind snapshot updating"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "How do you test React components that depend on React Context?",
+    "reference_points": [
+      "Wrap test component in custom Context Provider within test render",
+      "Pass custom context values into provider to simulate test conditions",
+      "Create custom render utility combining default context providers",
+      "Assert component behavior and updates based on provided context state"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  },
+  {
+    "question": "What are the common pitfalls when using React Context, and how can you avoid them?",
+    "reference_points": [
+      "Passing un-memoized object literals as context values causes re-renders for all consumers",
+      "Grouping unrelated state into single context triggers redundant child updates",
+      "Context subscriptions bypass `React.memo` optimizations on downstream consumers",
+      "Solution: Split context into smaller providers and stabilize values with `useMemo`"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical"
+  }
+]
