@@ -1,0 +1,550 @@
+[
+  {
+    "question": "Can you give me a brief overview of your professional background and what drove you to software engineering?",
+    "category": "general",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Presents a structured timeline (Past, Present, Future)",
+      "Highlights motivation and passion for problem solving or engineering",
+      "Maintains professional brevity under 2 minutes"
+    ]
+  },
+  {
+    "question": "Walk me through your background as a frontend developer and what excites you about modern web technology.",
+    "category": "frontend",
+    "subcategory": "icebreaker",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Mentions hands-on experience with frontend frameworks",
+      "Communicates clearly and articulates interest in UI/UX engineering"
+    ]
+  },
+  {
+    "question": "Describe a situation where you had a strong technical disagreement with a teammate. How did you resolve it?",
+    "category": "general",
+    "subcategory": "conflict_resolution",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Uses STAR method (Situation, Task, Action, Result)",
+      "Focuses on objective data/benchmarks rather than personal opinion",
+      "Demonstrates active listening and willingness to compromise for team goals"
+    ]
+  },
+  {
+    "question": "Tell me about a time when a project deadline was at risk due to cross-team dependencies. What action did you take?",
+    "category": "backend",
+    "subcategory": "collaboration",
+    "difficulty": "mid",
+    "stack": "python",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Proactively communicated blocking dependencies to stakeholders early",
+      "Negotiated API contracts or mock interfaces to unblock work",
+      "Delivered project on time or managed scope adjustment transparently"
+    ]
+  },
+  {
+    "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
+    "category": "general",
+    "subcategory": "stakeholder_comm",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Used clear analogies without overly dense jargon",
+      "Verified understanding through feedback loops or Q&A",
+      "Focused on business value rather than lower-level implementation details"
+    ]
+  },
+  {
+    "question": "Describe a high-stress production outage you experienced. How did you coordinate with your team to triage and fix it?",
+    "category": "general",
+    "subcategory": "incident_management",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Prioritized restoring service (rollback/mitigation) before deep root-cause debugging",
+      "Maintained clear communication channels during the incident",
+      "Led or participated in a blameless post-mortem"
+    ]
+  },
+  {
+    "question": "Your React application is rendering sluggishly on mobile devices when loading a large list. How would you diagnose and fix this?",
+    "category": "frontend",
+    "subcategory": "performance",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Identifies profiling tools (React DevTools, Chrome Performance tab)",
+      "Proposes list virtualization/windowing (e.g., react-window)",
+      "Mentions memoization (`useMemo`, `useCallback`) and minimizing re-renders"
+    ]
+  },
+  {
+    "question": "A third-party payment gateway API you depend on is experiencing frequent 500 errors and high latency. How do you protect your backend service from collapsing?",
+    "category": "backend",
+    "subcategory": "resilience",
+    "difficulty": "mid",
+    "stack": "python",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Proposes a Circuit Breaker pattern to fail fast",
+      "Implements asynchronous queuing/retries with exponential backoff",
+      "Sets strict HTTP timeouts to prevent thread pool exhaustion"
+    ]
+  },
+  {
+    "question": "Your team needs to migrate a monolithic Node.js application to microservices with zero downtime. What is your strategy?",
+    "category": "backend",
+    "subcategory": "system_design",
+    "difficulty": "senior",
+    "stack": "node",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Uses the Strangler Fig pattern to incrementally extract services",
+      "Implements API Gateway routing and distributed tracing",
+      "Ensures database decoupling and event-driven data synchronization"
+    ]
+  },
+  {
+    "question": "You discover a critical security vulnerability in a legacy codebase 2 hours before a major feature release. What do you do?",
+    "category": "frontend",
+    "subcategory": "security_crisis",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "communication",
+    "reference_points": [
+      "Immediately alerts engineering lead and security contact",
+      "Advocates for delaying release or hotfixing the vulnerability before deployment",
+      "Communicates risk clearly with non-technical product management"
+    ]
+  },
+  {
+    "question": "I see on your resume that you built a real-time dashboard. How did you handle state updates and WebSocket reconnection logic?",
+    "category": "general",
+    "subcategory": "project_deep_dive",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "resume_based",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains state management library or custom hook architecture",
+      "Discusses exponential backoff and heartbeat/ping-pong for WebSockets",
+      "Mentions handling offline state and message queue buffering"
+    ]
+  },
+  {
+    "question": "Your CV highlights an optimization that improved API response times by 40%. Walk me through the exact bottle-neck you identified and how you measured the improvement.",
+    "category": "backend",
+    "subcategory": "optimization",
+    "difficulty": "senior",
+    "stack": "python",
+    "question_type": "resume_based",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies specific bottleneck (e.g., N+1 query, unindexed database search, synchronous I/O)",
+      "Describes benchmarking tools used before and after optimization",
+      "Explains concrete engineering solution implemented"
+    ]
+  },
+  {
+    "question": "You mentioned leading a migration to TypeScript on your CV. What were the biggest hurdles your team faced and how did you enforce strict typing?",
+    "category": "frontend",
+    "subcategory": "codebase_health",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "resume_based",
+    "competency": "communication",
+    "reference_points": [
+      "Explains incremental adoption strategies (`allowJs`, module-by-module migration)",
+      "Discusses establishing team conventions around `any` types and strict compiler flags"
+    ]
+  },
+  {
+    "question": "What is the virtual DOM in React, and how does the reconciliation algorithm determine when to update the real DOM?",
+    "category": "frontend",
+    "subcategory": "core_concepts",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Defines Virtual DOM as an in-memory lightweight representation of actual DOM",
+      "Explains the diffing algorithm comparing previous and current VDOM trees",
+      "Mentions key props usage for efficient list updates"
+    ]
+  },
+  {
+    "question": "Explain the difference between `useMemo` and `useCallback` in React. When would you use one over the other?",
+    "category": "frontend",
+    "subcategory": "hooks",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clarifies `useMemo` caches the result of a calculation",
+      "Clarifies `useCallback` caches a function definition between renders",
+      "Warns against premature optimization and discusses dependency arrays"
+    ]
+  },
+  {
+    "question": "How does React Fiber enable concurrent rendering and interruptible render tasks?",
+    "category": "frontend",
+    "subcategory": "architecture",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explains Fiber node data structure (singly-linked list of work units)",
+      "Discusses time-slicing and task prioritization (lanes/priorities)",
+      "Contrasts stack reconciler (synchronous) with Fiber reconciler (asynchronous)"
+    ]
+  },
+  {
+    "question": "What is the difference between a list and a tuple in Python, both in terms of mutability and memory efficiency?",
+    "category": "backend",
+    "subcategory": "data_structures",
+    "difficulty": "junior",
+    "stack": "python",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "States lists are mutable while tuples are immutable",
+      "Explains tuples allocate a single block of memory, making them slightly faster and lighter",
+      "Mentions tuple hashability for dictionary keys"
+    ]
+  },
+  {
+    "question": "How do Python generators work under the hood using the `yield` keyword, and why are they memory efficient for large datasets?",
+    "category": "backend",
+    "subcategory": "memory_management",
+    "difficulty": "mid",
+    "stack": "python",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explains lazy evaluation (generating values on-the-fly via iterator protocol)",
+      "Discusses how frame objects preserve execution state between yields",
+      "Compares generator memory consumption vs allocating entire lists in RAM"
+    ]
+  },
+  {
+    "question": "Explain the Node.js Event Loop phases and how `process.nextTick()`, `setImmediate()`, and `setTimeout()` are scheduled.",
+    "category": "backend",
+    "subcategory": "event_loop",
+    "difficulty": "senior",
+    "stack": "node",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Outlines Event Loop phases (Timers, Pending Callbacks, Poll, Check, Close)",
+      "Clarifies `process.nextTick` executes immediately after current operation before phase transition",
+      "Distinguishes `setImmediate` (Check phase) from `setTimeout` (Timers phase)"
+    ]
+  },
+  {
+    "question": "How does Python's Global Interpreter Lock (GIL) impact multithreading vs multiprocessing for CPU-bound versus I/O-bound tasks?",
+    "category": "backend",
+    "subcategory": "concurrency",
+    "difficulty": "senior",
+    "stack": "python",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Defines GIL as a mutual exclusion lock preventing multiple native threads from executing Python bytecode simultaneously",
+      "Explains multithreading is effective for I/O-bound tasks because GIL is released during system calls",
+      "Recommends multiprocessing or C extensions to bypass GIL for CPU-bound tasks"
+    ]
+  },
+   {
+    "question": "Tell me about yourself and walk me through your key professional experience relevant to this role.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Structure: Clear chronological flow (Past experience -> Current focus -> Future goals)",
+      "Relevance: Highlights past achievements directly relevant to the role",
+      "Brevity: Delivers a concise response (under 2 minutes) without rambling"
+    ]
+  },
+ 
+  {
+    "question": "Beyond what is listed on your CV, what do you consider your greatest technical or professional strength, and how have you applied it recently?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Self-Awareness: Clearly identifies a key professional strength",
+      "Evidence: Provides a concrete, real-world example of applying that strength",
+      "Impact: Briefly explains how that strength benefited a recent project or team"
+    ]
+  },
+  {
+    "question": "Describe a situation where you had a technical or process disagreement with a teammate or cross-functional peer. How did you handle it and what was the outcome?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Situation: Clearly outlines the technical context and root cause of the disagreement",
+      "Task: Focuses on shared project goals rather than winning an argument",
+      "Action: Details individual steps taken (e.g., active listening, gathering benchmark data, 1-on-1 alignment)",
+      "Result: Explains the final consensus, measurable outcome, and relationship impact"
+    ]
+  },
+  {
+    "question": "Tell me about a time when an unexpected technical blocker or tight deadline threatened your project's delivery. What steps did you take to manage it?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Situation: Identifies the root cause of the unexpected bottleneck or delay",
+      "Task: Defines the immediate priority and delivery obligations",
+      "Action: Describes proactive personal initiative (e.g., de-scoping non-essentials, pair programming, communicating status early)",
+      "Result: Delivers the outcome achieved and key measures implemented to prevent recurrence"
+    ]
+  },
+  {
+    "question": "Can you share an instance where a feature or task you worked on failed or produced unexpected negative results? How did you respond?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Situation: Honestly describes what went wrong without deflecting blame onto others",
+      "Task: Explains immediate mitigation or rollback responsibilities",
+      "Action: Details troubleshooting efforts and steps taken to remediate the issue",
+      "Result: Shares the resolution, personal learnings, and systemic fixes put in place"
+    ]
+  },
+
+  {
+    "question": "Can you share an example of a time when you strongly disagreed with a team lead or architect on a technical implementation? How did you resolve it?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Context: Explains the architectural disagreement clearly and objectively",
+      "Approach: Focuses on technical merit, trade-offs, and collaborative alignment rather than personal opinion",
+      "Outcome: Details the final consensus, willingness to commit to the team decision, and project result"
+    ]
+  },
+  {
+    "question": "Tell me about a situation where a product manager or designer proposed a spec that you felt was technically unfeasible within the deadline. How did you navigate the conversation?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Communication: Translates technical constraints into clear business trade-offs",
+      "Negotiation: Proposes alternative solutions or phased rollouts rather than just saying no",
+      "Collaboration: Maintains a constructive, partnership-focused dynamic with cross-functional peers"
+    ]
+  },
+  {
+    "question": "Describe a scenario where two team members had conflicting approaches to solving a critical technical issue. What role did you play in reaching alignment?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Facilitation: Demonstrates active listening and objective evaluation of both perspectives",
+      "Data-Driven Decision: Uses benchmarks, spikes, or documentation to guide consensus",
+      "Team Cohesion: Keeps the focus on team velocity and mutual respect"
+    ]
+  },
+  {
+    "question": "Give an example of a time when you had to push back on a decision made by your engineering team. How did you structure your argument and what was the result?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Preparation: Backs up the argument with clear evidence, benchmarks, or security/performance risks",
+      "Professionalism: Delivers constructive feedback in an appropriate forum",
+      "Adaptability: Accepts the final team consensus maturely, even if their preference was not chosen"
+    ]
+  },
+  {
+    "question": "Tell me about a time when a project trade-off between delivery speed and technical debt led to debate within your team. How did you help reach a resolution?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Pragmatism: Balances business urgency with long-term code maintainability",
+      "Action: Documented technical debt items or refactoring roadmaps for future sprints",
+      "Result: Delivered on immediate goals while protecting core system health"
+    ]
+  },
+
+  {
+    "question": "What specific technical or architectural challenges in this role excite you most, and how does your past experience prepare you to tackle them?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Technical Awareness: Demonstrates familiarity with the domain or technical stack requirements",
+      "Relevance: Directly connects past project successes to the target role's core responsibilities",
+      "Enthusiasm: Articulates genuine motivation for solving complex engineering problems"
+    ]
+  },
+  {
+    "question": "Why are you interested in joining our engineering team at this stage of your career, and what unique perspective do you bring?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Career Alignment: Explains why this specific role is a natural progression in their career journey",
+      "Value Proposition: Clearly summarizes their core technical strengths and working style",
+      "Clarity: Expresses thoughts concisely without filler language"
+    ]
+  },
+  {
+    "question": "What drew you to this opportunity, and how do your top technical strengths align with what we are building?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Product Understanding: Shows insight into the application architecture or user-facing product goals",
+      "Skill Matching: Highlights 2 to 3 core technical competencies relevant to the role",
+      "Brevity: Keeps the narrative crisp and engaging"
+    ]
+  },
+  {
+    "question": "How does this role fit into your broader long-term engineering goals, and why do you feel our team is the right environment for your next step?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Vision: Outlines clear professional trajectory and technical growth targets",
+      "Culture Fit: Expresses enthusiasm for team practices, mentorship, or engineering standards",
+      "Articulate Delivery: Well-structured narrative"
+    ]
+  },
+  {
+    "question": "Looking at the core responsibilities for this role, which key area do you feel most confident delivering value in right away, and why?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Self-Awareness: Accurate assessment of personal core strengths",
+      "Immediate Impact: Cites concrete past achievements supporting the claim",
+      "Professional Confidence: Delivers answer directly and persuasively"
+    ]
+  },
+
+  {
+    "question": "Could you give me a high-level summary of your engineering journey so far, highlighting two or three key milestones that define your technical expertise?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Chronology: Well-organized overview from early career to current level",
+      "Impact: Highlights tangible project outcomes or technical leadership moments",
+      "Pacing: Keeps response within a 2-minute timeframe"
+    ]
+  },
+  {
+    "question": "Walk me through your professional experience, focusing on the most impactful frontend or full-stack projects you have led in your recent roles.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Project Focus: Cites specific architectures, frameworks, and metrics (e.g., performance, bundle size)",
+      "Ownership: Makes individual contributions clear vs. team contributions",
+      "Clarity: Avoids overly dense jargon while maintaining technical depth"
+    ]
+  },
+  {
+    "question": "Give me an overview of your background, focusing on how your technical skill set has evolved across your past engineering positions.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Growth Mindset: Demonstrates continuous learning and adaptation to modern tools/frameworks",
+      "Relevance: Connects past technical evolution to current senior capabilities",
+      "Structure: Clear beginning, middle, and present focus"
+    ]
+  },
+  {
+    "question": "Introduce yourself and walk me through a quick timeline of your career, emphasizing the technical decisions you are most proud of.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Key Wins: Identifies high-impact architectural choices or optimization efforts",
+      "Communication Flow: Logical progression without tangential digressions",
+      "Executive Presence: Confident and articulate tone"
+    ]
+  },
+  {
+    "question": "Can you summarize your professional trajectory so far, detailing the core tech stacks you've mastered and the types of engineering problems you enjoy solving?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Stack Mastery: Clear summary of primary and secondary technologies",
+      "Problem Domain: Articulates passion for specific challenges (e.g., state management, real-time UI)",
+      "Conciseness: Compact response suitable for an interview opener"
+    ]
+  }
+
+
+
+]

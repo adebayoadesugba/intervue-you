@@ -6,8 +6,7 @@ and embeds all questions into a local Chroma vector store.
  
 Run this once to build the store, and again any time you add or edit
 question files.
-intervue-you-backend
- 
+
 Usage:
     python embed_questions.py
 """
@@ -15,17 +14,21 @@ Usage:
 import glob
 import hashlib
 import json
+import sys
+from pathlib import Path
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from pathlib import Path
 QUESTION_BANK_PATH = str(Path(__file__).resolve().parent.parent.parent.parent / "knowledge-base" / "question_bank" / "**" / "*.json")
-BACKEND_DIR = Path(__file__).resolve().parent.parent.parent  # intervue-you-backend
+BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
 DB_NAME = str(BACKEND_DIR / "vector_db")
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 BATCH_SIZE = 500
+
+ALLOWED_QUESTION_TYPES = {"introduction", "behavioral", "situational", "resume_based", "technical"}
+ALLOWED_COMPETENCIES = {"communication", "teamwork", "problem_solving", "technical_depth"}
 
 
 def sha(text: str) -> str:
@@ -34,28 +37,58 @@ def sha(text: str) -> str:
 
 def load_questions() -> dict[str, Document]:
     docs = {}
+    warnings_count = 0
 
     for file_path in glob.glob(QUESTION_BANK_PATH, recursive=True):
         with open(file_path, "r", encoding="utf-8") as f:
             questions = json.load(f)
 
-        for q in questions:
-            text = q["question"].strip()
+        for idx, q in enumerate(questions):
+            text = q.get("question", "").strip()
+            if not text:
+                continue
+
             refs = q.get("reference_points", [])
 
-            # Original values for UI display
+            # --- Validation Guardrails ---
+            q_type = q.get("question_type", "technical").strip().lower()
+            competency = q.get("competency", "").strip().lower()
+
+            # 1. Disallow unknown question_types
+            if q_type not in ALLOWED_QUESTION_TYPES:
+                print(f"❌ ERROR [{file_path} item {idx}]: Invalid question_type '{q_type}'. Must be one of {ALLOWED_QUESTION_TYPES}")
+                sys.exit(1)
+
+            # 2. Require competency for behavioral questions
+            if q_type == "behavioral" and not competency:
+                print(f"❌ ERROR [{file_path} item {idx}]: Behavioral questions MUST explicitly state a competency (e.g. 'teamwork').")
+                sys.exit(1)
+
+            # 3. Fallback handling for missing non-behavioral competencies
+            if not competency:
+                warnings_count += 1
+                competency = "communication" if q_type == "introduction" else "technical_depth"
+                print(f"⚠️ WARNING [{file_path} item {idx}]: Missing competency. Defaulted to '{competency}'.")
+
+            # 4. Disallow unknown competencies
+            if competency not in ALLOWED_COMPETENCIES:
+                print(f"❌ ERROR [{file_path} item {idx}]: Invalid competency '{competency}'. Must be one of {ALLOWED_COMPETENCIES}")
+                sys.exit(1)
+
+            # --- Original values for UI display ---
             orig_cat = q.get("category", "General").strip()
             orig_sub = q.get("subcategory", "").strip()
             orig_diff = q.get("difficulty", "Unspecified").strip()
             orig_stack = q.get("stack", "core").strip()
 
             metadata = {
-                # Normalized metadata for case-insensitive Chroma filtering
+                # Normalized metadata for strict Chroma filtering
                 "category": orig_cat.lower(),
                 "subcategory": orig_sub.lower(),
                 "difficulty": orig_diff.lower(),
                 "stack": orig_stack.lower(),
-                "question_type": q.get("question_type", "technical").strip().lower(),
+                "question_type": q_type,
+                "competency": competency,
                 "reference_points": " | ".join(refs) if isinstance(refs, list) else str(refs),
                 "source_file": file_path,
                 # Preserved original strings for clean display output
@@ -71,6 +104,9 @@ def load_questions() -> dict[str, Document]:
 
             doc_id = sha(f"{file_path}::{text}")
             docs[doc_id] = Document(page_content=text, metadata=metadata)
+
+    if warnings_count > 0:
+        print(f"⚠️ Validation finished with {warnings_count} fallback warnings. Please update legacy JSONs.")
 
     return docs
 
@@ -117,4 +153,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

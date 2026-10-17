@@ -1,0 +1,182 @@
+[
+  {
+    "question": "What is the difference between computed and watch in Vue?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "computed: Derived values calculated synchronously from reactive state and cached",
+      "watch: Executes asynchronous or side-effect code when reactive sources change",
+      "computed should be pure and return values without side effects"
+    ]
+  },
+  {
+    "question": "How does Vue's reactivity system work under the hood?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vue uses a dependency-tracking system to observe reactive data changes",
+      "When reactive data changes, Vue triggers updates to dependent components",
+      "Vue 3 uses Proxies for more efficient reactivity compared to Vue 2's Object.defineProperty"
+    ]
+  },
+  {
+    "question": "Explain the difference between v-if and v-show in Vue.",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "v-if: Conditionally renders elements in the DOM; removes them when false, incurs higher rendering cost on toggle",
+      "v-show: Toggles visibility using CSS display property; keeps elements in the DOM, incurs lower rendering cost on toggle"
+    ]
+  },
+  {
+    "question": "What are Vue mixins, and when would you use them?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Mixins allow sharing reusable logic across components by merging options into the component definition",
+      "Use mixins for common methods, lifecycle hooks, or data properties shared across multiple components"
+    ]
+  },
+    {
+    "question": "How does v-model work on custom components in Vue 3?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Establishes two-way binding convention using a prop (modelValue) and update event (update:modelValue)",
+      "In Vue 3 <script setup>, declared concisely using defineModel()",
+      "Enables clean form-like component interfaces for inputs, toggles, and selects"
+    ]
+  },
+  {
+    "question": "What are Vue directives, and how do they differ from components?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Directives are special attributes that apply reactive behavior to DOM elements (e.g., v-if, v-for, v-bind)",
+      "Components encapsulate reusable UI and logic, can have their own template, data, and lifecycle hooks",
+      "Directives manipulate existing DOM elements, while components create new DOM structures"
+    ]
+  } ,
+   {
+    "question": "What are scoped slots in Vue and why are they useful?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Allows child components to pass data back up to the slot template provided by the parent",
+      "Useful for reusable table, list, or dropdown components where child controls data logic",
+      "Parent controls the visual rendering while receiving internal child parameters"
+    ]
+  },
+  {
+    "question": "What is provide/inject in Vue and when should it be used?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Passes data down through deep component hierarchies without explicit prop drilling",
+      "Ideal for shared context such as themes, form states, or component libraries",
+      "Should not be overused to replace standard parent-child prop and emit communication"
+    ]
+  },
+  {
+    "question": "How does Vue's reactivity system work under the hood?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses JavaScript Proxies in Vue 3 to intercept property reads and writes",
+      "Tracks dependencies automatically when reactive state is accessed during component rendering",
+      "Triggers targeted UI updates for affected components when tracked reactive state changes"
+    ]
+  },
+  {
+    "question": "What is a composable in Vue 3 and what are its conventions?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reusable function leveraging the Composition API to package stateful logic",
+      "Conventionally named starting with 'use' (e.g., useFetch, useDark)",
+      "Handles lifecycle hooks, state management, and cleanup cleanly within a standalone function"
+    ]
+  },
+  {
+    "question": "How do you handle state management in Vue applications?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Vuex for centralized state management in larger applications",
+      "Use the Composition API's reactive() and ref() for local component state",
+      "Consider Pinia as a lightweight alternative to Vuex for simpler state needs"
+    ]
+  },
+    {
+    "question": "What is the difference between watch and watchEffect in Vue 3?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "watch: Explicitly specifies reactive sources and lazy-evaluates until sources change",
+      "watchEffect: Runs immediately and automatically tracks all reactive dependencies accessed inside it",
+      "watch provides previous and current values; watchEffect does not"
+    ]
+  },
+    {
+    "question": "What is Pinia and when should it be used for state management in Vue?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Official light-weight state management library for global app state in Vue 3",
+      "Used for sharing state across unrelated components or routes (e.g. auth user, cart)",
+      "Avoid overusing stores for simple local component state or ephemeral form inputs"
+    ]
+  },
+    {
+    "question": "How do you synchronize app state with URL query parameters in Vue?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stores shareable, bookmarkable state in URL query params (filters, page, search)",
+      "Keeps ephemeral UI state (modals, open drawers, hover states) in local component state",
+      "Ensures browser back/forward navigation preserves expected application views"
+    ]
+  }
+]

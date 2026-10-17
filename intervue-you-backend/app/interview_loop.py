@@ -2,59 +2,118 @@
 interview_loop.py
 
 Core turn logic for running an interview session.
-
-ask_next() and record_answer() are the two primitives everything else
-is built from. run_session() below is a blocking CLI/local-test loop
-built on top of them; app/api/routes_interview.py calls the same two
-primitives directly, one per HTTP request, instead of blocking in a
-loop. The actual business logic lives in exactly one place either way.
+Handles atomic state commits, contextual follow-up evaluation, 
+and explicit agenda completion signaling.
 """
 
-import time
+import logging
 from collections.abc import Callable
 
 from app.agents import evaluator_agent, interviewer_agent
 from app.agents.interviewer_agent import NextQuestion
 from app.models.session import AnswerEvaluation, InterviewSession
 
+logger = logging.getLogger(__name__)
 
-def ask_next(session: InterviewSession) -> NextQuestion:
-    """Gets the next question (follow-up or fresh) and records it on
-    the session. Raises interviewer_agent.QuestionBankExhausted if
-    nothing is left to ask — callers should catch this and end the
-    session gracefully rather than let it propagate as a crash."""
+
+def ask_next(session: InterviewSession) -> NextQuestion | None:
+    """
+    Retrieves the next question from the Blueprint Engine.
+    If no questions remain or the agenda is complete, marks session ended.
+    """
     next_q = interviewer_agent.get_next_question(session)
+    
+    if not next_q:
+        logger.info(f"Session {session.session_id}: Agenda completed or time expired.")
+        session.end()
+        return None
+
+    # Atomic addition: session.add_question handles index advancement safely
     session.add_question(
-        next_q.phrased,
+        question_text=next_q.phrased,
         raw_text=next_q.raw,
         reference_points=next_q.reference_points,
         is_follow_up=next_q.is_follow_up,
+        slot_id=next_q.slot_id,
+        question_type=next_q.question_type,
+        competency=next_q.competency,
+        question_id=next_q.question_id,
     )
     return next_q
 
 
 def record_answer(session: InterviewSession, answer: str) -> AnswerEvaluation:
-    """Records the candidate's answer to the most recently asked
-    question, evaluates it, and applies the evaluation — which may
-    shift session.difficulty and/or set up a pending follow-up for
-    the next call to ask_next()."""
-    session.add_answer(answer)
+    """
+    Evaluates candidate response and commits answer + score atomically.
+    Includes parent turn context when evaluating follow-up exchanges.
+    Manages follow-up queue state and main agenda slot advancement.
+    """
+    if not session.questions_asked:
+        raise RuntimeError("Cannot record answer: No question has been asked in this session.")
+
+    last_asked = session.questions_asked[-1]
+    
+    # Check if an evaluation was already recorded for this exact turn
+    if last_asked.evaluation is not None:
+        logger.warning(f"Turn already evaluated for question: '{last_asked.text[:30]}...'")
+        return last_asked.evaluation
+
+    # Build evaluation context (Include parent Q&A context for follow-ups)
+    evaluation_question = last_asked.text
+    if last_asked.is_follow_up and len(session.questions_asked) >= 2:
+        parent_q = session.questions_asked[-2]
+        parent_ans = parent_q.answer_text or "(No initial answer provided)"
+        evaluation_question = (
+            f"Original Question: {parent_q.text}\n"
+            f"Candidate Initial Answer: {parent_ans}\n"
+            f"Follow-Up Question: {last_asked.text}"
+        )
+
+    # Determine question_type with explicit fallback logging
+    q_type = last_asked.question_type
+    if not q_type:
+        logger.warning("Missing question_type on AskedQuestion. Falling back to 'technical'.")
+        q_type = "technical"
+
+    # Evaluate BEFORE mutating session state
     evaluation = evaluator_agent.evaluate_answer(
         session=session,
-        question_asked=session.questions_asked[-1].text,
+        question_asked=evaluation_question,
         candidate_answer=answer,
-        reference_points=session.questions_asked[-1].reference_points,
+        reference_points=last_asked.reference_points,
+        question_type=q_type,
     )
+
+    # Atomic state commit
+    session.add_answer(answer)
     session.add_evaluation(evaluation)
+    
+    # --- Follow-Up & Slot Progression Management ---
+    needs_follow_up = (
+        getattr(evaluation, "needs_follow_up", False)
+        and not last_asked.is_follow_up  # Cap at 1 follow-up per slot
+        and bool(getattr(evaluation, "follow_up_question", None))
+    )
+
+    if needs_follow_up:
+        # Queue follow-up question; DO NOT advance main slot index
+        session.set_pending_follow_up(evaluation.follow_up_question)
+        logger.info(f"Follow-up queued for main slot {session.current_slot_index}. Holding slot index.")
+    else:
+        # Clear follow-up state and advance main slot pointer
+        session.clear_pending_follow_up()
+        session.advance_slot()
+        logger.info(f"Main slot finished. Advanced agenda slot index to {session.current_slot_index}.")
+
     return evaluation
 
 
 def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> None:
-    """One full ask -> answer -> evaluate cycle, blocking on
-    get_answer_fn for the candidate's response. Used by run_session()
-    for local/CLI testing only — the API uses ask_next()/record_answer()
-    directly instead, since it can't block on a callback per request."""
+    """Runs a single ask -> answer -> evaluate turn for CLI testing."""
     next_q = ask_next(session)
+    if not next_q:
+        return
+        
     answer = get_answer_fn(next_q.phrased)
     record_answer(session, answer)
 
@@ -62,27 +121,13 @@ def run_turn(session: InterviewSession, get_answer_fn: Callable[[str], str]) -> 
 def run_session(
     session: InterviewSession,
     get_answer_fn: Callable[[str], str],
-    time_limit_seconds: int | None = None,
 ) -> None:
-    """
-    Blocking loop for local/CLI testing — runs turns until the session
-    ends (max_questions hit, time limit reached, session.end() called
-    externally, or the question bank runs dry). The time check happens
-    between turns, before whatever would come next, follow-up included
-    — a turn already in progress always finishes.
-    """
-    start_time = time.monotonic() if time_limit_seconds else None
-
+    """Blocking turn loop for CLI testing."""
     while not session.should_end():
-        if start_time is not None and (time.monotonic() - start_time) >= time_limit_seconds:
-            print(f"\n[time limit of {time_limit_seconds}s reached — ending session]")
-            session.end()
-            break
-
         try:
             run_turn(session, get_answer_fn)
         except interviewer_agent.QuestionBankExhausted as e:
-            print(f"\n[ending session early: {e}]")
+            logger.info(f"Ending session: {e}")
             session.end()
             break
 
@@ -93,12 +138,11 @@ def _cli_get_answer(question: str) -> str:
 
 
 if __name__ == "__main__":
-    test_session = InterviewSession(category="frontend", difficulty="junior", max_questions=5)
-    run_session(test_session, _cli_get_answer, time_limit_seconds=300)
+    test_session = InterviewSession(category="frontend", difficulty="junior", duration_minutes=5)
+    run_session(test_session, _cli_get_answer)
 
-    print("\n--- Session summary ---")
-    print(f"Questions asked: {test_session.original_question_count}")  # topics only, not follow-ups
-    print(f"Total turns (incl. follow-ups): {len(test_session.questions_asked)}")
-    print(f"Average score: {test_session.average_score():.1f}")
-    print(f"Final difficulty: {test_session.difficulty}")
-    print(f"By difficulty: {test_session.scores_by_difficulty()}")
+    print("\n--- Session Summary ---")
+    print(f"Original Topics Asked: {test_session.original_question_count}")
+    print(f"Total Turns (incl. follow-ups): {len(test_session.questions_asked)}")
+    print(f"Evaluations Recorded: {len(test_session.scores)}")
+    print(f"Final Difficulty: {test_session.difficulty}")

@@ -1,0 +1,120 @@
+[
+  {
+    "question": "How would you design a highly reusable and accessible modal component in Vue 3?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses props for visibility state, emits for close/confirm events, and slots for flexible content layout",
+      "Handles focus trapping, Escape key listeners, and background scroll locking via composables or lifecycle hooks",
+      "Enforces explicit accessibility standards: role='dialog', ARIA labeling, keyboard navigation, and focus restoration"
+    ]
+  },
+  {
+    "question": "How do you systematically identify and optimize a slow list rendering in Vue?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses stable unique keys, eliminates expensive inline template work, and offloads derived data to computed properties",
+      "Implements pagination or list virtualization (e.g., vue-virtual-scroller) and lazy-loads heavy row components",
+      "Leverages shallowRef() for large immutable datasets to track array replacements instead of deep reactive properties"
+    ]
+  },
+  {
+    "question": "How would you structure and organize a large-scale Vue 3 codebase for long-term maintainability?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Groups application code by domain feature (routes, components, composables, stores, API clients, tests, types)",
+      "Maintains a dedicated shared component directory for design system UI primitives",
+      "Avoids monolithic global component folders filled with single-use components"
+    ]
+  },
+  {
+    "question": "How do you decide between props/emits, provide/inject, and Pinia for state management in Vue?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Props and emits for direct parent-child component communication and local ownership",
+      "Provide/inject for passing contextual dependency data down a specific component subtree",
+      "Pinia for global application state shared across unrelated component trees and routes",
+      "Evaluates architectural decision based on state ownership, lifecycle, and reach"
+    ]
+  },
+  {
+    "question": "What is your testing strategy for Vue components and what behavior should be prioritized?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tests user-visible behavior: rendered DOM elements, form interactions, emitted events, and loading/error states",
+      "Verifies critical accessibility requirements and real user workflows",
+      "Avoids testing implementation details like private component methods or internal state variables"
+    ]
+  },
+  {
+    "question": "What are the most common Vue performance bottlenecks and how do you prevent them?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unstable or array index keys in v-for loops causing unnecessary DOM recreations",
+      "Deep watchers attached to large objects and costly inline template calculations",
+      "Unnecessary global state updates, rendering massive un-virtualized DOM lists, and heavy bundle imports"
+    ]
+  },
+  {
+    "question": "How do you prevent and clean up memory leaks in Vue 3 applications?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Cleans up event listeners, timers, subscriptions, and observers inside onUnmounted lifecycle hook",
+      "Ensures custom composables creating side effects own their internal teardown and cleanup logic",
+      "Properly destroys third-party library DOM instances attached during component mounting"
+    ]
+  },
+  {
+    "question": "How do you effectively leverage TypeScript in Vue 3 SFCs without sacrificing safety?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explicitly types props, emits, refs, computed values, composables, API responses, and Pinia store state",
+      "Keeps component contract definitions co-located inside <script setup lang='ts'>",
+      "Avoids typing variables or props as 'any' to preserve compile-time safety and IDE autocompletion"
+    ]
+  },
+  {
+    "question": "What key criteria do you evaluate when reviewing a Vue Pull Request?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Verifies single source of state ownership, one-way prop data flow, and standard event naming",
+      "Evaluates computed vs watcher usage, stable v-for keys, and side-effect cleanup logic",
+      "Checks accessibility standards, route state handling, and genuine reusability of shared abstractions"
+    ]
+  }
+]

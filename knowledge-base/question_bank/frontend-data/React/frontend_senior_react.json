@@ -1,418 +1,450 @@
 [
   {
     "question": "What is React Fiber and how does it work?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Re-implementation of core reconciliation algorithm enabling incremental rendering",
       "Breaks rendering work into units of work (fibers) that can be paused, aborted, or resumed",
       "Assigns priority levels to updates to maintain smooth main-thread responsiveness",
       "Enables concurrent rendering features and error boundary boundary recovery"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How can you optimize React Context performance to prevent unnecessary re-renders?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Memoize provider value object with `useMemo` to preserve reference identity",
       "Split monolithic contexts into smaller, granular context providers",
       "Separate state values from dispatcher functions into distinct contexts",
       "Use selector-based state libraries (e.g. Zustand) for fine-grained re-render control"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What are Concurrent Features in React and how do they improve rendering performance?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Allows React to interrupt, pause, and resume long rendering tasks",
       "Prevents heavy UI updates from blocking high-priority user input (typing, clicks)",
       "Maintains UI responsiveness by rendering off-screen or deferred trees concurrently",
       "Serves as foundational engine for `useTransition` and `useDeferredValue`"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How does React handle concurrent rendering priorities and multiple updates?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "React Scheduler assigns priority tiers based on update trigger source",
       "User interactions (click, typing) execute as high-priority, synchronous updates",
       "Transitions (`startTransition`, `useDeferredValue`) run as non-urgent, interruptible work",
       "High-priority updates preempt in-flight transition rendering until main thread clears"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you execute long-running tasks or heavy calculations in React without blocking the UI?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Offload CPU-heavy computations to Web Workers away from the main thread",
       "Break calculations into micro-tasks or yield control using `requestIdleCallback`",
       "Memoize expensive results using `useMemo` with minimal, stable dependency arrays",
       "Isolate sub-tree renders using concurrent transitions (`useTransition`)"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is the React Compiler and how does automatic memoization work?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Build-time tool that automatically inserts memoization logic into components",
       "Eliminates manual `useMemo`, `useCallback`, and `React.memo` usage in standard code",
       "Analyzes JavaScript semantic flow to safely memoize data and functions",
       "Enforces Rules of React strictly, skipping components with illegal mutations"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is the key difference between useTransition and useDeferredValue?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "`useTransition` wraps state dispatch call site when update trigger is owned locally",
       "`useDeferredValue` wraps state value directly when value source is external/received via props",
       "Both mark downstream renders as non-urgent to keep UI typing and input responsive",
       "`useTransition` exposes `isPending` state flag; `useDeferredValue` produces lagging value copy"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What problem does useSyncExternalStore solve in React concurrent rendering?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Safely subscribes components to external non-React state stores",
       "Prevents tearing bugs where UI renders inconsistent store state across slices",
       "Requires stable `getSnapshot` return references to avoid infinite re-renders",
       "Provides `getServerSnapshot` hook parameter for deterministic SSR hydration"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "Why does running an expensive calculation inside startTransition still block the UI?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "`startTransition` callback executes synchronously on the main JavaScript thread",
       "Heavy CPU tasks execute immediately, freezing input processing before React schedules render",
       "Only state updates triggered inside transition receive low-priority rendering flags",
       "Heavy logic must be moved to Web Workers or chunked using asynchronous scheduling"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is your systematic approach to profiling and diagnosing a slow React application?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Profile interaction traces with Chrome DevTools to locate long JS main-thread tasks",
       "Use React DevTools Profiler to identify unneeded component commits and render durations",
       "Differentiate network response latency from client-side DOM rendering bottlenecks",
       "Benchmark changes under realistic CPU throttling and low-end mobile device profiles"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "When should you virtualize a long list, and what trade-offs or edge cases must be handled?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Virtualize when rendering thousands of DOM nodes causes visible scroll lag",
       "Renders only visible dynamic viewport elements plus small buffer margin",
       "Edge cases: Dynamic row heights, maintaining keyboard scroll focus, dynamic window resize",
       "Drawbacks: Breaks native browser page string search (`Cmd+F`) and SEO crawlers"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How would you safely introduce the React Compiler into a large legacy codebase?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Run ESLint plugin `eslint-plugin-react-compiler` to detect existing code violations",
       "Fix state/prop mutation patterns and top-level hook conditional calls",
       "Enable compiler incrementally on specific folders via opt-in configuration",
       "Establish automated visual regression and performance profiling benchmarks"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "Why might a component wrapped in React.memo still re-render unexpectedly?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "`React.memo` uses shallow equality (`Object.is`) on prop references",
       "Passing un-memoized object literals, arrays, or inline functions triggers re-renders",
       "Internal component state updates or context consumption override `React.memo` entirely",
       "Custom comparator function may fail to compare function references or deeply nested props"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is the difference between render and commit phases, and why must render functions remain pure?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Render phase: Calculates Virtual DOM diffs; can be paused, restarted, or discarded",
       "Commit phase: Applies structural updates synchronously to real DOM and runs layout effects",
       "Side effects in render body can execute multiple times without matching DOM updates",
       "Keep render pure; place side effects inside event handlers or `useEffect`"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is React Hydration and how does it attach event listeners to server HTML?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Process of adopting server-rendered DOM nodes and attaching client event listeners",
       "Recreates client-side Virtual DOM tree and matches it against static server markup",
       "Enables interactivity without re-creating existing DOM elements from scratch",
       "Requires identical render output between initial client render and server HTML"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you determine whether state belongs in local state, React Context, or external stores?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Local state: Isolated component UI interaction (toggle, open drawer, form draft)",
       "Context: Low-frequency app-wide read values (theme, current user profile, locale)",
       "External stores: High-frequency complex data models requiring selectors and batching",
       "URL query parameters: Shareable, bookmarkable layout state (search query, pagination, filters)"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is Server-Side Rendering (SSR) in React and what benefits does it provide?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Generates HTML markup on server dynamically per client request before sending response",
       "Improves First Contentful Paint (FCP) and enables search engine indexing (SEO)",
       "Reduces initial JavaScript payload rendering dependency on client CPU",
       "Requires client hydration phase to establish interactive event listeners"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is Static Site Generation (SSG) in React and when should it be used over SSR?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Pre-renders page HTML files at application build time rather than per request",
       "Delivers optimal CDN caching speed and lowest server response latencies",
       "Ideal for content-heavy sites with public, non-personalized data (docs, blogs)",
       "Requires re-builds or incremental regeneration mechanisms when data changes"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What are React Server Components (RSC) and how do they differ from Client Components?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "RSCs render exclusively on server and output lightweight UI stream to client",
       "RSCs ship zero JavaScript bundle code to browser for server-side logic",
       "RSCs directly access server assets (DB, files) via async/await in render body",
       "Client Components (`'use client'`) are required for state, hooks, and event listeners"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you systematically diagnose and resolve React hydration mismatch errors?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Identify mismatches caused by non-deterministic outputs (timestamps, `Math.random()`)",
       "Check browser-only code execution (`window`, `localStorage`) running during initial render",
       "Fix invalid HTML markup nesting (e.g. `<p>` enclosing `<div>` elements)",
       "Solution: Defer browser-specific rendering using `useEffect` after initial mount"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you strategically design Suspense boundary placement across complex dashboard UIs?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Group cohesive UI regions into joint Suspense boundaries to render together",
       "Wrap slow independent data widgets in isolated boundaries to stream in parallel",
       "Provide skeleton loaders preserving spatial layout to eliminate cumulative layout shifts",
       "Combine Suspense boundaries with Error Boundaries for graceful fallback recovery"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What types of data can cross the boundary between Server Components and Client Components?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Props must be serializable values (primitives, plain objects, arrays, JSX elements)",
       "Special supported types include Promises, Dates, and Server Actions",
       "Unserializable values like JS functions, class instances, and symbols cannot cross",
       "Prevents leaks of server closures, secrets, or internal server state to client"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What security and data validation requirements must be enforced in React Server Functions?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Treat arguments as untrusted input originating from public network endpoints",
       "Perform explicit authentication and fine-grained authorization checks on server",
       "Validate payload schema strictly using libraries like Zod",
       "Implement anti-replay, rate limiting, and idempotent mutation handling"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How does server state differ from client UI state, and how should it be architected?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Server state is remotely owned, asynchronous, and shared across multiple users",
       "Requires explicit caching, background refetching, deduplication, and invalidation strategies",
       "Client UI state is synchronous, ephemeral, and strictly local to active browser session",
       "Avoid duplicating server state into global stores without conflict management policies"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How would you handle overlapping optimistic state updates for the same record?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Maintain queue of pending operations keyed by unique optimistic IDs",
       "Derive optimistic UI state continuously from base server state plus pending queue",
       "On server success, commit server payload and flush corresponding queue operation",
       "On failure, remove failed operation without reverting newer independent pending edits"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "Why can a Redux useSelector hook trigger unnecessary re-renders when unrelated store actions dispatch?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "`useSelector` evaluates equality using strict reference check (`===`) by default",
       "Selectors returning newly created array or object references evaluate as changed",
       "Triggers component re-render even if underlying field primitive values remain identical",
       "Solution: Use `shallowEqual` comparator, multiple selectors, or `createSelector` memoization"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you eliminate data-fetching waterfalls across deeply nested React components?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Identify component-level sequential `useEffect` chains causing serial delays",
       "Hoist independent data fetches up to route loaders or parent layout levels",
       "Use parallel Promise fetching (`Promise.all`) or server-side preloading APIs",
       "Use React Server Components or framework route loaders to fetch before client rendering"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you choose between SSG, SSR, and Client-Side Rendering (CSR) on a per-route basis?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "SSG: Public, static content with static URLs and rare updates (blogs, marketing pages)",
       "SSR: Dynamic, personalized, or frequently updated SEO-critical routes (e-commerce, feeds)",
       "CSR: Authenticated private dashboards with dynamic interaction and no SEO requirements",
       "Evaluate trade-offs between server cost, CDN caching, time-to-first-byte, and fresh data requirements"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "Why does defining a nested React component inside another component cause state resets?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Re-executing outer component creates a brand new function reference for inner component",
       "React reconciliation interprets different function references as brand new element types",
       "Unmounts old inner component subtree and mounts new instance from scratch",
       "Resets all child DOM node states, input focus, and effect subscriptions continuously"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "How do you design a flexible React component that supports both controlled and uncontrolled usage?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Accept optional controlled value (`value`) and event handler (`onChange`) props",
       "Accept optional uncontrolled initial state prop (`defaultValue`)",
       "Use internal state initialized by `defaultValue` when `value` is `undefined`",
       "Maintain single source of truth consistently throughout component instance lifecycle"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What is the difference between shallow rendering and full DOM rendering in React testing?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Shallow rendering renders component one level deep, replacing children with placeholders",
       "Full DOM rendering mounts complete component subtree including all child components",
       "Shallow rendering isolates unit tests but fails to verify component interactions",
       "Full DOM rendering (React Testing Library) tests realistic integration and user behavior"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   },
   {
     "question": "What are common React anti-patterns that lead to maintenance and performance issues?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "technical",
+    "competency": "technical_depth",
     "reference_points": [
       "Mutating state directly instead of returning fresh immutable references",
       "Deriving redundant local state from props instead of calculating during render",
       "Using array index keys on dynamic or re-ordered lists",
       "Defining nested component function declarations inside parent render bodies"
-    ],
-    "category": "frontend",
-    "difficulty": "senior",
-    "stack": "react",
-    "question_type": "technical"
+    ]
   }
 ]

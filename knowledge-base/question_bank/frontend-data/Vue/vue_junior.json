@@ -1,0 +1,220 @@
+[
+  {
+    "question": "What is Vue.js, and what are its core architectural features?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Progressive JavaScript framework for building user interfaces",
+      "Component-driven architecture with declarative templates and reactive state",
+      "Provides ecosystem for routing, state management, and tooling",
+      "Can be used incrementally on parts of a page or as a full SPA"
+    ]
+  },
+  {
+    "question": "What is a Single-File Component (SFC) in Vue?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encapsulates template, script, and styles in a single .vue file",
+      "Keeps component UI, logic, and scoped styles close together",
+      "Standard approach in modern build-tool-enabled Vue projects"
+    ]
+  },
+  {
+    "question": "What is the Composition API in Vue 3 and what problem does it solve?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Organizes component logic using functions like ref, reactive, computed, and watch inside setup/<script setup>",
+      "Improves code organization for complex components with multiple logical concerns",
+      "Facilitates logic extraction and reusability through composables"
+    ]
+  },
+  {
+    "question": "What is the Options API in Vue and how does it compare to the Composition API?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Organizes components into options object properties like data, methods, computed, and watch",
+      "Approachable and intuitive for simple components and beginners",
+      "Remains fully supported in Vue 3 alongside the Composition API"
+    ]
+  },
+  {
+    "question": "What is ref() in Vue 3 and how is it accessed in script vs templates?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates a reactive wrapper for primitive values or objects",
+      "Accessed via .value in JavaScript code",
+      "Automatically unwrapped when used inside templates"
+    ]
+  },
+  {
+    "question": "What is reactive() in Vue 3 and what are its caveats?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates a reactive proxy object for complex data structures like objects and arrays",
+      "Allows direct property mutation without accessing .value",
+      "Loses reactivity if destructured unless used with toRefs or toRef"
+    ]
+  },
+ 
+  {
+    "question": "What are directives in Vue and what are common built-in examples?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Special template attributes prefixed with v- that apply reactive DOM behavior",
+      "v-if and v-show for conditional rendering",
+      "v-for for list rendering",
+      "v-bind (:) and v-on (@) for attribute and event binding",
+      "v-model for two-way form data binding"
+    ]
+  },
+  {
+    "question": "What is the difference between v-if and v-show in Vue?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "v-if conditionally mounts or unmounts DOM elements",
+      "v-show toggles element visibility using CSS display: none while keeping it mounted",
+      "v-if has higher toggle cost; v-show has higher initial render cost"
+    ]
+  },
+  {
+    "question": "Why are key attributes required when using v-for in Vue?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provides unique identity tracking for list items during Virtual DOM diffing",
+      "Ensures correct component state retention during list reordering, inserts, or deletions",
+      "Avoid using array indices as keys for dynamic lists to prevent UI bugs"
+    ]
+  },
+  {
+    "question": "How do props work in Vue components?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Passes data down from parent to child components as read-only inputs",
+      "Follows single-source-of-truth / one-way data flow principles",
+      "Children emit events to request changes rather than mutating props directly"
+    ]
+  },
+  {
+    "question": "How do custom events / emits work in Vue?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Allows child components to notify parent components of user actions or state changes",
+      "Maintains clean component boundary where parent owns state modifications",
+      "Declared via defineEmits() in Composition API or emits option in Options API"
+    ]
+  },
+
+  {
+    "question": "What are slots in Vue and when should they be used?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Allows parent components to inject custom HTML or component templates into a child",
+      "Enables flexible layout and container components (cards, modals, shells)",
+      "Separates component structure management from actual inner content ownership"
+    ]
+  },
+ 
+  {
+    "question": "What are the most commonly used lifecycle hooks in Vue 3 Composition API?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "onMounted: Runs after initial DOM mounting for browser-only setups",
+      "onUpdated: Executes after reactive state changes cause DOM re-renders",
+      "onUnmounted: Used for cleanup (removing event listeners, clearing timers)",
+      "onErrorCaptured: Captures unhandled errors from descendant components"
+    ]
+  },
+
+  {
+    "question": "How does Vue Router manage single-page application routing?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maps browser URLs to specific Vue components without triggering page reloads",
+      "Supports route/query parameters, nested routes, navigation guards, and lazy-loaded components",
+      "Handles application user states like loading, unauthorized access, and 404 pages"
+    ]
+  },
+  {
+    "question": "How do you handle asynchronous data fetching safely in Vue components?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fetches data asynchronously inside onMounted or via router navigation guards",
+      "Models explicit UI states: loading, success, empty, error, and retry",
+      "Leverages composables or framework data-loaders for clean state separation"
+    ]
+  },
+
+
+  {
+    "question": "What are best practices for handling form submission and validation in Vue?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "vue",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses v-model for two-way binding of input field values",
+      "Implements client-side and server-side validation feedback",
+      "Handles accessible labels, disabled pending states during submission, and prevents double-submits"
+    ]
+  }
+]
