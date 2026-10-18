@@ -1,0 +1,235 @@
+[
+
+ {
+    "question": "Can you give me a brief overview of your professional background and what drove you to software engineering?",
+    "category": "frontend",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Presents a structured timeline (Past, Present, Future)",
+      "Highlights motivation and passion for problem solving or engineering",
+      "Maintains professional brevity under 2 minutes"
+    ]
+  },
+
+   {
+    "question": "Can you give me a brief overview of your professional background and what led you to software engineering?",
+    "category": "backend",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Presents a structured timeline (Past, Present, Future)",
+      "Highlights motivation and passion for problem solving or engineering",
+      "Maintains professional brevity under 2 minutes"
+    ]
+  },
+  {
+    "question": "Walk me through your background as a frontend developer and what excites you about modern web technology.",
+    "category": "frontend",
+    "subcategory": "icebreaker",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Mentions hands-on experience with frontend frameworks",
+      "Communicates clearly and articulates interest in UI/UX engineering"
+    ]
+  },
+  {
+    "question": "What inspired you to pursue a career in frontend development, and how do you stay motivated in this field?",
+    "category": "frontend",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "react",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Shares personal story or experience that sparked interest in frontend development",
+      "Mentions strategies for staying motivated and continuously learning"
+    ]
+  },
+  {
+    "question": "How do you approach learning new technologies or frameworks, and can you give an example of a recent technology you've learned?",
+    "category": "frontend",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "core", 
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Describes structured approach to learning (e.g., tutorials, projects, documentation)",
+      "Provides specific example of a technology learned recently and how it was applied"
+    ]
+  },
+
+   {
+    "question": "Tell me about yourself and walk me through your key professional experience relevant to this role.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Structure: Clear chronological flow (Past experience -> Current focus -> Future goals)",
+      "Relevance: Highlights past achievements directly relevant to the role",
+      "Brevity: Delivers a concise response (under 2 minutes) without rambling"
+    ]
+  },
+ 
+  {
+    "question": "Beyond what is listed on your CV, what do you consider your greatest technical or professional strength, and how have you applied it recently?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Self-Awareness: Clearly identifies a key professional strength",
+      "Evidence: Provides a concrete, real-world example of applying that strength",
+      "Impact: Briefly explains how that strength benefited a recent project or team"
+    ]
+  }
+
+  ,
+  
+ 
+  {
+    "question": "What specific technical or architectural challenges in this role excite you most, and how does your past experience prepare you to tackle them?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Technical Awareness: Demonstrates familiarity with the domain or technical stack requirements",
+      "Relevance: Directly connects past project successes to the target role's core responsibilities",
+      "Enthusiasm: Articulates genuine motivation for solving complex engineering problems"
+    ]
+  },
+  {
+    "question": "Why are you interested in joining our engineering team at this stage of your career, and what unique perspective do you bring?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Career Alignment: Explains why this specific role is a natural progression in their career journey",
+      "Value Proposition: Clearly summarizes their core technical strengths and working style",
+      "Clarity: Expresses thoughts concisely without filler language"
+    ]
+  },
+  {
+    "question": "What drew you to this opportunity, and how do your top technical strengths align with what we are building?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Product Understanding: Shows insight into the application architecture or user-facing product goals",
+      "Skill Matching: Highlights 2 to 3 core technical competencies relevant to the role",
+      "Brevity: Keeps the narrative crisp and engaging"
+    ]
+  },
+  {
+    "question": "How does this role fit into your broader long-term engineering goals, and why do you feel our team is the right environment for your next step?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Vision: Outlines clear professional trajectory and technical growth targets",
+      "Culture Fit: Expresses enthusiasm for team practices, mentorship, or engineering standards",
+      "Articulate Delivery: Well-structured narrative"
+    ]
+  },
+  {
+    "question": "Looking at the core responsibilities for this role, which key area do you feel most confident delivering value in right away, and why?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Self-Awareness: Accurate assessment of personal core strengths",
+      "Immediate Impact: Cites concrete past achievements supporting the claim",
+      "Professional Confidence: Delivers answer directly and persuasively"
+    ]
+  },
+
+  {
+    "question": "Could you give me a high-level summary of your engineering journey so far, highlighting two or three key milestones that define your technical expertise?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Chronology: Well-organized overview from early career to current level",
+      "Impact: Highlights tangible project outcomes or technical leadership moments",
+      "Pacing: Keeps response within a 2-minute timeframe"
+    ]
+  },
+  {
+    "question": "Walk me through your professional experience, focusing on the most impactful frontend or full-stack projects you have led in your recent roles.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Project Focus: Cites specific architectures, frameworks, and metrics (e.g., performance, bundle size)",
+      "Ownership: Makes individual contributions clear vs. team contributions",
+      "Clarity: Avoids overly dense jargon while maintaining technical depth"
+    ]
+  },
+  {
+    "question": "Give me an overview of your background, focusing on how your technical skill set has evolved across your past engineering positions.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Growth Mindset: Demonstrates continuous learning and adaptation to modern tools/frameworks",
+      "Relevance: Connects past technical evolution to current senior capabilities",
+      "Structure: Clear beginning, middle, and present focus"
+    ]
+  },
+  {
+    "question": "Introduce yourself and walk me through a quick timeline of your career, emphasizing the technical decisions you are most proud of.",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Key Wins: Identifies high-impact architectural choices or optimization efforts",
+      "Communication Flow: Logical progression without tangential digressions",
+      "Executive Presence: Confident and articulate tone"
+    ]
+  },
+  {
+    "question": "Can you summarize your professional trajectory so far, detailing the core tech stacks you've mastered and the types of engineering problems you enjoy solving?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Stack Mastery: Clear summary of primary and secondary technologies",
+      "Problem Domain: Articulates passion for specific challenges (e.g., state management, real-time UI)",
+      "Conciseness: Compact response suitable for an interview opener"
+    ]
+  }
+
+]

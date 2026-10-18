@@ -232,6 +232,17 @@ class InterviewSession:
         """Clears the pending follow-up state."""
         self.pending_follow_up_text = None
 
+    # app/models/session.py
+    # --- mutators -----------------------------------------------------
+
+    def set_pending_follow_up(self, question_text: str) -> None:
+        """Sets an active follow-up question without advancing slot index."""
+        self.pending_follow_up_text = question_text
+
+    def clear_pending_follow_up(self) -> None:
+        """Clears the pending follow-up state."""
+        self.pending_follow_up_text = None
+
     def add_question(
         self,
         question_text: str,
@@ -244,12 +255,12 @@ class InterviewSession:
         stack: str | None = None,
         question_id: str | None = None,
     ) -> None:
-        
         if is_follow_up:
             self.consecutive_follow_ups += 1
         else:
             self.consecutive_follow_ups = 0
             self.original_question_count += 1
+            # NOTE: Slot index advancement is managed exclusively by record_answer()
 
         if question_id:
             self.user_asked_question_ids.append(question_id)
@@ -276,11 +287,11 @@ class InterviewSession:
 
     def add_evaluation(self, evaluation: AnswerEvaluation) -> None:
         self.scores.append(evaluation)
-        
+
         # Store directly on the question to prevent zip() offset corruption
         if self.questions_asked:
             self.questions_asked[-1].evaluation = evaluation
-            
+
         self._apply_difficulty_shift(evaluation.next_question_difficulty)
 
     def _apply_difficulty_shift(self, direction: str) -> None:

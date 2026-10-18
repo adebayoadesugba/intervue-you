@@ -1,0 +1,116 @@
+[
+
+ {
+    "question": "Your React application is rendering sluggishly on mobile devices when loading a large list. How would you diagnose and fix this?",
+    "category": "frontend",
+    "subcategory": "performance",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Identifies profiling tools (React DevTools, Chrome Performance tab)",
+      "Proposes list virtualization/windowing (e.g., react-window)",
+      "Mentions memoization (`useMemo`, `useCallback`) and minimizing re-renders"
+    ]
+  },
+  {
+    "question": "A third-party payment gateway API you depend on is experiencing frequent 500 errors and high latency. How do you protect your backend service from collapsing?",
+    "category": "backend",
+    "subcategory": "resilience",
+    "difficulty": "mid",
+    "stack": "python",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Proposes a Circuit Breaker pattern to fail fast",
+      "Implements asynchronous queuing/retries with exponential backoff",
+      "Sets strict HTTP timeouts to prevent thread pool exhaustion"
+    ]
+  },
+  {
+    "question": "Your team needs to migrate a monolithic Node.js application to microservices with zero downtime. What is your strategy?",
+    "category": "backend",
+    "subcategory": "system_design",
+    "difficulty": "senior",
+    "stack": "node",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Uses the Strangler Fig pattern to incrementally extract services",
+      "Implements API Gateway routing and distributed tracing",
+      "Ensures database decoupling and event-driven data synchronization"
+    ]
+  },
+  {
+    "question": "You discover a critical security vulnerability in a legacy codebase 2 hours before a major feature release. What do you do?",
+    "category": "frontend",
+    "subcategory": "security_crisis",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "communication",
+    "reference_points": [
+      "Immediately alerts engineering lead and security contact",
+      "Advocates for delaying release or hotfixing the vulnerability before deployment",
+      "Communicates risk clearly with non-technical product management"
+    ]
+  },
+  {
+    "question": "You are leading a team of 5 engineers and one of them is consistently missing deadlines, affecting the team's overall performance. How do you handle this situation?",
+    "category": "frontend",
+    "subcategory": "team_management",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Schedules a private one-on-one to understand root causes (personal, workload, skill gaps)",
+      "Sets clear expectations and mutually agreed-upon deadlines with accountability",
+      "Follows up with support, mentorship, or reallocation of tasks as needed"
+    ]
+  },
+   {
+    "question": "You are leading a small team of engineers and some of them are consistently missing deadlines, affecting the team's overall performance. How do you handle this situation?",
+    "category": "backend",
+    "subcategory": "team_management",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Schedules a private one-on-one to understand root causes (personal, workload, skill gaps)",
+      "Sets clear expectations and mutually agreed-upon deadlines with accountability",
+      "Follows up with support, mentorship, or reallocation of tasks as needed"
+    ]
+  },
+  {
+    "question": "You are assigned to a project that requires a technology stack you are unfamiliar with. How do you ensure you can contribute effectively?",
+    "category": "general",
+    "subcategory": "learning_and_adaptability",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Researches documentation, tutorials, and community resources to quickly learn the stack",
+      "Seeks mentorship or pair programming opportunities with experienced team members",
+      "Applies new knowledge to small tasks first, gradually increasing complexity"
+    ]
+  }
+,
+    {
+        "question": "Describe a time when you had to learn a new technology or framework quickly to meet project requirements. How did you approach it?",
+        "category": "frontend",
+        "stack": "core",
+        "difficulty": "any",
+        "question_type": "situational",
+        "competency": "problem_solving",
+        "reference_points": [
+        "Learning Strategy: Breaks down the technology into manageable components and prioritizes learning based on project needs",
+        "Resourcefulness: Utilizes documentation, tutorials, and community forums effectively",
+        "Application: Demonstrates how the newly learned technology was successfully applied to deliver project outcomes"
+        ]
+    }
+
+]

@@ -1,0 +1,182 @@
+[
+
+{
+    "question": "Describe a situation where you had a strong technical disagreement with a teammate. How did you resolve it?",
+    "category": "general",
+    "subcategory": "conflict_resolution",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Uses STAR method (Situation, Task, Action, Result)",
+      "Focuses on objective data/benchmarks rather than personal opinion",
+      "Demonstrates active listening and willingness to compromise for team goals"
+    ]
+  },
+  {
+    "question": "Tell me about a time when a project deadline was at risk due to cross-team dependencies. What action did you take?",
+    "category": "backend",
+    "subcategory": "collaboration",
+    "difficulty": "any",
+    "stack": "python",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Proactively communicated blocking dependencies to stakeholders early",
+      "Negotiated API contracts or mock interfaces to unblock work",
+      "Delivered project on time or managed scope adjustment transparently"
+    ]
+  },
+  {
+    "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
+    "category": "general",
+    "subcategory": "stakeholder_comm",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Used clear analogies without overly dense jargon",
+      "Verified understanding through feedback loops or Q&A",
+      "Focused on business value rather than lower-level implementation details"
+    ]
+  },
+  {
+    "question": "Describe a high-stress production outage you experienced. How did you coordinate with your team to triage and fix it?",
+    "category": "general",
+    "subcategory": "incident_management",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Prioritized restoring service (rollback/mitigation) before deep root-cause debugging",
+      "Maintained clear communication channels during the incident",
+      "Led or participated in a blameless post-mortem"
+    ]
+  },
+  {
+    "question": "Tell me about a time you made a mistake on a project and how you handled it.",
+    "category": "general",
+    "subcategory": "accountability",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Takes immediate ownership of the mistake without shifting blame",
+      "Communicates the issue to stakeholders and proposes a mitigation plan",
+      "Reflects on lessons learned and implements safeguards to prevent recurrence"
+    ]
+  },
+
+   {
+    "question": "Describe a situation where you had a technical or process disagreement with a teammate or cross-functional peer. How did you handle it and what was the outcome?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Situation: Clearly outlines the technical context and root cause of the disagreement",
+      "Task: Focuses on shared project goals rather than winning an argument",
+      "Action: Details individual steps taken (e.g., active listening, gathering benchmark data, 1-on-1 alignment)",
+      "Result: Explains the final consensus, measurable outcome, and relationship impact"
+    ]
+  },
+  {
+    "question": "Tell me about a time when an unexpected technical blocker or tight deadline threatened your project's delivery. What steps did you take to manage it?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Situation: Identifies the root cause of the unexpected bottleneck or delay",
+      "Task: Defines the immediate priority and delivery obligations",
+      "Action: Describes proactive personal initiative (e.g., de-scoping non-essentials, pair programming, communicating status early)",
+      "Result: Delivers the outcome achieved and key measures implemented to prevent recurrence"
+    ]
+  },
+  {
+    "question": "Can you share an instance where a feature or task you worked on failed or produced unexpected negative results? How did you respond?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Situation: Honestly describes what went wrong without deflecting blame onto others",
+      "Task: Explains immediate mitigation or rollback responsibilities",
+      "Action: Details troubleshooting efforts and steps taken to remediate the issue",
+      "Result: Shares the resolution, personal learnings, and systemic fixes put in place"
+    ]
+  },
+
+  {
+    "question": "Can you share an example of a time when you strongly disagreed with a team lead or architect on a technical implementation? How did you resolve it?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Context: Explains the architectural disagreement clearly and objectively",
+      "Approach: Focuses on technical merit, trade-offs, and collaborative alignment rather than personal opinion",
+      "Outcome: Details the final consensus, willingness to commit to the team decision, and project result"
+    ]
+  },
+  {
+    "question": "Tell me about a situation where a product manager or designer proposed a spec that you felt was technically unfeasible within the deadline. How did you navigate the conversation?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Communication: Translates technical constraints into clear business trade-offs",
+      "Negotiation: Proposes alternative solutions or phased rollouts rather than just saying no",
+      "Collaboration: Maintains a constructive, partnership-focused dynamic with cross-functional peers"
+    ]
+  },
+  {
+    "question": "Describe a scenario where two team members had conflicting approaches to solving a critical technical issue. What role did you play in reaching alignment?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Facilitation: Demonstrates active listening and objective evaluation of both perspectives",
+      "Data-Driven Decision: Uses benchmarks, spikes, or documentation to guide consensus",
+      "Team Cohesion: Keeps the focus on team velocity and mutual respect"
+    ]
+  },
+  {
+    "question": "Give an example of a time when you had to push back on a decision made by your engineering team. How did you structure your argument and what was the result?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Preparation: Backs up the argument with clear evidence, benchmarks, or security/performance risks",
+      "Professionalism: Delivers constructive feedback in an appropriate forum",
+      "Adaptability: Accepts the final team consensus maturely, even if their preference was not chosen"
+    ]
+  },
+  {
+    "question": "Tell me about a time when a project trade-off between delivery speed and technical debt led to debate within your team. How did you help reach a resolution?",
+    "category": "general",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Pragmatism: Balances business urgency with long-term code maintainability",
+      "Action: Documented technical debt items or refactoring roadmaps for future sprints",
+      "Result: Delivered on immediate goals while protecting core system health"
+    ]
+  }
+]

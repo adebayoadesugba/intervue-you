@@ -152,10 +152,11 @@ FORMAT INSTRUCTIONS:
     clean_output = output.strip().replace('"', '').replace('**', '')
     return clean_output
 
-
 def _fetch_from_db(session: InterviewSession, slot: AgendaSlot) -> tuple[str, list[str], str]:
-    """Helper to query ChromaDB safely."""
+    """Helper to query ChromaDB safely with competency fallback."""
     query_text = _build_query_text(session, slot)
+    
+    # Primary lookup with strict competency matching
     candidates = get_relevant_questions(
         category=session.category,
         difficulty=session.difficulty,
@@ -166,6 +167,23 @@ def _fetch_from_db(session: InterviewSession, slot: AgendaSlot) -> tuple[str, li
         exclude_ids=session.user_asked_question_ids,
         k=RETRIEVAL_K,
     )
+
+    # Fallback lookup ignoring competency filter if exact combination is missing
+    if not candidates and slot.competency:
+        logger.warning(
+            f"No questions found for Type '{slot.question_type}' + Competency '{slot.competency}'. "
+            f"Falling back to any '{slot.question_type}' question."
+        )
+        candidates = get_relevant_questions(
+            category=session.category,
+            difficulty=session.difficulty,
+            question_type=slot.question_type,
+            competency=None,  # Relax competency constraint
+            stack=slot.stack,
+            query_text=query_text,
+            exclude_ids=session.user_asked_question_ids,
+            k=RETRIEVAL_K,
+        )
 
     if not candidates:
         raise QuestionBankExhausted(

@@ -88,17 +88,33 @@ def record_answer(session: InterviewSession, answer: str) -> AnswerEvaluation:
     session.add_answer(answer)
     session.add_evaluation(evaluation)
     
-    # --- Follow-Up & Slot Progression Management ---
-    needs_follow_up = (
-        getattr(evaluation, "needs_follow_up", False)
-        and not last_asked.is_follow_up  # Cap at 1 follow-up per slot
+    # --- Safe Dynamic Follow-Up & Slot Progression Management ---
+    # Determine active slot ID from agenda
+    active_slot_id = (
+        session.agenda[session.current_slot_index].slot_id
+        if session.current_slot_index < len(session.agenda)
+        else None
+    )
+
+    # Dynamically count follow-ups asked for the active slot to avoid AttributeError
+    slot_follow_up_count = sum(
+        1 for q in session.questions_asked
+        if q.slot_id == active_slot_id and q.is_follow_up
+    )
+
+    # Evaluate follow-up trigger
+    should_queue_follow_up = (
+        getattr(evaluation, "should_follow_up", False)
+        and slot_follow_up_count < 2
         and bool(getattr(evaluation, "follow_up_question", None))
     )
 
-    if needs_follow_up:
+    if should_queue_follow_up:
         # Queue follow-up question; DO NOT advance main slot index
         session.set_pending_follow_up(evaluation.follow_up_question)
-        logger.info(f"Follow-up queued for main slot {session.current_slot_index}. Holding slot index.")
+        logger.info(
+            f"Follow-up ({slot_follow_up_count + 1}/2) queued for main slot {session.current_slot_index}. Holding slot index."
+        )
     else:
         # Clear follow-up state and advance main slot pointer
         session.clear_pending_follow_up()
