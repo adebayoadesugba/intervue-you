@@ -3,21 +3,23 @@ routes_interview.py
 
 FastAPI endpoints for running an interview session over HTTP.
 Provides strict input validation, concurrency locks against double-submits,
-abandoned session handling, and background TTL memory pruning.
+abandoned session handling, background TTL memory pruning, and real-time Server-Sent Events (SSE) streaming.
 """
 
 import time
+import json
 import asyncio
 import logging
 from typing import Literal
 from fastapi import APIRouter, HTTPException, status, BackgroundTasks
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.agents import report_agent, resume_agent
 from app.interview_loop import ask_next, record_answer
 from app.models.session import InterviewSession
 from app.rag import retriever
-from app.agents.interviewer_agent import QuestionBankExhausted
+from app.agents.interviewer_agent import QuestionBankExhausted, get_next_question_stream
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/interview", tags=["interview"])
@@ -112,13 +114,13 @@ def _trigger_background_cleanup(background_tasks: BackgroundTasks) -> None:
     background_tasks.add_task(store.prune_stale)
 
 
-# --- API Routes ---
+# --- Standard Non-Streaming Routes ---
 
 @router.post("/start", response_model=StartResponse)
 async def start_interview(req: StartRequest, background_tasks: BackgroundTasks):
     _trigger_background_cleanup(background_tasks)
 
-    # 1. Instantiate Session with Domain Error Protection (Fix Bug 5)
+    # 1. Instantiate Session with Domain Error Protection
     try:
         session = InterviewSession(
             category=req.category,
@@ -172,7 +174,7 @@ async def submit_answer(session_id: str, req: AnswerRequest, background_tasks: B
     session = _get_session_or_404(session_id)
     lock = store.get_lock(session_id)
 
-    # Concurrency Lock (Fix Bug 4: Double-Submit Protection)
+    # Concurrency Lock (Double-Submit Protection)
     async with lock:
         # Reject if session is already ended or no question is awaiting an answer
         has_pending_question = len(session.questions_asked) > len(session.scores)
@@ -207,21 +209,153 @@ async def submit_answer(session_id: str, req: AnswerRequest, background_tasks: B
         )
 
 
+# --- New Real-Time SSE Streaming Routes ---
+
+@router.post("/start/stream")
+async def start_interview_stream(req: StartRequest, background_tasks: BackgroundTasks):
+    _trigger_background_cleanup(background_tasks)
+
+    try:
+        session = InterviewSession(
+            category=req.category,
+            difficulty=req.difficulty,
+            stack=req.stack,
+            mode=req.mode,
+            duration_minutes=req.time_limit_minutes,
+            cv_text=req.cv_text
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
+    is_valid, err_msg = retriever.verify_session_agenda_fillable(session)
+    if not is_valid:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"Question Bank Configuration Error: {err_msg}"
+        )
+
+    if req.cv_text and req.cv_text.strip():
+        profile = resume_agent.extract_resume_profile(req.cv_text)
+        if profile and profile.suggested_questions:
+            session.resume_questions = profile.suggested_questions
+            logger.info(f"CV extracted {len(profile.suggested_questions)} project deep-dive questions.")
+
+    store.set(session)
+
+    async def event_generator():
+        # Emit initial session metadata event
+        yield f"data: {json.dumps({'type': 'session_created', 'session_id': session.session_id})}\n\n"
+
+        try:
+            stream_gen = get_next_question_stream(session)
+            final_nq = None
+            for event_type, data in stream_gen:
+                if event_type == "meta":
+                    yield f"data: {json.dumps({'type': 'meta', 'is_follow_up': data.is_follow_up})}\n\n"
+                elif event_type == "token":
+                    yield f"data: {json.dumps({'type': 'token', 'content': data})}\n\n"
+                elif event_type == "done":
+                    final_nq = data
+
+            if not final_nq:
+                yield f"data: {json.dumps({'type': 'error', 'detail': 'Failed to initialize session question.'})}\n\n"
+                return
+
+            # Commit question atomically to session state
+            session.add_question(
+                question_text=final_nq.phrased,
+                raw_text=final_nq.raw,
+                reference_points=final_nq.reference_points,
+                is_follow_up=final_nq.is_follow_up,
+                slot_id=final_nq.slot_id,
+                question_type=final_nq.question_type,
+                competency=final_nq.competency,
+                question_id=final_nq.question_id,
+                stack=final_nq.stack
+            )
+
+            yield f"data: {json.dumps({'type': 'done', 'session_id': session.session_id, 'question': final_nq.phrased, 'is_follow_up': final_nq.is_follow_up})}\n\n"
+
+        except Exception as e:
+            logger.exception("start/stream failed")
+            yield f"data: {json.dumps({'type': 'error', 'detail': str(e)})}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+
+@router.post("/{session_id}/answer/stream")
+async def submit_answer_stream(session_id: str, req: AnswerRequest, background_tasks: BackgroundTasks):
+    _trigger_background_cleanup(background_tasks)
+    session = _get_session_or_404(session_id)
+    lock = store.get_lock(session_id)
+
+    async def event_generator():
+        try:
+            async with lock:
+                has_pending_question = len(session.questions_asked) > len(session.scores)
+                if session.ended or not has_pending_question:
+                    yield f"data: {json.dumps({'type': 'ended', 'ended': True, 'reason': 'already_ended'})}\n\n"
+                    return
+
+                # 1. Record and Evaluate Answer
+                record_answer(session, req.answer)
+
+                # 2. Check Expiration & Agenda Completion
+                if session.should_end():
+                    session.end()
+                    elapsed = time.monotonic() - session.start_timestamp
+                    reason = "time_limit" if elapsed >= session.duration_seconds else "agenda_completed"
+                    yield f"data: {json.dumps({'type': 'ended', 'ended': True, 'reason': reason})}\n\n"
+                    return
+
+                # 3. Stream Next Question Tokens
+                try:
+                    stream_gen = get_next_question_stream(session)
+                    final_nq = None
+                    for event_type, data in stream_gen:
+                        if event_type == "meta":
+                            yield f"data: {json.dumps({'type': 'meta', 'is_follow_up': data.is_follow_up})}\n\n"
+                        elif event_type == "token":
+                            yield f"data: {json.dumps({'type': 'token', 'content': data})}\n\n"
+                        elif event_type == "done":
+                            final_nq = data
+
+                    if not final_nq:
+                        session.end()
+                        yield f"data: {json.dumps({'type': 'ended', 'ended': True, 'reason': 'agenda_completed'})}\n\n"
+                        return
+
+                    # Commit question atomically to session state
+                    session.add_question(
+                        question_text=final_nq.phrased,
+                        raw_text=final_nq.raw,
+                        reference_points=final_nq.reference_points,
+                        is_follow_up=final_nq.is_follow_up,
+                        slot_id=final_nq.slot_id,
+                        question_type=final_nq.question_type,
+                        competency=final_nq.competency,
+                        question_id=final_nq.question_id,
+                        stack=final_nq.stack
+                    )
+
+                    yield f"data: {json.dumps({'type': 'done', 'ended': False, 'next_question': final_nq.phrased, 'is_follow_up': final_nq.is_follow_up})}\n\n"
+
+                except QuestionBankExhausted:
+                    session.end()
+                    yield f"data: {json.dumps({'type': 'ended', 'ended': True, 'reason': 'bank_exhausted'})}\n\n"
+        except Exception:
+            logger.exception("answer/stream failed")
+            yield f"data: {json.dumps({'type': 'error', 'detail': 'Internal error, please retry.'})}\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+
 @router.get("/{session_id}/report")
 async def get_report(session_id: str):
     session = _get_session_or_404(session_id)
 
-    # Handle Abandoned Sessions (Fix Bug 3)
-    # If the user closed the tab, check if duration expired and auto-end session on demand
-    elapsed = time.monotonic() - session.start_timestamp
-    if elapsed >= session.duration_seconds and not session.pending_follow_up():
+    if not session.ended:
         session.end()
-
-    if not session.should_end():
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Session is still in progress. Complete all questions or wait for time to expire."
-        )
 
     # Generate 4D Scorecard Report
     report = report_agent.generate_report(session)

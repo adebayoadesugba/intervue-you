@@ -14,31 +14,35 @@ const feedbackSchema = new mongoose.Schema({
   },
 });
 
-const sessionSchema = new mongoose.Schema(
+
+
+const SessionSchema = new mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: false },
-    fastapiId: { type: String }, // Links to the Python session ID
-    pendingQuestion: { type: String }, // Holds the RAG question awaiting an answer
+    userId: { type: String, default: null },
+    fastapiId: { type: String, required: true },
+    pendingQuestion: { type: String, default: "" },
     role: { type: String, required: true },
     experienceLevel: { type: String, default: "junior" },
     timeframe: { type: String, default: "" },
     cv: { type: String, default: "" },
-    mode: { type: String, required: true, default: "text" },
+    mode: { type: String, default: "text" },
     minutes: { type: Number, default: 10 },
     company: { type: String, default: "" },
-    status: { type: String, enum: ["in_progress", "completed"], default: "in_progress" },
-    overallScore: { type: Number },
-    scores: {
-      technical: { type: Number },
-      communication: { type: Number },
-      problemSolving: { type: Number },
-      teamwork: { type: Number },
-    },
-    feedback: [feedbackSchema],
-    transcript: { type: Array, default: [] },
-    evaluation: { type: Object },
+    status: { type: String, default: "in_progress" },
+    transcript: [
+      {
+        question: String,
+        userAnswer: String,
+        followUp: Boolean,
+      },
+    ],
+    overallScore: { type: Number, default: null },
+    scores: { type: Object, default: {} },
+    feedback: { type: Array, default: [] },
+    evaluation: { type: Object, default: {} },
+    report: { type: Object, default: {} },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Session", sessionSchema);
+module.exports = mongoose.model("Session", SessionSchema);

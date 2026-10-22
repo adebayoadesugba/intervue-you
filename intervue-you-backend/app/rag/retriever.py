@@ -72,15 +72,22 @@ def get_relevant_questions(
     allowed_difficulties = [difficulty.lower(), "any"]
     allowed_stacks = [stack.lower(), "core", "none", "universal"]
 
-    # --- STRICT 5-VARIABLE FILTER ---
+    # --- STRICT VARIABLE FILTER CONSTRUCTION ---
+    # 1. Start with the conditions that are ALWAYS guaranteed to exist
+    filter_conditions = [
+        {"category": {"$in": allowed_categories}},
+        {"difficulty": {"$in": allowed_difficulties}},
+        {"question_type": {"$eq": question_type.lower()}},
+        {"stack": {"$in": allowed_stacks}},
+    ]
+
+    # 2. Only add the competency filter if a competency was actually provided
+    if competency:
+        filter_conditions.append({"competency": {"$eq": competency.lower()}})
+
+    # 3. Combine them into the final dictionary
     filter_dict = {
-        "$and": [
-            {"category": {"$in": allowed_categories}},
-            {"difficulty": {"$in": allowed_difficulties}},
-            {"question_type": {"$eq": question_type.lower()}},
-            {"competency": {"$eq": competency.lower()}},
-            {"stack": {"$in": allowed_stacks}},
-        ]
+        "$and": filter_conditions
     }
 
     if query_text.strip():
@@ -92,7 +99,6 @@ def get_relevant_questions(
         return filtered[:k]
     else:
         # Unranked sampling (e.g. Turn 1 Intro/Behavioral questions)
-        # Fetch a wider candidate window and shuffle to eliminate deterministic insertion order
         raw_get = store.get(where=filter_dict, limit=50)
         docs = raw_get.get("documents") or []
         metas = raw_get.get("metadatas") or []
@@ -101,10 +107,8 @@ def get_relevant_questions(
         questions = [_doc_to_question(doc) for doc in raw_results]
         filtered = [q for q in questions if q["id"] not in exclude_ids]
 
-        # Shuffle candidate pool so every candidate receives a varied intro/behavioral question
         random.shuffle(filtered)
         return filtered[:k]
-
 
 def verify_session_agenda_fillable(session: InterviewSession) -> tuple[bool, str]:
     """
