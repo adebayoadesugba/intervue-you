@@ -115,7 +115,7 @@
   },
   {
     "question": "Why are you interested in joining our engineering team at this stage of your career, and what unique perspective do you bring?",
-    "category": "general",
+    "category": "backend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "question": "How does this role fit into your broader long-term engineering goals, and why do you feel our team is the right environment for your next step?",
+    "question": "How does this role fit into your broader long-term career goals, and why do you feel our team is the right environment for your next step?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -181,7 +181,7 @@
   },
   {
     "question": "Walk me through your professional experience, focusing on the most impactful frontend or full-stack projects you have led in your recent roles.",
-    "category": "general",
+    "category": "frontend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",

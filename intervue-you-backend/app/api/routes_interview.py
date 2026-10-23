@@ -243,10 +243,10 @@ async def start_interview_stream(req: StartRequest, background_tasks: Background
     store.set(session)
 
     async def event_generator():
-        # Emit initial session metadata event
-        yield f"data: {json.dumps({'type': 'session_created', 'session_id': session.session_id})}\n\n"
-
         try:
+            # Emit initial session metadata event
+            yield f"data: {json.dumps({'type': 'session_created', 'session_id': session.session_id})}\n\n"
+
             stream_gen = get_next_question_stream(session)
             final_nq = None
             for event_type, data in stream_gen:

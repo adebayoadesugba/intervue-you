@@ -73,7 +73,6 @@ def get_relevant_questions(
     allowed_stacks = [stack.lower(), "core", "none", "universal"]
 
     # --- STRICT VARIABLE FILTER CONSTRUCTION ---
-    # 1. Start with the conditions that are ALWAYS guaranteed to exist
     filter_conditions = [
         {"category": {"$in": allowed_categories}},
         {"difficulty": {"$in": allowed_difficulties}},
@@ -81,34 +80,45 @@ def get_relevant_questions(
         {"stack": {"$in": allowed_stacks}},
     ]
 
-    # 2. Only add the competency filter if a competency was actually provided
     if competency:
         filter_conditions.append({"competency": {"$eq": competency.lower()}})
 
-    # 3. Combine them into the final dictionary
     filter_dict = {
         "$and": filter_conditions
     }
 
+    # --- 1. SEMANTIC SEARCH WITH FALLBACK ---
     if query_text.strip():
-        # Semantic search on filtered pool for turns with conversation history
         fetch_k = max(20, k + len(exclude_ids) + 5)
-        raw_results = store.similarity_search(query_text, k=fetch_k, filter=filter_dict)
-        questions = [_doc_to_question(doc) for doc in raw_results]
-        filtered = [q for q in questions if q["id"] not in exclude_ids]
-        return filtered[:k]
-    else:
-        # Unranked sampling (e.g. Turn 1 Intro/Behavioral questions)
+        try:
+            raw_results = store.similarity_search(query_text, k=fetch_k, filter=filter_dict)
+            questions = [_doc_to_question(doc) for doc in raw_results]
+            filtered = [q for q in questions if q["id"] not in exclude_ids]
+            if filtered:
+                return filtered[:k]
+        except Exception as e:
+            print(f"⚠️ Vector search error in ChromaDB: {e}. Falling back to unranked sampling.")
+
+    # --- 2. UNRANKED SAMPLING WITH FALLBACK ---
+    try:
         raw_get = store.get(where=filter_dict, limit=50)
-        docs = raw_get.get("documents") or []
-        metas = raw_get.get("metadatas") or []
-        raw_results = [Document(page_content=d, metadata=m) for d, m in zip(docs, metas)]
+    except Exception as e:
+        print(f"⚠️ Filtered store.get failed: {e}. Attempting unconstrained retrieval.")
+        try:
+            raw_get = store.get(limit=50)
+        except Exception as e2:
+            print(f"⚠️ Store retrieval failed completely: {e2}.")
+            raw_get = {}
 
-        questions = [_doc_to_question(doc) for doc in raw_results]
-        filtered = [q for q in questions if q["id"] not in exclude_ids]
+    docs = raw_get.get("documents") or []
+    metas = raw_get.get("metadatas") or []
+    raw_results = [Document(page_content=d, metadata=m) for d, m in zip(docs, metas)]
 
-        random.shuffle(filtered)
-        return filtered[:k]
+    questions = [_doc_to_question(doc) for doc in raw_results]
+    filtered = [q for q in questions if q["id"] not in exclude_ids]
+
+    random.shuffle(filtered)
+    return filtered[:k]
 
 def verify_session_agenda_fillable(session: InterviewSession) -> tuple[bool, str]:
     """

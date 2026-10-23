@@ -128,5 +128,137 @@
       "shows commitment to continuous skill acquisition",
       "aligns personal career goals with business value"
     ]
+  },
+
+    {
+    "question": "Can you walk me through your final-year project?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clearly explain the step he / she took in the project",
+      "Articulates specific technical hurdles encountered and how they were systematically discovered or resolved",
+      "Demonstrates clear personal ownership of project"
+    ]
+  },
+  {
+    "question": "Why should we hire you for this role over other candidates?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Aligns technical skill set directly with the core requirements and goals of the role",
+      "Highlights strong work ethic, adaptability, and ability to learn new things rapidly",
+      "Provides concrete evidence of past execution, or problem-solving capability"
+    ]
+  },
+
+  {
+    "question": "What specifically interests you about the day-to-day responsibilities and technical stack of this role?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies specific technologies or engineering tasks mentioned in the job description",
+      "Explains enthusiasm for working on real-world technical challenges and scalable software",
+      "Demonstrates readiness to take ownership of assigned technical deliverables"
+    ]
+  },
+  {
+    "question": "Where do you see yourself in five years in terms of your mastery and career progression?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Outlines a realistic growth trajectory (e.g., Senior Supervisor or Manger, Leader, or Domain Specialist)",
+      "Emphasizes continuous technical learning, mastering advanced systems, or mentoring others",
+      "Demonstrates long-term commitment to career excellence and impact"
+    ]
+  },
+  {
+    "question": "What are your salary expectations for this role, and how did you arrive at that range?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provides a realistic, well-researched salary range based on market benchmarks and skill level",
+      "Frames compensation in terms of total value, growth opportunity, and mutual fit",
+      "Expresses flexibility while maintaining professional confidence"
+    ]
+  },
+  {
+    "question": "Can you explain the gap in your CV and how you utilized that time to maintain or grow your technical skills?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Addresses the gap transparently without being defensive",
+      "Highlights productive activities during the gap (e.g., certifications, self-study, freelancing)",
+      "Demonstrates proactive commitment to continuous self development"
+    ]
+  },
+  {
+    "question": "How do you handle high-pressure technical situations like tight deadlines ?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Describes systematic prioritization and task breakdown under tight constraints",
+      "Emphasizes clear communication with teammates, leads, and stakeholders during incidents",
+      "Shares a concrete example of remaining calm and systematically handling a critical issue"
+    ]
+  },
+  {
+    "question": "What are your greatest strengths, and how do they impact your daily work?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies relevant core competencies",
+      "Backs up claims with concrete examples of past execution or project outcomes",
+      "Explains how these strengths add tangible value to a team"
+    ]
+  },
+  {
+    "question": "What is a technical area or skill you are currently working to improve, and how are you addressing it?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Names a genuine technical growth area ",
+      "Outlines specific, active steps being taken to improve",
+      "Demonstrates strong self-awareness and a continuous growth mindset"
+    ]
+  },
+  {
+    "question": "What is your greatest achievement to date, and what was your specific contribution to its success?",
+    "category": "nysc-trainee",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clearly defines a significant technical milestone, feature, or completed project",
+      "Articulates individual ownership versus team contributions",
+      "Quantifies success metrics or impact (e.g., performance gains, adoption rate, operational efficiency)"
+    ]
   }
 ]

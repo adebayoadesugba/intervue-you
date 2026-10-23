@@ -44,6 +44,20 @@ function buildFastApiPayload(reqBody) {
   };
 }
 
+// Automatically prunes history to keep only the 20 most recent sessions
+async function enforceSessionLimit(userId) {
+  if (!userId) return;
+  try {
+    const sessions = await Session.find({ userId }).sort({ createdAt: -1 });
+    if (sessions.length > 20) {
+      const idsToDelete = sessions.slice(20).map(s => s._id);
+      await Session.deleteMany({ _id: { $in: idsToDelete } });
+    }
+  } catch (err) {
+    console.error("Failed to enforce session limit", err);
+  }
+}
+
 // ==========================================
 // 1. REAL-TIME STREAMING: CREATE SESSION
 // ==========================================
@@ -106,6 +120,7 @@ const createSessionStreamHandler = async (req, res) => {
               };
               const session = new Session(sessionData);
               await session.save();
+              await enforceSessionLimit(userId);
             }
           } catch (e) {
             // Ignore partial SSE parses
@@ -243,6 +258,7 @@ const createSessionHandler = async (req, res) => {
 
     const session = new Session(sessionData);
     await session.save();
+    await enforceSessionLimit(userId);
 
     return res.status(201).json({ session });
   } catch (err) {
@@ -252,7 +268,7 @@ const createSessionHandler = async (req, res) => {
 router.post(["/session", "/interview/session"], createSessionHandler);
 
 // ==========================================
-// 4. GET SESSION LIST & INDIVIDUAL SESSION
+// 4. GET & DELETE SESSIONS
 // ==========================================
 const getAllSessionsHandler = async (req, res) => {
   try {
@@ -277,6 +293,30 @@ const getSessionHandler = async (req, res) => {
   }
 };
 router.get(["/session/:id", "/sessions/:id", "/interview/session/:id"], getSessionHandler);
+
+const deleteSessionHandler = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // Check if the ID is a valid 24-character MongoDB ObjectId
+    const isValidMongoId = /^[0-9a-fA-F]{24}$/.test(id);
+
+    if (!isValidMongoId) {
+      // It's a local-only session. Since the frontend already deleted it from localStorage, 
+      // we just return success without touching the database.
+      return res.json({ success: true, note: "Local session ignored by DB" });
+    }
+
+    const session = await Session.findByIdAndDelete(id);
+    if (!session) return res.status(404).json({ error: "Session not found" });
+    
+    return res.json({ success: true });
+  } catch (err) {
+    console.error("Error deleting session:", err);
+    return res.status(500).json({ error: "Failed to delete session" });
+  }
+};
+router.delete(["/session/:id", "/sessions/:id", "/interview/session/:id"], deleteSessionHandler);
 
 // ==========================================
 // 5. NEXT QUESTION (NON-STREAMING)
@@ -335,9 +375,6 @@ router.post(["/session/:id/next-question", "/interview/session/:id/next-question
 
 // ==========================================
 // 6. EVALUATION ROUTE (PYTHON REPORT)
-// ==========================================
-// ==========================================
-// EVALUATION ROUTE (FETCHES PYTHON REPORT)
 // ==========================================
 const evaluateHandler = async (req, res) => {
   try {

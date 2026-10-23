@@ -98,7 +98,12 @@ Context:
 Evaluation Guidelines:
 1. Evaluate strictly against the provided Rubric.
 2. If should_follow_up is true, follow_up_question MUST directly prompt for missing rubric elements.
-3. Start follow_up_question naturally by reacting to their attempt (e.g., "Good start, but...", "You're spot on about X, but...").
+3. Start follow_up_question naturally by reacting to their attempt Examples to mix in:
+   - "That's a helpful starting point. To dig a bit deeper..."
+   - "I appreciate that overview. Could you elaborate on..."
+   - "Understood, thank you. Building on your answer..."
+   - "That provides good context. Can you also clarify..."
+   - "Thanks for sharing that detail. How would you handle...".
 """
 
 

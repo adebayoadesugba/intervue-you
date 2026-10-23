@@ -118,7 +118,7 @@ class InterviewSession:
     # ---------------- Agenda construction ----------------
 
     def _build_time_aware_agenda(self, minutes: int) -> list[AgendaSlot]:
-        behavioral_competency = random.choice(["teamwork", "problem_solving", "communication"])
+        behavioral_competency = random.choice(["teamwork", "problem_solving", "communication", "teamwork"])
 
         slots = [
             AgendaSlot(1, "introduction", "communication", "core", is_must_have=True),
@@ -129,7 +129,7 @@ class InterviewSession:
         if self.cv_text and self.cv_text.strip():
             slots.append(AgendaSlot(slot_counter, "resume_based", "problem_solving", "core", is_must_have=True))
         else:
-            slots.append(AgendaSlot(slot_counter, "situational", "problem_solving", "core", is_must_have=True))
+            slots.append(AgendaSlot(slot_counter, "behavioral", "teamwork", "core", is_must_have=True))
         slot_counter += 1
 
         if minutes <= 10:
