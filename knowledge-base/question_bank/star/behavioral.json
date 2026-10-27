@@ -28,22 +28,9 @@
       "Delivered project on time or managed scope adjustment transparently"
     ]
   },
+ 
   {
-    "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
-    "category": "general",
-    "subcategory": "stakeholder_comm",
-    "difficulty": "any",
-    "stack": "core",
-    "question_type": "behavioral",
-    "competency": "communication",
-    "reference_points": [
-      "Used clear analogies without overly dense jargon",
-      "Verified understanding through feedback loops or Q&A",
-      "Focused on business value rather than lower-level implementation details"
-    ]
-  },
-  {
-    "question": "Describe a high-stress production outage you experienced. How did you coordinate with your team to triage and fix it?",
+    "question": "Describe a high-stress production outage you experienced. How did you coordinate with your team to try and fix it?",
     "category": "general",
     "subcategory": "incident_management",
     "difficulty": "any",
@@ -128,9 +115,9 @@
     ]
   },
   {
-    "question": "Tell me about a situation where a product manager or designer proposed a spec that you felt was technically unfeasible within the deadline. How did you navigate the conversation?",
-    "category": "general",
-    "stack": "core",
+    "question": "Tell me about a situation where a product manager or ui designer proposed a spec that you felt was technically unfeasible within the deadline. How did you navigate the conversation?",
+    "category": "frontend",
+    "stack": "react",
     "difficulty": "any",
     "question_type": "behavioral",
     "competency": "teamwork",
@@ -154,7 +141,7 @@
     ]
   },
   {
-    "question": "Give an example of a time when you had to push back on a decision made by your engineering team. How did you structure your argument and what was the result?",
+    "question": "Give an example of a time when you had to push back on a decision made by your team. How did you structure your argument and what was the result?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",

@@ -1,0 +1,234 @@
+[
+  {
+    "question": "How does caching work in Next.js at a high level?",
+    "reference_points": [
+      "Multiple caches exist: route output, cached async work, fetch results, client navigation data",
+      "Server fetch() controlled via cache: force-cache, no-store or next.revalidate",
+      "Cache Components use \"use cache\", cacheLife(), cacheTag() and updateTag()",
+      "Good answers name the specific cache and its freshness rule"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are the benefits, problems and alternatives of Server Actions?",
+    "reference_points": [
+      "Benefits: less boilerplate, progressive enhancement, no separate API layer",
+      "Problems: public endpoints under the hood, need auth and validation, sequential execution, harder reuse by external clients",
+      "Alternatives: Route Handlers, separate backend API, tRPC or client-side fetch",
+      "Choose based on whether non-UI clients need the logic"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you explain authorization in middleware and routes in Next.js?",
+    "reference_points": [
+      "Middleware does broad checks like redirecting unauthenticated users",
+      "Routes, Server Components and actions must re-check permissions",
+      "Backend operations must enforce roles independently",
+      "Middleware alone is not sufficient protection"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you use JWT tokens and handle authentication tokens in Next.js?",
+    "reference_points": [
+      "JWT is signed and verified on the server",
+      "Store in httpOnly, secure cookies rather than localStorage",
+      "Verify the token in Route Handlers, Server Actions or Proxy",
+      "Set expiry and implement refresh or rotation",
+      "Never expose signing secrets to the client"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you configure Webpack or a custom Babel setup in Next.js?",
+    "reference_points": [
+      "Customize Webpack through the webpack function in next.config.js",
+      "Custom Babel via a .babelrc file, which disables SWC for that project",
+      "Next.js uses SWC by default for compilation",
+      "Prefer defaults unless a specific need exists"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is a custom server in Next.js?",
+    "reference_points": [
+      "Runs Next.js programmatically inside a Node server like Express",
+      "Allows custom routing logic",
+      "Disables some automatic optimizations and serverless support",
+      "Should be avoided unless truly necessary"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are common security practices in Next.js?",
+    "reference_points": [
+      "Validate and sanitize all input",
+      "Enforce authentication and authorization on the server",
+      "Keep secrets out of NEXT_PUBLIC_ variables",
+      "Use httpOnly cookies and security headers",
+      "Treat Server Actions as public endpoints"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "Is Next.js suitable for large-scale applications?",
+    "reference_points": [
+      "Yes, supports code splitting, caching and ISR for scale",
+      "Server Components reduce client payload",
+      "Route groups and nested layouts organize large codebases",
+      "Works with monorepos and serverless or Node deployments",
+      "Needs careful caching and architecture decisions"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you prevent API routes from being accessed by the client?",
+    "reference_points": [
+      "Require authentication and authorization checks in the handler",
+      "Validate origin and tokens or API keys",
+      "Use Server Components or Server Actions for server-only logic",
+      "Keep secrets on the server and avoid exposing internal endpoints",
+      "Apply rate limiting"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How does caching and revalidation work with the Pages Router?",
+    "reference_points": [
+      "getStaticProps output is cached as static files",
+      "revalidate sets time-based ISR",
+      "res.revalidate() triggers on-demand revalidation",
+      "getServerSideProps can use Cache-Control headers",
+      "Static assets are cached by CDN"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle global state management in Next.js with the App Router?",
+    "reference_points": [
+      "Global state libraries must live in Client Components",
+      "Wrap providers in a client component inside the root layout",
+      "Avoid sharing mutable global state on the server between requests",
+      "Prefer server data, URL state and context for simple cases"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you use Redux Toolkit and RTK Query with the Next.js App Router?",
+    "reference_points": [
+      "Create the store per request through a makeStore function",
+      "Provide the store in a client-component provider",
+      "RTK Query defines API slices with createApi",
+      "Hooks work only in Client Components",
+      "Avoid global singleton stores on the server"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are parallel routes in the Next.js App Router?",
+    "reference_points": [
+      "Defined with @slot folders",
+      "Render multiple pages in the same layout simultaneously",
+      "Slots are passed as props to the layout",
+      "Useful for dashboards and modals",
+      "default.js provides fallback content"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you implement intercepting routes in the App Router?",
+    "reference_points": [
+      "Use (.), (..), (..)(..) or (...) folder conventions",
+      "Intercepts a route to show it in the current layout context",
+      "Commonly paired with parallel routes for modals",
+      "Direct URL load shows the full page instead"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle streaming and Suspense in the App Router?",
+    "reference_points": [
+      "Wrap slow components in React Suspense with a fallback",
+      "loading.tsx provides route-level streaming UI",
+      "Server sends HTML in chunks as data resolves",
+      "Improves perceived performance and time to first byte"
+    ],
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are best practices for Next.js API routes?",
+    "reference_points": [
+      "Validate and sanitize input with a schema library like Zod",
+      "Use proper HTTP methods and status codes",
+      "Handle errors with try/catch and consistent responses",
+      "Keep handlers modular by separating logic into services",
+      "Apply authentication and middleware checks"
+    ],
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  }
+]

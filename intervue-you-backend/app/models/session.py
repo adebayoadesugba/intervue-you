@@ -117,19 +117,33 @@ class InterviewSession:
 
     # ---------------- Agenda construction ----------------
 
+    # def _build_time_aware_agenda(self, minutes: int) -> list[AgendaSlot]:
+    #     behavioral_competency = random.choice(["teamwork", "problem_solving", "communication", "teamwork"])
+    #     problem_solving_competency = random.choice(["behavioral", "situational"])
+
     def _build_time_aware_agenda(self, minutes: int) -> list[AgendaSlot]:
-        behavioral_competency = random.choice(["teamwork", "problem_solving", "communication", "teamwork"])
+        # Dynamically extract candidate's primary stack (e.g., "vue", "react", "fastapi", "python", "figma")
+        # Falls back to "core" if no stack list is attached to the session
+        problem_solving_competency = random.choice(["behavioral", "situational"])
+        
+        primary_stack = (self.stack[0] if getattr(self, "stack", None) and len(self.stack) > 0 else "core").lower()
 
         slots = [
-            AgendaSlot(1, "introduction", "communication", "core", is_must_have=True),
-            AgendaSlot(2, "behavioral", behavioral_competency, "core", is_must_have=True),
+            # Slot 1: Introduction (Assesses Communication)
+            AgendaSlot(1, "introduction", "communication", primary_stack, is_must_have=True),
+            
+            # Slot 2: Collaboration & Conflict (Explicitly guarantees Teamwork assessment)
+            AgendaSlot(2, "behavioral", "teamwork", primary_stack, is_must_have=True),
         ]
 
         slot_counter = 3
+        
+        # Slot 3: Resume or Behavioral Scenario (Explicitly guarantees Problem Solving assessment)
         if self.cv_text and self.cv_text.strip():
-            slots.append(AgendaSlot(slot_counter, "resume_based", "problem_solving", "core", is_must_have=True))
+            slots.append(AgendaSlot(slot_counter, "resume_based", "problem_solving", primary_stack, is_must_have=True))
         else:
-            slots.append(AgendaSlot(slot_counter, "behavioral", "teamwork", "core", is_must_have=True))
+            slots.append(AgendaSlot(slot_counter, problem_solving_competency, "problem_solving", primary_stack, is_must_have=True))
+
         slot_counter += 1
 
         if minutes <= 10:

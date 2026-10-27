@@ -1,0 +1,723 @@
+[
+  {
+    "question": "What is next-compose-plugins?",
+    "reference_points": [
+      "Utility to combine multiple Next.js config plugins cleanly",
+      "Avoids deeply nested config wrapper calls",
+      "Largely legacy and rarely needed with modern config functions"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you add polyfills in Next.js?",
+    "reference_points": [
+      "Next.js includes many polyfills by default for modern browsers",
+      "Add extra polyfills by importing them in a client entry file",
+      "Use next/script or a polyfill bundle for legacy browser needs",
+      "Keep additions minimal to protect bundle size"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is static optimization in Next.js?",
+    "reference_points": [
+      "Pages with no blocking data requirements are pre-rendered automatically",
+      "Pages using getServerSideProps or dynamic APIs opt out",
+      "Output is served as static HTML from a CDN"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle internationalization (i18n) in Next.js?",
+    "reference_points": [
+      "Pages Router has built-in i18n routing config with locales",
+      "App Router uses locale segments like app/[lang] with a Proxy for detection",
+      "Libraries like next-intl or next-i18next provide translations",
+      "Load dictionaries on the server to avoid client JS cost",
+      "useTranslation hook is used with react-i18next based setups"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is React Strict Mode in Next.js?",
+    "reference_points": [
+      "Development tool that highlights potential problems",
+      "Double-invokes renders and effects in development",
+      "Enabled via reactStrictMode in next.config.js",
+      "Helps surface unsafe side effects"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is a singleton router in Next.js?",
+    "reference_points": [
+      "Router object exported from next/router",
+      "Allows navigation outside React components",
+      "Should be avoided in favor of useRouter inside components",
+      "Only works on the client side"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle image optimization in Next.js?",
+    "reference_points": [
+      "Use next/image component for automatic resizing and format selection",
+      "Supports lazy loading and responsive images",
+      "Can use external image loaders or a custom loader function",
+      "Next.js optimizes images at build time or on-demand"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you use the fetch API in the Next.js App Router?",
+    "reference_points": [
+      "Server Components can call async fetch directly",
+      "Next.js extends fetch with caching and revalidate options",
+      "Options: cache force-cache, no-store and next.revalidate",
+      "Tags enable on-demand revalidation"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you set up GraphQL in Next.js?",
+    "reference_points": [
+      "Create a GraphQL endpoint using a Route Handler or API route with a server like Apollo or Yoga",
+      "Use Apollo Client or urql on the client",
+      "Server Components can query GraphQL directly",
+      "Configure schema and resolvers on the server"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle CORS in Next.js API endpoints?",
+    "reference_points": [
+      "Set Access-Control-Allow-Origin and related headers in the response",
+      "Handle OPTIONS preflight requests",
+      "Can configure headers in next.config.js or Proxy",
+      "Restrict allowed origins instead of using wildcard in production"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you manage cookies in Next.js?",
+    "reference_points": [
+      "Use the cookies() function from next/headers in server code",
+      "Read and set cookies in Route Handlers and Server Actions",
+      "Set httpOnly, secure and sameSite flags for sensitive cookies",
+      "Client-side cookies handled with libraries or document.cookie"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is AMP and how do you enable it in Next.js?",
+    "reference_points": [
+      "AMP is Google's framework for fast-loading mobile pages",
+      "Older Pages Router supported it via the amp config",
+      "AMP support is deprecated and removed in recent Next.js versions",
+      "Modern performance tools make it largely unnecessary"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are common performance optimization techniques in Next.js?",
+    "reference_points": [
+      "Use Server Components to cut client JavaScript",
+      "Use next/image, next/font and next/script",
+      "Dynamic imports and code splitting",
+      "Static rendering, ISR and caching",
+      "Streaming with Suspense and loading UI"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are the limitations of Next.js?",
+    "reference_points": [
+      "Learning curve with rendering and caching models",
+      "Some features need a server runtime",
+      "Framework conventions limit flexibility",
+      "Build times can grow on large sites",
+      "Some hosting platforms lack full feature support"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How is Next.js a full-stack framework?",
+    "reference_points": [
+      "Frontend UI and backend logic live in one project",
+      "Route Handlers or API Routes provide backend endpoints",
+      "Server Components and Server Actions access databases directly",
+      "Handles routing, rendering and deployment conventions"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is a catch-all segment in Next.js?",
+    "reference_points": [
+      "Written as [...slug] to match multiple path segments",
+      "Params arrive as an array",
+      "Optional catch-all [[...slug]] also matches the base route",
+      "Useful for docs or CMS-driven paths"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are _app.js and _document.js and how do they differ in the Pages Router?",
+    "reference_points": [
+      "_app.js wraps every page and holds global layout, providers and CSS",
+      "_app.js runs on client and server",
+      "_document.js customizes the HTML and body structure",
+      "_document.js runs only on the server",
+      "Neither is used in the App Router"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is getStaticProps?",
+    "reference_points": [
+      "Pages Router function that fetches data at build time",
+      "Runs on the server only",
+      "Returns props passed to the page",
+      "Can return revalidate for ISR"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is getServerSideProps?",
+    "reference_points": [
+      "Pages Router function that runs on every request",
+      "Runs only on the server",
+      "Returns props to render the page with fresh data",
+      "Suited for personalized or request-dependent content"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between getStaticProps and getServerSideProps?",
+    "reference_points": [
+      "getStaticProps runs at build time, getServerSideProps at request time",
+      "Static output can be cached on a CDN",
+      "Server-side props give fresher but slower responses",
+      "Choose static for public stable content, server-side for dynamic data"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are getStaticPaths and fallback in Next.js?",
+    "reference_points": [
+      "getStaticPaths defines which dynamic routes are pre-rendered at build time",
+      "Used with getStaticProps",
+      "fallback: false returns 404 for unknown paths",
+      "fallback: true serves a fallback page then generates the page",
+      "fallback: 'blocking' waits for server render before responding"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are the limitations of the Pages Router?",
+    "reference_points": [
+      "No React Server Components",
+      "Data fetching tied to page-level functions",
+      "Less flexible nested layouts",
+      "Considered legacy compared to the App Router"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle form submissions in the Pages Router versus the App Router?",
+    "reference_points": [
+      "Pages Router uses controlled forms posting to API routes with fetch",
+      "App Router can use Server Actions via the form action prop",
+      "Server Actions support progressive enhancement",
+      "Validate data on the server in both cases"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "When should you choose the Pages Router over the App Router, and vice versa?",
+    "reference_points": [
+      "Pages Router fits stable legacy projects and simple page-level data fetching",
+      "App Router fits new projects needing Server Components, streaming and nested layouts",
+      "App Router is the recommended direction for new work",
+      "Both can coexist for gradual migration"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the main difference between the App Router and the Pages Router?",
+    "reference_points": [
+      "App Router uses React Server Components by default",
+      "App Router has nested layouts, loading and error files",
+      "Pages Router uses getStaticProps and getServerSideProps",
+      "App Router uses Route Handlers instead of API Routes"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "Is it possible to use both the App Router and Pages Router in the same Next.js project?",
+    "reference_points": [
+      "Yes, both directories can coexist",
+      "Routes must not conflict across the two",
+      "Allows incremental migration",
+      "Features like layouts differ between them"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are the limitations of the App Router?",
+    "reference_points": [
+      "Steeper learning curve around server and client boundaries",
+      "Complex caching behavior",
+      "Some libraries lack Server Component support",
+      "Client-only hooks cannot be used in Server Components"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "Is the App Router better than the Pages Router?",
+    "reference_points": [
+      "Generally better for new apps: less client JS, streaming, nested layouts",
+      "Pages Router is simpler and stable for existing apps",
+      "Choice depends on team familiarity and project needs",
+      "Not strictly better in every scenario"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle file uploads in Next.js?",
+    "reference_points": [
+      "Submit FormData to a Route Handler or Server Action",
+      "Read the file with request.formData() or the File object",
+      "Upload to storage like S3 or Cloudinary",
+      "Validate file type and size",
+      "Mind body size limits"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are route groups in the Next.js App Router?",
+    "reference_points": [
+      "Folders wrapped in parentheses like (marketing)",
+      "Organize routes without affecting the URL path",
+      "Allow different layouts for different groups",
+      "Useful for splitting multiple root layouts"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between page.tsx, layout.tsx and template.tsx?",
+    "reference_points": [
+      "page.tsx renders the UI unique to a route",
+      "layout.tsx wraps a segment and its children and persists across navigation",
+      "template.tsx also wraps children but creates a new instance on each navigation",
+      "State inside a template is reset on navigation"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are Server Components in Next.js?",
+    "reference_points": [
+      "Render on the server and do not ship component code to the browser",
+      "Default in the App Router",
+      "Can read databases, files and use secrets directly",
+      "Reduce client-side JavaScript",
+      "Cannot use useState, effects, event handlers or browser APIs"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are Client Components and when should you use the \"use client\" directive?",
+    "reference_points": [
+      "Components that run in the browser, marked with \"use client\" at top of file",
+      "Needed for useState, useEffect, event handlers and browser APIs like window",
+      "Imported children become part of the client bundle",
+      "Do not mark every file; keep static and data-heavy UI on the server"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between static rendering and dynamic rendering in Next.js?",
+    "reference_points": [
+      "Static rendering prepares HTML ahead of time and is served fast",
+      "Dynamic rendering generates the response at request time",
+      "Dynamic needed for cookies, headers, search params, auth or uncached data",
+      "Use static for reusable public content, dynamic for personalized content"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you differentiate between Server and Client Components, and can they import each other?",
+    "reference_points": [
+      "Server Components are the default; Client Components need \"use client\"",
+      "A Server Component can render a Client Component and pass serializable props",
+      "A Client Component cannot import a Server Component directly",
+      "A Server Component can be passed as children to a Client Component"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is Incremental Static Regeneration (ISR) in Next.js?",
+    "reference_points": [
+      "Serves static output that can be refreshed after a set time or on demand",
+      "Pages Router uses revalidate in getStaticProps",
+      "App Router uses fetch cache options, revalidatePath() and revalidateTag()",
+      "Newer versions add Cache Components with \"use cache\" and cache tags"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is error.tsx and how do you handle errors in the App Router?",
+    "reference_points": [
+      "Defines an error boundary for a route segment",
+      "Catches uncaught runtime errors and renders fallback UI",
+      "Must be a Client Component",
+      "Provides reset function to retry rendering",
+      "Custom error pages are done via error.tsx and global-error.tsx"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are Route Handlers in Next.js and how do they differ from API Routes?",
+    "reference_points": [
+      "Created with route.ts or route.js in the App Router",
+      "Export functions named after HTTP methods like GET and POST",
+      "Use Web Request and Response APIs",
+      "API Routes live in pages/api and use req/res Node-style handlers",
+      "Route Handlers replace API Routes in the App Router"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are Server Functions and Server Actions in Next.js?",
+    "reference_points": [
+      "Async server-side functions marked with \"use server\"",
+      "Called Server Actions when used in forms or mutations",
+      "Browser submits data but trusted logic runs on the server",
+      "Can be passed to a form action prop",
+      "Still need validation and authorization checks"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between a Route Handler and a Server Action?",
+    "reference_points": [
+      "Route Handler exposes an HTTP endpoint callable by any client with permission",
+      "Server Action is integrated with React for app-owned UI mutations",
+      "Use Route Handlers for external APIs and webhooks",
+      "Use Server Actions for form and mutation flows inside the app"
+    ],
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between \"use server\" and \"use client\" in Next.js?",
+    "reference_points": [
+      "\"use client\" marks a client boundary for browser-run components",
+      "\"use server\" marks async functions as server-only callable from the client",
+      "\"use server\" does not mean a component is a Server Component",
+      "Server Components need no directive since they are the default"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is hydration in Next.js?",
+    "reference_points": [
+      "React attaches event handlers and state to server-rendered HTML",
+      "HTML is visible before it is interactive",
+      "Client Components need hydration before clicks and inputs work"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What causes hydration errors in Next.js and how do you fix them?",
+    "reference_points": [
+      "Server HTML does not match what React renders on the client",
+      "Causes: Date.now(), Math.random(), window access, invalid HTML nesting, mismatched data",
+      "Make initial server and client render identical",
+      "Move browser-only reads into useEffect",
+      "Render a stable placeholder first for unstable UI"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between redirect() and client-side navigation in Next.js?",
+    "reference_points": [
+      "redirect() from next/navigation runs in server rendering or server logic",
+      "It stops rendering and sends the user elsewhere",
+      "router.push() runs in Client Components after user interaction",
+      "Use server redirect when the server already knows access is not allowed"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you handle redirects in Next.js?",
+    "reference_points": [
+      "Static redirects defined in next.config.js redirects()",
+      "redirect() function in Server Components and actions",
+      "router.push or replace on the client",
+      "Proxy (middleware) for conditional redirects"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is next-seo and when would you use it?",
+    "reference_points": [
+      "Third-party library that simplifies SEO tag management",
+      "Helps configure titles, descriptions, Open Graph and structured data",
+      "Mostly useful in Pages Router; App Router has a built-in Metadata API"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you add a sitemap to a Next.js app?",
+    "reference_points": [
+      "App Router supports a sitemap.ts file that returns URL entries",
+      "Alternatively place a static sitemap.xml in public",
+      "Pages Router can use a package like next-sitemap",
+      "Dynamic routes can be generated from data"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is Proxy (formerly Middleware) in Next.js?",
+    "reference_points": [
+      "proxy.ts runs before a request completes",
+      "Can redirect, rewrite, set headers, read cookies or respond early",
+      "Suited for auth redirects, locale routing and header changes",
+      "Should not hold heavy logic or replace server-side authorization"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is dynamic import and next/dynamic in Next.js, and what does ssr: false do?",
+    "reference_points": [
+      "next/dynamic lazy-loads components to reduce initial bundle",
+      "Built on React.lazy and Suspense",
+      "ssr: false skips server rendering for that component",
+      "Useful for browser-only libraries"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the next export command and how is static export done now?",
+    "reference_points": [
+      "Exports the app as static HTML files",
+      "Modern versions use output: 'export' in next.config.js",
+      "No server features like Route Handlers, SSR or Server Actions",
+      "Output can be hosted on any static host"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you perform client-side data fetching in Next.js?",
+    "reference_points": [
+      "Use useEffect with fetch inside Client Components",
+      "Libraries like SWR or TanStack Query handle caching and revalidation",
+      "Suitable for user-specific or frequently changing data",
+      "Server fetching is preferred for SEO-critical data"
+    ],
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  }
+]

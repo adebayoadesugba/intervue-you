@@ -1,0 +1,493 @@
+[
+  {
+    "question": "How does Next.js work?",
+    "reference_points": [
+      "React framework that handles rendering, routing and optimization automatically",
+      "Pre-renders pages via SSR or SSG for speed and SEO",
+      "File-based routing maps files to URLs",
+      "Automatic code splitting loads only needed JavaScript",
+      "Built-in bundling, minification and image optimization"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is Next.js and how is it different from React?",
+    "reference_points": [
+      "React is a UI library; Next.js is a framework built on React",
+      "Adds routing, server rendering, static generation and data fetching",
+      "Provides built-in metadata, image optimization and code splitting",
+      "Plain React (e.g. Vite) requires choosing your own router, rendering model and deployment setup"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is Styled JSX in Next.js?",
+    "reference_points": [
+      "CSS-in-JS library bundled with Next.js",
+      "Creates encapsulated, component-scoped styles",
+      "Styles do not leak into other components",
+      "Styles can be added or removed without affecting unrelated parts"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the purpose of the app and pages directories in Next.js?",
+    "reference_points": [
+      "Both directories define routes through the file system",
+      "pages/ is the older Pages Router",
+      "app/ is the newer App Router using React Server Components",
+      "Files inside map to URL segments",
+      "Both can coexist in one project during migration"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the App Router in Next.js?",
+    "reference_points": [
+      "Modern router based on the app/ directory",
+      "Built on React Server Components",
+      "Supports nested layouts, loading UI and error boundaries",
+      "Supports route handlers and streaming"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is file-based routing in Next.js?",
+    "reference_points": [
+      "Folder and file structure defines URL structure",
+      "In App Router a segment is public only if it has page.tsx or page.js",
+      "In Pages Router every file in pages/ becomes a route",
+      "Removes the need for manual route configuration"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you create dynamic routes in Next.js?",
+    "reference_points": [
+      "Use square brackets in folder or file name, e.g. [slug]",
+      "Value is passed to the page through params",
+      "Catch-all segments use [...slug]",
+      "Optional catch-all uses [[...slug]]",
+      "Used when URL values are unknown ahead of time"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between SSR, SSG, CSR and ISR?",
+    "reference_points": [
+      "SSR renders HTML on the server for each request",
+      "SSG generates HTML at build time",
+      "CSR sends a JavaScript shell and renders mainly in the browser",
+      "ISR serves static output and regenerates it after revalidation",
+      "Next.js can mix these patterns per route"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the loading.tsx file in Next.js?",
+    "reference_points": [
+      "Defines loading UI for a route segment",
+      "Shown while the route or nested content loads",
+      "Built on React Suspense",
+      "Enables streaming so users see partial content early"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is not-found.tsx in Next.js?",
+    "reference_points": [
+      "Defines the 404 UI for a route segment",
+      "Triggered by calling notFound() from next/navigation",
+      "Used when the route exists but the resource does not",
+      "Global 404 handled by app/not-found.tsx"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the Link component in Next.js?",
+    "reference_points": [
+      "next/link enables client-side navigation without full reload",
+      "Prefetches routes likely to be visited",
+      "Used for internal navigation, normal <a> for external links"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the useRouter hook and how do you navigate programmatically in Next.js?",
+    "reference_points": [
+      "Used in Client Components for programmatic navigation",
+      "Methods include push, replace, back and refresh",
+      "App Router imports it from next/navigation",
+      "Server code uses redirect() instead"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between push and replace in useRouter?",
+    "reference_points": [
+      "push adds a new entry to the browser history stack",
+      "replace overwrites the current history entry",
+      "After replace the back button skips the replaced page",
+      "Use replace for flows like login redirects"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you add metadata for SEO in Next.js?",
+    "reference_points": [
+      "Export a static metadata object from a page or layout",
+      "Use async generateMetadata() when data depends on params or fetching",
+      "Replaces next/head in the App Router",
+      "Covers title, description and Open Graph tags"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the Head component and next/head in Next.js?",
+    "reference_points": [
+      "next/head lets Pages Router pages modify the document head",
+      "Used for title, meta and link tags",
+      "Not used in the App Router, which uses the Metadata API"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the Image component in Next.js?",
+    "reference_points": [
+      "next/image optimizes images automatically",
+      "Handles sizing, lazy loading and modern formats",
+      "Prevents layout shift when width and height are provided",
+      "Reduces load size of one of the heaviest page assets"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you optimize and enable custom fonts in Next.js?",
+    "reference_points": [
+      "next/font loads and optimizes fonts",
+      "Self-hosts fonts to avoid external requests",
+      "Reduces layout shift with generated CSS at build time",
+      "Supports Google fonts and local custom fonts"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do environment variables work in Next.js?",
+    "reference_points": [
+      "Stored in .env files and read via process.env",
+      "Server-only variables stay on the server and suit secrets",
+      "NEXT_PUBLIC_ prefix exposes variables to the browser",
+      "Never put secrets in NEXT_PUBLIC_ variables"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you deploy a Next.js app?",
+    "reference_points": [
+      "Run next build then host the generated output",
+      "Vercel supports all Next.js features natively",
+      "Node hosts or adapters can also run Next.js",
+      "Static export cannot support server rendering, Route Handlers or Server Actions"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you enable TypeScript in a Next.js project?",
+    "reference_points": [
+      "Create a tsconfig.json file or use create-next-app with TypeScript",
+      "Install typescript and @types/react and @types/node",
+      "Next.js auto-generates config and next-env.d.ts on dev start",
+      "Rename files to .ts or .tsx"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the public folder in Next.js?",
+    "reference_points": [
+      "Serves static files such as images, favicon and robots.txt",
+      "Files are served from the site root path",
+      "Files are not processed by the bundler"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the default port of a Next.js app and how do you change it?",
+    "reference_points": [
+      "Default port is 3000",
+      "Change with next dev -p <port> or --port",
+      "Or set the PORT environment variable",
+      "Can be set in package.json scripts"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is Fast Refresh in Next.js?",
+    "reference_points": [
+      "Provides instant feedback on edits during development",
+      "Preserves component state when editing React components",
+      "Reloads fully when edits affect non-component exports",
+      "Recovers automatically from syntax and runtime errors"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is next.config.js used for?",
+    "reference_points": [
+      "Central configuration file for Next.js",
+      "Configures redirects, rewrites, headers and env",
+      "Sets image domains, output mode and experimental features",
+      "Customizes build behavior such as Webpack"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you add component-level and global CSS in Next.js?",
+    "reference_points": [
+      "Component-level styles use CSS Modules (*.module.css)",
+      "CSS Modules scope class names locally",
+      "Global CSS is imported in the root layout (App Router) or _app.js (Pages Router)",
+      "Styled JSX and CSS-in-JS are alternatives"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you use Tailwind CSS in Next.js?",
+    "reference_points": [
+      "Install Tailwind and its PostCSS setup, or choose it in create-next-app",
+      "Configure content paths in the Tailwind config",
+      "Import Tailwind directives in a global CSS file",
+      "Use utility classes in components"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the purpose of next-env.d.ts?",
+    "reference_points": [
+      "Auto-generated TypeScript declaration file",
+      "References Next.js types for TypeScript",
+      "Should not be edited manually",
+      "Ensures type support for images and Next.js APIs"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is next/script used for?",
+    "reference_points": [
+      "Optimized loading of third-party scripts",
+      "strategy prop controls timing: beforeInteractive, afterInteractive, lazyOnload",
+      "Prevents scripts from blocking page rendering",
+      "Used for analytics and widgets"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you add Google Analytics to a Next.js project?",
+    "reference_points": [
+      "Use the @next/third-parties Google Analytics component",
+      "Or load the gtag script with next/script",
+      "Store the measurement ID in a NEXT_PUBLIC_ environment variable",
+      "Place it in the root layout so it loads site-wide"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the difference between the pages and components directories in Next.js?",
+    "reference_points": [
+      "pages directory defines routes",
+      "components directory is a convention for reusable UI, not routing",
+      "Files in components do not become URLs",
+      "components folder is user-created, not special to Next.js"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What is the Pages Router in Next.js and how do you create routes with it?",
+    "reference_points": [
+      "Original Next.js router based on the pages/ directory",
+      "Each file in pages/ becomes a route",
+      "index.js maps to the folder root",
+      "Dynamic routes use [param].js"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are _error.js and custom 404 pages in the Pages Router?",
+    "reference_points": [
+      "_error.js customizes generic error pages for server and client errors",
+      "pages/404.js creates a static custom 404 page",
+      "pages/500.js customizes server error page",
+      "Custom pages are statically generated at build time"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are API Routes in Next.js?",
+    "reference_points": [
+      "Files inside pages/api become API endpoints",
+      "Export a handler function receiving req and res",
+      "Run only on the server and not added to client bundle",
+      "Allow backend functionality within the app"
+    ],
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "What are common use cases for the App Router?",
+    "reference_points": [
+      "Apps needing server-rendered data with minimal client JS",
+      "Dashboards with nested layouts",
+      "Content sites using streaming and caching",
+      "Forms and mutations using Server Actions"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  },
+  {
+    "question": "How do you implement nested layouts in the App Router?",
+    "reference_points": [
+      "Add layout.tsx in each route segment folder",
+      "Layouts nest automatically around child segments",
+      "Layouts persist across navigation and do not re-render",
+      "Root layout must contain html and body tags"
+    ],
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "nextjs",
+    "question_type": "technical",
+    "competency": "technical_depth"
+  }
+]

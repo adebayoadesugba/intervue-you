@@ -47,7 +47,7 @@
     "category": "frontend",
     "subcategory": "icebreaker",
     "difficulty": "any",
-    "stack": "react",
+    "stack": "core",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -101,7 +101,7 @@
   
  
   {
-    "question": "What specific technical or architectural challenges in this role excite you most, and how does your past experience prepare you to tackle them?",
+    "question": "What are the specific challenges in this role excite you most, and how does your past experience prepare you to tackle them?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -128,7 +128,7 @@
   },
   {
     "question": "What drew you to this opportunity, and how do your top technical strengths align with what we are building?",
-    "category": "general",
+    "category": "frontend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",
@@ -167,10 +167,10 @@
   },
 
   {
-    "question": "Could you give me a high-level summary of your engineering journey so far, highlighting two or three key milestones that define your technical expertise?",
+    "question": "Could you give me a high-level summary of your journey so far, highlighting two or three key milestones that define your expertise?",
     "category": "general",
     "stack": "core",
-    "difficulty": "any",
+    "difficulty": "senior",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -183,7 +183,7 @@
     "question": "Walk me through your professional experience, focusing on the most impactful frontend or full-stack projects you have led in your recent roles.",
     "category": "frontend",
     "stack": "core",
-    "difficulty": "any",
+    "difficulty": "senior",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -194,9 +194,9 @@
   },
   {
     "question": "Give me an overview of your background, focusing on how your technical skill set has evolved across your past engineering positions.",
-    "category": "general",
+    "category": "backend",
     "stack": "core",
-    "difficulty": "any",
+    "difficulty": "senior",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -230,6 +230,19 @@
       "Problem Domain: Articulates passion for specific challenges (e.g., state management, real-time UI)",
       "Conciseness: Compact response suitable for an interview opener"
     ]
+  },
+ {
+    "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
+    "category": "general",
+    "subcategory": "stakeholder_comm",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Used clear analogies without overly dense jargon",
+      "Verified understanding through feedback loops or Q&A",
+      "Focused on business value rather than lower-level implementation details"
+    ]
   }
-
 ]
