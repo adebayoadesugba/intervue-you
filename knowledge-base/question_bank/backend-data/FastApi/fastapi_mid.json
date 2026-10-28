@@ -1,0 +1,436 @@
+[
+  {
+    "question": "When should an endpoint be async def and when plain def?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "async def when every slow call can be awaited (async DB driver, httpx, queues)",
+      "Plain def runs in a threadpool, so it is safe for blocking libraries",
+      "Blocking calls like requests.get or time.sleep inside async def freeze the event loop",
+      "Async is not automatically faster; CPU-bound work gains nothing",
+      "The threadpool is finite and can be exhausted by many slow sync routes"
+    ]
+  },
+  {
+    "question": "What happens when you use blocking code inside an async endpoint and how do you fix it?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Blocks the event loop so every other request on that worker waits",
+      "Common causes: time.sleep, requests, sync DB drivers, CPU-heavy work",
+      "Fix by using async libraries (httpx.AsyncClient, asyncpg, async SQLAlchemy)",
+      "Or offload with run_in_threadpool or asyncio.to_thread",
+      "Or change the route to plain def"
+    ]
+  },
+  {
+    "question": "How does FastAPI handle concurrency internally?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ASGI plus a single-threaded event loop via Starlette and Uvicorn",
+      "At each await the coroutine pauses and the loop serves other requests",
+      "Concurrency is not parallelism; one process uses one CPU core",
+      "Efficient for I/O-bound work without thread-per-request overhead"
+    ]
+  },
+  {
+    "question": "Can FastAPI run CPU-heavy ML inference directly in an async route?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Not safely: CPU-bound work blocks the event loop and spikes latency",
+      "Use a plain def route, a thread, or ProcessPoolExecutor",
+      "Or use a dedicated worker or model service (Celery, Ray Serve, Triton)",
+      "Load the model once in lifespan, not per request",
+      "Each worker process holds its own copy of the model in memory"
+    ]
+  },
+  {
+    "question": "How does request validation work in FastAPI?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Body, headers, path and query parameters are matched to declared types",
+      "Failures return 422 with structured details before business logic runs",
+      "Eliminates a major class of input-handling bugs",
+      "Business rules depending on database state belong in the endpoint, not the model"
+    ]
+  },
+  {
+    "question": "Why use response models, and what happens if you return a Response object directly?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Filter undeclared fields so internal data cannot leak",
+      "Document the exact response shape in OpenAPI",
+      "Validate output and catch unexpected return values",
+      "Decouple the API contract from the database model",
+      "Returning a Response directly skips filtering and documentation"
+    ]
+  },
+  {
+    "question": "How does Depends() work, and are dependencies cached?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dependencies form a tree resolved per request from function signatures",
+      "Each dependency runs once per request and its result is reused",
+      "use_cache=False forces a fresh call",
+      "Nothing is cached across requests",
+      "Annotated aliases (e.g. CurrentUser) make dependencies reusable"
+    ]
+  },
+  {
+    "question": "How do dependencies with yield manage a database session?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Code before yield opens the session; code after yield cleans up",
+      "One session per request, closed in a finally block",
+      "Exceptions reach the dependency, so rollback is possible but should re-raise",
+      "Prevents connection leaks"
+    ]
+  },
+  {
+    "question": "What is the difference between middleware and Depends(), and when do you use each?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Middleware is global and runs on every request, including 404s and health checks",
+      "Use middleware for logging, request IDs, timing, CORS and GZip",
+      "Depends() is route-scoped, typed, visible in OpenAPI and easy to override in tests",
+      "Use dependencies for auth and logic needing route context",
+      "CORS must be CORSMiddleware because preflight requests never reach a route"
+    ]
+  },
+  {
+    "question": "How do you handle exceptions with HTTPException versus custom exception handlers?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HTTPException for expected errors within a single endpoint",
+      "@app.exception_handler maps domain exceptions to responses app-wide",
+      "Services can raise domain errors and stay free of HTTP details",
+      "Unhandled exceptions become a 500 without a stack trace sent to the client"
+    ]
+  },
+  {
+    "question": "When is BackgroundTasks enough, and when do you need a task queue?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BackgroundTasks runs in the same process after the response; suits small non-critical jobs",
+      "Tasks are lost on restart, have no retries and share CPU with requests",
+      "Use Celery, RQ, Dramatiq, Arq or a cloud queue for durable or long jobs",
+      "Queues give retries, scheduling, idempotency and observability"
+    ]
+  },
+  {
+    "question": "How do you implement a PATCH endpoint correctly?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Make all fields optional in the update model",
+      "Apply only sent fields with model_dump(exclude_unset=True)",
+      "Without exclude_unset, omitted fields default to None and overwrite data",
+      "Pydantic v2 uses model_dump(), not .dict()"
+    ]
+  },
+  {
+    "question": "How do you write custom validation in Pydantic v2?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "@field_validator for one field, @model_validator for cross-field rules",
+      "v1 decorators @validator and @root_validator are deprecated",
+      "Raise ValueError to reject input",
+      "Simple constraints belong in Field() instead of validators"
+    ]
+  },
+  {
+    "question": "How should a FastAPI app load and manage settings?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use BaseSettings from pydantic-settings reading environment variables and .env",
+      "Typed and validated at startup",
+      "Provide via a dependency with @lru_cache so tests can override it",
+      "Secrets from a secrets manager, never in code or logs"
+    ]
+  },
+  {
+    "question": "How do you structure a large FastAPI application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Split routes into APIRouter modules by domain with prefix and tags",
+      "Keep business logic in service functions or classes, not route handlers",
+      "Keep database access behind dependencies so tests can replace it",
+      "Router-level dependencies apply checks to every route in the router"
+    ]
+  },
+  {
+    "question": "How do you implement JWT authentication in FastAPI?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "OAuth2PasswordBearer reads the token; a get_current_user dependency decodes and verifies it",
+      "JWTs are signed, not encrypted, so keep secrets out of the payload",
+      "Short expiry plus server-side refresh tokens; denylist in Redis for revocation",
+      "Always verify signature and claims before trusting a token",
+      "Authorization is a separate dependency such as require_role"
+    ]
+  },
+  {
+    "question": "How do you implement dependency-based authorization?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Small composable dependencies such as get_current_user and require_admin",
+      "Return 403 when authenticated but not permitted",
+      "Each dependency is reusable, testable and visible in docs",
+      "Group them in a permissions module to avoid sprawl"
+    ]
+  },
+  {
+    "question": "When do you use API keys, and how should they be handled?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Suited to server-to-server and public APIs with rate limiting, not end-user auth",
+      "Send in a header (APIKeyHeader), not query parameters, to avoid leaking in logs",
+      "Hash keys before storing them",
+      "Always use HTTPS"
+    ]
+  },
+  {
+    "question": "How do you test FastAPI endpoints that depend on a database or authentication?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use pytest with TestClient (or httpx.AsyncClient with ASGITransport for async)",
+      "Replace dependencies via app.dependency_overrides",
+      "Reset overrides after each test, ideally in a yield fixture",
+      "Cover success and error paths (401, 403, 404, 422) and keep tests independent",
+      "Use layers: unit, endpoint and integration tests"
+    ]
+  },
+  {
+    "question": "How do you use SQLAlchemy with FastAPI, including the async setup?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Session factory plus a yield dependency gives each request its own session",
+      "Sync SQLAlchemy in async endpoints blocks the event loop",
+      "Async needs create_async_engine, AsyncSession and an async driver like asyncpg",
+      "Every query must be awaited",
+      "Lazy loading fails in async code; use selectinload() or expire_on_commit=False"
+    ]
+  },
+  {
+    "question": "How do you handle database transactions and rollbacks?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "FastAPI does not manage transactions; define boundaries explicitly",
+      "Wrap multi-table operations in one transaction and commit once at the end",
+      "Roll back on error and re-raise",
+      "Do not commit after every step of a multi-step operation"
+    ]
+  },
+  {
+    "question": "How do you handle database migrations with Alembic?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Workflow: alembic revision --autogenerate, review, alembic upgrade head",
+      "Autogenerate misses things like column renames, so review manually",
+      "Never edit an applied migration; create a new one",
+      "Run migrations as a deploy step, not at startup in every worker",
+      "Use backward-compatible steps for zero downtime"
+    ]
+  },
+  {
+    "question": "How do you configure database connection pooling?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Configure pool_size, max_overflow, pool_timeout and pool_pre_ping on the engine",
+      "Total connections across all workers must stay under the database limit",
+      "Size the pool for peak concurrency",
+      "pool_pre_ping avoids errors from stale connections after idle periods"
+    ]
+  },
+  {
+    "question": "How do you handle pagination and filtering in FastAPI?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offset pagination (skip/limit) is simple but slow on deep pages and unstable under inserts",
+      "Cursor pagination is fast and stable but cannot jump to arbitrary pages",
+      "Validate pagination bounds to prevent expensive queries",
+      "Group many filters into a Pydantic model dependency",
+      "Avoid fully generic filters that allow slow queries or injection"
+    ]
+  },
+  {
+    "question": "How do you handle API versioning in FastAPI?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "URL prefixes (/v1, /v2) via separate APIRouters are the most common approach",
+      "Header and media-type versioning give cleaner URLs but are harder to debug and cache",
+      "Version only for breaking changes; adding an optional field is not one",
+      "Mark old routes deprecated=True and publish a removal timeline"
+    ]
+  },
+  {
+    "question": "How do you implement rate limiting in FastAPI?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use a shared store like Redis or an API gateway, not a process-local dict",
+      "Return 429 with Retry-After headers",
+      "Choose key per IP, user or API key",
+      "Handle trusted proxy headers correctly to prevent IP spoofing",
+      "Libraries such as slowapi or fastapi-limiter can be used"
+    ]
+  },
+  {
+    "question": "How do you design a POST endpoint that creates a resource and writes to PostgreSQL?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Separate Pydantic input and output models; do not return ORM objects blindly",
+      "Inject the database session via dependency",
+      "Return 201 and handle uniqueness violations (e.g. 409)",
+      "Define clear transaction boundaries",
+      "Test success and failure paths"
+    ]
+  },
+  {
+    "question": "A FastAPI endpoint works locally but returns 422 in staging. How do you debug it?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "422 means request validation failed before the handler ran",
+      "Compare actual payload, headers, content type, path and query parameters",
+      "Read the Pydantic error details and reproduce with curl or httpx",
+      "Check recent schema changes via /openapi.json",
+      "Do not disable validation to make the request pass"
+    ]
+  },
+  {
+    "question": "How would you model a field that is optional on create but always present in responses?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use separate request and response models",
+      "Understand Optional versus default values in Pydantic v2",
+      "Server-side defaults populate the persisted value",
+      "Tests confirm omitted input is accepted and the response includes the value"
+    ]
+  },
+  {
+    "question": "How do you handle file uploads and streaming responses?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "UploadFile with chunked reads written to disk or object storage",
+      "Enforce size limits and validate content",
+      "StreamingResponse for large or generated downloads",
+      "Presigned URLs for large file delivery"
+    ]
+  }
+]

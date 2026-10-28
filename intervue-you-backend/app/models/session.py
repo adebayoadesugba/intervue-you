@@ -151,11 +151,11 @@ class InterviewSession:
         elif minutes <= 15:
             tech_slot_count = 2   # 5
         elif minutes <= 20:
-            tech_slot_count = 3   # 6
-        elif minutes <= 30:
             tech_slot_count = 4   # 7
+        elif minutes <= 30:
+            tech_slot_count = 6   # 9
         else:
-            tech_slot_count = 5   # 8
+            tech_slot_count = 8   # 11
 
         requested_stacks = [s for s in self.stack if s and s.lower() not in ("core", "none", "universal")]
         if not requested_stacks:

@@ -1,0 +1,565 @@
+[
+ 
+  {
+    "question": "What are wsgi.py and asgi.py, and how do they differ?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "WSGI (Web Server Gateway Interface) is the synchronous interface between Django and the web server",
+      "ASGI supports asynchronous features such as WebSockets and real-time apps",
+      "Both are entry points used in production deployment",
+      "Servers: Gunicorn/uWSGI for WSGI; Daphne/Uvicorn for ASGI"
+    ]
+  },
+  {
+    "question": "Explain Django's request–response cycle.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Request reaches the web server (WSGI/ASGI) and passes through middleware",
+      "URL resolver matches the path in urls.py to a view",
+      "View processes data (often using models and templates) and returns a response",
+      "Response passes back through middleware to the client",
+      "No match results in a 404 error"
+    ]
+  },
+  {
+    "question": "What is middleware in Django, and how do you create custom middleware?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Middleware is a layer that processes requests before views and responses after views, globally",
+      "Common uses: authentication, sessions, security, logging",
+      "Custom middleware is a class with __init__(get_response) and __call__(request)",
+      "Register it in the MIDDLEWARE setting; order matters"
+    ]
+  }
+,
+  {
+    "question": "What is StreamingHttpResponse and when would you use it?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sends the response to the client in chunks from an iterator",
+      "Reduces server memory for large files or long-running output",
+      "Use cases: large CSV exports, video streaming",
+      "Middleware that reads the whole response can negate the benefit"
+    ]
+  },
+  {
+    "question": "What is the Django ORM and how does it work internally?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Object Relational Mapper: interact with the database through Python instead of SQL",
+      "Python code is compiled into SQL and executed through the database driver",
+      "Results are returned as model instances",
+      "Database-agnostic across supported backends"
+    ]
+  },
+  {
+    "question": "What is the difference between select_related and prefetch_related?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "select_related uses SQL JOIN in a single query for ForeignKey and OneToOne",
+      "prefetch_related runs separate queries and joins in Python for ManyToMany and reverse relations",
+      "Both avoid the N+1 query problem",
+      "Choose based on relationship type and result size"
+    ]
+  },
+  {
+    "question": "What are model managers, and how do you create a custom one?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A manager is the interface for database queries; objects is the default",
+      "Create by subclassing models.Manager and adding custom query methods or overriding get_queryset()",
+      "Assign it as a model attribute",
+      "Useful for reusable, encapsulated queries"
+    ]
+  },
+  {
+    "question": "How do unique=True and database constraints work in Django models?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "unique=True prevents duplicate values at the database level",
+      "Constraints are defined in Meta.constraints (e.g., UniqueConstraint, CheckConstraint)",
+      "Support composite and conditional rules",
+      "Enforce data integrity at the database level"
+    ]
+  },
+  {
+    "question": "How do you roll back a migration, rename a field, or add a new table with migrations?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rollback: python manage.py migrate app_name 0001 to revert to a given migration",
+      "Rename a field in models.py, run makemigrations (confirm the rename), then migrate",
+      "New table: add a model, run makemigrations, then migrate",
+      "Be careful with data loss on destructive migrations"
+    ]
+  },
+  {
+    "question": "What are aggregation functions in Django ORM?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Perform calculations on data: Sum, Avg, Count, Max, Min",
+      "aggregate() returns a summary dictionary for the whole QuerySet",
+      "annotate() adds per-object computed values, often with values() for grouping",
+      "Calculated in the database for efficiency"
+    ]
+  },
+  {
+    "question": "What is the difference between values() and values_list()?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "values() returns dictionaries",
+      "values_list() returns tuples",
+      "values_list(flat=True) returns single values for one field",
+      "Both fetch only needed columns, improving performance"
+    ]
+  },
+  {
+    "question": "How do you run raw SQL queries in Django, and when should you?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Manager.raw('SELECT ...') returns model instances",
+      "connection.cursor() allows arbitrary SQL",
+      "Use only when the ORM is insufficient",
+      "Always use parameterized queries to prevent SQL injection"
+    ]
+  },
+  {
+    "question": "What is database indexing and how is it used in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Indexes speed up lookups like a book index",
+      "Added with db_index=True or Meta.indexes",
+      "Index frequently filtered or ordered fields",
+      "Trade-off: slower writes and more storage"
+    ]
+  },
+  {
+    "question": "What are proxy models and abstract models?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Proxy model (proxy=True) uses the same table but changes behavior, ordering, or managers",
+      "Abstract model (abstract=True) is a base class that creates no table",
+      "Child models of an abstract model inherit its fields, avoiding duplication",
+      "Multi-table inheritance is the alternative that creates separate tables"
+    ]
+  },
+  {
+    "question": "How do you override the save() method in a model?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define save(self, *args, **kwargs) in the model",
+      "Add custom logic before or after calling super().save(*args, **kwargs)",
+      "Used for auto-generated values, slugs, or validation",
+      "Bulk operations like bulk_create and update() bypass save()"
+    ]
+  },
+  {
+    "question": "What are URL namespaces and the include() function?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "include() loads URL patterns from another app, keeping configuration modular",
+      "app_name defines the namespace",
+      "Namespaces avoid name clashes between apps",
+      "Reverse with app_name:url_name"
+    ]
+  },
+  {
+    "question": "Explain the dispatch method in class-based views and how to override get() and post().",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "dispatch() is the first method called and routes the request to get(), post(), etc. by HTTP method",
+      "Override get() and post() to add custom logic for each method",
+      "Override dispatch() for logic shared across methods, such as permission checks",
+      "Unsupported methods return 405"
+    ]
+  },
+  {
+    "question": "How do you write custom form validation using clean_<field>() and clean()?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "clean_<fieldname>() validates a single field and raises ValidationError",
+      "clean() validates across fields using self.cleaned_data",
+      "Errors raised in clean() become non-field errors, via form.non_field_errors()",
+      "Always return the cleaned value"
+    ]
+  },
+  {
+    "question": "How do you create dynamic forms and use formsets in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dynamic forms modify fields in __init__(), e.g. loading choices from the database",
+      "Formsets manage multiple identical forms on one page",
+      "Create with formset_factory() or modelformset_factory()",
+      "Validate the whole formset with is_valid()"
+    ]
+  },
+  {
+    "question": "How do sessions and cookies work in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Session data is stored server-side (database, cache, or file); the browser holds only a session ID cookie",
+      "Each request's session ID is used to look up stored data",
+      "Cookies are small browser-stored data set with response.set_cookie() and sent on each request",
+      "Use secure, HttpOnly, and SameSite cookie settings"
+    ]
+  },
+  {
+    "question": "How do permissions and groups work in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Each model gets default add, change, delete, and view permissions",
+      "Assign with user.user_permissions.add(perm) or add users to a Group that carries permissions",
+      "Check with user.has_perm('app_label.codename')",
+      "Enforce in views with permission_required or PermissionRequiredMixin"
+    ]
+  },
+  {
+    "question": "How does password hashing work in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Passwords are never stored in plain text",
+      "PBKDF2 with a salt is the default hasher; Argon2 and bcrypt are configurable",
+      "On login the entered password is hashed and compared to the stored hash",
+      "Hashers are configured via PASSWORD_HASHERS"
+    ]
+  },
+  {
+    "question": "What are serializers in DRF, and how do Serializer and ModelSerializer differ?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Convert complex data (QuerySets, model instances) to JSON and validate incoming data",
+      "serializer.data produces output; is_valid() and save() handle input",
+      "Serializer: fields defined manually, more control",
+      "ModelSerializer: fields auto-generated from the model, less code"
+    ]
+  },
+  {
+    "question": "What are ViewSets and routers in DRF?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A ViewSet groups related actions (list, create, retrieve, update, destroy) in one class",
+      "Routers auto-generate URL patterns: router.register('products', ProductViewSet)",
+      "Reduces boilerplate and keeps URLs consistent",
+      "ModelViewSet gives full CRUD with minimal code"
+    ]
+  },
+  {
+    "question": "What is the difference between APIView and GenericAPIView, and what are CreateAPIView and ListAPIView?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "APIView is the basic class where you define get/post manually",
+      "GenericAPIView adds queryset and serializer_class and works with mixins",
+      "CreateAPIView handles POST creation; ListAPIView handles GET listing",
+      "Concrete generic views reduce code for standard CRUD"
+    ]
+  },
+  {
+    "question": "How does pagination work in DRF?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Splits large result sets into pages to reduce payload and improve performance",
+      "Styles: PageNumberPagination, LimitOffsetPagination, CursorPagination",
+      "Configure globally with DEFAULT_PAGINATION_CLASS and PAGE_SIZE, or per view",
+      "Cursor pagination suits large, frequently changing datasets"
+    ]
+  },
+  {
+    "question": "What are authentication and permissions in DRF, and how does Token Authentication work?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authentication identifies the user (session, token, JWT, OAuth); permissions decide what they may do",
+      "Authentication runs before permission checks",
+      "Permission examples: IsAuthenticated, IsAdminUser; set globally or per view",
+      "Token auth: user gets a token after login and sends it in the Authorization header; stateless"
+    ]
+  },
+  {
+    "question": "What is throttling in DRF?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Limits the number of requests per user or IP",
+      "Prevents abuse and server overload",
+      "Configured via DEFAULT_THROTTLE_CLASSES and DEFAULT_THROTTLE_RATES",
+      "Example: 100 requests per hour per user; exceeding returns HTTP 429"
+    ]
+  },
+  {
+    "question": "What are nested serializers and HyperlinkedModelSerializer?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Nested serializers embed related objects, e.g. category inside product",
+      "Nested writes require overriding create()/update()",
+      "HyperlinkedModelSerializer represents relations as URLs instead of primary keys",
+      "Use select_related/prefetch_related to avoid N+1 queries with nesting"
+    ]
+  },
+  {
+    "question": "What is deployment, and how do you deploy Django on PythonAnywhere or AWS EC2?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Deployment moves the app from a local machine to a server reachable by users",
+      "PythonAnywhere: upload code, create a virtualenv, install dependencies, configure the WSGI file and static paths",
+      "EC2: launch an instance, install Python and dependencies, configure Gunicorn and Nginx, database, and security groups",
+      "Set DEBUG=False, ALLOWED_HOSTS, secrets via environment variables, and run collectstatic"
+    ]
+  },
+   {
+    "question": "What are Q objects in Django, and when would you use them?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Q objects encapsulate query conditions for complex lookups",
+      "Combine with & (AND), | (OR), and ~ (NOT)",
+      "Needed for OR queries, which plain filter() keyword arguments cannot express",
+      "Example: Book.objects.filter(Q(title__icontains='django') | Q(author__name='Ann'))"
+    ]
+  },
+  {
+    "question": "How does the _set suffix work for reverse relationships in the Django ORM?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Django adds a reverse accessor on the related model, named modelname_set by default",
+      "Example: author.book_set.all() returns all books related to that author",
+      "Customize it with related_name on the ForeignKey",
+      "Use prefetch_related to avoid N+1 queries when accessing it in loops"
+    ]
+  },
+  {
+    "question": "When would you use a UUID instead of an integer ID in URLs and primary keys?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A UUID is a 128-bit identifier that is practically unique",
+      "Avoids exposing sequential IDs, which helps privacy and makes enumeration harder",
+      "Useful for distributed systems and merging data from multiple sources",
+      "Use UUIDField(default=uuid.uuid4) and the <uuid:id> path converter; UUIDs are not a substitute for authorization checks"
+    ]
+  },
+  {
+    "question": "How would you customize the queryset used by a ListView?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Override get_queryset() to return a filtered or ordered queryset",
+      "Alternatively set the queryset or model attribute for simple cases",
+      "Use self.request or self.kwargs for user-specific or URL-based filtering",
+      "Override get_context_data() to add extra template context"
+    ]
+  },
+  {
+    "question": "When would you override a model's save() method versus a view's form_valid()?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "save() on the model suits logic that must run whenever the instance is saved, from any code path",
+      "form_valid() in a class-based view handles logic specific to a valid form submission in that view",
+      "form_valid() is suited to setting request-dependent values like the current user before saving",
+      "Call super() in both so default behavior still runs"
+    ]
+  },
+  {
+    "question": "What is logging in Django and why is it important in production?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Django uses Python's built-in logging module, configured via the LOGGING setting",
+      "Records errors, warnings, and events to help debugging and monitoring",
+      "Configure loggers, handlers, formatters, and levels per environment",
+      "Tools like Sentry add error tracking and alerting"
+    ]
+  },
+  {
+    "question": "What testing tools does Django provide, and how would you test a view or a model method?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "TestCase builds on unittest and uses a separate test database created and destroyed automatically",
+      "The test client simulates requests: self.client.get('/books/')",
+      "Assert on status code, context data, or rendered content",
+      "Model methods are tested directly by creating an instance and asserting results; fixtures or factories supply data"
+    ]
+  },
+  {
+    "question": "What are Django signals, and what is the difference between pre_save and post_save?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Signals let decoupled parts of an application react to events, such as a model being saved",
+      "A signal is sent by a sender and handled by receiver functions connected with @receiver",
+      "pre_save fires before the database write; post_save fires after, when the object has a primary key",
+      "Built-in signals include pre_save, post_save, pre_delete, and post_delete; custom signals are also possible"
+    ]
+  },
+  {
+    "question": "What are mixins in Django class-based views, and can you give an example?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A mixin is a class providing reusable behavior, combined through multiple inheritance",
+      "Example: LoginRequiredMixin adds authentication checks to any view",
+      "Place mixins before the main view class in the inheritance list",
+      "Downside: deep mixin hierarchies make it hard to know which method to override"
+    ]
+  },
+  {
+    "question": "What is the N+1 query problem and how do you fix it in Django?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "One query fetches a list, then one extra query per object fetches a related field",
+      "select_related fixes it for ForeignKey and OneToOne using a SQL JOIN",
+      "prefetch_related fixes it for ManyToMany and reverse relations using batched queries",
+      "Detect with django-debug-toolbar or by inspecting connection.queries"
+    ]
+  }
+]

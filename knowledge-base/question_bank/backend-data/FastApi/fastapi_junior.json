@@ -1,0 +1,367 @@
+[
+  {
+    "question": "What is FastAPI and why is it popular?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Modern Python framework for building APIs using standard type hints",
+      "Built on Starlette (web layer) and Pydantic (data layer)",
+      "Automatic validation, serialization and OpenAPI docs",
+      "Native async support and high performance for I/O-bound workloads"
+    ]
+  },
+  {
+    "question": "How does FastAPI compare to Flask?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Flask is minimal and unopinionated; validation and docs need extensions",
+      "FastAPI includes Pydantic validation, auto docs and a built-in Depends() system",
+      "FastAPI is ASGI-native with first-class async",
+      "Flask offers more freedom; FastAPI is more opinionated but faster to a usable API"
+    ]
+  },
+  {
+    "question": "How does FastAPI compare to Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Django is full-stack: ORM, admin, templating, auth",
+      "FastAPI is API-first; you choose your own database layer (e.g. SQLAlchemy)",
+      "Django suits server-rendered monolithic apps",
+      "FastAPI suits microservices, ML model APIs and services behind a separate frontend"
+    ]
+  },
+  {
+    "question": "What is ASGI and how does it differ from WSGI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ASGI is the asynchronous server gateway interface and successor to WSGI",
+      "Supports concurrent handling, WebSockets and long-lived connections",
+      "WSGI is synchronous and blocks on each request's I/O",
+      "FastAPI is an ASGI application"
+    ]
+  },
+  {
+    "question": "What are the roles of Uvicorn and Starlette in a FastAPI application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uvicorn is the ASGI server that runs the app and handles HTTP connections",
+      "Starlette provides routing, middleware, request/response handling and WebSockets",
+      "FastAPI builds on Starlette to add validation, dependency injection and auto docs",
+      "--reload is for development only, not production"
+    ]
+  },
+  {
+    "question": "How do you define a route in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use a decorator such as @app.get, @app.post, @app.put or @app.delete with a path",
+      "The decorator maps HTTP method and path to the function",
+      "Function name does not affect routing",
+      "Decorator also feeds metadata into the generated docs"
+    ]
+  },
+  {
+    "question": "What is the difference between path parameters and query parameters?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Path parameters are declared in the URL template and identify a resource (/items/{item_id})",
+      "Query parameters come after ? and are used for filtering, pagination and optional input",
+      "Function arguments not in the path are treated as query parameters",
+      "Type hints validate and convert values; invalid input returns 422",
+      "Defaults make query parameters optional"
+    ]
+  },
+  {
+    "question": "How does FastAPI generate automatic API documentation?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Builds an OpenAPI schema from type hints, Pydantic models and route decorators",
+      "Swagger UI served at /docs, ReDoc at /redoc, raw schema at /openapi.json",
+      "Docs stay in sync with code with no extra documentation code",
+      "Metadata like title, tags and summary can customize the schema"
+    ]
+  },
+  {
+    "question": "What role does Pydantic play in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validates and parses data using Python type annotations",
+      "Request and response schemas are defined as BaseModel subclasses",
+      "Invalid data is rejected before the endpoint function runs",
+      "Also drives schema generation for the OpenAPI docs"
+    ]
+  },
+  {
+    "question": "How does FastAPI use Python type hints?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Used for request validation and type conversion",
+      "Used for response serialization",
+      "Feed the OpenAPI schema generator",
+      "Enable editor autocompletion and early error detection"
+    ]
+  },
+  {
+    "question": "How does FastAPI determine whether a parameter comes from the path, query or body?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Name appearing in the path template means path parameter",
+      "Simple types (int, str) default to query parameters",
+      "Pydantic model types are read from the JSON body",
+      "Overridable with Query(), Header(), Cookie(), Body() and Form()"
+    ]
+  },
+  {
+    "question": "How do you define optional fields and enforce constraints in Pydantic?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use T | None (or Optional[T]) with a default of None to make a field omittable",
+      "In Pydantic v2, a nullable field without a default is still required",
+      "Use Field() for constraints such as gt, le, min_length and max_length",
+      "Constraints appear in the generated OpenAPI schema"
+    ]
+  },
+  {
+    "question": "What is the difference between request models and response models?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Request models validate incoming data",
+      "Response models (response_model or return type) control what is returned",
+      "Undeclared fields such as password hashes are filtered out",
+      "Separate input and output models enforce security and a stable API contract"
+    ]
+  },
+  {
+    "question": "How does FastAPI handle validation errors?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validation runs automatically before the endpoint logic",
+      "Failures return 422 Unprocessable Entity with structured error details",
+      "Details include the location and reason for each problem",
+      "Error format can be customized with exception handlers"
+    ]
+  },
+  {
+    "question": "How do you set HTTP status codes in FastAPI, and which ones should you know?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Set with status_code on the decorator",
+      "200 OK, 201 Created, 204 No Content",
+      "400, 401 (unauthenticated), 403 (forbidden), 404, 409 (conflict)",
+      "422 for validation failures, 500 for server errors"
+    ]
+  },
+  {
+    "question": "How do you handle errors in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Raise HTTPException with a status code and detail for expected errors",
+      "Register custom handlers with @app.exception_handler for app-wide consistency",
+      "Do not expose stack traces or internals to clients",
+      "Log unexpected errors and return a generic 500"
+    ]
+  },
+  {
+    "question": "What is dependency injection in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Declare reusable logic with Depends() and FastAPI resolves it per request",
+      "Common uses: database sessions, authentication, configuration",
+      "Dependencies can depend on other dependencies",
+      "Keeps code modular, reusable and easy to mock in tests"
+    ]
+  },
+  {
+    "question": "What is middleware and when would you use it?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Code that runs on every request before the endpoint and every response after",
+      "Registered once and applied globally",
+      "Common uses: logging, CORS, response headers, latency measurement",
+      "Heavy logic in middleware slows every request"
+    ]
+  },
+  {
+    "question": "What are background tasks in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BackgroundTasks runs functions after the response is sent",
+      "Client does not wait, e.g. for sending an email",
+      "Runs in the same process, so work is lost on a crash",
+      "Not suitable for critical or long jobs; use Celery or RQ instead"
+    ]
+  },
+  {
+    "question": "How do you handle file uploads in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use UploadFile with File()",
+      "UploadFile uses a spooled temporary file instead of loading everything into memory",
+      "Read large files in chunks",
+      "Validate file type and size"
+    ]
+  },
+  {
+    "question": "How do you handle authentication in FastAPI at a basic level?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "fastapi.security provides OAuth2PasswordBearer, HTTPBearer and APIKeyHeader",
+      "A get_current_user dependency extracts and verifies credentials",
+      "Endpoints depending on it become protected and return 401 if invalid",
+      "JWT with OAuth2 is the common pattern"
+    ]
+  },
+  {
+    "question": "How do you configure CORS in FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Add CORSMiddleware with allowed origins, methods and headers",
+      "Needed when the frontend and API are on different origins",
+      "Never combine allow_origins=['*'] with allow_credentials=True",
+      "Restrict to known origins in production"
+    ]
+  },
+  {
+    "question": "How do you create a basic REST API with FastAPI?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Resource-oriented URLs such as /products and /products/{id}",
+      "Correct HTTP methods and status codes",
+      "Pydantic schemas for request and response",
+      "Dependencies for database sessions and auth, plus tests"
+    ]
+  },
+  {
+    "question": "How do you run and deploy a FastAPI application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Run with an ASGI server such as Uvicorn: uvicorn main:app",
+      "Production: Gunicorn with Uvicorn workers, no --reload",
+      "Containerize with Docker and place behind a reverse proxy like Nginx",
+      "Deployable on AWS, Azure, GCP or similar platforms"
+    ]
+  },
+  {
+    "question": "What is the difference between GET, POST, PUT, PATCH and DELETE?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "GET retrieves; POST creates or triggers an operation",
+      "PUT replaces a resource; PATCH partially modifies it",
+      "DELETE removes a resource",
+      "GET, PUT and DELETE are idempotent; POST is not necessarily"
+    ]
+  },
+  {
+    "question": "What is the difference between authentication and authorization?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authentication establishes who the user is",
+      "Authorization determines what that user may do",
+      "Verifying a JWT is authentication; checking resource ownership is authorization",
+      "Both are required for a secure API"
+    ]
+  }
+]

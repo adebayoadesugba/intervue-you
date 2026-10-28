@@ -1,5 +1,83 @@
 [
   {
+    "question": "Explain what an API endpoint is.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Specific URL acting as an entry point into a backend service or feature",
+      "Allows client applications to send HTTP requests (with optional payloads) and receive structured responses"
+    ]
+  },
+  {
+    "question": "Can you explain the difference between SQL and NoSQL databases?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "SQL databases use rigid predefined schemas and structured tabular relationships",
+      "NoSQL databases are schema-free or dynamic, storing data in key-value pairs, documents, wide-columns, or graphs"
+    ]
+  },
+  {
+    "question": "How would you handle file uploads in a web application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Perform server-side validations for file size, MIME types, and magic bytes",
+      "Enforce HTTPS connections for secure channels",
+      "Rename files using unique identifiers (UUIDs) to avoid collisions and path traversal attacks",
+      "Store file metadata in a database while saving physical files to object storage (e.g. S3)"
+    ]
+  },
+  {
+    "question": "What kind of tests would you write for a new API endpoint?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unit tests: Test isolated business logic using mocks for external dependencies",
+      "Integration tests: Verify full HTTP endpoint interaction with real databases and services",
+      "Load/Performance tests: Assess system stability and throughput under heavy stress"
+    ]
+  },
+  {
+    "question": "How do you approach API versioning in your projects?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "URI Path Versioning: Placing version numbers directly in the URL (e.g. /api/v1/users)",
+      "Query Parameters: Passing version attributes in URL query parameters",
+      "Headers: Utilizing custom or Accept headers for clean routing"
+    ]
+  },
+  {
+    "question": "How do you protect a server from SQL injection attacks?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use parameterized queries and prepared statements to separate SQL logic from input data",
+      "Leverage Object-Relational Mapping (ORM) tools that handle parameterization automatically",
+      "Validate and sanitize dynamic input parameters",
+      "Apply the principle of least privilege to database connections"
+    ]
+  },
+    {
     "question": "What is a RESTful API and what are standard HTTP methods?",
     "category": "backend",
     "difficulty": "junior",

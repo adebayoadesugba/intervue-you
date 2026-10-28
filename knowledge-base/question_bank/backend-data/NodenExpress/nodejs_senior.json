@@ -1,0 +1,813 @@
+[
+  {
+    "question": "How would you architect a scalable and maintainable Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use modular architecture with single-purpose components and clear separation of concerns",
+      "Leverage microservices or serverless patterns for independent scalability",
+      "Implement message queues (RabbitMQ, Kafka) for asynchronous inter-service communication"
+    ]
+  },
+  {
+    "question": "Explain the principles of Microservices and why Node.js is a good fit for this architecture.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decomposes large applications into small, independently deployable services",
+      "Node.js event-driven model excels at non-blocking I/O and high request concurrency",
+      "Lightweight runtime footprint enables fast container startup times and low resource usage"
+    ]
+  },
+  {
+    "question": "How do you handle inter-service communication in a microservices architecture?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Synchronous: RESTful HTTP endpoints for basic integration or gRPC for low-latency RPC",
+      "Asynchronous: Message brokers (RabbitMQ, Kafka) for event-driven, decoupled messaging",
+      "Implements circuit breakers and fallbacks to handle network failures gracefully"
+    ]
+  },
+  {
+    "question": "Discuss the pros and cons of using a Serverless architecture with Node.js.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pros: Zero server management, automatic scaling, pay-per-execution cost efficiency",
+      "Cons: Cold start latency, cloud vendor lock-in, complex distributed debugging and local testing"
+    ]
+  },
+  {
+    "question": "How would you monitor and observe a production Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Logging: Centralized log aggregation using ELK stack or Loki with correlation IDs",
+      "Metrics: Collect runtime indicators (memory heap, CPU, event loop lag) via Prometheus/Grafana",
+      "Tracing: Implement distributed tracing using OpenTelemetry across microservice boundaries"
+    ]
+  },
+  {
+    "question": "What are some best practices for handling CPU-intensive tasks in Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offload heavy computations away from main event loop thread",
+      "Use Worker Threads for parallel in-process computation sharing memory space",
+      "Delegate tasks to isolated child processes or external microservice worker pools"
+    ]
+  },
+  {
+    "question": "How would you optimize the performance of a high-traffic Node.js API?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Implement multi-tier caching (Redis key-value caching, CDN response caching)",
+      "Utilize Node.js cluster module to leverage all available CPU cores",
+      "Optimize database queries, indexing, and connection pools",
+      "Enforce non-blocking asynchronous I/O and response payload compression"
+    ]
+  },
+  {
+    "question": "What are the benefits of using TypeScript in a Node.js project?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provides static type checking to catch bugs at compile time",
+      "Enhances IDE autocompletion, refactoring safety, and code self-documentation",
+      "Improves maintainability and developer velocity in large-scale enterprise codebases"
+    ]
+  },
+  {
+    "question": "How would you set up a CI/CD pipeline for a Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Trigger pipeline on Git commits/PRs using GitHub Actions, GitLab CI, or Jenkins",
+      "Run linting, security vulnerability audits (npm audit), unit, and integration tests",
+      "Package multi-stage Docker images and deploy automatically to staging/production clusters"
+    ]
+  },
+  {
+    "question": "Describe the difference between a fork() and a spawn() process model.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "spawn(): Launches a new OS process with streaming I/O (stdin, stdout, stderr)",
+      "fork(): Specialized spawn() variant built specifically for Node.js modules",
+      "fork() establishes an Inter-Process Communication (IPC) channel for parent-child message passing"
+    ]
+  },
+  {
+    "question": "How do you prevent resource starvation in a Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enforce strict timeouts on all I/O operations and database queries",
+      "Avoid blocking main thread with sync calls or long CPU loops",
+      "Implement rate limiting, worker pools, and load balancing across instances"
+    ]
+  },
+  {
+    "question": "How do you implement secure HTTP headers in an Express.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Integrate Helmet.js middleware to automatically set security headers",
+      "Configures Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), X-Frame-Options, and X-Content-Type-Options"
+    ]
+  },
+  {
+    "question": "Explain what OpenTelemetry is and its role in modern applications.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vendor-neutral, open-source observability framework for generating and collecting telemetry data",
+      "Standardizes instrumentation for distributed metrics, logs, and traces across microservices"
+    ]
+  },
+  {
+    "question": "What are the various ways to handle unhandled exceptions in a Node.js process?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Listen to process.on('uncaughtException') and process.on('unhandledRejection') events",
+      "Log error details securely and execute graceful process shutdown to avoid undefined state",
+      "Rely on process managers (PM2, Kubernetes) to restart clean process instances"
+    ]
+  },
+  {
+    "question": "How does the Node.js process model affect its scalability?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Single-threaded event loop handles high-concurrency I/O workloads efficiently",
+      "CPU-bound tasks block the main thread, forming scalability bottlenecks",
+      "Scaled horizontally via clustering, worker threads, or container replicas"
+    ]
+  },
+  {
+    "question": "How does Node.js use the require.resolve() function, and when would you use it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Resolves full file path of a module using standard resolution algorithm without loading it into memory",
+      "Used to check module availability or locate static assets without triggering side effects of module execution"
+    ]
+  },
+  {
+    "question": "How do you ensure high availability and load balancing for a Node.js service?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Place reverse proxies/load balancers (Nginx, HAProxy, AWS ALB) in front of service nodes",
+      "Run multiple application instances across containers or availability zones",
+      "Use health check endpoints to detect and isolate failing nodes"
+    ]
+  },
+  {
+    "question": "Explain the concept of a reactor pattern.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Event-driven I/O design pattern underlying Node.js architecture",
+      "Demultiplexes incoming I/O events on a single thread and dispatches them asynchronously to registered handlers"
+    ]
+  },
+  {
+    "question": "What is the significance of the zlib module?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in module providing compression/decompression algorithms (gzip, deflate, brotli)",
+      "Used by HTTP server middleware to compress response bodies, reducing network payload size and latency"
+    ]
+  },
+  {
+    "question": "Describe the net and dgram modules.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "net module: Creates stream-based, reliable TCP servers and clients",
+      "dgram module: Implements UDP datagram sockets for fast, connectionless packet transmission"
+    ]
+  },
+  {
+    "question": "What is Docker, and how can it be used to deploy Node.js applications?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Containerization engine packaging code, runtime, and dependencies into portable images",
+      "Dockerfile defines multi-stage build, dependency installation, security user, and execution command"
+    ]
+  },
+  {
+    "question": "How would you implement rate-limiting on an API?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use rate-limiting middleware (express-rate-limit) backed by Redis key store",
+      "Tracks request counts per IP/API key over specified time window",
+      "Returns HTTP 429 Too Many Requests status when threshold is exceeded"
+    ]
+  },
+  {
+    "question": "What are the key differences between Bun, Deno, and Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Node.js: Mature ecosystem, V8 engine, CommonJS/ESM, npm standard",
+      "Deno: Built-in TypeScript support, secure sandbox by default, URL-based modules",
+      "Bun: Built on JavaScriptCore, ultra-fast performance focus with built-in bundler and test runner"
+    ]
+  },
+  {
+    "question": "How would you handle a large number of database connections efficiently?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Implement database connection pools to reuse active database sockets",
+      "Use external connection proxies (e.g. PgBouncer) for high instance counts",
+      "Configure pool min/max limits matching database hardware limits"
+    ]
+  },
+  {
+    "question": "Discuss the use of a message queue (e.g., RabbitMQ, Kafka) with Node.js.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decouples producers and consumers for asynchronous background processing",
+      "Buffers peak traffic bursts without overloading backend services",
+      "Prevents heavy tasks from blocking main event loop"
+    ]
+  },
+  {
+    "question": "What are some of the performance trade-offs of using async/await?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Slight memory and CPU overhead from V8 generating async state machines",
+      "Micro-performance penalty is negligible compared to gains in code readability and maintainability"
+    ]
+  },
+  {
+    "question": "How would you implement a simple caching layer in a Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "In-memory stores (node-cache) for single-instance, or Redis for distributed systems",
+      "Middleware checks cache key before executing route logic",
+      "Writes response to cache with explicit Time-To-Live (TTL) eviction policy"
+    ]
+  },
+  {
+    "question": "What is esbuild, and how does it relate to Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Extremely fast JavaScript/TypeScript bundler and minifier written in Go",
+      "Used in Node.js build pipelines to rapidly transpile modern JS/TS for production"
+    ]
+  },
+  {
+    "question": "Explain event delegation in an event-driven system.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Attaches a single event listener to a parent component rather than multiple child elements",
+      "Leverages event bubbling to capture and dispatch events centrally, reducing memory usage"
+    ]
+  },
+  {
+    "question": "How does the V8 engine optimize JavaScript code?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses Just-In-Time (JIT) compilation to convert JS into machine code",
+      "Ignition interpreter generates bytecode; TurboFan compiler optimizes hot functions based on profiling inline caches"
+    ]
+  },
+  {
+    "question": "What is JWT (JSON Web Token), and how does it work with Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compact, cryptographically signed token carrying stateless user claims",
+      "Signed on server using libraries like jsonwebtoken",
+      "Verified per request in middleware without performing database session lookups"
+    ]
+  },
+  {
+    "question": "How would you handle internationalization and localization?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use i18n libraries (i18next) to manage translation locale files",
+      "Format dates, currencies, and numbers dynamically based on Accept-Language headers"
+    ]
+  },
+  {
+    "question": "What is Server-Side Rendering (SSR) with Node.js, and why would you use it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pre-renders full HTML pages on the server for each request before sending to browser",
+      "Improves initial page load metrics (FCP) and Search Engine Optimization (SEO)"
+    ]
+  },
+  {
+    "question": "Discuss the trade-offs of a monolithic vs. microservices architecture for a new project.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Monolithic: Simpler initial setup, fast local testing, easier deployment, but harder to scale individual components",
+      "Microservices: Independent scaling, domain isolation, multi-team velocity, but introduces high operational and network complexity"
+    ]
+  },
+  {
+    "question": "How do you protect against DDoS attacks on a Node.js server?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Deploy edge reverse proxies (Nginx) or CDNs (Cloudflare, AWS Shield) to absorb traffic spikes",
+      "Implement strict API rate limiting, request size limits, and IP blocking rules"
+    ]
+  },
+  {
+    "question": "What is the util module used for?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in utility module for object inspection (util.inspect)",
+      "Converts callback-based functions into Promise-returning functions (util.promisify)"
+    ]
+  },
+  {
+    "question": "Explain the concept of telemetry and its importance.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Automated collection of application health data (metrics, logs, traces)",
+      "Essential for real-time production performance monitoring, anomaly detection, and debugging"
+    ]
+  },
+  {
+    "question": "What is the significance of the Promise.all() and Promise.race() methods?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Promise.all(): Executes promises concurrently and resolves when all complete (fails fast on first rejection)",
+      "Promise.race(): Resolves or rejects as soon as the first promise in the array settles"
+    ]
+  },
+  {
+    "question": "Explain the difference between setImmediate() and setTimeout(fn, 0).",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "setImmediate(): Executes callback in the check phase of the current event loop iteration",
+      "setTimeout(fn, 0): Schedules callback in the timers phase after a minimum 1ms timer threshold check"
+    ]
+  },
+  {
+    "question": "What techniques should be implemented to secure an Express.js application against production threats?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Integrate Helmet middleware to configure secure HTTP headers (HSTS, CSP, X-Frame-Options)",
+      "Enforce TLS/HTTPS transport and set httpOnly, secure flags on session cookies",
+      "Apply express-rate-limit to mitigate brute-force and Denial of Service (DoS) attempts",
+      "Sanitize incoming query, body, and param payloads against XSS and NoSQL/SQL injection attacks"
+    ]
+  },
+  {
+    "question": "How can you optimize performance in high-concurrency Node.js applications?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Keep the event loop unblocked with non-blocking I/O and offload CPU work to worker threads",
+      "Scale with clustering or multiple instances behind a reverse proxy",
+      "Add caching, rate limiting, and connection pooling",
+      "Profile with Clinic.js and load test with Autocannon; manage processes with PM2"
+    ]
+  },
+  {
+    "question": "What are memory leaks, and how can they be detected and prevented in production?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A memory leak is memory that is retained but no longer needed, causing growth over time",
+      "Causes: globals, unremoved listeners, closures, uncleared timers, unclosed streams, unbounded caches",
+      "Detect with process.memoryUsage(), heap snapshots, and tools like clinic.js, heapdump, 0x",
+      "Prevent with cleanup, WeakMap, bounded caches, and memory alerts"
+    ]
+  },
+  {
+    "question": "What is the role of service discovery in microservices?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Lets services find each other dynamically instead of using hardcoded addresses",
+      "Client-side discovery queries a registry directly; server-side discovery delegates to a load balancer or platform such as Kubernetes",
+      "Tools: Consul, Eureka, etcd, Zookeeper, Kubernetes DNS",
+      "Supports automatic registration, deregistration, and scaling"
+    ]
+  },
+  {
+    "question": "Explain the differences between service orchestration and choreography.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Orchestration uses a central coordinator that explicitly controls workflow steps",
+      "Choreography has services react to events independently with no central controller",
+      "Orchestration is easier to trace and reason about; choreography gives looser coupling but harder dependency tracking",
+      "Choose based on workflow complexity and team autonomy"
+    ]
+  },
+  {
+    "question": "How would you implement eventual consistency in a distributed system?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Propagate changes asynchronously through message queues or events",
+      "Use retries and idempotent operations so reprocessing is safe",
+      "Resolve conflicts with versioning or business rules",
+      "Use background reconciliation jobs and event sourcing where appropriate"
+    ]
+  },
+  {
+    "question": "How do distributed locks work, and when would you use them?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provide mutual exclusion across multiple processes or nodes using a shared coordinator such as Redis, Zookeeper, or etcd",
+      "Use cases: preventing duplicate job processing and concurrent writes to shared resources",
+      "Locks need expiry (TTL) to avoid deadlocks if a holder crashes",
+      "Redlock is a common Redis-based algorithm; understand its limitations"
+    ]
+  },
+  {
+    "question": "What are the internal components of the V8 engine and how do they relate to Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ignition interpreter produces bytecode; TurboFan JIT-optimizes hot code into machine code",
+      "Heap with generational garbage collection, plus the call stack for execution contexts",
+      "Hidden classes speed up property access when object shapes stay consistent",
+      "Node.js embeds V8 to execute JavaScript and bridges to C++ APIs",
+      "JIT warm-up and GC pressure affect runtime performance"
+    ]
+  },
+  {
+    "question": "How does Node.js handle DNS resolution, and what are the performance implications?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "dns.lookup uses the OS getaddrinfo via the libuv thread pool, while dns.resolve* uses c-ares for network-based queries",
+      "Lookups can saturate the thread pool and add latency to every new connection",
+      "Node does not cache DNS results by default, so application-level caching can help",
+      "Keep-alive connection reuse and monitoring DNS timing reduce impact"
+    ]
+  },
+  {
+    "question": "What are the best practices for handling backpressure in Node.js streams?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Backpressure occurs when data is produced faster than it is consumed, risking unbounded memory growth",
+      "Check the return value of write() and wait for the 'drain' event when it returns false",
+      "Use pipe() or pipeline() so backpressure propagates automatically",
+      "Implement _read and _write correctly in custom streams and monitor buffer levels"
+    ]
+  },
+  {
+    "question": "What are HATEOAS principles and how do they apply to REST API design?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hypermedia As The Engine Of Application State: responses include links to available actions and related resources",
+      "Reduces client-server coupling and makes the API discoverable and evolvable",
+      "Formats include HAL, JSON-LD, and Hydra",
+      "Trade-offs: larger payloads, added client complexity, and limited real-world adoption"
+    ]
+  },
+  {
+    "question": "How do refresh tokens work, and how should they be stored and rotated?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Long-lived tokens used to obtain new short-lived access tokens without re-login",
+      "Store in HttpOnly cookies for browsers and keep hashed records server-side; avoid localStorage",
+      "Rotate on every use, invalidate the old token, and detect reuse as a possible breach",
+      "Track metadata, set expiry, and clean up expired tokens"
+    ]
+  },
+  {
+    "question": "How would you build a multi-tenant backend system with Express and Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Isolation models: database-per-tenant, schema-per-tenant, or shared schema with a tenant ID column",
+      "Identify tenants via subdomain, header, or JWT claim and resolve them in middleware",
+      "Enforce data isolation (e.g., row-level security) and manage connection pooling per tenant",
+      "Apply per-tenant rate limits, quotas, logging, and monitoring"
+    ]
+  },
+  {
+    "question": "What is CQRS, and how is it implemented in backend APIs?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Separates write models (commands) from read models (queries)",
+      "Allows independent scaling and read/write-optimized data models",
+      "Often paired with event sourcing and message queues to sync read models",
+      "Trade-offs: added complexity and eventual consistency"
+    ]
+  },
+  {
+    "question": "What is Event Sourcing, and how can it be applied in a Node.js system?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "State is derived by replaying an append-only log of immutable events",
+      "Provides a full audit trail, replay, and time-travel debugging",
+      "Implement with an event store and reducers that rebuild state; pairs naturally with CQRS",
+      "Challenges: event versioning, harder direct state queries, eventual consistency"
+    ]
+  },
+  {
+    "question": "What are sagas in microservice orchestration, and how are they implemented in Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A saga is a sequence of local transactions with compensating actions on failure",
+      "Two styles: orchestration (central coordinator) and choreography (event-driven)",
+      "Implement with Kafka or RabbitMQ events or workflow engines like Temporal",
+      "Compensating steps must be idempotent"
+    ]
+  },
+  {
+    "question": "How would you ensure atomicity in a distributed transaction across microservices?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Two-phase commit offers strict atomicity but reduces availability and is rarely used in microservices",
+      "Sagas with compensating transactions provide eventual consistency",
+      "Transactional outbox: write the event and data in one local transaction, then publish asynchronously",
+      "Make consumers idempotent to handle redelivery"
+    ]
+  },
+  {
+    "question": "Explain the CAP theorem and how it impacts backend architecture decisions.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "During a network partition a system must choose between consistency and availability",
+      "CP systems favor consistency; AP systems favor availability with eventual consistency",
+      "Partition tolerance is unavoidable in distributed systems, so the real choice is C versus A",
+      "Choice depends on business needs (e.g., finance favors consistency, social feeds favor availability)"
+    ]
+  },
+  {
+    "question": "What is a query planner, and how can you analyze query performance in PostgreSQL or MongoDB?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "The planner chooses an execution plan using statistics and available indexes",
+      "PostgreSQL: EXPLAIN ANALYZE; MongoDB: explain(\"executionStats\")",
+      "Check index usage, scan type, documents scanned versus returned, and execution time",
+      "Use tools like pgAdmin, pganalyze, Compass, or Atlas profiler"
+    ]
+  },
+  {
+    "question": "What are the common challenges in scheduling and retrying failed jobs?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Duplicate execution requires idempotent handlers and unique job IDs",
+      "Use exponential backoff with a maximum retry count to avoid infinite retry loops",
+      "Track job states and route permanently failed jobs to a dead-letter queue",
+      "Watch for starvation, resource leaks, and stuck jobs with monitoring and alerts"
+    ]
+  },
+  {
+    "question": "How does garbage collection work in Node.js, and how can memory leaks be diagnosed?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "V8 uses generational mark-and-sweep: young generation (Eden and survivor spaces) and old generation, with incremental and concurrent marking",
+      "Diagnose with process.memoryUsage(), heap snapshots in Chrome DevTools, and profilers like clinic.js or 0x",
+      "Common leak sources: globals, closures, unremoved listeners, uncleared timers, unbounded caches, unclosed streams",
+      "Prevent with listener and timer cleanup, WeakMap/WeakSet, bounded caches, and production memory alerts"
+    ]
+  },
+ 
+  {
+    "question": "What is WASI and how does it relate to Node.js?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "WASI is the WebAssembly System Interface",
+      "Lets WebAssembly modules run securely in Node.js with controlled access to files and environment",
+      "Provides sandboxing; example use: plugin systems"
+    ]
+  },
+  {
+    "question": "How do you measure and profile performance in a Node.js application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in tooling: --inspect and --prof for CPU profiling",
+      "Third-party tools: clinic.js and benchmark.js",
+      "OpenTelemetry for tracing async flows",
+      "Profile under realistic load and focus on hot paths"
+    ]
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "question": "What is database replication, and how can it be used for fault tolerance?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Replicates data continuously from a primary master node to secondary slave nodes",
+      "Automated failover promotes a slave to master if the primary node fails",
+      "Multi-master configurations support active-active writes with conflict resolution"
+    ]
+  },
+  {
+    "question": "Describe the use of blue-green deployment strategy in backend services.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains two identical production environments (Blue and Green)",
+      "Deploys new software to Green, runs smoke tests, and switches router traffic instantly",
+      "Enables immediate rollback to Blue if production issues arise"
+    ]
+  },
+  {
+    "question": "How do you manage schema migrations in a continuous delivery environment?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintain version-controlled migration scripts checked into Git",
+      "Use automated tools like Flyway or Liquibase in deployment pipelines",
+      "Follow the Expand-Contract pattern for zero-downtime database changes"
+    ]
+  },
+  {
+    "question": "What strategies exist for handling idempotency in REST API design?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use inherently idempotent HTTP verbs (GET, PUT, DELETE) per REST specs",
+      "Implement unique Idempotency-Key headers for POST operations validated via Redis",
+      "Return cached responses for duplicate keys without re-executing operations"
+    ]
+  },
+  {
+    "question": "Describe the implementation of a single sign-on (SSO) solution.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Integrate a centralized Identity Provider (IdP) supporting OIDC/OAuth 2.0 or SAML",
+      "Authenticate users at the IdP level and issue signed JWT access tokens",
+      "Applications validate tokens against IdP JWKS public keys"
+    ]
+  },
+  {
+    "question": "How would you approach load testing a backend API?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define target RPS, acceptable error rates, and p95/p99 latency baselines",
+      "Create realistic user scenario scripts using k6, JMeter, or Locust",
+      "Ramp up load in a production-mirror environment while monitoring bottleneck metrics"
+    ]
+  },
+  {
+    "question": "Describe how you would implement a server-side cache eviction strategy.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define memory caps and invalidation triggers upon data mutations",
+      "Select an appropriate eviction policy: LRU, LFU, FIFO, or TTL",
+      "Monitor cache hit/miss ratios to adjust policies dynamically"
+    ]
+  },
+  {
+    "question": "Explain the difference between optimistic and pessimistic locking and when to use each.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Optimistic locking checks version numbers on commit; best for high-read, low-write scenarios",
+      "Pessimistic locking places explicit DB locks during transactions; best for high-write/critical integrity scenarios",
+      "Optimistic locking is non-blocking, whereas pessimistic locking blocks concurrent access"
+    ]
+  },
+  {
+    "question": "What methods would you use to prevent deadlocks in database transactions?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enforce consistent lock ordering across all application transactions",
+      "Set strict transaction timeouts to auto-terminate long-running locks",
+      "Keep transaction scopes short and use optimistic concurrency control where applicable"
+    ]
+  },
+  {
+    "question": "How would you secure inter-service communication in a microservices architecture?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enforce mTLS (Mutual TLS) for encrypted and authenticated inter-service transport",
+      "Use API Gateways and private network segmentation (VPCs, NetworkPolicies)",
+      "Pass short-lived JWTs carrying fine-grained OAuth 2.0 permission scopes between internal services"
+    ]
+  },
+  {
+    "question": "Discuss techniques for preventing and detecting data anomalies in large-scale systems.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enforce schema constraints and validation rules at data ingestion boundaries",
+      "Implement data versioning for safe rollback of corrupted states",
+      "Use Change Data Capture (CDC) and automated data quality reconciliation pipelines"
+    ]
+  },
+  {
+    "question": "Describe the process of creating a global, high-availability data storage solution for a multinational application.",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Deploy multi-region cloud infrastructure with latency-based DNS routing",
+      "Implement continuous multi-region data replication to prevent data loss during outages",
+      "Utilize load balancers across availability zones for optimal latency"
+    ]
+  },
+  {
+    "question": "What is distributed tracing and why is it useful?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tracks a request's flow and timing across services",
+      "Tools: OpenTelemetry, Jaeger, New Relic",
+      "Helps diagnose latency bottlenecks, including in async code"
+    ]
+  },
+  {
+    "question": "What is Punycode and why does it matter for domain names?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encodes Unicode domain names into ASCII (e.g., münich.com becomes xn--mnich-kva.com)",
+      "Required for DNS compatibility since DNS supports ASCII labels",
+      "Node's built-in punycode module is deprecated; use userland packages or the URL API"
+    ]
+  }
+]

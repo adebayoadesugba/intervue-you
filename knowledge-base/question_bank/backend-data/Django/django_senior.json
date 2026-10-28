@@ -1,0 +1,354 @@
+[
+ 
+  {
+    "question": "How does Django handle concurrency, and what is thread-safety in Django?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Concurrency is provided by the application server (Gunicorn/uWSGI workers and threads, or ASGI servers)",
+      "Each request is processed in its own context",
+      "Django is designed to be thread-safe, but shared module-level state must be avoided",
+      "Use locks, database transactions, or external stores for shared state"
+    ]
+  },
+  {
+    "question": "What is the GIL and does it affect Django?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Global Interpreter Lock lets only one thread execute Python bytecode at a time",
+      "Limits CPU-bound multithreading; I/O-bound work is less affected",
+      "Django scales via multiple worker processes",
+      "Async views and task queues (Celery) help with I/O waits and heavy work"
+    ]
+  },
+  {
+    "question": "How can you improve Django ORM performance?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use select_related and prefetch_related to avoid N+1 queries",
+      "Fetch only required fields with only(), defer(), or values()",
+      "Add database indexes on frequently queried fields",
+      "Use bulk_create/bulk_update, pagination, and caching; inspect queries with the debug toolbar or explain()"
+    ]
+  },
+  {
+    "question": "How does Django's URL resolver work internally?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Django takes ROOT_URLCONF and matches the request path against patterns in order",
+      "The first match calls the mapped view with captured arguments",
+      "include() produces nested resolvers",
+      "No match raises Http404"
+    ]
+  },
+  {
+    "question": "How does template rendering work internally, and how can you optimize it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Template loaders find the file, the engine parses it, context is applied, and HTML is returned",
+      "Cached template loader avoids repeated parsing",
+      "Keep heavy logic out of templates and pass only required data",
+      "Use fragment caching and avoid database queries inside loops"
+    ]
+  },
+  {
+    "question": "How do you create a custom user model, and how do AbstractUser and AbstractBaseUser differ?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Subclass AbstractUser or AbstractBaseUser and set AUTH_USER_MODEL in settings.py",
+      "AbstractUser keeps all default fields and is ideal for adding extra fields",
+      "AbstractBaseUser provides only password and last_login; you define the username field and a custom manager",
+      "Decide before the first migration, since changing it later is difficult"
+    ]
+  },
+  {
+    "question": "What is a Django authentication backend?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Defines how users are verified and fetched",
+      "Default is ModelBackend, which uses the User model",
+      "Custom backends can support email login, LDAP, OAuth, or APIs",
+      "Configured through AUTHENTICATION_BACKENDS"
+    ]
+  },
+  {
+    "question": "How do you generate API documentation and handle versioning in DRF?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Schema generation produces OpenAPI documentation (drf-spectacular, drf-yasg) with Swagger UI or ReDoc",
+      "Versioning keeps multiple API versions side by side, e.g. /v1/ and /v2/",
+      "Configure DEFAULT_VERSIONING_CLASS (URLPath, AcceptHeader, etc.)",
+      "Preserves backward compatibility for clients"
+    ]
+  },
+  {
+    "question": "How do you optimize DRF API queries?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use select_related() for foreign keys and prefetch_related() for many-to-many",
+      "Avoid N+1 queries by overriding get_queryset()",
+      "Paginate and filter results to reduce payload",
+      "Return only needed fields and add caching or indexes"
+    ]
+  },
+  {
+    "question": "How do you configure Nginx with Gunicorn for a Django app?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Gunicorn runs the Django WSGI app: gunicorn myproject.wsgi:application",
+      "Nginx acts as reverse proxy, forwarding requests to Gunicorn via socket or port",
+      "Nginx serves static and media files directly",
+      "Add HTTPS, appropriate timeouts, and a process manager such as systemd"
+    ]
+  },
+  {
+    "question": "How do you deploy Django using Docker?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Write a Dockerfile defining the Python base image, dependencies, and project code",
+      "Build with docker build -t myapp . and run with docker run -p 8000:8000 myapp",
+      "Use docker-compose to manage Django, the database, and other services together",
+      "Keep secrets in environment variables and use Gunicorn instead of runserver"
+    ]
+  },
+  {
+    "question": "What caching options does Django provide, and at what levels can caching be applied?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Backends: local memory (development), file-based, database, and Redis or Memcached for production",
+      "Levels: per-site, per-view with cache_page, template fragments with {% cache %}, and the low-level cache API",
+      "Local memory cache is per process, so it is unsuitable for multi-process production",
+      "Plan cache invalidation and timeouts carefully"
+    ]
+  },
+  {
+    "question": "What is the difference between page-level caching and the low-level cache API in Django?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "cache_page caches an entire rendered response; simple but all-or-nothing",
+      "The low-level API (cache.get, cache.set) caches specific data such as an expensive query result",
+      "Low-level caching is reusable across views and more flexible",
+      "Choose based on how much of the page is actually expensive and how often it changes"
+    ]
+  },
+  {
+    "question": "How would you diagnose a slow Django view?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use django-debug-toolbar to see query count and timing per query",
+      "Common causes are N+1 queries, missing indexes, and heavy computation",
+      "Use QuerySet.explain() and profiling to find slow queries and hot code",
+      "Fix with select_related/prefetch_related, indexes, caching, or moving work to background tasks"
+    ]
+  },
+  {
+    "question": "What is database connection pooling and does Django handle it by default?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pooling reuses open database connections instead of creating one per request",
+      "By default Django opens a new connection per request and closes it afterward",
+      "CONN_MAX_AGE enables persistent connections between requests",
+      "At scale use a dedicated pooler such as PgBouncer, or built-in pooling in newer Django versions with PostgreSQL"
+    ]
+  },
+  {
+    "question": "How would you optimize a slow Django admin page for a model with a lot of related data?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use list_select_related on the ModelAdmin to join related fields in the list view",
+      "Override get_queryset() to add select_related or prefetch_related",
+      "Limit list_display fields that trigger extra queries",
+      "Use list_per_page, search_fields, and raw_id_fields for large relations"
+    ]
+  },
+  {
+    "question": "How would you decide between denormalizing data in a Django model and keeping it normalized?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Denormalization stores computed or copied values to speed reads at the cost of duplication",
+      "Worth it for values read constantly and expensive to compute, such as running totals",
+      "Requires a strategy to keep duplicated data in sync (signals, save overrides, or scheduled jobs)",
+      "Default to normalized for simplicity and integrity, and denormalize based on measured need"
+    ]
+  },
+  {
+    "question": "Why would you use Celery with Django instead of running slow code directly in a view?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Slow work like sending email or processing files should not block the HTTP response",
+      "Celery offloads tasks to background worker processes",
+      "The view returns immediately while the task runs separately",
+      "Improves responsiveness, reliability, and scalability"
+    ]
+  },
+  {
+    "question": "What is a message broker and why does Celery need one?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "The broker (commonly Redis or RabbitMQ) queues tasks and delivers them to workers",
+      "Celery relies on the broker rather than managing the queue itself",
+      "Allows multiple workers, even on different machines, to consume from one queue",
+      "A result backend is optional and stores task results"
+    ]
+  },
+  {
+    "question": "How would you schedule recurring tasks in Django using Celery?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Celery Beat is the scheduler that enqueues tasks at fixed intervals or cron schedules",
+      "Run Beat alongside the Celery workers as a separate process",
+      "Define schedules in settings (beat_schedule) or via django-celery-beat in the database",
+      "Replaces external cron for jobs like nightly reports"
+    ]
+  },
+  {
+    "question": "How do you handle failed Celery tasks gracefully?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Failed tasks do not retry by default unless configured",
+      "Use autoretry_for or self.retry with exponential backoff and a max retry count",
+      "Make tasks idempotent so retries are safe",
+      "Add logging, error tracking, and monitoring such as Flower to surface failures"
+    ]
+  },
+  {
+    "question": "How do you decide whether logic should run in a Celery task or synchronously in the view?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Keep it synchronous if it is fast and the response needs its result",
+      "Use a background task if it is slow, depends on unreliable external services, or the user need not wait",
+      "Typical task candidates: sending email, generating reports, file processing",
+      "Pass IDs rather than full objects to tasks, and handle results asynchronously"
+    ]
+  },
+  {
+    "question": "How would you monitor Celery task queues and worker health in production?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Flower provides a real-time dashboard of active, pending, and failed tasks",
+      "Track queue length over time; a growing queue means workers are not keeping up",
+      "Monitor worker liveness, task latency, and failure rates with alerts",
+      "Integrate with logging and error tracking such as Sentry"
+    ]
+  }
+  ,
+  {
+    "question": "What is the difference between Django's TestCase and TransactionTestCase?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "TestCase wraps each test in a transaction that is rolled back; fast",
+      "Because of the rollback, on_commit hooks do not actually run in plain TestCase",
+      "TransactionTestCase truly commits and resets the database between tests; slower",
+      "Use TransactionTestCase when testing transaction behavior or commit-dependent code"
+    ]
+  },
+  {
+    "question": "What are the risks of overusing Django signals?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Control flow becomes implicit and hard to trace across files",
+      "Hidden side effects make debugging and testing difficult",
+      "Signals are not triggered by bulk operations like bulk_create or queryset.update()",
+      "Prefer explicit method calls for logic tightly coupled to an action"
+    ]
+  }
+]

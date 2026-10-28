@@ -1,0 +1,1044 @@
+[
+  {
+    "question": "What is Node.js, and how is it different from a browser's runtime environment?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Server-side JavaScript runtime environment built to execute code outside the web browser",
+      "Used for building backend services, CLI tools, and network applications",
+      "Lacks browser APIs (DOM, window) but provides server capabilities (file system, OS access)"
+    ]
+  },
+  {
+    "question": "Explain the purpose of the JavaScript engine (V8) in Node.js.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "V8 engine compiles JavaScript directly into native machine code for fast execution",
+      "Same high-performance JavaScript engine used in Google Chrome"
+    ]
+  },
+  {
+    "question": "Why is Node.js considered single-threaded, and how does the event loop handle async operations?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses a single main thread for executing JavaScript code",
+      "Offloads asynchronous I/O operations (file system, networking) to a background thread pool (libuv)",
+      "Event loop picks up completed callbacks from the event queue when main thread is free"
+    ]
+  },
+  {
+    "question": "How do you create a simple web server using the built-in HTTP module?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Import built-in http module via require('http')",
+      "Use http.createServer() to define request/response handler",
+      "Call server.listen(port) to start listening for HTTP requests"
+    ]
+  },
+  {
+    "question": "What's the difference between blocking and non-blocking code execution?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Blocking: Halts overall thread execution until current operation completes",
+      "Non-blocking: Allows execution to proceed with subsequent tasks while I/O operation runs in background"
+    ]
+  },
+  {
+    "question": "How do you use the require() function to import a node module?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Loads and caches CommonJS module files",
+      "Used for importing built-in modules, third-party npm packages, or local files"
+    ]
+  },
+  {
+    "question": "What is Node Package Manager (NPM), and how do you use it to manage packages?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Default package manager and repository for Node.js modules",
+      "CLI interface used to install, update, configure, and manage project dependencies"
+    ]
+  },
+  {
+    "question": "Differentiate between local and global package installation using the command line interface.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Local (npm install <pkg>): Installs into project node_modules directory, scoped only to current project",
+      "Global (npm install -g <pkg>): Installs system-wide for CLI access across all projects"
+    ]
+  },
+  {
+    "question": "Explain the purpose of the package.json file.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stores project metadata, scripts, versioning, and configuration",
+      "Lists direct dependencies and devDependencies to reproduce environment across machines"
+    ]
+  },
+  {
+    "question": "How do you handle error handling in asynchronous code with a callback function?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Follows error-first callback convention",
+      "First argument is reserved for error parameter; null or undefined if operation succeeded"
+    ]
+  },
+  {
+    "question": "What are Promises, and what problem do they solve with asynchronous code?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Objects representing eventual completion or failure of an asynchronous operation",
+      "Solves callback hell by allowing clean, readable .then() and .catch() chaining"
+    ]
+  },
+  {
+    "question": "Explain async/await and how it improves readability for async function calls.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Syntactic sugar built on top of Promises",
+      "Allows writing asynchronous code in a linear, synchronous-looking style with try/catch blocks"
+    ]
+  },
+  {
+    "question": "How do you use the fs module for FS operations?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in module for file system interaction (reading, writing, deleting files)",
+      "Provides both async (fs.readFile) and sync (fs.readFileSync) API variants"
+    ]
+  },
+  {
+    "question": "Explain the difference between synchronous and asynchronous file system operations.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Synchronous: Blocks event loop thread until file operation finishes",
+      "Asynchronous: Non-blocking; delegates task to background thread pool and triggers callback upon completion"
+    ]
+  },
+  {
+    "question": "What is a Buffer class in Node.js, and when would you use it for handling binary data?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Represents raw binary memory allocation outside V8 heap",
+      "Essential for handling binary data streams such as images, files, or encrypted packets"
+    ]
+  },
+  {
+    "question": "What is a stream, and when is it useful for writing data or handling large files?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Interface for reading or writing data continuously in small chunks",
+      "Prevents high memory usage by avoiding loading large files into memory all at once"
+    ]
+  },
+  {
+    "question": "Explain the role of the EventEmitter.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Class facilitating event-driven architecture in Node.js",
+      "Allows objects to emit named events and register custom listener callbacks (.on, .emit)"
+    ]
+  },
+  {
+    "question": "What are process.nextTick() and setImmediate() in the context of the event loop?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "process.nextTick(): Executes callback immediately after current operation completes, before event loop continues",
+      "setImmediate(): Schedules callback to run in check phase of next event loop cycle"
+    ]
+  },
+  {
+    "question": "How do you get and set environment variables in a Node.js application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Access runtime variables via global process.env object",
+      "Use packages like dotenv to load key-value pairs from local .env files into process.env"
+    ]
+  },
+  {
+    "question": "What is a middleware function in the context of Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Function with access to req, res objects and next callback",
+      "Used to transform requests, perform authentication/logging, or terminate request-response cycle"
+    ]
+  },
+  {
+    "question": "How do you define a route in an Express.js application to handle an HTTP request?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use app.<method>(path, handler) syntax (e.g., app.get('/path', callback))",
+      "Maps HTTP verbs and URL paths to specific controller functions"
+    ]
+  },
+  {
+    "question": "What is the difference between exports and module.exports?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "module.exports is actual object returned by require() call",
+      "exports is a reference shortcut pointing to module.exports; reassigning exports breaks reference"
+    ]
+  },
+  {
+    "question": "Describe the read-eval-print loop (REPL) in Node.js.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Interactive command-line shell that reads, evaluates, prints, and loops JS code",
+      "Useful for rapid prototyping, testing snippets, and inspecting built-in objects"
+    ]
+  },
+  {
+    "question": "How would you debug a Node.js application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use built-in node inspect CLI tool",
+      "Attach IDE debuggers (VS Code debugger) using --inspect flag",
+      "Use console logging or external APM profiling tools"
+    ]
+  },
+  {
+    "question": "List some common Node.js API functions.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "fs.readFile() / fs.writeFile() for file handling",
+      "http.createServer() for network servers",
+      "path.join() / path.resolve() for path manipulation",
+      "os.cpus() for hardware introspection"
+    ]
+  },
+  {
+    "question": "What is an error-first callback, and what does the error object represent?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Convention where first parameter is error object, remaining parameters are result data",
+      "Error object contains error details/stack trace if failed; null if successful"
+    ]
+  },
+  {
+    "question": "What is the role of the event queue in the event loop?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Queue holding callback functions resulting from completed async operations",
+      "Event loop processes queued callbacks sequentially when main thread call stack is clear"
+    ]
+  },
+  {
+    "question": "Explain how Node.js's single-threaded model handles multiple requests.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses non-blocking I/O to offload heavy operations to thread pool",
+      "Main thread immediately accepts next request while waiting for background operations to signal completion"
+    ]
+  },
+  {
+    "question": "How do you execute JavaScript code from a file?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Run command node <filename.js> in terminal"
+    ]
+  },
+  {
+    "question": "What is a control flow function?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Function governing execution sequence of asynchronous tasks",
+      "Ensures async operations execute sequentially, in parallel, or conditionally"
+    ]
+  },
+  {
+    "question": "What is Express.js and what are its key features?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Minimal, flexible web application framework built on top of Node.js",
+      "Simplifies routing, middleware integration, and HTTP utility handling",
+      "Built-in static file serving via express.static and view engine support",
+      "Ideal for building RESTful APIs, microservices, and single-page application backends"
+    ]
+  },
+  {
+    "question": "What is the default port number for an Express.js application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Express.js does not enforce a hardcoded default port number",
+      "Port 3000 is used by common developer convention",
+      "Ports are explicitly declared using app.listen(port) or process.env.PORT"
+    ]
+  },
+  {
+    "question": "What is the role of the next() function in Express.js middleware?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Callback function used to pass execution control to the next middleware in the stack",
+      "Omitting next() causes the request to hang indefinitely without sending a response",
+      "Passing an argument to next(err) skips remaining non-error middleware and triggers error-handling logic"
+    ]
+  },
+  {
+    "question": "What is routing in Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Defines how application endpoints (URIs) respond to specific client HTTP request methods",
+      "Uses app.<method>(path, handler) syntax to bind handlers to route paths",
+      "Supports static paths, string patterns, and regular expressions"
+    ]
+  },
+  {
+    "question": "What is the difference between app.use() and app.get() in Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "app.use(): Mounts middleware globally or for specified path prefixes across all HTTP methods",
+      "app.get(): Specifically targets and responds to HTTP GET requests matching an exact route path"
+    ]
+  },
+  {
+    "question": "How do Node.js and Express.js differ from each other?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Node.js: JavaScript runtime environment executing JS code outside browser engines",
+      "Express.js: Web framework built on Node.js offering structured routing and middleware abstractions"
+    ]
+  },
+  {
+    "question": "What is Bcrypt used for in Express.js authentication?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Password hashing library utilizing adaptive key stretching and automatic salting",
+      "Designed to be computationally intensive to withstand brute-force and rainbow table attacks",
+      "Stores salted hash strings securely in database user tables instead of plain text"
+    ]
+  },
+  {
+    "question": "What is the difference between res.send() and res.json()?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "res.send(): Sends responses of varying types (strings, buffers, HTML, or objects) setting Content-Type dynamically",
+      "res.json(): Explicitly formats objects/arrays as JSON strings and forces Content-Type header to application/json"
+    ]
+  },
+  {
+    "question": "What is scaffolding in Express.js and how is express-generator used?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Process of automatically generating boilerplates, directory structures, and config files",
+      "express-generator CLI tool creates pre-configured Express projects with routes, views, and package.json"
+    ]
+  },
+  {
+    "question": "What built-in middleware functions are included with Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "express.json(): Parses incoming request bodies with JSON payloads",
+      "express.urlencoded(): Parses incoming requests with URL-encoded payloads",
+      "express.static(): Serves static assets (images, CSS, JS) from specified directories",
+      "express.raw() and express.text(): Parse raw buffer and string request bodies"
+    ]
+  },
+  {
+    "question": "How do you configure application properties using app.set() in Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Assigns setting keys to values within the application instance using app.set(name, value)",
+      "Used for setting view engines, template directories, environment modes, and trust proxy settings",
+      "Values retrieved globally using corresponding app.get(name) call"
+    ]
+  },
+  {
+    "question": "How do you render static files or plain HTML in Express.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Serve entire static asset folders using app.use(express.static('public'))",
+      "Send single HTML files directly using res.sendFile(path.join(__dirname, 'index.html'))",
+      "Send inline HTML string markup using res.send('<h1>Hello World</h1>')"
+    ]
+  },
+  {
+    "question": "What are the primary HTTP request methods used in Express.js route handlers?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "GET: Retrieves resources from server without side effects",
+      "POST: Submits payload data to create new resources",
+      "PUT: Replaces existing resources or creates them if non-existent",
+      "PATCH: Applies partial updates to existing resources",
+      "DELETE: Removes specified resources"
+    ]
+  },
+  {
+    "question": "Which arguments are available inside an Express.js route handler function?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "req (Request): Object holding client data (params, query, body, headers)",
+      "res (Response): Object providing methods to construct and send client responses",
+      "next (Next Function): Optional callback passing control to subsequent middleware"
+    ]
+  },
+  {
+    "question": "Explain dynamic routing and route parameters in Express.js.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Route parameters created using colon syntax (e.g. /users/:userId)",
+      "Captured parameters exposed on req.params object (req.params.userId)",
+      "Allows defining flexible URL paths accepting dynamic resource IDs"
+    ]
+  },
+  {
+    "question": "What are popular framework alternatives to Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fastify: High-performance framework focusing on low overhead and JSON schema validation",
+      "Koa.js: Created by original Express team using async/await middleware pipelines without bundled routing",
+      "Hapi.js: Enterprise-focused framework emphasizing robust plugin architectures and security",
+      "NestJS: Opinionated, TypeScript-native framework using progressive modular architecture"
+    ]
+  },
+  {
+    "question": "Compare the performance characteristics of synchronous and asynchronous code in Node.js.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Synchronous code blocks the event loop, so one slow operation stalls all requests",
+      "Asynchronous code allows high concurrency for I/O-bound work such as file, network, and database calls",
+      "Async adds some memory and callback overhead and demands careful error handling",
+      "CPU-bound work is better isolated in separate threads or processes"
+    ]
+  },
+  {
+    "question": "What are the differences between CommonJS and ES modules in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CommonJS uses require/module.exports and loads synchronously at runtime; ESM uses import/export and loads asynchronously",
+      "ESM has static structure, enabling compile-time analysis and tree shaking",
+      "ESM bindings are live read-only references and always run in strict mode",
+      "ESM is enabled via .mjs or \"type\": \"module\"; __dirname and __filename are unavailable in ESM",
+      "ESM can import CommonJS, but interop has limitations"
+    ]
+  },
+  {
+    "question": "Explain the purpose of middleware in Express.js and how custom middleware is designed.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Middleware functions (req, res, next) process requests in an ordered pipeline for cross-cutting concerns like auth, logging, and validation",
+      "Types: application-level, router-level, error-handling (four arguments), built-in, third-party",
+      "Custom middleware must call next() or end the response, and pass errors with next(err)",
+      "Order matters; keep each middleware single-purpose and lightweight"
+    ]
+  },
+  {
+    "question": "Explain the use of helmet.js and other security-related middleware in Express.",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "helmet sets protective HTTP headers (CSP, HSTS, frameguard, noSniff) against clickjacking, MIME sniffing, and XSS",
+      "Apply with app.use(helmet())",
+      "Complementary middleware: cors, express-rate-limit, hpp, and CSRF protection",
+      "Keep middleware current and configure headers for the app's needs"
+    ]
+  },
+  {
+    "question": "What are the main differences between session-based and stateless authentication?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Session-based stores state on the server (Redis or database) and sends a session ID cookie",
+      "Stateless (token-based) carries claims in a signed token with no server storage",
+      "Sessions allow immediate revocation; tokens scale easily but need blacklists or short expiry",
+      "Cookie-based flows need CSRF protection; sessions suit web apps and tokens suit APIs, SPAs, and mobile"
+    ]
+  },
+  {
+    "question": "What are the pros and cons of using an ORM like Sequelize or TypeORM?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pros: abstracts raw SQL, reduces CRUD boilerplate, supports migrations and model-based development",
+      "Cons: performance overhead on complex queries, less SQL control, leaky abstractions, learning curve",
+      "Good for standard CRUD and rapid development",
+      "Fall back to raw queries for performance-critical or complex joins"
+    ]
+  },
+  {
+    "question": "What are the common patterns for handling file uploads in backend services?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Server-side upload parsed by middleware such as multer, or direct client-to-cloud upload via signed URLs",
+      "Store large files in object storage (S3, GCS) rather than on the app server",
+      "Validate file type and size and sanitize filenames",
+      "Consider virus scanning for untrusted uploads"
+    ]
+  },
+  {
+    "question": "How can you manage environment-based configurations in a Node.js application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use environment variables with dotenv and per-environment config selected via NODE_ENV",
+      "Never commit .env files or secrets to version control",
+      "Use secret managers (AWS Parameter Store, Vault) in production",
+      "Validate required variables at startup with a schema library"
+    ]
+  },
+  {
+    "question": "What is structured logging, and why is it important?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Logs are emitted as machine-readable data (typically JSON) rather than free text",
+      "Easier to search, filter, aggregate, and feed into log platforms",
+      "Include consistent keys and contextual metadata such as request ID and user ID",
+      "Never log sensitive data"
+    ]
+  },
+  {
+    "question": "How does horizontal scaling differ from vertical scaling in backend deployments?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vertical scaling adds resources to one machine; simple but hardware-limited",
+      "Horizontal scaling adds more instances; highly scalable but needs load balancing and stateless design",
+      "In Node.js, horizontal scaling uses clustering or multiple containers",
+      "Shared state must be externalized for horizontal scaling"
+    ]
+  } ,
+  {
+    "question": "How do you manage user sessions in a Node.js application?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use express-session with a persistent store such as Redis; avoid the default in-memory store in production",
+      "Store only the session ID in a cookie",
+      "Configure cookie options: maxAge, httpOnly, sameSite, secure",
+      "Keep the secret in environment variables and set session expiry"
+    ]
+  },
+  {
+    "question": "What is the difference between synchronous and asynchronous APIs in Node.js, and when is each appropriate?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Synchronous calls block the event loop; asynchronous calls are non-blocking (callbacks, promises, async/await)",
+      "Never use sync APIs inside request handlers",
+      "Sync APIs are acceptable for CLI scripts and application startup",
+      "Prefer async for all server code"
+    ]
+  },
+  {
+    "question": "What is the difference between authentication and authorization, and how are they implemented in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authentication verifies who the user is (login); authorization determines what they can do (roles and permissions)",
+      "Passport provides strategies such as local and Google OAuth",
+      "jsonwebtoken (JWT) supports stateless tokens",
+      "Implement RBAC through middleware that checks roles or permissions"
+    ]
+  },
+  {
+    "question": "What tools are used to handle file uploads in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "multer handles multipart/form-data in Express",
+      "Supports disk, memory, or custom storage engines (e.g., S3)",
+      "Supports size limits, file filters, and custom filenames",
+      "busboy is a lower-level option for stream-level control"
+    ]
+  },
+  {
+    "question": "How does Node.js compare with Python for backend development?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Node is non-blocking and event-driven, which suits I/O-heavy APIs",
+      "Python is better suited to CPU-heavy work such as data science and ML",
+      "Node scales compute via cluster or worker threads; Python via multiprocessing",
+      "The right choice depends on workload, team skills, and ecosystem"
+    ]
+  },
+  {
+    "question": "How do you connect a Node.js application to MongoDB?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Mongoose or the native MongoDB driver with mongoose.connect(uri)",
+      "Store the connection string in environment variables; never hardcode credentials",
+      "Handle connection errors, disconnects, and retries",
+      "Close the connection gracefully on SIGINT/SIGTERM"
+    ]
+  },
+  {
+    "question": "How do you read command-line arguments in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "process.argv.slice(2) returns the user-supplied arguments",
+      "Use minimist, yargs, or commander to parse flags and options",
+      "Example: const argv = require('minimist')(process.argv.slice(2))"
+    ]
+  },
+  {
+    "question": "What is the util module in Node.js and what are its common functions?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "util.promisify() converts callback-style functions to promise-returning functions",
+      "util.inspect() produces readable object output, useful for logging",
+      "util.inherits() is a legacy approach to inheritance; ES6 classes are preferred"
+    ]
+  },
+  {
+    "question": "What is EventEmitter in Node.js and how do you use it safely?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Core class of Node's event-driven model, from require('events')",
+      "Use .on(), .once(), and .emit() to register and fire events",
+      "Unremoved listeners can cause memory leaks; use .removeListener() or .off()",
+      "Node warns when the max listener count is exceeded"
+    ]
+  },
+  {
+    "question": "What is a Buffer in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stores raw binary data, such as from files or network sockets",
+      "Fixed-size; cannot be resized after creation",
+      "Create with Buffer.alloc() or Buffer.from(); avoid the deprecated new Buffer()"
+    ]
+  },
+  {
+    "question": "Why does Node.js use the V8 engine?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compiles JavaScript to machine code using JIT compilation",
+      "Fast, highly optimized, and embeddable",
+      "Automatic garbage collection",
+      "Battle-tested through Chrome"
+    ]
+  },
+  {
+    "question": "What is middleware in Express and why does its order matter?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Functions with the signature (req, res, next) that run in the request pipeline",
+      "Used for logging, authentication, body parsing, and validation",
+      "Must call next() or end the response",
+      "Execution follows registration order, so placement matters"
+    ]
+  },
+  {
+    "question": "What are the main HTTP methods, and what do idempotency and safe methods mean?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Methods: GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS",
+      "Safe methods (GET, HEAD, OPTIONS) do not modify server state",
+      "Idempotent methods (GET, PUT, DELETE) give the same result when repeated; POST is not idempotent",
+      "Use appropriate status codes for each outcome"
+    ]
+  },
+  {
+    "question": "What does it mean that functions are first-class in JavaScript, and why does it matter in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Functions can be assigned to variables, passed as arguments, and returned from other functions",
+      "Enables callbacks and higher-order functions",
+      "Underpins patterns like Express middleware and event handlers"
+    ]
+  },
+  {
+    "question": "How do you manage packages and dependencies in a Node.js project?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use npm or yarn for installing and managing packages",
+      "Define scripts (start, test, lint) in package.json",
+      "Lockfiles (package-lock.json) give deterministic installs",
+      "Run npm audit to detect vulnerable dependencies"
+    ]
+  },
+  {
+    "question": "Why would you choose Node.js for a backend project?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "One language across frontend and backend",
+      "Non-blocking I/O suits API-heavy workloads",
+      "Large npm ecosystem",
+      "Fast prototyping"
+    ]
+  },
+  {
+    "question": "What is the purpose of module.exports in Node.js, and how does it differ from exports?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "module.exports defines what a module exposes to require()",
+      "Example: module.exports = { add }",
+      "exports is a reference to module.exports; reassigning exports breaks the link"
+    ]
+  },
+  {
+    "question": "What are the disadvantages of Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Not ideal for CPU-heavy tasks",
+      "Single thread means synchronous code blocks all requests",
+      "Needs clustering or worker threads to scale compute",
+      "Dependency quality and security vary across npm"
+    ]
+  },
+  {
+    "question": "What is the difference between Node.js and AJAX?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Node.js is a server-side JavaScript runtime",
+      "AJAX is a browser-side technique for asynchronous HTTP requests",
+      "They complement each other: frontend AJAX calls hit Node.js APIs"
+    ]
+  },
+  {
+    "question": "How do you use async/await in Node.js, and how do you handle errors?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "await can only be used inside async functions (or ES module top level)",
+      "Wrap awaited calls in try/catch to handle rejections",
+      "Async functions always return a promise",
+      "Use Promise.all for independent concurrent operations"
+    ]
+  },
+  {
+    "question": "What are the four types of streams in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Readable: data source",
+      "Writable: data destination",
+      "Duplex: both readable and writable (e.g., TCP sockets)",
+      "Transform: modifies data as it passes through (e.g., compression)"
+    ]
+  },
+  {
+    "question": "What is package.json and what is it used for?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Project manifest holding metadata, dependencies, and scripts",
+      "Drives npm install, npm run, and npm publish",
+      "Separates dependencies from devDependencies"
+    ]
+  },
+  {
+    "question": "What is the difference between fs.readFile and fs.createReadStream?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "readFile loads the entire file into memory before returning",
+      "createReadStream reads in chunks, using less memory",
+      "Streams are better for large files and can be piped to responses"
+    ]
+  },
+  {
+    "question": "How do you get file information (size, modified time) in Node.js?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use fs.promises.stat(path) or fs.stat",
+      "The returned Stats object includes size, mtime, and type checks like isFile()",
+      "Example: const stats = await fs.promises.stat('file.txt')"
+    ]
+  }
+]

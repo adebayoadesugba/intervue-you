@@ -1,0 +1,510 @@
+[
+  {
+    "question": "What happens internally when a FastAPI request is received?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ASGI server (Uvicorn) receives the request and passes it to the app",
+      "Request passes through middleware, then routing",
+      "Dependencies are resolved and parameters validated with Pydantic",
+      "Endpoint executes, then the response is serialized and returned"
+    ]
+  },
+  {
+    "question": "How does dependency injection work internally in FastAPI?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Resolves dependencies by inspecting function signatures and walking the tree",
+      "Caches results within the request scope; use_cache=False disables it",
+      "yield dependencies run cleanup after the response, even if the endpoint raised",
+      "Deep trees add per-request overhead",
+      "Overuse can hide I/O, security checks and transaction ordering"
+    ]
+  },
+  {
+    "question": "What are lifespan events and what are the multi-worker implications?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Async context manager passed to FastAPI(lifespan=...); code before yield is startup, after is shutdown",
+      "Use for connection pools, HTTP clients and ML models",
+      "on_event startup/shutdown handlers are deprecated",
+      "Lifespan runs per worker process, so large models are loaded once per worker",
+      "Mitigate with a separate model server or shared memory"
+    ]
+  },
+  {
+    "question": "How do you write custom middleware, and what are the trade-offs?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "@app.middleware('http') for simple cases; BaseHTTPMiddleware or raw ASGI for advanced control",
+      "Raw ASGI middleware is faster but requires handling the protocol directly",
+      "Runs on every request including static files and health checks",
+      "Use structured logging; never log credentials or large bodies",
+      "Use dependencies for logic that should not be global"
+    ]
+  },
+  {
+    "question": "How do you optimize FastAPI performance?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Profile first (py-spy, tracing) rather than guessing",
+      "Async for I/O-bound work; avoid blocking calls in async routes",
+      "Optimize queries, add indexes, avoid N+1, use connection pooling",
+      "Cache hot data (in-process or Redis) and keep response models lean",
+      "Paginate, stream large responses, move long jobs to queues"
+    ]
+  },
+  {
+    "question": "How do you scale a FastAPI application?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "One Uvicorn process uses one core; run multiple workers (Gunicorn with Uvicorn workers or --workers)",
+      "On Kubernetes, typically one process per container and scale via replicas",
+      "Go stateless: sessions, rate limits and caches in Redis; uploads in object storage",
+      "Respect total DB connection limits across all workers and instances",
+      "For I/O-bound APIs autoscale on latency or queue depth rather than CPU"
+    ]
+  },
+  {
+    "question": "What caching strategies work with FastAPI?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "In-process (lru_cache) is fast but per-worker",
+      "Distributed (Redis, Memcached) is shared and consistent",
+      "HTTP caching with Cache-Control headers and CDNs",
+      "Define keys, TTLs and invalidation; include user or tenant in keys for private data",
+      "Prevent cache stampedes"
+    ]
+  },
+  {
+    "question": "What are the trade-offs between async and sync SQLAlchemy in FastAPI?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Async is not automatically faster; decide from the real workload",
+      "Async code is more verbose and harder to debug",
+      "Sync with proper workers and pools can work well",
+      "Mixing blocking calls into async routes causes harm",
+      "Never share a session across requests; benchmark real access patterns"
+    ]
+  },
+  {
+    "question": "A production endpoint is slow only under load. How do you diagnose it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Check metrics: latency percentiles, error rate, CPU, memory, event loop lag",
+      "High CPU suggests compute-bound; low CPU with high latency suggests I/O-bound or blocking",
+      "Look for N+1 queries, missing indexes, pool exhaustion and sync calls in async routes",
+      "Use tracing (OpenTelemetry), request IDs and py-spy",
+      "Measure and form a hypothesis before adding workers"
+    ]
+  },
+  {
+    "question": "Your database connections are exhausted. What went wrong and how do you fix it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Total pool capacity across workers may exceed the database limit",
+      "Sessions not closed (missing finally) leak connections",
+      "Slow queries or connections held across slow awaits",
+      "Fix with the yield-dependency pattern and pool sizing based on peak concurrency"
+    ]
+  },
+  {
+    "question": "An async endpoint blocks unexpectedly. How do you find the cause?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Suspects: sync DB calls, requests library, CPU-bound work, time.sleep, sync file I/O",
+      "Symptom is latency rising on every endpoint of a worker",
+      "Time each block and monitor event loop lag",
+      "Fix with async libraries, asyncio.to_thread or a worker, or switch to plain def"
+    ]
+  },
+  {
+    "question": "Pydantic validation is not catching invalid input. What could be wrong?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Parameter typed as dict or Any bypasses validation",
+      "A field typed T | None = None accepts null and missing values",
+      "A custom validator that returns instead of raising hides errors",
+      "Inspect /openapi.json to see what FastAPI expects"
+    ]
+  },
+  {
+    "question": "Authentication fails intermittently for some users. How do you diagnose it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Token expiry near boundaries and clock skew affecting exp/iat checks",
+      "Per-worker in-memory state or caches giving inconsistent results",
+      "A broken Redis connection or stale signing key on one server",
+      "Log expiry, server time and outcome; correlate failures by server or worker"
+    ]
+  },
+  {
+    "question": "Large file uploads are slowing down your service. What do you do?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Avoid loading the whole file into memory; read in chunks",
+      "Slow uploads tie up workers for the whole transfer",
+      "Buffer at the reverse proxy and enforce size limits there",
+      "Use presigned URLs so clients upload directly to object storage",
+      "Scan and process files asynchronously in workers"
+    ]
+  },
+  {
+    "question": "How do you make a FastAPI app production-ready and secure?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HTTPS, authentication plus resource-level authorization, validated inputs and output schemas",
+      "Rate limiting and CORS restricted to known origins",
+      "Secrets in a secrets manager and configuration via environment variables",
+      "Health/readiness endpoints, graceful shutdown, structured logs and metrics",
+      "Dockerized deployment behind a reverse proxy and load balancer"
+    ]
+  },
+  {
+    "question": "How do you design observability and monitoring for a customer-facing FastAPI service?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Structured JSON logs with request IDs and redaction of sensitive data",
+      "Metrics: request rate, p95 latency, 4xx/5xx error rate (e.g. Prometheus)",
+      "Distributed traces with OpenTelemetry including DB and external-call spans",
+      "Health and readiness endpoints, alerts and runbooks"
+    ]
+  },
+  {
+    "question": "How do you run a FastAPI production stack with Uvicorn, Gunicorn, Docker and a reverse proxy?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Gunicorn adds worker management, restarts and graceful reloads with UvicornWorker",
+      "Dockerfile: pinned Python slim image, cache requirements layer, no baked-in secrets",
+      "Reverse proxy (Nginx, Traefik, ALB) for TLS termination, buffering and edge rate limiting",
+      "Set forwarded headers so the app reports the real client IP",
+      "On Kubernetes, use one process per container and let the cluster replicate"
+    ]
+  },
+  {
+    "question": "How would you manage migrations and deployment safety when changing a heavily used table?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Expand-and-contract: add nullable column, deploy compatible code, backfill, then enforce constraints",
+      "Review Alembic revisions manually",
+      "Careful index creation strategy and backfills outside request paths",
+      "Avoid long locks; plan rollback and coordinate app and schema versions"
+    ]
+  },
+  {
+    "question": "How would you evolve a public API without breaking existing clients?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prefer additive changes; version only for breaking changes",
+      "Renaming fields, changing nullability, enums or error formats can break clients",
+      "Deprecation windows, contract tests and consumer communication",
+      "Do not rely on OpenAPI regeneration to inform clients"
+    ]
+  },
+  {
+    "question": "How would you design authentication and authorization for a multi-tenant SaaS or for internal and third-party API clients?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Separate authentication from authorization; use OAuth2/OIDC or JWT with proper validation",
+      "RBAC or scopes and tenant isolation enforced in every database query",
+      "Never trust client-supplied tenant or user fields",
+      "Key rotation, refresh tokens, audit logging and permission tests"
+    ]
+  },
+  {
+    "question": "How do you call multiple external services from one endpoint while managing timeouts, retries and failures?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use httpx with explicit connect and read timeouts",
+      "Bounded concurrency; avoid unbounded gather",
+      "Retry only idempotent or safe operations with backoff",
+      "Circuit breaking or fallbacks, structured error mapping and correlation IDs",
+      "Design for partial failure"
+    ]
+  },
+  {
+    "question": "You inherit a FastAPI service with business logic embedded in route functions. How do you refactor it?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Incrementally extract service or use-case functions and keep handlers thin",
+      "Protect behavior with characterization tests",
+      "Keep transaction boundaries explicit",
+      "Small PRs while feature work continues; avoid a full rewrite"
+    ]
+  },
+  {
+    "question": "How do you decide whether to split a growing FastAPI monolith into services?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weigh team boundaries, deployment independence, data ownership, latency and operational overhead",
+      "Prefer modularization first unless there is a clear service boundary",
+      "Define contracts and avoid distributed transactions",
+      "Plan observability, ownership and careful data migration"
+    ]
+  },
+  {
+    "question": "How do you standardize responses and errors across several FastAPI services?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Shared conventions: problem-detail style errors, correlation IDs, pagination, validation mapping",
+      "Documented OpenAPI examples and shared test helpers",
+      "Avoid over-centralized packages that block teams",
+      "Provide migration guidance and preserve backward compatibility"
+    ]
+  },
+  {
+    "question": "How do WebSockets behave across multiple workers, and how do you authenticate them?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Each connection lives in one worker, so in-memory broadcast misses other workers' clients",
+      "Use a shared channel such as Redis pub/sub; load balancer must support WebSocket upgrades",
+      "Authenticate at handshake or immediately on connect, then authorize each action",
+      "Avoid long-lived tokens in query strings; prefer cookies or short-lived single-use tickets",
+      "Server-Sent Events suit one-way updates"
+    ]
+  },
+  {
+    "question": "How would you serve an ML model with FastAPI at scale?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Load the model once in lifespan, not per request",
+      "Keep inference off the event loop (plain def, thread, process pool or separate worker service)",
+      "Let FastAPI handle HTTP, validation and batching",
+      "Scale by processes or replicas, accounting for per-worker memory"
+    ]
+  },
+  {
+    "question": "How do you prevent duplicate database operations under concurrency?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Database unique constraints enforce the invariant",
+      "Transactions and atomic updates",
+      "Idempotency keys for retried client requests",
+      "Check-then-insert alone races under concurrency",
+      "Durable deduplication for background jobs"
+    ]
+  },
+  {
+    "question": "How would you design a scalable URL shortener with FastAPI?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Collision-safe short codes (base62 of unique IDs or secure random generation)",
+      "Database as source of truth; Redis caches hot mappings",
+      "Redirect endpoint with fast lookup",
+      "URL validation, rate limiting, expiry and abuse protection",
+      "Horizontal scaling behind a load balancer; monitor cache hit rate and latency"
+    ]
+  },
+  {
+    "question": "How would you design a distributed task processing system with FastAPI and Celery?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "FastAPI enqueues tasks to a broker (Redis or RabbitMQ); Celery workers execute independently",
+      "Return 202 Accepted and expose a task-status endpoint",
+      "Task IDs, retries with backoff, timeouts and idempotent handlers",
+      "Dead-letter handling and monitoring",
+      "Do not use in-process BackgroundTasks for durable jobs"
+    ]
+  },
+  {
+    "question": "How would you design a real-time chat system using FastAPI WebSockets?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authenticate on connect and authorize conversation membership",
+      "Persist messages with IDs and timestamps; support history after reconnect",
+      "Multiple instances share messages via a broker (Redis Pub/Sub is not durable)",
+      "Plan for heartbeats, backpressure, ordering, connection limits and abuse prevention"
+    ]
+  },
+  {
+    "question": "How would you design a rate-limiting system for millions of requests?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enforce at the edge (gateway) plus Redis or a dedicated service for app-level limits",
+      "Token bucket or sliding window with atomic distributed counters",
+      "TTLs and bounded key storage",
+      "429 responses with retry information",
+      "Partition counters to avoid a single global bottleneck"
+    ]
+  },
+  {
+    "question": "How would you design a file upload service for very large files?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "API authenticates and returns a short-lived presigned object-storage URL",
+      "Client uploads directly using multipart or resumable uploads",
+      "Backend verifies size, ownership and checksum on completion",
+      "Background worker scans and processes the file",
+      "Keeps bandwidth and memory pressure off FastAPI servers"
+    ]
+  },
+  {
+    "question": "How would you design a notification system across email, push and SMS?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Persist requests, publish to channel-specific durable queues with independent workers",
+      "Retry transient failures with backoff and use dead-letter queues",
+      "Idempotency keys and transactional outbox where needed",
+      "A successful API response means accepted, not delivered; reconcile delivery status"
+    ]
+  },
+  {
+    "question": "How would you design a high-traffic caching strategy for endpoints?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layers: browser/CDN, Redis, local memory for small immutable data",
+      "Define keys, TTLs, invalidation and consistency expectations",
+      "Prevent stampedes with request coalescing, locks or jittered expiry",
+      "Isolate private data by user or tenant"
+    ]
+  },
+  {
+    "question": "How would you implement an LRU cache and a sliding-window rate limiter in Python?",
+    "category": "backend",
+    "difficulty": "senior",
+    "stack": "fastapi",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LRU: OrderedDict with move_to_end and popitem(last=False) gives O(1) average operations",
+      "Sliding window: per-key deque of timestamps, evict entries older than the window",
+      "Both need locking for thread safety",
+      "In-memory versions are per-process; use Redis (e.g. sorted sets) for distributed use"
+    ]
+  }
+]

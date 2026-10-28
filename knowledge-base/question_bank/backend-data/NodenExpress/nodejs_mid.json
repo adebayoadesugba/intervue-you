@@ -1,0 +1,1401 @@
+[
+  {
+    "question": "How would you avoid callback hell when making several asynchronous function calls?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Promises or async/await syntax to write sequential async code",
+      "Chain async function calls in a linear, readable structure",
+      "Centralize error handling using try/catch or .catch() blocks"
+    ]
+  },
+  {
+    "question": "Explain the concept of event-driven programming in Node.js.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Programming paradigm where application flow is determined by emitted events",
+      "Uses the EventEmitter class to emit named events",
+      "Components react to events asynchronously using registered listener callbacks"
+    ]
+  },
+  {
+    "question": "Describe the phases of the Node.js event loop.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Consists of distinct phases: timers, pending callbacks, idle/prepare, poll, check, and close callbacks",
+      "Poll phase retrieves new I/O events and executes their callbacks",
+      "Check phase executes setImmediate() callbacks"
+    ]
+  },
+  {
+    "question": "How does the event loop prioritize different async function calls?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "process.nextTick() callbacks execute immediately after current operation completes, before next event loop phase",
+      "setImmediate() callbacks run in the check phase of the event loop cycle",
+      "Timer callbacks (setTimeout) run in the timers phase once specified delay expires"
+    ]
+  },
+  {
+    "question": "What is the purpose of the libuv library?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "C++ cross-platform library providing Node.js with non-blocking I/O capabilities",
+      "Manages background worker thread pool for heavy file system and network operations",
+      "Keeps the main single thread free to handle incoming client connections"
+    ]
+  },
+  {
+    "question": "Differentiate between child_process.fork() and child_process.spawn() in the child process module.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "child_process.spawn(): Launches a new process with a specific command and streams I/O data",
+      "child_process.fork(): Specialized version of spawn() tailored specifically for Node.js modules",
+      "child_process.fork() sets up an IPC messaging channel between parent and child processes"
+    ]
+  },
+  {
+    "question": "When would you use worker threads instead of a child process?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Worker threads execute CPU-intensive tasks without blocking the main event loop thread",
+      "Worker threads share application memory space for lightweight data transfer",
+      "Child processes run separate OS processes with isolated memory spaces"
+    ]
+  },
+  {
+    "question": "How does Node.js handle garbage collection?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Relies on V8 engine garbage collector algorithm",
+      "Uses Scavenge phase for short-lived allocation of new objects",
+      "Uses Mark-Sweep and Mark-Compact algorithms for older, persistent memory objects"
+    ]
+  },
+  {
+    "question": "What are some common security vulnerabilities in Node.js applications, and how can you mitigate them?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vulnerabilities: XSS, SQL/NoSQL Injection, and vulnerable npm dependencies",
+      "Mitigations: Use security headers (Helmet), sanitize user inputs, and run npm audit regularly"
+    ]
+  },
+  {
+    "question": "How would you handle sessions and authentication in a Node.js application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Passport.js middleware to manage strategy-based user authentication",
+      "Stateless authentication: Issue signed JSON Web Tokens (JWT) in headers",
+      "Stateful authentication: Maintain server-side sessions backed by Redis store"
+    ]
+  },
+  {
+    "question": "What is CORS (Cross-Origin Resource Sharing), and how do you handle it with a Node.js HTTP server?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Browser security feature restricting cross-domain API requests",
+      "Handled by setting Access-Control-Allow-Origin HTTP headers",
+      "Configured using Express cors middleware"
+    ]
+  },
+  {
+    "question": "Describe how to connect a Node.js application to a database.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use dedicated database drivers (pg, mysql2) or ORMs/ODMs (Mongoose, Prisma)",
+      "Configure connection pool credentials using environment variables",
+      "Execute query methods or schema models to manipulate database records"
+    ]
+  },
+  {
+    "question": "How do you assure consistent code style across a team using a linter?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Configure ESLint rules in project root configuration file",
+      "Integrate linters into code editor settings and git pre-commit hooks",
+      "Run linting checks automatically within CI/CD build pipelines"
+    ]
+  },
+  {
+    "question": "What are the advantages of using a framework like Express.js over the native HTTP module?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provides robust built-in routing system for managing endpoints",
+      "Simplifies request/response handling using middleware pipelines",
+      "Eliminates repetitive boilerplate code required by native http module"
+    ]
+  },
+  {
+    "question": "How do you handle errors gracefully in an Express.js application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define centralized error-handling middleware with four parameters: (err, req, res, next)",
+      "Pass error objects from async catch blocks into next(err)",
+      "Send standardized HTTP error status codes and sanitized JSON messages"
+    ]
+  },
+  {
+    "question": "Explain the role of a router in Express.js.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Acts as an isolated mini-application for grouping related routes",
+      "Allows attaching route-specific middleware functions",
+      "Improves project structure and code maintainability"
+    ]
+  },
+  {
+    "question": "How do you process command-line arguments in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Access argument array via global process.argv property",
+      "First two items are executable path and file path",
+      "Parse remaining items manually or using CLI parsing packages (Commander, Yargs)"
+    ]
+  },
+  {
+    "question": "What is the purpose of process.env.NODE_ENV?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Environment variable indicating runtime context (development, production, test)",
+      "Frameworks and modules use it to toggle optimizations like caching and error stack traces"
+    ]
+  },
+  {
+    "question": "How do you manage secrets and configuration in a production Node.js application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Store sensitive parameters in environment variables instead of hardcoded files",
+      "Use dotenv module for local development configuration",
+      "Use cloud secret managers (AWS Secrets Manager, HashiCorp Vault) for production deployments"
+    ]
+  },
+  {
+    "question": "Explain the concept of clustering in Node.js for handling multiple instances.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Utilizes built-in cluster module to fork multiple worker processes across CPU cores",
+      "Master process load balances incoming HTTP connections across workers",
+      "Increases application throughput and overall system availability"
+    ]
+  },
+  {
+    "question": "How do you test a Node.js application? Name some popular testing frameworks.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Write unit tests for functions, integration tests for APIs, and end-to-end tests for workflows",
+      "Popular testing frameworks: Jest, Mocha, Supertest, and Chai"
+    ]
+  },
+  {
+    "question": "What is a Test Pyramid?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Testing strategy defining ideal ratio of test types",
+      "Base layer: High volume of fast-running unit tests",
+      "Middle & Top layers: Smaller number of integration tests and minimal E2E tests"
+    ]
+  },
+  {
+    "question": "What is GraphQL, and how does it compare to a traditional REST API for handling incoming requests?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Query language allowing clients to request exact fields needed from a single endpoint",
+      "Prevents over-fetching and under-fetching of data common in fixed REST endpoints"
+    ]
+  },
+  {
+    "question": "How would you implement a file upload feature in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use middleware designed for handling multipart/form-data (e.g., multer)",
+      "Multer parses incoming request and attaches file object to req.file",
+      "Route handler persists file to disk or uploads directly to cloud object storage"
+    ]
+  },
+  {
+    "question": "What is a WebSocket, and when would you use it over a standard HTTP request?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Full-duplex, persistent communication protocol established over single TCP connection",
+      "Best for low-latency, real-time applications (chat systems, live dashboards)",
+      "Eliminates high overhead of repeated HTTP polling requests"
+    ]
+  },
+  {
+    "question": "Explain how to manage asynchronous operations for multiple tasks.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Promise.all() to execute independent async operations concurrently",
+      "Waits for all promises to resolve before proceeding; fails fast if any promise rejects",
+      "Use Promise.allSettled() when individual failures should not break overall execution"
+    ]
+  },
+  {
+    "question": "Describe how Node.js communicates with external services.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Makes HTTP/HTTPS requests via native http module or libraries like axios and node-fetch",
+      "Uses WebSockets or gRPC protocols for high-performance inter-service communication"
+    ]
+  },
+  {
+    "question": "What is the crypto module, and what is it used for?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in Node.js module providing cryptographic utilities",
+      "Used for data encryption/decryption, password hashing, and generating secure random tokens"
+    ]
+  },
+  {
+    "question": "How does the thread pool fit into the Node.js architecture?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Managed by libuv C++ background worker library",
+      "Offloads blocking tasks (file system I/O, DNS lookups, crypto) away from main thread",
+      "Returns completed execution results back to event loop callback queue"
+    ]
+  },
+  {
+    "question": "Explain how Node.js's control flow can be managed using Promises and async/await.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Promises encapsulate async operation states (pending, fulfilled, rejected)",
+      "async/await provides clean sequential control flow without blocking the main event thread",
+      "Enables standard try/catch error handling blocks for asynchronous logic"
+    ]
+  }
+  ,
+  {
+    "question": "Why should you separate the Express app definition from the server listener?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decouples app route definitions from HTTP port listening logic",
+      "Allows running supertest HTTP assertions against app instances without binding active network ports",
+      "Enables reusing identical Express app definitions across multiple server protocols (HTTP, HTTPS, WebSockets)"
+    ]
+  },
+  {
+    "question": "How do you construct custom middleware functions for user validation in Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Function receiving (req, res, next) arguments",
+      "Inspects request state (e.g. req.user or headers)",
+      "Terminates request with error status (e.g. res.status(401).json()) if invalid",
+      "Calls next() to allow authorized requests to proceed to route handlers"
+    ]
+  },
+  {
+    "question": "What are the five primary categories of middleware in Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Application-level: Bound to app instance via app.use() or app.METHOD()",
+      "Router-level: Bound to express.Router() instances",
+      "Error-handling: Defined with 4 arguments (err, req, res, next)",
+      "Built-in: Included with Express (express.json, express.static)",
+      "Third-party: NPM packages integrated into pipeline (helmet, cors, morgan)"
+    ]
+  },
+  {
+    "question": "What are popular third-party middleware packages used in Express.js applications?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "helmet: Secures HTTP response headers",
+      "cors: Configures Cross-Origin Resource Sharing rules",
+      "morgan: HTTP request logger middleware",
+      "express-rate-limit: Restricts repetitive request bursts",
+      "passport: Authentication strategies middleware"
+    ]
+  },
+  {
+    "question": "What is the difference between app.route() and app.use() in Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "app.route(): Creates chainable route handlers for a single path across multiple HTTP methods (.get(), .post(), .put())",
+      "app.use(): Mounts middleware or sub-routers to handle request processing across path prefixes"
+    ]
+  },
+  {
+    "question": "How do traditional multi-threaded servers compare with Express.js Node.js servers?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Traditional Servers (PHP, Java, .NET): Allocate separate threads per client connection; blocking I/O leads to thread pool exhaustion under heavy loads",
+      "Express.js / Node.js: Single-threaded event loop utilizing non-blocking asynchronous I/O to handle high concurrent connection volumes efficiently"
+    ]
+  },
+  {
+    "question": "Under what circumstances will cross-origin requests fail in Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Server fails to respond with Access-Control-Allow-Origin headers",
+      "Request origin does not match whitelisted origins specified in CORS policy",
+      "HTTP method or custom headers used are excluded from Access-Control-Allow-Methods or Access-Control-Allow-Headers",
+      "Credentials (cookies/auth headers) sent without setting Access-Control-Allow-Credentials: true"
+    ]
+  },
+  {
+    "question": "How do you manage client cookies using res.cookie() in Express.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sets Set-Cookie HTTP response headers using res.cookie(name, value, [options])",
+      "Security options include httpOnly: true (prevents client JS access), secure: true (forces HTTPS), and sameSite: 'strict'",
+      "Requires cookie-parser middleware to read incoming cookies on req.cookies"
+    ]
+  } ,{
+    "question": "What are the advantages and limitations of using Node.js in large-scale backend systems?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Advantages: non-blocking event loop suits I/O-heavy workloads, one language across frontend and backend, large npm ecosystem",
+      "Scales horizontally and fits containerized microservices",
+      "Limitation: CPU-intensive tasks block the single-threaded event loop",
+      "Limitation: dynamic typing risks runtime errors and npm dependencies can introduce vulnerabilities",
+      "Mitigations: worker threads or offloading CPU work, TypeScript, dependency auditing"
+    ]
+  },
+  {
+    "question": "How does the Node.js event loop handle asynchronous operations under the hood?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Phases: timers, pending callbacks, idle/prepare, poll, check (setImmediate), close callbacks",
+      "Async work is offloaded to libuv's thread pool or OS-level APIs, with callbacks queued on completion",
+      "process.nextTick and Promise microtasks run before the next macrotask phase",
+      "Single-threaded JS execution with non-blocking I/O enables high concurrency"
+    ]
+  },
+  {
+    "question": "Explain the role of libuv in Node.js's architecture.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Implements the event loop and asynchronous I/O abstraction across platforms (epoll, kqueue, IOCP)",
+      "Provides the thread pool for file system, DNS lookup, and some crypto work",
+      "Handles network I/O, timers, child processes, and signals",
+      "Thread pool size is configurable via UV_THREADPOOL_SIZE"
+    ]
+  },
+  {
+    "question": "How do worker threads differ from child processes in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Worker threads run in the same process with separate V8 isolates, are lighter, and can share memory via SharedArrayBuffer",
+      "Child processes have fully separate memory and V8 instances, with higher overhead and stronger isolation",
+      "Workers communicate via MessageChannel; child processes use IPC or stdio",
+      "Workers suit CPU-bound parallel tasks; child processes suit isolation or running external programs"
+    ]
+  },
+  {
+    "question": "Describe how clustering works in Node.js and its implications for state management.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A primary process forks worker processes that share a server port and distribute incoming connections",
+      "Workers share no memory, so applications must be stateless with respect to process-local state",
+      "Sessions and shared state belong in external stores such as Redis or a database; in-memory caches are duplicated per worker",
+      "Sticky sessions may be needed for stateful flows; PM2 or container orchestration are common alternatives"
+    ]
+  },
+  {
+    "question": "How can you implement rate limiting in an Express.js API?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use express-rate-limit middleware or a custom limiter with fixed window, sliding window, token bucket, or leaky bucket algorithms",
+      "Use a shared store such as Redis when running multiple instances",
+      "Return HTTP 429 with rate limit headers",
+      "Apply different limits per route or user tier and allow whitelisting"
+    ]
+  },
+  {
+    "question": "What are the common strategies for caching in Node.js applications?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layers: in-memory (Map or LRU with TTL) and distributed caches such as Redis",
+      "Patterns: cache-aside, write-through, write-behind, refresh-ahead",
+      "Invalidation: TTL, event-based, manual, tag-based, version-based",
+      "Bound cache size and set expiry to avoid memory leaks"
+    ]
+  },
+  {
+    "question": "Compare in-memory and distributed caching and their use cases in backend systems.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "In-memory: fastest and simplest, but limited to one process and lost on restart",
+      "Distributed: shared across instances and survives restarts, but adds network latency and operational complexity",
+      "In-memory suits config, computed results, and single-instance data; distributed suits sessions, rate limiting, and shared query results",
+      "Hybrid L1/L2 caching combines both approaches"
+    ]
+  },
+  {
+    "question": "How do you implement and manage API versioning in RESTful services?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Strategies: URL path, query parameter, custom header, media type, subdomain",
+      "Implement with separate routers per version (e.g., /api/v1, /api/v2) and a default version",
+      "Minimize breaking changes and keep older versions during a migration window",
+      "Publish a deprecation policy, migration guides, and track per-version usage"
+    ]
+  },
+  {
+    "question": "Compare RESTful APIs and GraphQL in terms of performance, flexibility, and maintainability.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "REST: simple, strong HTTP/CDN caching, but prone to over-fetching and under-fetching",
+      "GraphQL: clients request exactly the fields they need in a single request, with a strongly typed schema and introspection",
+      "GraphQL risks include the N+1 query problem, harder caching, and added server complexity",
+      "REST suits simple CRUD and public cacheable APIs; GraphQL suits complex data needs and multiple client types"
+    ]
+  },
+  {
+    "question": "How does a reverse proxy work, and what are its benefits for a Node.js application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sits between clients and backend servers, forwarding requests and returning responses",
+      "Benefits: load balancing, SSL termination, caching, compression, and static file serving",
+      "Adds security controls such as rate limiting, IP filtering, and consistent security headers",
+      "Common choices: Nginx, HAProxy, cloud load balancers; configure health checks and timeouts"
+    ]
+  },
+  {
+    "question": "What are the security implications of improperly configured CORS in a backend application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Overly permissive origins, especially with credentials, let malicious sites read authenticated API responses",
+      "Reflecting any origin or using loose wildcard subdomains enables data theft and subdomain takeover abuse",
+      "Fix by whitelisting specific trusted HTTPS origins and enabling credentials only when needed",
+      "Use separate CORS configs per environment and restrict methods and headers"
+    ]
+  },
+  {
+    "question": "How does JWT-based authentication work, and what are best practices for using it?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A JWT has header, payload, and signature; the server signs it at login and verifies it on each request",
+      "Use strong secrets, short expiration, HTTPS, and validate algorithm, issuer, and audience claims",
+      "Never store sensitive data in the payload; avoid localStorage to reduce XSS exposure",
+      "Pair short-lived access tokens with rotating refresh tokens; plan for revocation"
+    ]
+  },
+  {
+    "question": "Compare cookie-based and token-based authentication in terms of scalability and security.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Cookie/session auth needs server-side session storage but allows immediate revocation",
+      "HttpOnly, Secure, and SameSite cookies mitigate XSS and CSRF",
+      "Token auth is stateless and scales easily across services and clients, but is harder to revoke",
+      "Hybrid approach: JWT stored in an HttpOnly cookie"
+    ]
+  },
+  {
+    "question": "What are the common vulnerabilities in Node.js applications, and how can they be mitigated?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Common issues: injection, XSS, CSRF, insecure deserialization, vulnerable dependencies, broken authentication, weak input validation",
+      "Validate and sanitize input, use parameterized queries, and escape output",
+      "Use CSRF tokens, audit dependencies with npm audit or Snyk, and hash passwords with bcrypt",
+      "Set security headers with helmet and protect secrets"
+    ]
+  },
+  {
+    "question": "How can you defend against SQL injection and NoSQL injection in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "SQL: use parameterized queries or prepared statements and never concatenate user input",
+      "NoSQL: validate input types and block query operators like $ne and $gt from user-controlled objects",
+      "Use schema validation (Mongoose, Joi, Zod) and sanitization middleware",
+      "Avoid leaking database errors in responses"
+    ]
+  },
+  {
+    "question": "What is the role of Content Security Policy (CSP) headers in API security?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CSP restricts the sources of scripts, styles, and other resources to mitigate XSS and injection",
+      "Configure via helmet.contentSecurityPolicy with directives like defaultSrc 'self' and objectSrc 'none'",
+      "Avoid unsafe-inline and unsafe-eval",
+      "Use report-uri or report-to for violation monitoring and audit directives regularly"
+    ]
+  },
+  {
+    "question": "Describe how OAuth2 works and the flows supported in backend systems.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Roles: resource owner, client, authorization server, resource server",
+      "Authorization Code flow: redirect to auth server, user consents, code returned, client exchanges code for tokens",
+      "Other flows: client credentials (server-to-server), device flow, refresh token flow; password grant is deprecated",
+      "Use PKCE for SPAs and mobile, HTTPS, and least-privilege scopes"
+    ]
+  },
+  {
+    "question": "How does Express.js handle routing internally?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Express keeps an ordered stack of layers (middleware and routes) matched by HTTP method and path",
+      "Path matching uses path-to-regexp, supporting parameters and wildcards",
+      "Routes are matched in definition order, and next() passes control onward",
+      "Routers can be mounted at prefixes to create nested, modular routing"
+    ]
+  },
+  {
+    "question": "What are some scalable patterns for organizing routes and controllers in large Express apps?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Group routes by feature or domain with a router file per module",
+      "Separate routes, controllers, and a services layer for business logic",
+      "Keep controllers thin and use validation and auth middleware",
+      "Centralize async error handling and use route prefixes"
+    ]
+  },
+  {
+    "question": "Compare SQL and NoSQL databases in the context of backend scalability and consistency.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "SQL: fixed schema, joins, strong ACID guarantees, traditionally scaled vertically",
+      "NoSQL: flexible schema, often tunable or eventual consistency, designed for horizontal scaling",
+      "SQL suits transactional and relational data; NoSQL suits high-volume, flexible, or real-time workloads",
+      "Choose based on access patterns and consistency requirements, not hype"
+    ]
+  },
+  {
+    "question": "What are the trade-offs between normalization and denormalization in database design?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Normalization reduces redundancy and protects integrity but requires joins",
+      "Denormalization speeds reads by duplicating data but complicates writes and risks inconsistency",
+      "Normalize for transactional (OLTP) systems; denormalize for read-heavy or analytical workloads",
+      "Decide based on measured query patterns"
+    ]
+  },
+  {
+    "question": "How do database indexes work, and how do they impact query performance?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Typically B-tree structures that avoid full table scans",
+      "Types: single-column, composite, full-text, hash",
+      "Speed up reads but slow writes and consume storage",
+      "Index frequently queried fields, avoid over-indexing, and verify with EXPLAIN"
+    ]
+  },
+  {
+    "question": "How would you handle long-running background jobs in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offload to a job queue (BullMQ, Agenda, Bee-Queue) instead of handling in the request cycle",
+      "Run workers in separate processes, with Redis-backed persistence for queues like BullMQ",
+      "Configure retries with backoff and robust error handling",
+      "Monitor job status and shut workers down gracefully"
+    ]
+  },
+  {
+    "question": "Compare job queues like BullMQ, Agenda, and Bee-Queue.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BullMQ: Redis-backed, feature-rich, actively maintained, with repeatable jobs and Bull Board UI",
+      "Agenda: MongoDB-backed, simple, good for scheduled jobs in Mongo-based stacks",
+      "Bee-Queue: Redis-backed, lightweight and fast, but with fewer features",
+      "Choose based on existing infrastructure and required features"
+    ]
+  },
+  {
+    "question": "How can you monitor and manage job queues in a production system?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dashboards such as Bull Board or Arena, plus Prometheus and Grafana for metrics",
+      "Track queue length, processing time, failure rate, and retry counts",
+      "Alert on stuck jobs and dead-letter queues, and log failures with context",
+      "Run workers separately from the web server and shut down gracefully on deploys"
+    ]
+  },
+  {
+    "question": "How would you stream large files from a Node.js server?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use fs.createReadStream piped to the response instead of loading the whole file into memory",
+      "Prefer stream.pipeline() for error handling and cleanup",
+      "Support HTTP Range requests with 206 Partial Content and Content-Range for video and resumable downloads",
+      "Set proper Content-Type and Content-Length headers"
+    ]
+  },
+  {
+    "question": "How would you implement a secure file upload mechanism in an API?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Restrict allowed file types (verify content, not just client MIME type) and enforce size limits",
+      "Rename files and store them outside the web root to prevent path traversal",
+      "Use signed URLs for cloud uploads and scan files for malware",
+      "Authenticate and rate-limit upload endpoints"
+    ]
+  },{
+    "question": "What tools and techniques are used for observability in backend systems?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Three pillars: logs, metrics, and distributed traces",
+      "Tools: Pino/Winston for logging, Prometheus and Grafana for metrics, OpenTelemetry/Jaeger for tracing, Sentry for errors",
+      "Use correlation IDs and structured JSON logs with context",
+      "Set alerts for anomalies"
+    ]
+  },
+  {
+    "question": "Compare Prometheus and other monitoring tools for Node.js services.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prometheus: open-source, pull-based time-series metrics with built-in alerting and the prom-client library",
+      "New Relic and Datadog: commercial, hosted APM with agents and less setup effort",
+      "Grafana is a visualization layer, typically paired with Prometheus",
+      "Choice depends on cost, control, and operational capacity"
+    ]
+  },
+  {
+    "question": "How does centralized logging work, and what tools support it in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Flow: application logs, log shipper, central store, query and dashboard layer",
+      "Shippers: Fluentd, Logstash, Filebeat; storage: Elasticsearch or Loki; dashboards: Kibana or Grafana",
+      "Emit structured JSON logs with metadata and correlation IDs",
+      "Enables cross-service search, filtering, and alerting"
+    ]
+  },
+  {
+    "question": "What are the pros and cons of using message queues such as RabbitMQ or Kafka in Node.js backends?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pros: decouples services, enables async processing, improves resilience and scalability",
+      "Cons: added complexity and latency, operational overhead, possible duplicate or lost messages",
+      "RabbitMQ is a broker suited to task queues; Kafka is a partitioned log suited to streaming and event sourcing",
+      "Design consumers to be idempotent"
+    ]
+  },
+  {
+    "question": "How can you perform load testing on a backend system, and what tools would you use?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tools: Artillery, k6, JMeter, Locust, Autocannon",
+      "Simulate realistic traffic patterns with warm-up and ramp-up phases",
+      "Monitor CPU, memory, latency percentiles, error rates, and database load during tests",
+      "Automate load tests in CI/CD to catch regressions"
+    ]
+  },
+  {
+    "question": "What is blue-green deployment, and how can it be implemented in Node.js apps?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Two identical environments; deploy to the idle one, then switch traffic",
+      "Gives near-zero downtime and fast rollback by switching back",
+      "Implement traffic switching with a load balancer or reverse proxy such as Nginx",
+      "Automate through CI/CD on Kubernetes or ECS and manage database migrations compatibly"
+    ]
+  },
+  {
+    "question": "How does zero-downtime deployment work, and what are common strategies to achieve it?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Strategies: blue-green, rolling updates, canary releases",
+      "Use load balancer health checks to route traffic only to healthy instances",
+      "Handle SIGTERM gracefully: stop accepting connections, finish in-flight requests, close DB connections, then exit",
+      "Keep database migrations backward compatible"
+    ]
+  },
+  {
+    "question": "What are feature flags, and how are they used in backend development?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Toggle features at runtime without redeploying code",
+      "Use cases: gradual rollouts, A/B testing, kill switches",
+      "Implement with services like LaunchDarkly or Unleash, or a simple config-based approach",
+      "Clean up stale flags to avoid technical debt"
+    ]
+  },
+  {
+    "question": "How can you enforce schema validation on incoming API requests, and how do Joi, Yup, and Zod compare?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validate req.body, params, and query in middleware before controller logic, returning 400 on failure",
+      "Joi: mature, backend-centric, fluent API",
+      "Yup: popular in frontend and form validation",
+      "Zod: TypeScript-first with full type inference",
+      "express-validator is another option"
+    ]
+  },
+  {
+    "question": "How do you write integration tests for Node.js APIs?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use Jest or Mocha with Supertest to call the Express app without starting a real server",
+      "Use a dedicated test database with fixtures and reset state between tests",
+      "Assert on status codes, response bodies, and side effects",
+      "Run tests in a CI pipeline"
+    ]
+  },
+  {
+    "question": "How would you mock external services in backend tests?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use nock to intercept HTTP requests and return controlled responses",
+      "Use jest.mock or Sinon to stub service modules",
+      "Use dependency injection to make services easy to replace",
+      "Avoid calling real external APIs in tests; also test failure and timeout cases"
+    ]
+  },
+  {
+    "question": "What is the role of Test-Driven Development (TDD) in backend systems?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Red-green-refactor cycle: write a failing test, make it pass, then refactor",
+      "Encourages modular design, confidence in refactoring, and higher code quality",
+      "Costs: slower initial development and requires discipline",
+      "Best applied to business logic and well-defined behavior"
+    ]
+  },
+  {
+    "question": "What are strategies for handling API deprecation?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Version the API and mark endpoints as deprecated in documentation",
+      "Signal deprecation in responses using Deprecation and Sunset headers",
+      "Provide migration guides and a clear retirement timeline",
+      "Notify consumers early and monitor usage before removal"
+    ]
+  },
+  {
+    "question": "What are the common pitfalls of using async/await, and how can they be avoided?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Missing try/catch or unhandled promise rejections",
+      "Forgetting to await a promise",
+      "Awaiting sequentially inside loops when work could run in parallel with Promise.all",
+      "Race conditions from shared mutable state across async flows"
+    ]
+  },
+  {
+    "question": "How can you design and document APIs using OpenAPI (Swagger)?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define the API contract in an OpenAPI spec, either contract-first or generated from code annotations (swagger-jsdoc)",
+      "Serve interactive docs with swagger-ui-express",
+      "Enables client SDK generation and validation tooling",
+      "Keep the spec versioned and in sync with the implementation"
+    ]
+  },
+  {
+    "question": "Explain the use of streams in Node.js for efficient data handling.",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Four types: Readable, Writable, Duplex, and Transform",
+      "Data is processed in chunks, keeping memory use low for large files and real-time data",
+      "Streams are composable via pipe or pipeline, with built-in backpressure",
+      "Prefer stream.pipeline() for error propagation and automatic cleanup",
+      "Use cases: file processing, HTTP streaming, ETL, log processing"
+    ]
+  },{
+    "question": "What is piping in Node.js and why is it useful?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "pipe() connects a readable stream to a writable stream without buffering all the data in memory",
+      "Backpressure is handled automatically",
+      "Supports chaining with transform streams (e.g., compression)",
+      "stream.pipeline() is preferred for proper error handling and cleanup",
+      "Example: fs.createReadStream('input.log').pipe(fs.createWriteStream('output.log'))"
+    ]
+  },
+  {
+    "question": "What is the cluster module in Node.js and how does it help scale an application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Node runs JavaScript on a single thread, so clustering uses multiple CPU cores",
+      "Forks multiple worker processes that share the same server port",
+      "Each worker has its own memory and event loop",
+      "Restart crashed workers and use load balancing or sticky sessions if needed"
+    ]
+  },
+  {
+    "question": "What are the main methods and events of the Node.js cluster module?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "cluster.fork() spawns a worker; cluster.isPrimary (formerly isMaster) identifies the primary process",
+      "cluster.workers holds the worker objects",
+      "worker.send() and process.on('message') provide IPC messaging",
+      "Lifecycle events: 'online', 'listening', and 'exit' are used to manage and restart workers"
+    ]
+  },
+  {
+    "question": "What are WebSockets and how are they used in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Persistent, full-duplex connection between client and server",
+      "Libraries: ws or socket.io",
+      "Suited to chat, games, and live dashboards",
+      "Lower latency and less HTTP overhead than polling"
+    ]
+  },
+  {
+    "question": "What is the difference between dns.lookup and dns.resolve in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "dns.lookup uses the OS resolver (getaddrinfo) and respects /etc/hosts",
+      "dns.resolve queries DNS servers directly and returns raw DNS records",
+      "dns.lookup runs on the libuv thread pool; dns.resolve uses network-based queries",
+      "Choose based on needing OS-level behavior versus fresh DNS records"
+    ]
+  },
+  {
+    "question": "What is the difference between setImmediate() and setTimeout() in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "setImmediate() runs in the check phase, right after the poll (I/O) phase",
+      "setTimeout(fn, 0) runs in the timers phase of the next loop iteration",
+      "From the main module their order is non-deterministic",
+      "Inside an I/O callback, setImmediate() always runs first"
+    ]
+  },
+  {
+    "question": "What is the difference between fork() and spawn() in Node.js child processes?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "fork() runs another Node.js script and sets up an IPC channel for messaging",
+      "spawn() runs any command (e.g., ls, curl) and streams its stdout/stderr",
+      "fork() suits structured parallel Node processes; spawn() suits external programs"
+    ]
+  },
+  {
+    "question": "How does async.queue work, including its arguments and task inputs?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "First argument is the worker function (task, callback); second is the concurrency limit",
+      "Tasks are plain objects (e.g., { id: 1 }) processed by the worker function",
+      "Add tasks with .push() or .unshift()"
+    ]
+  },
+  {
+    "question": "In what order does Node.js execute synchronous code, nextTick, promises, timers, and I/O callbacks?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Synchronous code runs top-down first",
+      "process.nextTick runs before promise microtasks",
+      "Promise microtasks run before timers and other macrotasks",
+      "Then timers, I/O callbacks, and setImmediate in their loop phases"
+    ]
+  },
+  {
+    "question": "What does non-blocking mean in Node.js, and how does Node avoid blocking?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start an operation, continue executing, and handle the result later via callback or promise",
+      "libuv performs async I/O using OS mechanisms",
+      "Blocking work is delegated to the libuv thread pool",
+      "The event loop coordinates and runs the callbacks"
+    ]
+  },
+  {
+    "question": "Why should you separate the Express app from the server startup code?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Allows tests (e.g., supertest) to import the app without opening a port",
+      "Simplifies deployment to serverless or multi-protocol setups",
+      "Improves code organization and separation of concerns"
+    ]
+  },
+  {
+    "question": "What security features and practices are available for Node.js applications?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use HTTPS via the https module or a TLS-terminating proxy",
+      "Use Helmet to set secure HTTP headers",
+      "Validate and sanitize all input; avoid eval",
+      "Keep secrets in environment variables or a vault, and audit dependencies"
+    ]
+  },
+  {
+    "question": "What is the test pyramid, and which tools are used at each level in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unit tests form the base: many, fast, testing individual logic",
+      "Integration tests check component interaction (e.g., API with database)",
+      "E2E tests cover full user flows; fewest and slowest",
+      "Tools: Jest, Supertest, Cypress, Playwright"
+    ]
+  },
+  {
+    "question": "What is the libuv thread pool in Node.js and what is it used for?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Default size is 4 threads; configurable via UV_THREADPOOL_SIZE",
+      "Used for file system operations, DNS lookups, crypto, and compression",
+      "Managed by libuv",
+      "Network I/O generally does not use the thread pool"
+    ]
+  },
+  {
+    "question": "What is the difference between worker threads and clusters in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Worker threads run in the same process and can share memory (SharedArrayBuffer)",
+      "Cluster workers are separate processes with isolated memory",
+      "Worker threads suit CPU-intensive tasks",
+      "Clusters suit scaling I/O-bound request handling across cores"
+    ]
+  },
+  {
+    "question": "How do you measure the duration of asynchronous operations in Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use performance.now() from perf_hooks before and after the awaited operation",
+      "Subtract start from end to get elapsed time",
+      "console.time/timeEnd is a simple alternative"
+    ]
+  },
+  {
+    "question": "What are common uses of the crypto module in Node.js, and is it safe to use?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hashing with createHash, HMAC, and AES encryption",
+      "Secure random values with crypto.randomBytes",
+      "Use modern, secure algorithms; never implement your own cryptography",
+      "Use bcrypt or scrypt-style functions for password hashing, not plain hashes"
+    ]
+  },
+  {
+    "question": "What is Passport.js and how does it work in Express applications?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authentication middleware for Express",
+      "Supports local, JWT, and OAuth strategies",
+      "Works with session-based or token-based flows"
+    ]
+  },
+  {
+    "question": "How do you debug a Node.js application?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use node inspect or --inspect/--inspect-brk",
+      "Attach Chrome DevTools or the VS Code debugger",
+      "Use heap snapshots and profilers for memory and CPU issues"
+    ]
+  },
+  {
+    "question": "Describe your hands-on experience building and operating production Node.js applications.",
+    "category": "general",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Concrete examples: REST APIs with Express and MongoDB",
+      "Authentication using Passport and JWT",
+      "Performance work: streaming with backpressure, clustering or PM2, Redis caching",
+      "Operations: logging and monitoring (Winston, ELK, Datadog), testing, Docker, CI pipelines"
+    ]
+  },
+   {
+    "question": "How is Redis commonly used with Node.js?",
+    "category": "backend",
+    "difficulty": "mid",
+    "stack": "nodejs",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Caching database queries",
+      "Rate limiting",
+      "Session storage (e.g., connect-redis)",
+      "Pub/Sub messaging between services",
+      "Clients: ioredis or node-redis"
+    ]
+  }
+]

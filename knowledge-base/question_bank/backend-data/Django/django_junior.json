@@ -1,0 +1,772 @@
+[
+{
+    "question": "What is Django and why is it popular for web development?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "High-level Python web framework for building web applications quickly",
+      "Follows the MVT (Model-View-Template) architecture",
+      "Secure, fast, and scalable",
+      "Comes with many built-in features"
+    ]
+  },
+  {
+    "question": "Why is Django called a batteries-included framework?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ships with built-in authentication, admin panel, ORM, forms, and sessions",
+      "Includes security protections such as CSRF, XSS, and SQL injection defenses",
+      "Basic tasks need no extra libraries",
+      "Speeds up development with consistent conventions"
+    ]
+  },
+  {
+    "question": "What is the MVT architecture in Django, and how does it differ from MVC?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model handles data and database; View handles logic and processing; Template handles presentation",
+      "In MVC the Controller holds the logic; in Django the View does, and the framework itself acts as the controller",
+      "MVC's View maps to Django's Template",
+      "Django's URL dispatcher routes requests to views"
+    ]
+  },
+  {
+    "question": "What is the difference between a Django project and a Django app?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A project is the whole website with its settings, URLs, and configuration",
+      "An app is a self-contained module that does one job (e.g., users, products, payments)",
+      "One project contains many apps; apps can be reused across projects",
+      "Apps must be registered in INSTALLED_APPS"
+    ]
+  },
+  {
+    "question": "How do you create a Django project and an app?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Project: django-admin startproject project_name",
+      "App: python manage.py startapp app_name, run inside the project",
+      "Add the app to INSTALLED_APPS in settings.py",
+      "Start the dev server with python manage.py runserver (default http://127.0.0.1:8000)"
+    ]
+  },
+  {
+    "question": "What are manage.py and settings.py used for?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "manage.py is the command-line utility for running the server, migrations, and other commands",
+      "settings.py holds database, installed apps, middleware, templates, static, and security configuration",
+      "Every project has one settings module controlling behavior",
+      "Secrets should come from environment variables, not be hardcoded"
+    ]
+  },
+  {
+    "question": "What are the roles of views.py and urls.py in a Django app?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "views.py contains request-handling logic that returns responses",
+      "urls.py maps URL patterns to views (URL routing)",
+      "Views connect models and templates",
+      "include() splits URL configuration per app"
+    ]
+  },
+  {
+    "question": "What is DEBUG mode in Django and why must it be off in production?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "DEBUG=True shows detailed error pages and tracebacks during development",
+      "In production it leaks settings, paths, and code details",
+      "DEBUG=False requires ALLOWED_HOSTS to be set",
+      "Use proper logging and error monitoring in production"
+    ]
+  },
+  {
+    "question": "What are HTTP requests and responses, and what is the difference between GET and POST?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HTTP is the client-server protocol built on request and response",
+      "GET fetches data and puts parameters in the URL; it should be safe and idempotent",
+      "POST sends data in the request body and is used for forms and creating resources",
+      "Use POST (with CSRF protection) for sensitive or state-changing operations"
+    ]
+  },
+  {
+    "question": "What is the request object in Django views?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HttpRequest instance passed as the first argument to every view",
+      "Contains method, GET, POST, FILES, headers, cookies, session, and user",
+      "Views use it to read client input",
+      "Middleware can attach extra attributes to it"
+    ]
+  },
+  {
+    "question": "What is context in Django views and how is data passed to templates?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Context is a dictionary of values made available to a template",
+      "Passed using render(request, 'page.html', context)",
+      "Templates access values with {{ variable }}",
+      "Pass only the data the template needs"
+    ]
+  },
+  {
+    "question": "Why do we use virtual environments in Python and Django projects?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Isolate each project's dependencies",
+      "Avoid version conflicts between projects",
+      "Keep the system Python clean",
+      "Reproducible installs via requirements.txt"
+    ]
+  },
+  {
+    "question": "What is the role of INSTALLED_APPS and ALLOWED_HOSTS in settings.py?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "INSTALLED_APPS lists active apps; Django loads their models, templates, and signals",
+      "Apps not listed are ignored",
+      "ALLOWED_HOSTS lists host/domain names the site may serve, protecting against Host header attacks",
+      "Production must list real domains"
+    ]
+  },
+  {
+    "question": "What is the difference between a local development server and a production server?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "runserver is for development only and is not secure or scalable",
+      "Production uses Gunicorn/uWSGI behind Nginx, with DEBUG off",
+      "Production serves static files via the web server or CDN",
+      "Production needs HTTPS, proper secrets management, and monitoring"
+    ]
+  },
+  {
+    "question": "What is a Django model and how do you create one?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A model is a Python class representing a database table",
+      "Inherit from models.Model; each attribute is a field/column",
+      "Example: name = models.CharField(max_length=100)",
+      "Defined in models.py"
+    ]
+  },
+  {
+    "question": "What do makemigrations and migrate do, and what are migrations?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Migrations are version control for database schema, stored as Python files",
+      "makemigrations generates migration files from model changes without touching the DB",
+      "migrate applies migrations to the database",
+      "Commit migration files to version control"
+    ]
+  },
+  {
+    "question": "What is a QuerySet, and why is it called lazy?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A QuerySet is a collection of database objects returned by queries like all() or filter()",
+      "QuerySets are lazy: no SQL runs until evaluated (iteration, slicing, list(), etc.)",
+      "They can be chained and are cached after evaluation",
+      "Helps build efficient, composable queries"
+    ]
+  },
+  {
+    "question": "How do you perform CRUD operations with the Django ORM?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Create: Model.objects.create(...) or obj.save()",
+      "Read: all(), filter(...), get(id=1) (raises DoesNotExist or MultipleObjectsReturned)",
+      "Update: modify attributes then save(), or queryset.update()",
+      "Delete: obj.delete() or queryset.delete()",
+      "Use order_by('price'), '-price' for descending, and count()"
+    ]
+  },
+  {
+    "question": "What are primary keys, ForeignKey, OneToOneField, and ManyToManyField?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Primary key uniquely identifies a record; Django adds an auto id field by default, accessible as pk",
+      "ForeignKey: one-to-many (one category, many products)",
+      "OneToOneField: one-to-one (User and Profile)",
+      "ManyToManyField: many-to-many via an automatically created join table (Students and Courses)"
+    ]
+  },
+  {
+    "question": "What is the difference between null=True and blank=True?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "null=True is database-level: the column can store NULL",
+      "blank=True is validation-level: forms may leave the field empty",
+      "String fields usually use blank=True without null=True to avoid two empty values",
+      "Both default to False; use default= for default values"
+    ]
+  },
+  {
+    "question": "What are model methods, the Meta class, and verbose_name?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model methods add business logic to a model (e.g., get_discount_price)",
+      "Meta class defines model behavior such as ordering, db_table, indexes, and constraints",
+      "verbose_name provides human-readable names in admin and forms"
+    ]
+  },
+  {
+    "question": "What is a view in Django, and what is the difference between function-based and class-based views?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A view receives an HttpRequest and returns an HttpResponse",
+      "FBVs are simple functions using decorators",
+      "CBVs use classes, inheritance, and mixins for reuse and less repetitive code",
+      "FBVs for simple or custom logic; CBVs for standard patterns like CRUD"
+    ]
+  },
+  {
+    "question": "How do you create a view and map it to a URL?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define a function taking request in views.py and return a response, e.g. render(request, 'home.html')",
+      "Map with path('', views.home, name='home') in urls.py",
+      "path() supports readable routes and converters like <int:id>",
+      "Naming URLs enables reverse lookups"
+    ]
+  },
+  {
+    "question": "What is the difference between path() and re_path(), and what are dynamic URLs?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "path() uses simple, readable patterns with converters",
+      "re_path() uses regular expressions for complex patterns",
+      "Dynamic URLs capture variables, e.g. /product/<int:id>/",
+      "Captured values are passed to the view as arguments"
+    ]
+  },
+  {
+    "question": "What do reverse() and redirect() do in Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "reverse() builds a URL from a URL name, avoiding hardcoded paths",
+      "redirect() returns an HttpResponseRedirect to a URL, view name, or model",
+      "Commonly used after successful form submission (Post/Redirect/Get)",
+      "Improves maintainability"
+    ]
+  },
+  {
+    "question": "What is the difference between HttpResponse, JsonResponse, and render()?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HttpResponse returns plain text, HTML, or other content directly",
+      "JsonResponse serializes a dict to JSON for APIs and AJAX",
+      "render() loads a template, applies context, and returns an HttpResponse",
+      "Use render for dynamic pages and HttpResponse for simple responses"
+    ]
+  },
+  {
+    "question": "What are Django's generic display views: TemplateView, ListView, and DetailView?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "TemplateView renders a template with no model logic (e.g., About page)",
+      "ListView displays a list of model objects",
+      "DetailView displays one object looked up by pk or slug",
+      "Reduce boilerplate by pairing a model with a template"
+    ]
+  },
+  {
+    "question": "What are CreateView, UpdateView, and DeleteView?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CreateView handles form display and saving new records",
+      "UpdateView pre-fills the form from an existing object and saves changes",
+      "DeleteView shows a confirmation page, deletes, then redirects",
+      "All need success_url or get_absolute_url"
+    ]
+  },
+  {
+    "question": "What is a Django template and what is the Django Template Language?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A template is an HTML file that displays dynamic data",
+      "DTL supports variables, tags, and filters",
+      "Separates presentation from logic",
+      "Intentionally limited logic for security and clarity"
+    ]
+  },
+  {
+    "question": "What are template tags and template filters?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tags perform logic like loops, conditions, and inheritance: {% for %}",
+      "Filters modify variable output: {{ name|upper }}",
+      "Custom tags/filters go in an app's templatetags package",
+      "Register with @register.filter or @register.simple_tag, then {% load %}"
+    ]
+  },
+  {
+    "question": "How does template inheritance work with extends, block, and include?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "{% extends %} lets a child template reuse a base template",
+      "{% block %} defines overridable sections",
+      "{% include %} inserts reusable fragments (navbar, footer)",
+      "Reduces duplication and keeps layouts consistent"
+    ]
+  },
+  {
+    "question": "How do you configure and use static files in Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Static files are CSS, JS, and images that do not change per request",
+      "Set STATIC_URL and STATICFILES_DIRS; use {% load static %} and {% static 'path' %}",
+      "Per-app layout: app/static/app/style.css",
+      "Production: run collectstatic and serve via web server/CDN or WhiteNoise"
+    ]
+  },
+  {
+    "question": "What is the difference between static files and media files, and how do you serve media in development?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Static files are developer-provided assets; media files are user uploads",
+      "Media uses MEDIA_ROOT and MEDIA_URL",
+      "In development add urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)",
+      "In production serve media through Nginx or cloud storage such as S3"
+    ]
+  },
+  {
+    "question": "What is csrf_token and how does CSRF protection work?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Protects against Cross-Site Request Forgery attacks",
+      "Include {% csrf_token %} in POST forms",
+      "Django validates the token via CsrfViewMiddleware",
+      "API clients send the token in a header or use token-based auth"
+    ]
+  },
+  {
+    "question": "What is autoescaping in Django templates?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Special characters are automatically escaped, preventing XSS",
+      "HTML in variables is displayed as text, not executed",
+      "Enabled by default",
+      "Bypass only with |safe or mark_safe on trusted content"
+    ]
+  },
+  {
+    "question": "What is a Django form, and what is the difference between forms.Form and ModelForm?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Forms handle input rendering, validation, and security",
+      "forms.Form requires manually defined fields with no direct DB link",
+      "ModelForm generates fields from a model and can save directly with save()",
+      "ModelForm reduces repeated code"
+    ]
+  },
+  {
+    "question": "How do you handle and validate form submissions in a view?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Instantiate the form with request.POST (and request.FILES)",
+      "Call form.is_valid() to run validation; errors appear in form.errors",
+      "Use cleaned_data for forms.Form, or form.save() for ModelForm",
+      "Redirect after a successful POST"
+    ]
+  },
+  {
+    "question": "What are widgets, and how do you style Django forms?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Widgets control how fields render as HTML inputs (TextInput, PasswordInput)",
+      "Customize via attrs, e.g. forms.TextInput(attrs={'class':'form-control'})",
+      "Alternatively style in templates or with libraries like crispy-forms",
+      "Initial values are set with initial="
+    ]
+  },
+  {
+    "question": "How do you upload files in Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use FileField or ImageField in the model (ImageField needs Pillow)",
+      "Form tag requires enctype=\"multipart/form-data\"",
+      "Access uploads via request.FILES and save with a ModelForm",
+      "Validate file type and size; configure MEDIA_ROOT"
+    ]
+  },
+  {
+    "question": "What is Django's authentication system?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Built-in user model, password hashing, sessions, and permissions",
+      "Create users with User.objects.create_user() (hashes the password)",
+      "authenticate() verifies credentials and returns a user or None",
+      "login(request, user) and logout(request) manage the session"
+    ]
+  },
+  {
+    "question": "How do you enable and customize the Django admin panel?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Add django.contrib.admin to INSTALLED_APPS and include admin.site.urls",
+      "Create an administrator with python manage.py createsuperuser",
+      "Register models with admin.site.register(Model, ModelAdmin)",
+      "Customize with ModelAdmin: list_display, list_filter, search_fields"
+    ]
+  },
+  {
+    "question": "What is the @login_required decorator?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Restricts a view to authenticated users",
+      "Unauthenticated users are redirected to LOGIN_URL",
+      "For class-based views use LoginRequiredMixin",
+      "Combine with permission checks for sensitive pages"
+    ]
+  },
+  {
+    "question": "What is Django REST Framework (DRF) and how do you build a CRUD API with it?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Toolkit for building RESTful APIs on Django",
+      "Steps: model, serializer, view or viewset, URL via path() or router",
+      "HTTP verbs map to actions: GET read, POST create, PUT/PATCH update, DELETE remove",
+      "Endpoints are URLs that expose resources, such as /products/"
+    ]
+  },
+  {
+    "question": "How do you test APIs with Postman?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enter the endpoint URL and choose the HTTP method",
+      "Add headers, body, and authentication as needed",
+      "Send the request and inspect status code, body, and errors",
+      "Save requests in collections and write assertions"
+    ]
+  },
+  {
+    "question": "What are Git and GitHub, and what is the basic Git workflow?",
+    "category": "general",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Git is a distributed version control system that tracks changes and enables rollbacks",
+      "GitHub is a cloud platform for hosting repositories and collaborating",
+      "Workflow: git init, git add (stage), git commit -m (save locally), git push (send to remote)",
+      "Remote repositories enable team collaboration and backup"
+    ]
+  },
+  {
+    "question": "What is .gitignore and why is it important?",
+    "category": "general",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Lists files and folders Git should not track",
+      "Typical entries: venv/, *.pyc, .env, __pycache__",
+      "Keeps secrets and generated files out of the repository",
+      "Does not remove files already tracked"
+    ]
+  },
+  {
+    "question": "What is branching in Git, how do you merge branches, and what is a pull request?",
+    "category": "general",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Branches isolate features or fixes from main code: git branch feature-login",
+      "Merge by switching to main and running git merge feature-login; resolve conflicts if needed",
+      "A pull request proposes merging a branch and enables review and discussion",
+      "Protects code quality and supports collaboration"
+    ]
+  },
+  {
+    "question": "What is an SSH key and how is it used with GitHub?",
+    "category": "general",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Key pair for passwordless, secure authentication",
+      "Private key stays on your machine; public key is added to GitHub",
+      "Generate with ssh-keygen",
+      "Never share the private key"
+    ]
+  },
+  {
+    "question": "What are Response and the @api_view decorator in DRF?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Response renders to JSON (or other formats) via content negotiation",
+      "@api_view turns a function into an API view with allowed HTTP methods",
+      "Handles parsing, content negotiation, and error responses",
+      "Example: @api_view(['GET','POST'])"
+    ]
+  },{
+    "question": "What are the major differences between Django and Flask?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Django is a full-stack, batteries-included framework with ORM, admin, auth, forms, templating, and security built in",
+      "Flask is a lightweight microframework that is more flexible but relies on third-party packages for core features",
+      "Django is opinionated with a standard structure; Flask lets you choose your own structure and components",
+      "Choose Django for feature-rich apps built quickly; choose Flask for small services or maximum control"
+    ]
+  },
+  {
+    "question": "Which database backends does Django support, and which would you choose for production?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Officially supports SQLite, PostgreSQL, MySQL, MariaDB, and Oracle",
+      "SQLite is file-based and the default for local development",
+      "PostgreSQL is a common production choice for its reliability and advanced features",
+      "Other databases such as MongoDB require third-party packages"
+    ]
+  },
+  {
+    "question": "What is the difference between STATIC_URL and STATIC_ROOT, and what does collectstatic do?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "STATIC_URL is the URL prefix used to reference static files in templates (e.g., /static/)",
+      "STATIC_ROOT is the filesystem directory where collected static files are placed for deployment",
+      "collectstatic copies static files from every app into STATIC_ROOT",
+      "In production a web server or CDN serves STATIC_ROOT directly instead of Django"
+    ]
+  },
+  {
+    "question": "What is the difference between CharField and TextField in Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CharField is for short text and requires max_length",
+      "TextField is for large text with no required length limit (e.g., blog body)",
+      "Use each for its intended purpose to keep forms and the database schema sensible",
+      "CharField renders as a text input by default; TextField as a textarea"
+    ]
+  },
+  {
+    "question": "How do you define a ForeignKey in Django, and what is the difference between on_delete=CASCADE and SET_NULL?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define with models.ForeignKey(Author, on_delete=models.CASCADE) on the model that holds the reference",
+      "CASCADE deletes the referencing rows when the referenced row is deleted",
+      "SET_NULL sets the field to null, which requires null=True on the field",
+      "Other options include PROTECT, SET_DEFAULT, and DO_NOTHING"
+    ]
+  },
+  {
+    "question": "What is the difference between authentication and authorization in Django?",
+    "category": "backend",
+    "difficulty": "junior",
+    "stack": "django",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Authentication verifies who the user is, handled by login via authenticate() and login()",
+      "Authorization decides what the identified user may do",
+      "Authorization is implemented with permissions, groups, decorators, mixins, or custom checks",
+      "Use @login_required or LoginRequiredMixin for authentication and permission_required for authorization"
+    ]
+  }
+
+]
