@@ -165,5 +165,57 @@
       "Action: Documented technical debt items or refactoring roadmaps for future sprints",
       "Result: Delivered on immediate goals while protecting core system health"
     ]
+  },
+  {
+    "question": "Tell me about a prompt change you made that caused a production regression. How did you detect it, and what steps did you take to resolve and prevent it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Detection: Utilized automated prompt evaluation benchmarks (evals) or telemetry monitoring to catch output regressions early",
+      "Root Cause: Analyzed prompt diffs, edge-case failure modes, or output parsing breakdowns",
+      "Resolution: Rolled back changes, updated evaluation datasets, and implemented CI/CD prompt regression testing pipelines"
+    ]
+  },
+  {
+    "question": "Describe a scenario where you significantly optimized LLM API costs in production. What were the metrics before and after, and what specific architectural changes were made?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Cost Metrics: Quantifies baseline spending vs. reduced spending with concrete throughput, latency, and token metrics",
+      "Optimization Techniques: Applied prompt compression, semantic caching, model cascading, or fine-tuned open-source models",
+      "Quality Maintenance: Ensured cost reductions did not degrade response quality, accuracy thresholds, or user experience"
+    ]
+  },
+  {
+    "question": "Walk me through a complex agentic loop or tool-calling failure you debugged. What insights did your tracing tools reveal, and how did you resolve it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Observability: Leveraged distributed tracing tools (e.g., OpenTelemetry, LangSmith, Phoenix) to inspect execution graphs and state transitions",
+      "Failure Analysis: Identified specific root causes such as state drift, tool schema mismatches, or infinite ReAct retry loops",
+      "Mitigation: Implemented deterministic fallback guardrails, structured output validation, or improved state routing"
+    ]
+  },
+  {
+    "question": "What is one technical trend or assumption in the AI ecosystem over the past year that proved flawed, and how did you adapt your architecture in response?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Critical Thinking: Articulates a well-reasoned critique of industry hype versus production reality (e.g., massive context windows vs. structured RAG)",
+      "Pragmatism: Demonstrates empirical, data-driven decision-making rather than blindly adopting emerging trends",
+      "Impact: Explains how pivoting architectural strategies improved system performance, developer velocity, or system stability"
+    ]
   }
 ]
