@@ -1,0 +1,282 @@
+[
+
+    
+  {
+    "question": "What do temperature, top-p, and top-k control, and when would you set temperature to 0?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Temperature scales logits before softmax: low is sharper, high is more random",
+      "Top-p samples from the smallest set whose cumulative probability exceeds p",
+      "Top-k samples from the k most likely tokens",
+      "Use low or 0 temperature for extraction and classification; it reduces but does not guarantee determinism"
+    ]
+  },
+  {
+    "question": "Why do LLMs hallucinate and how can you mitigate it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Models predict likely next tokens with no built-in factual uncertainty signal",
+      "Causes: knowledge gaps, missing or wrong retrieved context, prompts forcing confident answers",
+      "Mitigate with RAG, citation enforcement, structured output validation, and lower temperature",
+      "Allow abstention and measure with evaluations"
+    ]
+  },
+  {
+    "question": "What is the difference between an embedding and a completion?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Embedding is a fixed-size vector for similarity search and clustering",
+      "Completion is generated text",
+      "Different endpoints, models, and cost profiles"
+    ]
+  },
+  {
+    "question": "Explain how attention works in a transformer at a high level.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Each token attends to every other token via query, key, and value projections",
+      "Weights come from softmax of scaled QK^T, applied to V",
+      "Multi-head attention captures different relationships",
+      "Parallelizable and captures long-range dependencies, but cost is quadratic in sequence length"
+    ]
+  },
+  {
+    "question": "What is a transformer decoder block, and how does it differ from an encoder block?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decoder block has masked self-attention, cross-attention, and feedforward layers",
+      "Encoder block has unmasked self-attention and feedforward layers only",
+      "Decoder attends to encoder outputs for seq2seq tasks; encoder does not attend to decoder"
+    ]
+  },
+  {
+    "question": "What are foundation models, and what types exist?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Large models pretrained on broad data at scale that transfer to many downstream tasks",
+      "Types by modality: language (GPT, BERT), vision (ViT), audio (Whisper), multimodal (CLIP, Gemini), code, and biology",
+      "Different pretraining objectives: autoregressive, masked, contrastive, diffusion",
+      "A weakness in the base model propagates to every product built on it"
+    ]
+  },
+  {
+    "question": "How do LLMs differ from traditional statistical language models such as n-grams?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "N-gram models use sparse count tables with a short fixed context window",
+      "LLMs use dense embeddings and attention over long contexts",
+      "LLMs generalize to unseen phrases and can handle many tasks via prompting",
+      "LLMs require far more data, compute, and parameters"
+    ]
+  },
+  {
+    "question": "What are the main phases of LLM development?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pretraining: self-supervised next-token prediction on massive general data",
+      "Instruction tuning: supervised training on (instruction, response) pairs to follow directions",
+      "Alignment tuning: RLHF, DPO, or similar to make outputs helpful and safe",
+      "Optional task-specific fine-tuning for a domain"
+    ]
+  },
+  {
+    "question": "What is the difference between LLM training and LLM inference?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Training adjusts model weights to minimize loss and is compute-intensive and done upfront",
+      "Inference uses fixed weights to generate outputs for new prompts",
+      "Inference happens on every request, so latency and cost per request matter",
+      "Training needs backward passes and optimizer state; inference needs mainly the forward pass and KV cache"
+    ]
+  },
+  {
+    "question": "How does subword tokenization such as BPE handle out-of-vocabulary words, and why is it preferred over word-level tokenization?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unknown words are split into known subword pieces, so there are effectively no OOV words",
+      "Byte-level BPE guarantees any input can be represented",
+      "Keeps vocabulary size manageable while retaining morphology",
+      "Rare words, code, and non-Latin scripts cost more tokens"
+    ]
+  },
+  {
+    "question": "What are token embeddings, and how does the embedding layer work?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A learned matrix of shape (vocab size, model dimension); each token ID indexes a row",
+      "Vectors capture semantic and syntactic similarity and are learned during training",
+      "Combined with positional information before entering transformer layers",
+      "Input and output embeddings are often tied to save parameters"
+    ]
+  },
+  {
+    "question": "Why do Transformers need positional encodings?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Self-attention is order-agnostic and treats tokens as a set",
+      "Positional information distinguishes sequences such as 'dog bites man' and 'man bites dog'",
+      "Methods: sinusoidal, learned absolute, relative biases, RoPE, ALiBi",
+      "Choice affects how well the model handles longer sequences"
+    ]
+  },
+  {
+    "question": "What is the difference between encoder-only, decoder-only, and encoder-decoder architectures?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encoder-only (BERT): bidirectional attention, best for classification, NER, and embeddings",
+      "Decoder-only (GPT, Llama, Claude): causal attention, best for generation",
+      "Encoder-decoder (T5, BART): encoder reads input, decoder generates via cross-attention; suited to translation and summarization",
+      "Most modern chat LLMs are decoder-only"
+    ]
+  },
+  {
+    "question": "What is the difference between causal and masked language modeling, and why does self-supervised pretraining matter?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Causal LM predicts the next token from left context only; used for generation",
+      "Masked LM predicts hidden tokens using bidirectional context; used for understanding tasks",
+      "Self-supervised labels come from the text itself, so no human annotation is needed",
+      "Enables learning grammar, facts, and semantics from massive unlabeled corpora"
+    ]
+  },
+  {
+    "question": "What is autoregressive generation, and what are its strengths and limitations?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generates one token at a time conditioned on all previous tokens until an end token or length limit",
+      "Strength: coherent, context-aware text",
+      "Limitation: sequential decoding is slow and cannot be fully parallelized",
+      "Errors can compound because each token depends on earlier ones"
+    ]
+  },
+  {
+    "question": "What is the difference between generative and discriminative models?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Discriminative models learn P(y|x) and focus on classification or regression",
+      "Generative models learn the data distribution P(x) or P(x,y) and can create new samples",
+      "Discriminative models are often smaller, cheaper, and easier to evaluate",
+      "Generative LLMs are flexible but can hallucinate; hybrids use discriminative guardrails around a generative core"
+    ]
+  },
+  {
+    "question": "What are the common decoding strategies (greedy, beam search, sampling), and how do you choose among them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Greedy picks the highest-probability token each step: fast but can be repetitive or suboptimal",
+      "Beam search keeps the top-k partial sequences: better for translation and summarization but costlier and bland for open-ended text",
+      "Sampling (temperature, top-k, top-p) adds diversity for creative tasks",
+      "Deterministic methods suit accuracy-critical tasks; stochastic methods suit creativity"
+    ]
+  },
+  {
+    "question": "What is the difference between a system prompt and a user prompt?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "System prompt sets role, behavior, constraints, and output style for the whole conversation",
+      "User prompt is the specific query or task in a turn",
+      "System prompts are processed first and establish context",
+      "System prompts are not a security boundary and can be extracted or overridden by attacks"
+    ]
+  },
+  {
+    "question": "What is the computational complexity of self-attention, and why is it a limitation?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compute and memory scale roughly O(n^2) with sequence length (O(n^2 · d) compute)",
+      "Long contexts become expensive in memory and latency",
+      "Trade-off: every token can attend to every other token in parallel",
+      "Mitigations: FlashAttention, sparse or sliding-window attention, GQA, and state-space hybrids"
+    ]
+  },
+  {
+    "question": "Why is cross-entropy loss used in language modeling?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Measures the difference between predicted token probabilities and the true next token",
+      "Equivalent to negative log-likelihood, i.e., maximum likelihood training",
+      "Penalizes confident wrong predictions heavily",
+      "Perplexity is the exponential of cross-entropy"
+    ]
+  }
+]

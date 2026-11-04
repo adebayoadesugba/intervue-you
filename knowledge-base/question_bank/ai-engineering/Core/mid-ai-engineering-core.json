@@ -1,0 +1,214 @@
+[
+  {
+    "question": "Explain the bias-variance trade-off and how it guides model selection.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "High bias means underfitting from overly simple assumptions",
+      "High variance means overfitting and sensitivity to training data",
+      "Increasing model complexity lowers bias but raises variance",
+      "Diagnose with learning curves; balance using regularization, ensembling, or more data"
+    ]
+  },
+  {
+    "question": "What is data leakage, and how do you prevent it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Information unavailable at prediction time leaks into training, inflating metrics",
+      "Common causes: preprocessing before splitting, target-derived features, time-based leakage, duplicates across splits",
+      "Fit scalers and imputers on training data only; use pipelines",
+      "Use time-aware splits and group splits where appropriate"
+    ]
+  },
+  {
+    "question": "How do you handle highly imbalanced datasets?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use metrics such as precision, recall, PR-AUC, and F1 instead of accuracy",
+      "Resampling (oversampling, SMOTE, undersampling) applied only to training data",
+      "Class weights or cost-sensitive learning",
+      "Tune the decision threshold to business costs and consider anomaly detection"
+    ]
+  },
+  {
+    "question": "How do you choose evaluation metrics that match a business problem?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start from business cost of false positives versus false negatives",
+      "Classification: precision, recall, F1, ROC-AUC, PR-AUC; regression: MAE, RMSE; ranking: NDCG, MRR",
+      "Pair technical metrics with business KPIs",
+      "Evaluate across segments, not only on the aggregate"
+    ]
+  },
+  {
+    "question": "What regularization techniques exist, and how do L1 and L2 differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Regularization penalizes complexity to reduce overfitting",
+      "L1 (lasso) can drive weights to zero, giving sparse feature selection",
+      "L2 (ridge) shrinks weights smoothly without eliminating them",
+      "Other methods: dropout, early stopping, data augmentation"
+    ]
+  },
+  {
+    "question": "What is transfer learning, and when would you fine-tune a pretrained model versus train from scratch?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuses knowledge learned from large datasets for a related task",
+      "Fine-tune when labeled data is limited and the domain is similar",
+      "Freeze early layers and train later layers for small datasets",
+      "Train from scratch only with large data or a very different domain"
+    ]
+  },
+  {
+    "question": "How do you use cross-validation and hyperparameter tuning, and what are the pitfalls?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "K-fold cross-validation gives a more stable performance estimate",
+      "Tuning methods: grid search, random search, Bayesian optimization",
+      "Use time-series splits for temporal data",
+      "Pitfalls: tuning on the test set, leakage, and overfitting to the validation set"
+    ]
+  },
+  {
+    "question": "When would you use batch inference versus real-time inference?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Batch: precompute predictions on a schedule, cheaper and simpler, tolerates staleness",
+      "Real-time: low-latency predictions per request, needs scalable serving and fresh features",
+      "Decide by latency requirements, data freshness, and cost",
+      "Hybrid approaches precompute heavy parts and serve lightweight scoring online"
+    ]
+  },
+  {
+    "question": "What are data drift and concept drift, and how do you monitor a model in production?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Data drift: input distribution changes; concept drift: the input-to-target relationship changes",
+      "Monitor input distributions, prediction distributions, and performance when labels arrive",
+      "Track latency, errors, and throughput alongside model metrics",
+      "Set alerts and define retraining triggers"
+    ]
+  },
+  {
+    "question": "How do you explain a model's predictions to non-technical stakeholders?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use inherently interpretable models when stakes are high and accuracy loss is small",
+      "Post-hoc tools: feature importance, SHAP, LIME, partial dependence",
+      "Explain at the level of individual predictions and overall behavior",
+      "Be honest about limits: explanations are approximations, not causal proof"
+    ]
+  }
+  ,
+  {
+    "question": "When would you choose prompt engineering, RAG, or fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prompt engineering first: cheapest and fastest",
+      "RAG for changing, large, private, or citation-requiring knowledge",
+      "Fine-tuning for behavior, format, or style that prompting cannot reliably achieve",
+      "Often combined; decide by cost, latency, and maintainability"
+    ]
+  }
+  ,
+  {
+    "question": "When do you use few-shot prompting versus chain-of-thought, and when can few-shot hurt?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Few-shot teaches format, style, and edge cases; good for classification and extraction",
+      "Chain-of-thought helps multi-step reasoning and math",
+      "Hurts on simple tasks: extra cost and latency; can pollute structured output",
+      "Unrepresentative examples bias the model; always measure"
+    ]
+  },
+  {
+    "question": "What is constrained decoding and why does it matter for structured output?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Restricts sampling to tokens valid under a schema, grammar, or regex",
+      "Implemented in structured output modes and tools like Outlines or vLLM",
+      "Eliminates most parse failures that compound in multi-step agents",
+      "Still validate semantics; retries should be bounded"
+    ]
+  },
+  {
+    "question": "What is prompt injection and how do you defend against it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "User or retrieved content contains instructions that override system intent",
+      "Treat user input and retrieved documents as untrusted data with clear delimiters",
+      "Enforce permissions and tool access in code, not in prompt text",
+      "Validate outputs and test adversarial inputs; no single silver bullet"
+    ]
+  },
+  {
+    "question": "What is LLM-as-judge and what are its failure modes?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses a model to grade outputs against a rubric to scale evaluation",
+      "Biases: position, length, self-preference, and vague-rubric drift",
+      "Mitigate by randomizing order, controlling length, using a different judge family",
+      "Calibrate against human labels; treat scores as noisy"
+    ]
+  }
+]

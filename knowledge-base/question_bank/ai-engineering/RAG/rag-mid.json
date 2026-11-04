@@ -1,0 +1,634 @@
+[
+  {
+    "question": "How do you choose the right retriever for a RAG application, and what is hybrid search?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dense retrieval for semantic queries; sparse (BM25) for exact terms, codes, and IDs",
+      "Hybrid runs both and merges results, often with reciprocal rank fusion",
+      "RRF avoids normalizing scores across different scoring systems",
+      "Evaluate exact-match and semantic queries separately"
+    ]
+  },
+  {
+    "question": "Do you need a vector database to implement RAG, and what are the alternatives?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Not strictly required; depends on scale and need for semantic search",
+      "Alternatives: Elasticsearch or relational databases (full-text), inverted indexes, pgvector",
+      "These lack deep semantic search unless vectors are added",
+      "Choose based on data size, filtering needs, and existing infrastructure"
+    ]
+  },
+  {
+    "question": "What are the common chunking techniques in RAG and their trade-offs?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fixed-size: simple but may split ideas",
+      "Recursive: splits on natural separators to keep logical boundaries",
+      "Semantic: groups by meaning but needs embeddings and more compute",
+      "Agentic and sliding window: better context at higher cost or redundancy",
+      "Choose by document structure, embedding model, and task"
+    ]
+  },
+  {
+    "question": "How do you choose chunk size, and what are the consequences of chunks that are too large or too small?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Too large: mixed topics, diluted embeddings, noisy context",
+      "Too small: fragmented context, lost long-range dependencies, more vectors and cost",
+      "Typical range 200-1000 tokens depending on content",
+      "Tune empirically against retrieval metrics on your own corpus"
+    ]
+  },
+  {
+    "question": "How should chunking differ for structured documents such as PDFs with tables compared with plain text?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Respect headings, tables, figures, and page layout",
+      "Keep tables intact and index a readable and structured representation",
+      "Attach section and page metadata for filtering and citations",
+      "Use OCR with quality checks for scanned documents"
+    ]
+  },
+  {
+    "question": "How do you handle long documents and large knowledge bases in RAG?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Chunking with metadata and hierarchical (section to passage) retrieval",
+      "Summarization or map-reduce and context compression",
+      "Compact embeddings, indexing, and sharding for scale",
+      "Parent-child retrieval: search small chunks, expand to larger context"
+    ]
+  },
+  {
+    "question": "How does a RAG system maintain context in multi-turn conversations?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rewrite the latest message into a standalone query using conversation history",
+      "Keep only minimal relevant history in the prompt",
+      "Summarize earlier turns to control token use",
+      "Use conversation metadata as retrieval filters"
+    ]
+  },
+  {
+    "question": "What query transformation techniques exist in RAG, and what are their pros and cons?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rewriting, step-back expansion, decomposition into sub-queries, and HyDE",
+      "Improve retrieval for vague, ambiguous, or multi-part queries",
+      "Cost: extra LLM calls, added latency, and risk of over-expansion noise",
+      "Use selectively, for example only on complex queries"
+    ]
+  },
+  {
+    "question": "How do HyDE and HyPE differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "HyDE generates a hypothetical answer at query time and embeds it for retrieval",
+      "HyPE precomputes hypothetical questions per chunk at indexing time",
+      "HyPE matches question to question and adds no query-time LLM latency",
+      "HyDE is flexible but costs one LLM call per query"
+    ]
+  },
+  {
+    "question": "What are chunk enhancement techniques such as contextual chunk headers and document augmentation?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Contextual chunk headers prepend titles or section headings before embedding",
+      "Document augmentation adds metadata or generated questions to chunks",
+      "Improve semantic alignment and ranking for ambiguous chunks",
+      "Trade-off: more indexing cost and storage"
+    ]
+  },
+  {
+    "question": "Why is re-ranking used after initial retrieval, and why is a cross-encoder typically the re-ranker?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "First stage optimizes recall with fast bi-encoder retrieval; re-ranking optimizes top-k precision",
+      "Cross-encoders score query-chunk pairs jointly for deeper relevance",
+      "They cannot precompute chunk representations, so they are slower",
+      "Costs added latency; bypass for simple queries or use distilled models"
+    ]
+  },
+  {
+    "question": "What metrics evaluate retrieval ranking quality (MRR, MAP, NDCG), and how do they differ from precision and recall?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Precision@k and recall@k are order-unaware",
+      "MRR rewards the rank of the first relevant result; unsuitable with multiple relevant chunks",
+      "MAP averages precision across all relevant ranks",
+      "NDCG handles graded relevance with a positional discount"
+    ]
+  },
+  {
+    "question": "What are context precision, context recall, and context relevancy in RAG evaluation?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Context precision: relevant chunks are ranked higher than irrelevant ones",
+      "Context recall: retrieved context covers all ground-truth claims",
+      "Context relevancy is reference-free; the others need a reference answer",
+      "Need both: high recall with low precision injects noise; high precision with low recall misses facts"
+    ]
+  },
+  {
+    "question": "How do faithfulness and response relevancy differ, and why do you need both?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Faithfulness: fraction of response claims supported by retrieved context",
+      "Response relevancy: how well the answer addresses the user query",
+      "An answer can be relevant but unsupported, or supported but off-topic",
+      "High context precision with low faithfulness points to a generation problem; improve prompts and add NLI checks"
+    ]
+  },
+  {
+    "question": "What are the key hyperparameters in a RAG pipeline?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Retrieval: chunk size, overlap, embedding dimensionality, top-k, similarity threshold",
+      "Generation: temperature and max output length",
+      "Context window size influences top-k and chunk size",
+      "Tune iteratively against an evaluation set"
+    ]
+  },
+  {
+    "question": "How do you choose an embedding model for a RAG system?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Match domain and language, including multilingual needs",
+      "Weigh dimensionality against storage, latency, and cost",
+      "Use benchmarks such as MTEB only to shortlist; validate on your own data",
+      "Consider licensing, API availability, and privacy"
+    ]
+  },
+  {
+    "question": "What role do ANN algorithms play in vector search?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Avoid scanning all vectors by navigating an index (e.g., HNSW graphs, IVF)",
+      "Trade a little accuracy for large speedups",
+      "Steps: encode, index, navigate, retrieve nearest candidates",
+      "Tune index parameters against a target recall"
+    ]
+  },
+  {
+    "question": "How do you build a golden evaluation set for a RAG or LLM system and handle non-determinism?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sample realistic queries; label relevant passages and expected answer points",
+      "Include unanswerable, ambiguous, exact-string, and permission-sensitive cases",
+      "Keep separate development and holdout sets; grow with production failures",
+      "Run repeated trials and report mean and variance for stochastic outputs"
+    ]
+  },
+  {
+    "question": "How do you tell retrieval failure from generation failure in a RAG system?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Retrieval failure: top-k off-topic, low similarity, or answer absent from retrieved set",
+      "Generation failure: answer present in context but ignored or contradicted",
+      "Test generation with oracle context; test retrieval against known passages",
+      "Fix the dominant failure bucket, for example reranker, chunking, or prompt structure"
+    ]
+  },
+  {
+    "question": "How do you enforce reliable citations in a RAG answer?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pass chunks with explicit IDs and require inline citations by ID",
+      "Validate that each cited ID exists in the retrieved set",
+      "Check that cited text actually supports the claim",
+      "Strip or regenerate unsupported claims; prefer chunk offsets over document-level citations"
+    ]
+  },
+  {
+    "question": "How do you reduce latency in a RAG system without hurting accuracy?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Profile per stage: embedding, retrieval, rerank, generation",
+      "Cache embeddings and results; use ANN indexes and quantized embeddings",
+      "Selective query rewriting and re-ranking only for complex queries",
+      "Parallelize retrieval, limit candidates, compress context, and stream output"
+    ]
+  },
+  {
+    "question": "How do you handle ambiguous or underspecified queries in RAG?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Query rewriting or expansion to make intent explicit",
+      "Ask a clarifying question when risk is high",
+      "Retrieve diverse results and present options with citations",
+      "Use MMR to balance relevance and diversity"
+    ]
+  },
+  {
+    "question": "How should a RAG system handle contradictory documents and outdated information?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Track effective dates, versions, and authority in metadata",
+      "Prefer a newer source only when metadata shows it supersedes the older one",
+      "Surface conflicts with citations when status is unclear",
+      "Filter or re-rank by recency for time-sensitive queries"
+    ]
+  },
+  {
+    "question": "What are the fundamental limitations and challenges of RAG systems?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quality depends on retrieved data (garbage in, garbage out)",
+      "Added complexity, latency, and compute from the retrieval step",
+      "Ongoing knowledge base maintenance and freshness",
+      "Harder debugging across retriever, index, and generator; bias and noise can propagate"
+    ]
+  },
+  {
+    "question": "How does a reasoning LLM compare with a non-reasoning LLM as a RAG generator?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reasoning models handle multi-step analysis of retrieved context better",
+      "They are slower and more expensive",
+      "Non-reasoning models suit simple lookups",
+      "Route by query complexity and validate with evaluation; weak generators hallucinate even with good retrieval"
+    ]
+  },
+  {
+    "question": "How do you design a ReAct-style agent, and what are its weaknesses?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Loop of thought, action (tool call), and observation until done",
+      "Simplest agent loop underlying most tool-using agents",
+      "Weaknesses: growing prompt, hallucinated tool calls, no global plan, drift on long tasks",
+      "Planner-executor splits suit longer horizons and expensive tools"
+    ]
+  },
+  {
+    "question": "How do you design function schemas for reliable tool calling?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Strict JSON schemas with required fields, clear types, and short descriptions",
+      "Descriptions act like prompts; include examples for non-obvious formats",
+      "Expose only relevant tools; avoid optional booleans",
+      "Validate arguments server-side before execution and return actionable errors"
+    ]
+  },
+  {
+    "question": "How do you prevent an agent from looping forever?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hard caps on steps, tokens, wall-clock time, and cost",
+      "Detect repeated identical tool calls and lack of progress",
+      "Explicit terminal states; escalate or return partial status on exhaustion",
+      "Make tools idempotent where possible"
+    ]
+  },
+  {
+    "question": "How do you give an agent memory?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Short-term: truncated conversation history within the context window",
+      "Long-term: vector store, key-value facts, or episodic logs queried via tools",
+      "Store provenance, timestamps, and sensitivity; allow correction and deletion",
+      "Context window and memory are different problems"
+    ]
+  },
+  {
+    "question": "How do metadata and filtering improve retrieval in RAG?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Metadata such as source, date, version, department, and permissions is stored with each chunk",
+      "Filters narrow the search space, reducing noise and outdated results",
+      "Enable temporal filtering, multi-tenancy, and access control",
+      "Permission filters must be enforced server-side, not through the prompt"
+    ]
+  },
+  {
+    "question": "Explain parent-child (small-to-big) retrieval and sentence-window retrieval.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Parent-child: index small child chunks for precise matching, return the larger parent section to the LLM",
+      "Sentence-window: retrieve the best sentence, then expand with surrounding sentences",
+      "Combines retrieval precision with sufficient generation context",
+      "Bound the expansion to avoid noise and token bloat"
+    ]
+  },
+  {
+    "question": "What is MMR (Maximal Marginal Relevance) and when would you use it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Plain top-k can return near-duplicate chunks",
+      "MMR selects chunks that are relevant to the query but dissimilar to those already chosen",
+      "A lambda parameter balances relevance and diversity",
+      "Useful for broad or exploratory queries needing varied coverage"
+    ]
+  },
+  {
+    "question": "What is RAG Fusion and how does Reciprocal Rank Fusion (RRF) work?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generate several query variations with an LLM and retrieve for each in parallel",
+      "RRF score is the sum of 1/(k + rank) across result lists, with k around 60",
+      "Documents ranked well in multiple lists rise to the top without score normalization",
+      "Improves recall and robustness at the cost of extra LLM and retrieval calls"
+    ]
+  },
+  {
+    "question": "What drives the cost of a RAG system and how do you reduce it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Drivers: embedding generation, vector storage and search, reranking, LLM tokens, query-transformation calls",
+      "Deduplicate content, batch ingestion, avoid unnecessary re-embedding",
+      "Use filters and hybrid search to improve candidate quality; rerank only when it helps",
+      "Route simple queries to cheaper models and track cost per successful answer"
+    ]
+  },
+  {
+    "question": "What is the curse of dimensionality and how does it affect embeddings and retrieval?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "In high dimensions, distances between points become less discriminative",
+      "Can degrade nearest-neighbor quality and increase storage and compute",
+      "Mitigate with appropriate dimension choice, dimensionality reduction, or ANN indexes like HNSW",
+      "Higher dimensions capture more nuance, so balance against cost"
+    ]
+  },
+  {
+    "question": "How do you debug a case where the answer exists in your documents but the retriever never returns it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Verify ingestion, parsed text quality, and chunk boundaries",
+      "Check metadata, date, and permission filters that may exclude it",
+      "Test lexical and vector retrieval separately and inspect similarity scores",
+      "Check whether a reranker or top-k cutoff dropped it; add a regression test"
+    ]
+  },
+  {
+    "question": "How would you design retrieval for users asking in Hindi, English, and Hinglish over mostly English documents?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use multilingual embeddings and language detection",
+      "Optionally translate or rewrite queries while preserving names and technical terms",
+      "Hybrid search with fusion of original and translated query results",
+      "Answer in the user's language, and evaluate on equivalent queries in each language"
+    ]
+  },
+  {
+    "question": "How would you implement RAG over multiple data sources with query routing?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Keep source metadata with each chunk; use separate collections or a unified index",
+      "Router (LLM, rules, or embedding-based) selects relevant sources per query",
+      "Merge and rerank results with source attribution",
+      "Handle differing quality, update rates, and latency; add fallbacks and caching"
+    ]
+  },
+  {
+    "question": "How would you choose a vector database: pgvector, Pinecone, Qdrant, or Weaviate?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "pgvector suits teams already on Postgres with moderate corpus size",
+      "Qdrant: self-hosted, high throughput, strong filtering",
+      "Pinecone: managed scale with low operational burden",
+      "Weaviate: hybrid search and built-in modules; decide on ops cost, filtering, and existing infrastructure"
+    ]
+  },
+  {
+    "question": "What is prompt caching and when does it matter?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Providers cache the prefix of prompts to skip recomputation on repeated calls",
+      "Matters for long system prompts and RAG-heavy workloads; can cut input cost substantially",
+      "Put static content first and variable content last",
+      "Measure cache hit rate and savings"
+    ]
+  },
+  {
+    "question": "How would you design a prompt for a customer-support classifier with many intent classes?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define the role and list each class with a one-line definition",
+      "Add few-shot examples covering edge cases and a fallback 'other' class",
+      "Require structured JSON output validated against a schema",
+      "Iterate against a labeled evaluation set and track per-class precision and recall"
+    ]
+  },
+  {
+    "question": "How do you integrate an LLM behind a reliable application contract?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define a schema and validate every response; handle refusals and missing fields",
+      "Timeouts, bounded retries, and an explicit error path",
+      "Version prompt, model, schema, and parameters together for reproducibility",
+      "Structured output does not guarantee factual or business correctness; verify side effects in code"
+    ]
+  },
+  {
+    "question": "How is an agent different from a chatbot, and when would you use an agent versus a deterministic workflow?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A chatbot responds once per turn; an agent loops: plan, act with tools, observe, decide",
+      "Use a workflow when steps and branches are known: cheaper, faster, easier to test",
+      "Use an agent when flexible planning or tool selection is required and the cost is justified",
+      "Define tool schemas, least-privilege credentials, stop conditions, budgets, and approval points"
+    ]
+  },
+  {
+    "question": "What is human-in-the-loop in agent systems and where should you add it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pause the agent at high-stakes steps and show the exact proposed action for approval",
+      "Examples: sending email, spending money, modifying production data",
+      "Add it wherever the cost of a wrong action exceeds the cost of waiting",
+      "Adding it only at the end is too late; the damage is done"
+    ]
+  },
+  {
+    "question": "How do you handle PII in an LLM pipeline?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Detect PII at ingest with tools such as Presidio or cloud services",
+      "Redact or tokenize before sending to a provider; opt out of provider training",
+      "Use regional routing for data residency and restrict access to prompts and logs",
+      "Keep audit logs and retention limits; follow applicable regulations"
+    ]
+  }
+
+]

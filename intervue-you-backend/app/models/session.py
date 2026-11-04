@@ -125,6 +125,7 @@ class InterviewSession:
         # Dynamically extract candidate's primary stack (e.g., "vue", "react", "fastapi", "python", "figma")
         # Falls back to "core" if no stack list is attached to the session
         problem_solving_competency = random.choice(["behavioral", "situational"])
+        teamwork_competency = random.choice(["situational", "behavioral"])
         
         primary_stack = (self.stack[0] if getattr(self, "stack", None) and len(self.stack) > 0 else "core").lower()
 
@@ -133,7 +134,7 @@ class InterviewSession:
             AgendaSlot(1, "introduction", "communication", primary_stack, is_must_have=True),
             
             # Slot 2: Collaboration & Conflict (Explicitly guarantees Teamwork assessment)
-            AgendaSlot(2, "behavioral", "teamwork", primary_stack, is_must_have=True),
+            AgendaSlot(2, teamwork_competency, "teamwork", primary_stack, is_must_have=True),
         ]
 
         slot_counter = 3

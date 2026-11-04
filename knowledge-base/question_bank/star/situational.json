@@ -79,7 +79,7 @@
     "question_type": "situational",
     "competency": "teamwork",
     "reference_points": [
-      "Schedules a private one-on-one to understand root causes (personal, workload, skill gaps)",
+      "Schedules a private one-on-one to   root causes (personal, workload, skill gaps)",
       "Sets clear expectations and mutually agreed-upon deadlines with accountability",
       "Follows up with support, mentorship, or reallocation of tasks as needed"
     ]
@@ -111,6 +111,277 @@
         "Resourcefulness: Utilizes documentation, tutorials, and community forums effectively",
         "Application: Demonstrates how the newly learned technology was successfully applied to deliver project outcomes"
         ]
-    }
+    },
 
+  {
+    "question": "Tell me about a prompt change you made that caused a regression in production. How did you catch it, and how did you fix it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes a specific change and the user-visible impact, taking ownership without blaming others",
+      "Explains detection: monitoring, eval failures, user feedback, or a canary alert",
+      "Explains the response: rollback or mitigation first, then root cause",
+      "Fix and prevention: added regression tests, prompt versioning, and CI evals or canary releases",
+      "Reflects on what changed in the team's release process afterward"
+    ]
+  },
+  {
+    "question": "Describe an LLM bill you reduced. What were the before and after numbers, and what specifically changed?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Gives a baseline and a measured result, using real figures without exaggeration",
+      "Identifies the cost drivers first: token breakdown by feature, model, context size, and retries",
+      "Specific levers: model routing, prompt caching, prompt or context trimming, output limits, batching",
+      "Verified quality did not regress using an eval set",
+      "Set up ongoing cost monitoring or budgets to sustain the savings"
+    ]
+  },
+  {
+    "question": "Walk me through an agent failure mode you debugged. What did the traces show?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes a concrete failure such as wrong tool choice, bad arguments, looping, or ignored tool results",
+      "Used step-level traces: prompts, tool calls, arguments, results, and retries",
+      "Located the earliest incorrect step rather than only the final output",
+      "Fix: clearer tool schemas, validation, step or budget limits, or added checkpoints",
+      "Added the failing trace to a regression suite"
+    ]
+  },
+  {
+    "question": "What is one thing the AI ecosystem got wrong in the last 12 months, and what did you do about it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Takes a clear, defensible position backed by evidence or experience, not a generic complaint",
+      "Examples: overusing agents where workflows suffice, shipping without evals, assuming long context replaces retrieval",
+      "Shows a concrete action taken in their own work or team in response",
+      "Acknowledges trade-offs and counterarguments",
+      "Demonstrates continuous learning and critical thinking"
+    ]
+  },
+  {
+    "question": "Describe an occasion when you failed at a task. What did you learn from it?",
+    "category": "general",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Chooses a genuine failure and takes ownership without blaming others or minimizing it",
+      "Uses a clear structure: situation, what went wrong, and the cause",
+      "Describes concrete actions taken to recover or limit the damage",
+      "States specific lessons learned and how behavior changed afterward",
+      "Shows a growth mindset and applies the lesson later"
+    ]
+  },
+  {
+    "question": "Tell me about a time you took the initiative in your career. What was your motivation for doing so?",
+    "category": "general",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Identifies a problem or opportunity without being asked",
+      "Explains motivation tied to impact on users, the team, or the business",
+      "Describes concrete actions, including how they gained buy-in from others",
+      "Gives a measurable or observable result",
+      "Shows ownership and reflects on what they would do differently"
+    ]
+  },
+  {
+    "question": "Share an example of a career goal you had. What steps did you take to achieve it?",
+    "category": "general",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "States a specific, meaningful goal and why it mattered",
+      "Breaks it into actionable steps with a rough timeline",
+      "Shows learning actions: courses, projects, mentorship, or seeking feedback",
+      "Describes obstacles encountered and how they adapted",
+      "Reports the outcome honestly, including any goal that is still in progress"
+    ]
+  },
+  {
+    "question": "Give an example of a time when you had to make a difficult decision. How did you handle it?",
+    "category": "general",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes the situation, the stakes, and why the decision was hard",
+      "Explains how they gathered information, weighed options and trade-offs, and consulted stakeholders",
+      "States the decision and the reasoning behind it",
+      "Communicated the decision clearly and handled disagreement professionally",
+      "Reflects on the outcome and what they learned"
+    ]
+  },
+
+  {
+    "question": "Tell me about a time your RAG system returned a wrong or irrelevant answer. How did you figure out what went wrong?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes a specific failing query and its impact",
+      "Traced the pipeline stage by stage: ingestion, chunking, retrieval, prompt, generation",
+      "Inspected retrieved chunks and scores before changing the prompt or model",
+      "Fixed the root cause and added the query to a test set",
+      "Reflects on what they learned about debugging RAG systems"
+    ]
+  },
+  {
+    "question": "Describe a time you got stuck on a technical problem in an AI project. How did you decide when to ask for help?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Shows effort before escalating: documentation, experiments, searching for similar issues",
+      "Asks for help with a clear problem statement, what was tried, and what was observed",
+      "Sensible time-boxing rather than waiting too long or asking immediately",
+      "Applies the feedback and shares the solution with the team",
+      "Shows humility and willingness to learn"
+    ]
+  },
+  {
+    "question": "Tell me about a time you received critical feedback on your code, a pipeline, or an experiment. How did you respond?",
+    "category": "ai-engineering",
+    "difficulty": "any",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Describes the feedback specifically and listens without being defensive",
+      "Asks clarifying questions to understand the reasoning",
+      "Makes concrete changes and follows up with the reviewer",
+      "Shows how the feedback improved their later work",
+      "Demonstrates a growth mindset"
+    ]
+  },
+  {
+    "question": "Describe a time you had to learn a new tool or concept quickly, such as a vector database, embedding model, or framework, to complete a task.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Clear task and deadline that required the new skill",
+      "Structured learning approach: official docs, small prototypes, experiments",
+      "Validated understanding with a working example or test",
+      "Delivered the result and documented or shared what was learned",
+      "Honest about gaps that remained"
+    ]
+  },
+  {
+    "question": "Tell me about a time you worked with a teammate whose approach to a data or retrieval problem differed from yours. How did you resolve it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Describes both approaches fairly without disparaging the colleague",
+      "Used data, such as a small experiment or evaluation comparison, instead of opinion",
+      "Communicated respectfully and stayed focused on the shared goal",
+      "Reached a decision or compromise and committed to it",
+      "Reflects on what they learned from the other perspective"
+    ]
+  },
+  {
+    "question": "Describe a time you improved a RAG system's retrieval quality. How did you diagnose the problem and prove the improvement?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Defines a baseline using an evaluation set and metrics such as recall@k or faithfulness",
+      "Isolates the cause: chunking, embeddings, missing keyword search, filters, or reranking",
+      "Changes one variable at a time and measures the effect",
+      "Reports measured results honestly, including trade-offs in latency or cost",
+      "Keeps the evaluation set to prevent future regressions"
+    ]
+  },
+  {
+    "question": "Tell me about a time you disagreed with a product manager or stakeholder about what a RAG feature could reliably do. How did you handle it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Translates technical limits (hallucination, stale data, retrieval misses) into product and user impact",
+      "Uses evidence such as evaluation results or failure examples",
+      "Proposes alternatives: scoped launch, citations, abstention behavior, human review",
+      "Maintains the relationship and aligns on success metrics",
+      "Describes the outcome and what they would repeat or change"
+    ]
+  },
+  {
+    "question": "Describe a situation where you had to work across teams, such as data engineering, security, or product, to ship a RAG feature. How did you coordinate?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Identifies stakeholders and dependencies early, such as data access, permissions, or ingestion",
+      "Establishes clear interfaces, ownership, and communication cadence",
+      "Handles conflicting priorities or blockers proactively",
+      "Documents decisions so others can follow",
+      "Delivers the outcome and reflects on how collaboration could improve"
+    ]
+  },
+  {
+    "question": "Tell me about a time a data quality problem, such as bad parsing, outdated documents, or duplicates, hurt your RAG system. How did you handle it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Detected the issue through monitoring, evaluation failures, or user reports",
+      "Traced the effect from source data through to wrong answers",
+      "Fixed ingestion with validation, deduplication, versioning, or freshness handling",
+      "Added monitoring or tests to catch recurrence",
+      "Coordinated with the data owners where required"
+    ]
+  },
+  {
+    "question": "Describe a time you mentored or onboarded a teammate on RAG concepts or your team's pipeline. What approach did you take?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Assessed the teammate's starting knowledge and goals",
+      "Used practical methods: pairing, code walkthroughs, documentation, small tasks",
+      "Gave constructive feedback and encouraged independence",
+      "Measured progress by what the teammate could do afterward",
+      "Reflects on what they learned about explaining technical trade-offs"
+    ]
+  }
 ]

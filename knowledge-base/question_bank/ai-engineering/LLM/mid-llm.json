@@ -1,0 +1,17 @@
+[
+
+  {
+    "question": "What is the KV cache and why does it matter?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stores key and value tensors from earlier tokens to avoid recomputing attention",
+      "Makes per-token generation cost grow roughly linearly with prefix rather than recomputing everything",
+      "Memory grows with context length and concurrent sequences",
+      "Limits batch size and throughput for long contexts"
+    ]
+  }
+]

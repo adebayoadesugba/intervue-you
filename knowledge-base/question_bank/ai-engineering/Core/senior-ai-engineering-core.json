@@ -1,0 +1,142 @@
+[
+  {
+    "question": "Walk through how you would design an end-to-end ML system for a new product feature.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clarify the business goal, success metrics, constraints, and whether ML is needed at all",
+      "Data collection and labeling, a simple baseline, then iterate on models",
+      "Training pipeline, evaluation gates, serving architecture, and rollout strategy",
+      "Monitoring, feedback loops, retraining, and ownership"
+    ]
+  },
+  {
+    "question": "A model performs well offline but poorly in production. How do you diagnose it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Check training-serving skew: differences in features, preprocessing, or data sources",
+      "Look for data leakage in offline evaluation and unrepresentative test data",
+      "Compare production and training distributions; check drift and latency or timeouts",
+      "Reproduce with logged production inputs and fix the root cause"
+    ]
+  },
+  {
+    "question": "How do you decide when to retrain a model, and how do you design the retraining process?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Triggers: scheduled, drift or performance-based, or data-volume thresholds",
+      "Automate the pipeline with validation gates against the current production model",
+      "Use shadow or canary deployment with rollback",
+      "Watch for feedback loops where model outputs bias future training data"
+    ]
+  },
+  {
+    "question": "How do you ensure fairness, privacy, and responsible use in an AI system?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audit data and model performance across subgroups; define fairness criteria with stakeholders",
+      "Minimize data collection, anonymize or redact sensitive data, and follow regulations such as GDPR",
+      "Document intended use and limitations; add human oversight for high-stakes decisions",
+      "Monitor continuously; fairness metrics can conflict, so trade-offs need explicit decisions"
+    ]
+  },
+  {
+    "question": "How do you decide between a classical ML model, a deep learning model, and a large pretrained model for a problem?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with the simplest baseline; classical models often win on small tabular data",
+      "Deep learning suits unstructured data (images, audio, text) with enough data and compute",
+      "Pretrained or foundation models cut development time but add cost, latency, and control concerns",
+      "Compare on accuracy, latency, cost, interpretability, and maintainability using real data"
+    ]
+  },
+  {
+    "question": "How would you reduce inference latency and cost for a deployed model?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model optimization: quantization, pruning, distillation, smaller architectures",
+      "Serving optimization: batching, caching, hardware acceleration, optimized runtimes",
+      "Architecture: route easy cases to cheaper models, precompute where possible",
+      "Measure quality impact for every optimization and track cost per prediction"
+    ]
+  },
+  {
+    "question": "How do you reconcile offline metrics with online A/B test results?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offline metrics are proxies and may not capture user behavior or feedback effects",
+      "Define primary and guardrail metrics before the experiment",
+      "Ensure randomization, adequate sample size, and no peeking-driven decisions",
+      "Investigate disagreements and improve offline evaluation to better predict online outcomes"
+    ]
+  },
+  {
+    "question": "What is training-serving skew, and how do feature stores and data pipelines help prevent it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Skew occurs when features are computed differently in training versus serving",
+      "Feature stores provide one definition used for both offline and online features",
+      "Support point-in-time correctness to avoid temporal leakage",
+      "Add data validation and schema checks to pipelines"
+    ]
+  },
+  {
+    "question": "How do you ensure reproducibility and good MLOps practices across a team?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Version code, data, models, and configurations; track experiments and random seeds",
+      "CI/CD for ML with automated tests, validation gates, and model registry",
+      "Containerized, pinned environments for consistent training and serving",
+      "Document models and decisions, and keep rollback paths"
+    ]
+  },
+  {
+    "question": "How do you decide whether AI is the right solution, and how do you manage risk when it fails?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compare against rule-based or non-ML alternatives on value, cost, and maintenance",
+      "Assess data availability, error tolerance, and cost of mistakes",
+      "Design for failure: confidence thresholds, fallbacks, and human-in-the-loop review",
+      "Define success metrics and communicate uncertainty and limitations to stakeholders"
+    ]
+  }
+]

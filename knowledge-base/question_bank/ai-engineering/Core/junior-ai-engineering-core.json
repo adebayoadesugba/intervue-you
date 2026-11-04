@@ -1,0 +1,199 @@
+[
+  {
+    "question": "What is the difference between AI, machine learning, and deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "AI is the broad field of building systems that perform tasks requiring human-like intelligence",
+      "Machine learning is a subset where models learn patterns from data instead of explicit rules",
+      "Deep learning is a subset of ML using multi-layer neural networks",
+      "Deep learning typically needs more data and compute but handles unstructured data well"
+    ]
+  },
+  {
+    "question": "What is the difference between supervised, unsupervised, and reinforcement learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Supervised learning trains on labeled data (e.g., classification, regression)",
+      "Unsupervised learning finds structure in unlabeled data (e.g., clustering, dimensionality reduction)",
+      "Reinforcement learning learns through actions, rewards, and penalties in an environment",
+      "Choice depends on label availability and problem type"
+    ]
+  },
+  {
+    "question": "Why do we split data into training, validation, and test sets?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Training set is used to fit model parameters",
+      "Validation set is used for tuning hyperparameters and model selection",
+      "Test set gives an unbiased estimate of final performance and is used once",
+      "Prevents overly optimistic results from evaluating on data the model has seen"
+    ]
+  },
+  {
+    "question": "What are overfitting and underfitting, and how can you address them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Overfitting: strong training performance but poor performance on unseen data",
+      "Underfitting: model is too simple to capture patterns, so both training and test performance are poor",
+      "Overfitting fixes: more data, regularization, simpler model, early stopping, dropout",
+      "Underfitting fixes: more expressive model, better features, longer training"
+    ]
+  },
+  {
+    "question": "What do precision, recall, and F1 score measure, and why can accuracy be misleading?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Precision: fraction of predicted positives that are correct",
+      "Recall: fraction of actual positives that are found",
+      "F1 is the harmonic mean of precision and recall",
+      "Accuracy misleads on imbalanced data, e.g., 99% accuracy by always predicting the majority class"
+    ]
+  },
+  {
+    "question": "What is a loss function, and what is gradient descent?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A loss function quantifies how far predictions are from true values",
+      "Gradient descent iteratively updates parameters in the direction that reduces loss",
+      "Learning rate controls step size: too large may diverge, too small trains slowly",
+      "Variants include stochastic and mini-batch gradient descent, and optimizers like Adam"
+    ]
+  },
+  {
+    "question": "How do you handle missing values and outliers in a dataset?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "First understand why data is missing, then drop, impute (mean, median, model-based), or flag it",
+      "Detect outliers with visualization, IQR, or z-scores",
+      "Decide whether outliers are errors or real signal before removing them",
+      "Fit imputers on training data only to avoid leakage"
+    ]
+  },
+  {
+    "question": "What is feature engineering, and why do features often need scaling or encoding?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Feature engineering creates or transforms inputs to help models learn better",
+      "Scaling (standardization, normalization) matters for distance-based and gradient-based models",
+      "Categorical variables need encoding such as one-hot or ordinal encoding",
+      "Apply the same transformations at training and inference time"
+    ]
+  },
+  {
+    "question": "What is a neural network, and what role do activation functions play?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layers of connected neurons with learned weights and biases",
+      "Activation functions add non-linearity so the network can model complex patterns",
+      "Common choices: ReLU, sigmoid, tanh, softmax for multi-class outputs",
+      "Trained with backpropagation and gradient descent"
+    ]
+  },
+  {
+    "question": "How would you make a trained model available for other applications to use?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Serialize and version the model artifact",
+      "Wrap it in an API (e.g., REST service) with input validation",
+      "Package with Docker for consistent environments",
+      "Add logging, error handling, and basic monitoring"
+    ]
+  },
+   {
+    "question": "What is a token, and why does it matter for cost and context?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A token is a sub-word unit produced by a tokenizer such as BPE",
+      "APIs bill per input and output token, not per word or character",
+      "Some languages tokenize less efficiently and cost more",
+      "Tokens count against the context window"
+    ]
+  }
+  ,
+  {
+    "question": "What is a context window and what happens when you exceed it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maximum number of tokens the model can process in one request",
+      "Exceeding it causes silent truncation or an API error",
+      "Silent truncation can quietly corrupt answers",
+      "Mitigate with summarization, sliding windows, and RAG"
+    ]
+  },
+  {
+    "question": "What is the difference between AI, machine learning and deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "AI is the broad goal of making machines perform tasks that normally need human intelligence",
+      "Machine learning is one way to get there: instead of writing every rule by hand, the system learns patterns from data",
+      "Deep learning is a subset of machine learning that uses neural networks with many layers"
+    ]
+  },
+  {
+    "question": "Explain supervised, unsupervised and reinforcement learning.?",
+    "category": "ai-engineering",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Supervised learning trains on labelled examples, such as emails marked spam or not spam, and learns to predict the label for new inputs.",
+      "Unsupervised learning finds structure in unlabelled data, for example clustering customers into segments.",
+      "Reinforcement learning trains an agent by trial and error: it takes actions in an environment and learns from rewards and penalties."
+    ]
+  }
+]
+
+

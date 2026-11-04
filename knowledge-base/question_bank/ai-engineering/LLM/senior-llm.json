@@ -1,0 +1,256 @@
+[
+
+     {
+    "question": "Compare full fine-tuning, LoRA, and QLoRA, and what fits on a single 80 GB GPU.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Full fine-tuning updates all weights and optimizer states; memory heavy",
+      "LoRA trains small low-rank adapters on frozen weights",
+      "QLoRA adds a quantized base model, cutting memory further; check quality",
+      "Verify memory fit for sequence length, batch size, and optimizer; evaluate regressions"
+    ]
+  },
+  {
+    "question": "Fine-tuning hurt general instruction following. How do you diagnose and fix it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Check data distribution, label quality, overfitting, learning rate, and epochs",
+      "Evaluate general capability and safety before and after on a fixed suite",
+      "Use parameter-efficient tuning, diverse data, lower learning rates",
+      "Consider routing or prompting when the gain is narrow"
+    ]
+  },
+  {
+    "question": "How do you decide between a hosted frontier API and a self-hosted open-weights model?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compare quality on your workload, total cost at expected utilization, latency, and availability",
+      "Privacy, residency, and compliance requirements",
+      "Hosted: no infrastructure but vendor dependence; self-hosted: control but GPU and ops burden",
+      "Run both in shadow mode on real traffic and model peak and failure scenarios"
+    ]
+  },
+  {
+    "question": "How would you decide whether to ship a 4-bit quantized model?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization reduces memory and can raise throughput at a small quality cost",
+      "Benchmark against the original on task quality, safety, structured output, and long-context behavior",
+      "Check worst-case and high-risk segments, not only averages",
+      "Canary with rollback if quality stays within predefined tolerances"
+    ]
+  },
+  {
+    "question": "vLLM p95 latency spikes while GPU utilization looks healthy. What do you investigate?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Inspect queue time, time-to-first-token, inter-token latency, and KV-cache usage",
+      "Check batch composition, preemption, and prompt and output length distributions",
+      "Average GPU utilization can hide queueing or memory-bandwidth limits",
+      "Reproduce with realistic load and tune concurrency, memory settings, and replicas"
+    ]
+  },
+  {
+    "question": "Why does throughput collapse when context grows from 8K to 64K tokens, and how do you respond?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Longer prompts increase prefill compute and KV-cache memory, reducing batching",
+      "Fewer concurrent sequences lowers throughput",
+      "Use RAG, hierarchical summarization, and context pruning instead of whole documents",
+      "Measure prompt tokens, prefill latency, and cost per context size"
+    ]
+  },
+  {
+    "question": "What is mixture of experts and why does it matter for inference cost?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Routes each token to a small subset of expert subnetworks",
+      "Active parameters per token are far fewer than total parameters",
+      "Enables large capacity without proportional compute",
+      "Still requires memory for all experts and good routing and load balance"
+    ]
+  },
+  {
+    "question": "How would you cut an LLM product's cost by 50% without hurting quality?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Route easy queries to smaller models or use a model cascade with escalation",
+      "Prompt caching, prompt compression, and trimmed retrieved context",
+      "Semantic and exact caching scoped safely per tenant",
+      "Gate changes on an evaluation harness and track cost per successful task"
+    ]
+  },
+  {
+    "question": "Your LLM bill tripled while traffic rose 40%. How do you investigate?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Break spend down by feature, tenant, model, input and output tokens, retries, and cache hit rate",
+      "Look for longer prompts, runaway agent loops, longer outputs, or routing to a pricier model",
+      "Correlate with releases and prompt changes",
+      "Apply budgets, alerts, loop limits, caching, and routing; validate quality"
+    ]
+  },
+  {
+    "question": "How do you handle rate limits and provider outages for a hosted model API?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Bounded exponential backoff with jitter, concurrency control, and circuit breakers",
+      "Fallback to a secondary provider or model after checking quality and data residency",
+      "Queue non-urgent work and degrade gracefully",
+      "Avoid retry storms; test failover regularly"
+    ]
+  },
+  {
+    "question": "How would you plan a migration when a model you depend on is deprecated?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Inventory call sites, prompts, owners, and traffic",
+      "Benchmark replacements on production-derived data for quality, safety, latency, cost, and JSON compatibility",
+      "Replay offline, shadow, then canary with rollback",
+      "Pin versions and use a provider abstraction"
+    ]
+  },
+  {
+    "question": "How do you coordinate multiple agents, and when is multi-agent better than a single agent with tools?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Patterns: hierarchical orchestrator, peer-to-peer with shared state, or pipeline",
+      "Start with a single agent and tools as baseline",
+      "Multi-agent adds coordination, latency, cost, and new failure modes",
+      "Use only when specialization or independent review gives measured gains"
+    ]
+  },
+  {
+    "question": "How do LangGraph, CrewAI, and the Claude Agent SDK differ?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LangGraph: stateful graph with explicit nodes and edges, suited to complex workflows",
+      "CrewAI: role-based and quick to prototype, harder to debug at scale",
+      "Claude Agent SDK: closer to the model with first-class tool use and subagents",
+      "Choose by team familiarity, control, and observability needs"
+    ]
+  },
+  {
+    "question": "How do you sandbox agent tool execution and control permissions and human approval?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Run untrusted code in isolated ephemeral sandboxes with CPU, memory, filesystem, and network limits",
+      "Least-privilege, server-enforced authorization and scoped credentials",
+      "Human approval for high-risk actions, showing exact parameters",
+      "Idempotency keys, audit logs, and never let the model grant itself permissions"
+    ]
+  },
+  {
+    "question": "How do you evaluate and debug an agent that fails 20% of the time or silently produces wrong results?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Trace every step: prompts, tool calls and arguments, results, retries, cost",
+      "Bucket failures: wrong tool, wrong args, result ignored, loops",
+      "Benchmark scenarios with repeated runs; track success rate, steps, and p95 cost",
+      "Add checkpoints and regression tests from failed traces"
+    ]
+  },
+  {
+    "question": "How do you build a reliable tool-call layer and govern a large tool catalog via MCP?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Timeouts, bounded retries, circuit breakers, and idempotency for side effects",
+      "Registry of tools with schemas, owners, risk levels, and versions",
+      "Search the registry and expose only relevant tools per task",
+      "Enforce authorization at the tool server and audit calls"
+    ]
+  },
+  {
+    "question": "How do you design durable long-running agent workflows, such as research reports taking 5-15 minutes?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Run as an asynchronous job with a job ID and progress status",
+      "Persist plan, tool results, checkpoints, and partial artifacts",
+      "Idempotent steps, bounded retries, and resumable execution",
+      "Return clear partial results on failure instead of losing progress"
+    ]
+  }
+  ,
+  {
+    "question": "Design a customer support agent that handles both documentation questions and account actions at scale.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Route between a RAG path for answers and an agent path with narrow tools for actions",
+      "Business rules such as refund limits enforced by deterministic services, not the model",
+      "Escalate to humans on low confidence or repeated failures",
+      "Roll out in shadow mode then canary; track resolution, policy compliance, CSAT, latency, cost"
+    ]
+  }
+]

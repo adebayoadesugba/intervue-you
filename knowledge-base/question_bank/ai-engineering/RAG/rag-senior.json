@@ -1,0 +1,549 @@
+[
+  {
+    "question": "What is late chunking and how does it differ from traditional chunking?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Traditional chunking splits first, then embeds each chunk independently",
+      "Late chunking runs the transformer over the whole document to get token embeddings first",
+      "Pooling is then applied per chunk, so each embedding carries document-wide context",
+      "Preserves long-range dependencies; needs a long-context embedding model"
+    ]
+  },
+  {
+    "question": "What is CAG (Cache-Augmented Generation) and when would you prefer it over RAG?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Preloads or compresses stable knowledge into context or cache instead of retrieving per query",
+      "Good for static, bounded datasets where token efficiency and latency matter",
+      "RAG is preferred for dynamic data and on-demand freshness",
+      "Trade-off: context limits and difficulty updating cached knowledge"
+    ]
+  },
+  {
+    "question": "What are advanced RAG architectures such as Adaptive RAG, Agentic RAG, Corrective RAG, and Self-RAG?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Adaptive RAG chooses no retrieval, single-shot, or iterative retrieval per query",
+      "Agentic RAG lets an agent plan, retrieve, and revise iteratively",
+      "Corrective RAG grades retrieved documents and filters or re-retrieves",
+      "Self-RAG also critiques its own generated output"
+    ]
+  },
+  {
+    "question": "How does Agentic RAG differ architecturally from classical RAG, and when is it the wrong choice?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classical RAG is a fixed retrieve-then-generate pipeline; agentic RAG is an iterative planning loop",
+      "Agentic RAG can decompose queries and fill evidence gaps",
+      "Costs: more tool calls, latency, and less predictability; needs step and budget limits",
+      "Wrong for low-latency, simple, or tightly governed use cases"
+    ]
+  },
+  {
+    "question": "How would you scale a RAG system from 1K documents to millions of documents or hundreds of millions of vectors?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use a scalable vector database with HNSW or IVF indexes tuned for recall and latency",
+      "Shard or partition by metadata (tenant, region, type); route queries to partitions",
+      "Cache frequent queries; benchmark p95 with realistic filters and update rates",
+      "Handle fresh data and periodic index maintenance separately"
+    ]
+  },
+  {
+    "question": "How do embedding quantization and Matryoshka Representation Learning help scale embeddings?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Scalar (int8) quantization gives about 4x memory reduction with modest accuracy loss",
+      "Binary quantization gives up to 32x compression and faster search with larger accuracy loss",
+      "MRL embeddings can be truncated to smaller dimensions with limited quality loss",
+      "Quantization keeps full dimensionality; validate recall on your own data"
+    ]
+  },
+  {
+    "question": "How do you enforce permission-safe retrieval when document ACLs change?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Store ACL metadata and filter server-side using the authenticated user's current permissions",
+      "Enforce before content reaches the model; prompts are not an access boundary",
+      "Scope caches by permission and propagate ACL changes and deletions promptly",
+      "Fail closed if authorization state is unavailable; audit retrieved document IDs"
+    ]
+  },
+  {
+    "question": "How do you keep a RAG index fresh and handle stale or deleted documents?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Incremental ingestion via change events or scheduled reconciliation",
+      "Stable source IDs, versions, timestamps, and tombstones for deletes",
+      "Track connector lag; use TTLs and recency-aware ranking",
+      "Run periodic reconciliation against source systems"
+    ]
+  },
+  {
+    "question": "How would you migrate an embedding model across tens of millions of chunks safely?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Build a versioned parallel index and backfill in batches; dual-write new updates",
+      "Compare recall and latency on a fixed benchmark and shadow queries",
+      "Canary traffic and switch via alias or flag with rollback",
+      "Forecast re-embedding cost, index build time, and consistency lag"
+    ]
+  },
+  {
+    "question": "How do you design multi-tenant isolation for a RAG system?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Options: shared index with mandatory tenant filters, per-tenant namespaces, or separate clusters",
+      "Derive tenant identity in trusted server code, never from the prompt",
+      "Scope caches, logs, and credentials per tenant",
+      "Test for cross-tenant leakage; use a hybrid model for regulated tenants"
+    ]
+  },
+  {
+    "question": "How do you handle multi-hop questions that require evidence from many documents?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decompose into sub-questions and retrieve evidence for each",
+      "Build an evidence table with source IDs before synthesizing",
+      "Use entity linking, metadata, graphs, or SQL for structured relationships",
+      "Report missing links rather than guessing; measure completeness as well as correctness"
+    ]
+  },
+  {
+    "question": "How would you design retrieval over both knowledge graphs and unstructured documents?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vector search over text chunks plus graph traversal for explicit entity relationships",
+      "Fuse results to combine factual precision with contextual richness",
+      "Use stable entity IDs to join evidence across sources",
+      "Evaluate completeness and hallucination reduction"
+    ]
+  },
+  {
+    "question": "How do you ingest tables, scanned PDFs, slides, and charts for RAG?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layout-aware parsing and OCR with confidence checks and human review for low quality",
+      "Preserve tables as structured rows and columns plus captions",
+      "Extract chart titles, axes, units, and data where possible",
+      "Use structured or SQL representations for numeric questions; keep page coordinates for citations"
+    ]
+  },
+  {
+    "question": "How do you ensure data privacy and security in a RAG system handling sensitive data?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Redact PII at ingestion; encrypt data at rest and in transit",
+      "Role-based access filters at retrieval time",
+      "Prompt-injection defenses and output scanning guardrails",
+      "Audit logs and compliance (GDPR, HIPAA); handle deletion requests across indexes, caches, and logs"
+    ]
+  },
+  {
+    "question": "How would you evaluate and monitor a RAG system in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layered metrics: ingestion freshness, retrieval recall and precision, faithfulness, citation accuracy, latency, cost",
+      "Trace queries, rewritten queries, retrieved chunk IDs and scores, prompt size, and versions",
+      "Sampled human review plus user feedback; segment by intent, source, and tenant",
+      "Feed failures into regression sets; thumbs-up rate alone cannot localize failures"
+    ]
+  },
+  {
+    "question": "How do you build a CI regression gate and run online experiments for RAG changes?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Versioned benchmark covering retrieval, answers, citations, safety, latency, and cost",
+      "Baseline comparison with repeated runs and tolerances; small smoke suite per commit, larger nightly suite",
+      "Online: randomized A/B or shadow tests with predefined primary metrics and guardrails",
+      "Check for segment regressions and avoid peeking-driven decisions"
+    ]
+  },
+  {
+    "question": "How do you build reliable abstention and detect hallucinations in production without labels?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Distinguish answerable, partial, ambiguous, and unanswerable queries using evidence coverage signals",
+      "Claim-level grounding checks and citation verification",
+      "Calibrate thresholds on validation data; measure false answers versus unnecessary refusals",
+      "Use sampled human review and user reports; escalate high-risk cases"
+    ]
+  },
+  {
+    "question": "How would you build a faithfulness checker and eliminate numeric hallucinations?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Split answers into atomic claims and verify each against retrieved evidence",
+      "Deterministic checks for numbers, dates, and units; calibrated LLM judge or NLI for semantics",
+      "Extract table values into structured form and compute with code, not the model",
+      "Validate the checker against human labels and monitor drift"
+    ]
+  },
+  {
+    "question": "How would you fine-tune an LLM for a RAG task?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prepare task data: question, retrieved context, and answer examples",
+      "RAFT trains the model to use relevant documents and ignore distractors; REALM integrates retrieval into language modeling",
+      "Fine-tune for behavior and grounding, not to store fast-changing facts",
+      "Evaluate against held-out tasks and regression suites"
+    ]
+  },
+  {
+    "question": "When would you fine-tune an embedding model or a reranker?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Diagnose whether the answer is missing from candidates (recall) or just ranked poorly (precision)",
+      "Poor recall: fix parsing or vocabulary, or fine-tune embeddings with positive and hard-negative pairs",
+      "Good recall, poor ranking: train or adapt a reranker",
+      "Use proper train and test separation and measure Recall@k, nDCG, MRR, latency"
+    ]
+  },
+ 
+  {
+    "question": "Design an enterprise knowledge assistant for 50,000 employees and millions of documents.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Connectors with incremental sync, versions, deletion handling, and ACL ingestion",
+      "Source-aware chunking and hybrid lexical and vector retrieval with reranking",
+      "Identity-provider authentication and ACL enforcement in retrieval and caches",
+      "Grounded answers with citations, abstention, observability, audit logs, and a p95 latency budget"
+    ]
+  },
+  {
+    "question": "How do you delete an employee's data from an HR assistant and threat-model a RAG application?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Map data across sources, indexes, vector stores, caches, logs, backups, and derived artifacts",
+      "Propagate tombstones, prevent re-ingestion, and record auditable completion; explain legal retention exceptions",
+      "Threats: prompt injection, data exfiltration, cross-tenant retrieval, tool misuse, unsafe Markdown rendering",
+      "Enforce ACLs and tool permissions in code and treat the model as untrusted for access decisions"
+    ]
+  },
+  {
+    "question": "What is late interaction (ColBERT), and how does it compare with bi-encoders and cross-encoders?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Bi-encoder: independent single vectors; fast but may miss fine-grained matches",
+      "Cross-encoder: joint query-document scoring; accurate but too slow for the whole corpus",
+      "ColBERT: token-level embeddings scored with MaxSim at query time",
+      "More expressive than single vectors but needs more storage and compute; typically used for reranking"
+    ]
+  },
+  {
+    "question": "What is RAPTOR and when is hierarchical summarization-tree retrieval useful?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Cluster chunks, summarize each cluster, and recurse to build a tree up to a root summary",
+      "Retrieve from different levels: leaves for details, upper nodes for broad questions",
+      "Helps long documents needing both detail and high-level context",
+      "Cost: tree building, extra storage, and update complexity"
+    ]
+  },
+  {
+    "question": "How do you build multimodal RAG over documents with images, charts, and scanned pages?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Parse layout, apply OCR to scans, and extract images and charts with captions and page metadata",
+      "Use multimodal embeddings (e.g., CLIP-style) or generated descriptions for searchable representations",
+      "Retrieve across modalities, merge and rerank, and pass evidence to a multimodal LLM",
+      "Extract underlying chart data where possible and cite page or figure; validate OCR errors"
+    ]
+  },
+  {
+    "question": "Design a version-aware documentation assistant that answers coding questions from library docs and source code.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ingest official docs, API references, release notes, and source with library, version, and path metadata",
+      "Chunk by structure (headings, functions, classes) rather than arbitrary sizes",
+      "Detect or ask for the requested version and filter retrieval by it",
+      "Never silently substitute the latest docs; cite exact sources and test known API questions per release"
+    ]
+  },
+  {
+    "question": "Users ask 'How many vendor contracts have an auto-renewal clause?' and RAG answers wrongly. Why, and what would you build?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Top-k retrieval cannot reliably count across an entire corpus",
+      "Extract and classify clauses per contract into structured storage with supporting text",
+      "Handle ambiguity, amendments, and duplicates; aggregate with SQL",
+      "Report the count, denominator, and evidence; validate on an expert-reviewed sample"
+    ]
+  },
+  {
+    "question": "Design a RAG system over real-time data such as news or market intelligence that must reflect events from the last few minutes.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Streaming ingestion with incremental indexing and a fast path for recent items",
+      "Track event, publication, and ingestion times; deduplicate and handle corrections",
+      "Time-aware retrieval and tool-based queries to live APIs for precise numbers",
+      "Define and monitor a freshness SLO (source-to-searchable lag); show timestamps in answers"
+    ]
+  },
+  {
+    "question": "How do you design a RAG system for legal or medical use where wrong answers are very costly?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use authoritative, versioned sources with jurisdiction and effective-date metadata",
+      "Require exact-passage citations and explicit abstention when evidence is weak or conflicting",
+      "Validate critical outputs with deterministic checks and human or expert review",
+      "Test adversarial and unanswerable cases, retain audit trails, and keep the system from replacing professional judgment"
+    ]
+  },
+  {
+    "question": "A stakeholder says the RAG bot's accuracy is bad and you have two weeks. How do you approach it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define what 'bad' means, collect failed queries, and set a measurable baseline",
+      "Build an expert-reviewed evaluation set with a held-out portion",
+      "Trace failures by stage: ingestion, retrieval, ranking, generation, citations, freshness, permissions",
+      "Fix the dominant failure modes one at a time, canary the rollout, and set up regression testing and monitoring"
+    ]
+  },
+  {
+    "question": "How do you implement continuous improvement and feedback loops in a production RAG system?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Collect explicit feedback and implicit signals such as reformulations and abandoned sessions",
+      "Analyze failed queries to find document gaps and retrieval weaknesses",
+      "A/B test chunking, embeddings, top-k, and prompts before rollout",
+      "Curate the knowledge base and feed confirmed failures into regression sets"
+    ]
+  },
+  {
+    "question": "What does a good observability stack look like for an LLM application?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Structured logs with trace IDs, token counts, latency percentiles, and tool-call traces",
+      "Record prompt version, model version, and eval scores per request",
+      "Tools such as OpenTelemetry with Langfuse or LangSmith, dashboards in Datadog or Grafana",
+      "Alert on cost spikes and quality regressions"
+    ]
+  },
+  {
+    "question": "How do you run a canary deployment for a prompt or model change?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Treat prompts like code: versioning, review, and CI evals",
+      "Route a small traffic share (e.g., 5%) to the new version",
+      "Monitor eval scores, user feedback, latency, and cost with predefined abort thresholds",
+      "Auto-rollback on regression and ramp up gradually"
+    ]
+  },
+  {
+    "question": "How do you monitor and attribute cost in an LLM product?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Track tokens per tenant, feature, and model",
+      "Daily cost alerts, forecasts, and throttling above budget",
+      "Measure cost per outcome (e.g., per resolved ticket), not just per request",
+      "Proactive dashboards rather than checking the provider console after the fact"
+    ]
+  },
+  {
+    "question": "Quality improved but latency and cost became unacceptable. What do you do?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define latency objectives and a cost unit such as cost per resolved task",
+      "Break the trace into retrieval, model, tool, queue, and network time; examine tail latency",
+      "Try smaller routed models, shorter context, caching, parallel calls, streaming, fewer agent turns",
+      "Compare options on the same eval set and state the acceptable quality loss"
+    ]
+  },
+  {
+    "question": "How do you respond to a production incident after a model or prompt change?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Protect users first: roll back, disable the risky capability, or route to a safe fallback",
+      "Preserve traces and version identifiers; reproduce with the exact prompt, model, retrieval snapshot, and tools",
+      "Add the failing slice to regression tests, fix, and canary with abort thresholds",
+      "Document the timeline and add monitoring or release controls to prevent recurrence"
+    ]
+  },
+  {
+    "question": "Walk me through an AI system you shipped and how you measured its success.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clear problem, personal responsibility, baseline, and key architecture decisions",
+      "Evaluation method and launch guardrails, not just a demo",
+      "Concrete production metrics such as task success, latency percentile, or cost per task",
+      "A post-launch surprise, how it was found, and what would be redesigned"
+    ]
+  },
+  {
+    "question": "A stakeholder wants to ship an AI feature but your evidence is weak. What do you say?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "State what is demonstrated, the highest-impact unknown, and the cheapest test to reduce it",
+      "Offer a bounded launch: shadow traffic, small cohort, read-only mode, or human approval",
+      "Explain residual risk in product terms and name the decision owner",
+      "Document assumptions, monitoring, and rollback thresholds"
+    ]
+  },
+  {
+    "question": "How would you scale a RAG system's ingestion and updates when documents change continuously across several source systems?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Event-driven or scheduled incremental sync with idempotent, retryable jobs",
+      "Version-aware document IDs; delete and replace stale chunks and propagate deletions",
+      "Batch embedding and queue-based workers; keep an embedding-version tag on each index",
+      "Monitor ingestion lag, failures, and index freshness; invalidate caches on change"
+    ]
+  }
+]

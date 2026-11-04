@@ -19,7 +19,7 @@
     "category": "backend",
     "subcategory": "collaboration",
     "difficulty": "any",
-    "stack": "python",
+    "stack": "core",
     "question_type": "behavioral",
     "competency": "teamwork",
     "reference_points": [
@@ -74,7 +74,7 @@
   },
   {
     "question": "Tell me about a time when an unexpected technical blocker or tight deadline threatened your project's delivery. What steps did you take to manage it?",
-    "category": "general",
+    "category": "frontend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "behavioral",
@@ -87,7 +87,21 @@
     ]
   },
   {
-    "question": "Can you share an instance where a feature or task you worked on failed or produced unexpected negative results? How did you respond?",
+    "question": "Tell me about a time when an unexpected tight deadline threatened your project's delivery. What steps did you take to manage it?",
+    "category": "backend",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Situation: Identifies the root cause of the unexpected bottleneck or delay",
+      "Task: Defines the immediate priority and delivery obligations",
+      "Action: Describes proactive personal initiative (e.g., de-scoping non-essentials, pair programming, communicating status early)",
+      "Result: Delivers the outcome achieved and key measures implemented to prevent recurrence"
+    ]
+  },
+  {
+    "question": "Can you share an instance where a task you worked on failed or produced unexpected negative results? How did you respond?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -96,20 +110,34 @@
     "reference_points": [
       "Situation: Honestly describes what went wrong without deflecting blame onto others",
       "Task: Explains immediate mitigation or rollback responsibilities",
-      "Action: Details troubleshooting efforts and steps taken to remediate the issue",
+      "Action: Details efforts and steps taken to remediate the issue",
       "Result: Shares the resolution, personal learnings, and systemic fixes put in place"
     ]
   },
 
   {
     "question": "Can you share an example of a time when you strongly disagreed with a team lead or architect on a technical implementation? How did you resolve it?",
-    "category": "general",
+    "category": "frontend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "behavioral",
     "competency": "teamwork",
     "reference_points": [
       "Context: Explains the architectural disagreement clearly and objectively",
+      "Approach: Focuses on technical merit, trade-offs, and collaborative alignment rather than personal opinion",
+      "Outcome: Details the final consensus, willingness to commit to the team decision, and project result"
+    ]
+  },
+
+  {
+    "question": "Can you share an example of a time when you strongly disagreed with a team lead on a technical implementation? How did you resolve it?",
+    "category": "backend",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Context: Explains the technical disagreement clearly and objectively",
       "Approach: Focuses on technical merit, trade-offs, and collaborative alignment rather than personal opinion",
       "Outcome: Details the final consensus, willingness to commit to the team decision, and project result"
     ]
@@ -128,7 +156,7 @@
     ]
   },
   {
-    "question": "Describe a scenario where two team members had conflicting approaches to solving a critical technical issue. What role did you play in reaching alignment?",
+    "question": "Describe a scenario where two team members had conflicting approaches to solving a critical issue. What role did you play in reaching alignment?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -148,7 +176,7 @@
     "question_type": "behavioral",
     "competency": "teamwork",
     "reference_points": [
-      "Preparation: Backs up the argument with clear evidence, benchmarks, or security/performance risks",
+      "Preparation: Backs up the argument with clear evidence, benchmarks, risks",
       "Professionalism: Delivers constructive feedback in an appropriate forum",
       "Adaptability: Accepts the final team consensus maturely, even if their preference was not chosen"
     ]
@@ -157,7 +185,7 @@
     "question": "Tell me about a time when a project trade-off between delivery speed and technical debt led to debate within your team. How did you help reach a resolution?",
     "category": "general",
     "stack": "core",
-    "difficulty": "any",
+    "difficulty": "mid",
     "question_type": "behavioral",
     "competency": "teamwork",
     "reference_points": [

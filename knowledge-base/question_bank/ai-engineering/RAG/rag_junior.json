@@ -1,0 +1,338 @@
+[
+  {
+    "question": "What are the main components of a RAG system and how do they work together?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Retriever searches external sources (databases, documents, websites) for relevant information",
+      "Generator, usually an LLM, uses the retrieved context to produce the answer",
+      "Retriever supplies fresh knowledge; generator produces fluent, grounded text",
+      "Together they are more accurate than the generator alone"
+    ]
+  },
+  {
+    "question": "Explain what R, A, and G stand for in RAG and describe the end-to-end workflow.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Retrieval: embed the query and fetch the most relevant chunks from the knowledge source",
+      "Augmented: insert retrieved context plus instructions into the LLM prompt",
+      "Generation: the LLM produces an answer grounded in that context",
+      "Offline indexing (parse, chunk, embed, store) is separate from online querying"
+    ]
+  },
+  {
+    "question": "Why is RAG needed when LLMs are already powerful, and what are the limits of a pure LLM?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LLM knowledge is frozen at the training cutoff and may be outdated",
+      "LLMs cannot access private or company data not in the training corpus",
+      "They may hallucinate confident but wrong answers",
+      "RAG injects current, private, verifiable context at query time"
+    ]
+  },
+  {
+    "question": "How does RAG reduce hallucinations in LLM responses?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Grounds answers in retrieved, trusted documents instead of model memory",
+      "Prompts instruct the model to answer only from provided context",
+      "Citations make claims verifiable",
+      "Reduces but does not eliminate hallucinations; bad retrieval still causes errors"
+    ]
+  },
+  {
+    "question": "Is RAG still relevant in the era of long-context LLMs?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Long contexts suffer from the 'lost in the middle' problem",
+      "Processing long prompts on every call raises cost and latency",
+      "RAG supplies only the most relevant information",
+      "RAG also supports freshness, citations, and access control"
+    ]
+  },
+  {
+    "question": "What is the difference between RAG and fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RAG keeps the model frozen and injects knowledge at runtime",
+      "Fine-tuning changes model weights to alter behavior, style, or task skill",
+      "RAG is cheaper to update and easier to audit with sources",
+      "They are complementary, not substitutes"
+    ]
+  },
+  {
+    "question": "What are the steps in the indexing process of a RAG pipeline?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Parsing: extract clean text and metadata from source documents",
+      "Chunking: split content into smaller coherent pieces",
+      "Encoding: convert chunks to embeddings with an embedding model",
+      "Storing: save vectors and metadata in a vector database; done offline"
+    ]
+  },
+  {
+    "question": "What are embeddings, and what is the role of a vector database in RAG?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Embeddings are dense vectors where semantic similarity maps to geometric closeness",
+      "Queries and chunks are embedded and compared for similarity",
+      "A vector database stores embeddings and supports fast nearest-neighbor search",
+      "Enables meaning-based retrieval beyond keyword matching"
+    ]
+  },
+  {
+    "question": "Why is chunking important in RAG, and what is the purpose of chunk overlap?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Embedding models have token limits; long text gives vague, averaged vectors",
+      "Focused chunks improve retrieval precision and reduce noise",
+      "Overlap (about 10-20%) preserves context across chunk boundaries",
+      "Chunk size balances detail against context"
+    ]
+  },
+  {
+    "question": "What is the difference between sparse and dense retrieval?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sparse (BM25, TF-IDF) matches keywords; strong for exact terms, IDs, and codes",
+      "Dense uses neural embeddings to capture meaning and paraphrases",
+      "Sparse is cheap and interpretable; dense is more semantic but costlier",
+      "Hybrid combines both"
+    ]
+  },
+  {
+    "question": "What role does cosine similarity play in RAG retrieval, and what other distance metrics are used?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Cosine similarity measures the angle between query and chunk vectors",
+      "Focuses on direction (meaning) and is invariant to vector length",
+      "Alternatives: Euclidean distance and dot product",
+      "Metric choice should match the embedding model"
+    ]
+  },
+  {
+    "question": "What are common applications of RAG and the data sources it can use?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Applications: support chatbots, enterprise search, codebase assistants, legal and medical lookup, AI search engines",
+      "Structured sources: databases, APIs, knowledge graphs",
+      "Unstructured sources: PDFs, web pages, wikis, tickets, chat logs",
+      "Best for knowledge-based problems where answers exist in documents"
+    ]
+  },
+  {
+    "question": "Why does prompt engineering still matter in a RAG system?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "The model decides how to use retrieved text, so instructions matter",
+      "Explicit rules such as 'answer only from the provided context' reduce hallucination",
+      "Specify output format and request citations",
+      "Few-shot and chain-of-thought prompting can improve answer quality"
+    ]
+  },
+
+  {
+    "question": "How do WebBaseLoader and RecursiveCharacterTextSplitter work together in LangChain?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "WebBaseLoader downloads a page and returns LangChain Document objects with text and metadata",
+      "RecursiveCharacterTextSplitter splits that text into smaller chunks for embedding",
+      "BeautifulSoup and SoupStrainer restrict parsing to useful content",
+      "Cleaning out noise like menus and cookie banners improves retrieval"
+    ]
+  },
+  {
+    "question": "What are the popular frameworks for implementing RAG, and how would you choose one?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LangChain: flexible custom pipelines and a large integration ecosystem",
+      "LlamaIndex: strong indexing and retrieval abstractions",
+      "Haystack: modular pipeline design",
+      "Choose by flexibility needs, ecosystem, documentation, and team familiarity"
+    ]
+  },
+  {
+    "question": "What are the basic metrics for evaluating RAG retrieval and generation?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Retrieval: precision (relevant fraction of retrieved) and recall (relevant found)",
+      "Generation: faithfulness to context and answer relevance",
+      "Evaluate retrieval and generation separately to locate failures",
+      "Use a labeled evaluation set rather than eyeballing outputs"
+    ]
+  },
+  {
+    "question": "What is the difference between search and retrieval in a RAG context?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Search usually means keyword matching such as BM25 based on exact words",
+      "Retrieval is broader: keyword, semantic, hybrid, metadata filters, multi-step selection",
+      "Retrieval decides which pieces of information are trusted and passed to the LLM",
+      "It acts as the gatekeeper for what the model can reason over"
+    ]
+  },
+  {
+    "question": "How do you choose top-k in retrieval, and what are the trade-offs of values that are too small or too large?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Top-k is the number of chunks retrieved per query",
+      "Too small risks missing relevant evidence (low recall)",
+      "Too large adds noise, cost, latency, and may hit context limits",
+      "Tune on an evaluation set; retrieve more, rerank, then pass fewer chunks to the LLM"
+    ]
+  },
+  {
+    "question": "What is semantic search and how does it differ from keyword search?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Keyword search matches exact words and misses synonyms",
+      "Semantic search embeds queries and documents and finds the nearest vectors by meaning",
+      "Handles paraphrases, e.g., 'car' and 'automobile'",
+      "Can miss exact identifiers, which is why hybrid search is common"
+    ]
+  },
+  {
+    "question": "What is the difference between extractive and generative answers in RAG?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Extractive returns exact text spans from retrieved documents: faithful, clear provenance, less fluent",
+      "Generative synthesizes a new answer across sources: natural and comprehensive",
+      "Generative carries hallucination risk and needs grounding instructions",
+      "Mitigate with citations and faithfulness checks"
+    ]
+  },
+  {
+    "question": "What is the cold start problem in RAG and how can you mitigate it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Occurs when few or no documents are indexed, so retrieval has nothing useful",
+      "Pre-populate with high-quality essential or public documents",
+      "Degrade gracefully and be clear when answers are not grounded",
+      "Use fallbacks such as web search and encourage uploads"
+    ]
+  },
+  {
+    "question": "What is the difference between a chat completion and a tool call?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A chat completion returns generated text",
+      "A tool call returns a structured object ({name, arguments}) that your code executes",
+      "The tool result is fed back to the model",
+      "Tool calling is how agents act on external systems"
+    ]
+  },
+  {
+    "question": "How does a transformer's attention mechanism differ from a recurrent network's hidden state?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Attention computes weighted sums over all positions in parallel using query, key, and value projections",
+      "Recurrence passes information step by step through a hidden state, so it is sequential",
+      "Attention cost grows quadratically with sequence length but parallelizes well",
+      "Parallelism is a key reason transformers won"
+    ]
+  },
+  {
+    "question": "Walk through what happens between a user's input and the model's output.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tokenize, embed, then forward pass through transformer layers (attention and feed-forward)",
+      "Final logits go through a sampling strategy, then detokenization and streaming",
+      "Production wraps this with system prompts, guardrails, and cost logging"
+    ]
+  }
+]

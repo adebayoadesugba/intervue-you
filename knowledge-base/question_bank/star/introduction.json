@@ -29,12 +29,26 @@
       "Maintains professional brevity under 2 minutes"
     ]
   },
+   {
+    "question": "Can you give me a brief overview of your professional background and what led you to AI engineering?",
+    "category": "ai-engineering",
+    "subcategory": "icebreaker",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Presents a structured timeline (Past, Present, Future)",
+      "Mentions motivation, interest or passion for ai or engineering",
+      "Maintains professional brevity under 2 minutes"
+    ]
+  },
   {
     "question": "Walk me through your background as a frontend developer and what excites you about modern web technology.",
     "category": "frontend",
     "subcategory": "icebreaker",
-    "difficulty": "junior",
-    "stack": "react",
+    "difficulty": "any",
+    "stack": "core",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -84,7 +98,7 @@
   },
  
   {
-    "question": "Beyond what is listed on your CV, what do you consider your greatest technical or professional strength, and how have you applied it recently?",
+    "question": "Beyond what is listed on your CV, what do you consider your greatest or professional strength, and how have you applied it recently?",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -116,6 +130,19 @@
   {
     "question": "Why are you interested in joining our engineering team at this stage of your career, and what unique perspective do you bring?",
     "category": "backend",
+    "stack": "core",
+    "difficulty": "any",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Career Alignment: Explains why this specific role is a natural progression in their career journey",
+      "Value Proposition: Clearly summarizes their core technical strengths and working style",
+      "Clarity: Expresses thoughts concisely without filler language"
+    ]
+  },
+  {
+    "question": "Why are you interested in joining our engineering team at this stage of your career, and what unique perspective do you bring?",
+    "category": "ai-engineering",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",
@@ -206,7 +233,7 @@
     ]
   },
   {
-    "question": "Introduce yourself and walk me through a quick timeline of your career, emphasizing the technical decisions you are most proud of.",
+    "question": "Introduce yourself and quickly walk me through your career, emphasizing the decisions you are most proud of.",
     "category": "general",
     "stack": "core",
     "difficulty": "any",
@@ -220,7 +247,7 @@
   },
   {
     "question": "Can you summarize your professional trajectory so far, detailing the core tech stacks you've mastered and the types of engineering problems you enjoy solving?",
-    "category": "general",
+    "category": "frontend",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",
@@ -233,8 +260,21 @@
   },
  {
     "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
-    "category": "general",
+    "category": "frontend",
     "subcategory": "stakeholder_comm",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Used clear analogies without overly dense jargon",
+      "Verified understanding through feedback loops or Q&A",
+      "Focused on business value rather than lower-level implementation details"
+    ]
+  },
+   {
+    "question": "Give an example of how you explained a complex technical concept to a non-technical stakeholder or client.",
+    "category": "backend",
     "difficulty": "any",
     "stack": "core",
     "question_type": "behavioral",
