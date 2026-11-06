@@ -1,0 +1,607 @@
+[
+
+      {
+    "question": "Explain epoch, batch, batch size and iteration.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Epoch: one full pass through the training data",
+      "Batch: subset of samples used for one parameter update",
+      "Iteration: one update; iterations per epoch = samples / batch size",
+      "Example: 10,000 samples, batch 500 gives 20 iterations per epoch"
+    ]
+  },
+   {
+    "question": "What is an activation function and why do neural networks need non-linearity?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Applies a non-linear transform to a neuron's output",
+      "Without it, stacked layers collapse into a linear model",
+      "Common: sigmoid, tanh, ReLU, Leaky ReLU, softmax",
+      "ReLU is cheap and eases vanishing gradients"
+    ]
+  },
+  {
+    "question": "What is dropout and how does it reduce overfitting in neural networks?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Randomly disables a fraction of neurons each training step (typically 20 to 50 percent)",
+      "Prevents co-adaptation so the network learns robust features",
+      "Turned off at inference time",
+      "Early stopping and weight regularization are complementary techniques"
+    ]
+  }
+,
+  {
+    "question": "What is deep learning and how does it differ from traditional machine learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Subset of ML using neural networks with many layers",
+      "Learns features automatically from raw data; ML often needs manual feature engineering",
+      "Excels on unstructured data (images, text, audio) given large data and compute (GPUs/TPUs)",
+      "Traditional ML often suits small or tabular data and is cheaper and more interpretable"
+    ]
+  },
+  {
+    "question": "What is a neural network, and what are the roles of the input, hidden and output layers?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layers of connected neurons; each computes a weighted sum plus bias, then an activation",
+      "Input layer receives features; hidden layers learn progressively abstract representations",
+      "Output layer matches the task: softmax (multi-class), sigmoid (binary), linear (regression)",
+      "Weights and biases are learned during training"
+    ]
+  },
+  {
+    "question": "What is a perceptron, and how does a multilayer perceptron (MLP) differ from it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Perceptron: single layer with weights, bias and a step-style activation for binary classification",
+      "Can only separate linearly separable classes (cannot solve XOR)",
+      "MLP adds hidden layers with non-linear activations to learn non-linear patterns",
+      "MLPs are trained with backpropagation"
+    ]
+  },
+  {
+    "question": "What are weights and biases in a neural network?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weights set the strength of each connection and scale an input's influence",
+      "Bias shifts the activation threshold independently of the input",
+      "z = w·x + b, followed by an activation",
+      "Both are learned parameters updated by backpropagation"
+    ]
+  },
+  {
+    "question": "What is an activation function, and why do neural networks need non-linearity?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Transforms a neuron's weighted sum before passing it on",
+      "Without non-linearity, stacked layers collapse into a single linear model",
+      "Common: sigmoid (0 to 1), tanh (-1 to 1), ReLU, Leaky ReLU, softmax",
+      "ReLU is the default for hidden layers: simple, fast, eases vanishing gradients"
+    ]
+  },
+  {
+    "question": "When do you use softmax versus sigmoid in the output layer?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sigmoid gives independent 0 to 1 probabilities: binary and multi-label tasks",
+      "Softmax outputs a distribution summing to 1: multi-class with exclusive classes",
+      "Sigmoid pairs with binary cross-entropy; softmax with categorical cross-entropy",
+      "Both convert raw logits into probabilities"
+    ]
+  },
+  {
+    "question": "Explain forward propagation and backpropagation.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Forward: inputs flow layer by layer to produce a prediction and compute the loss",
+      "Backward: gradients of the loss with respect to each weight via the chain rule",
+      "Optimizer (e.g. gradient descent, Adam) updates weights using those gradients",
+      "Repeated over batches and epochs until the loss converges"
+    ]
+  },
+  {
+    "question": "What are loss and cost functions, and which common losses should you know?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Loss is error for one example; cost is the average over the batch or dataset",
+      "Regression: MSE, MAE; classification: binary, categorical or sparse categorical cross-entropy",
+      "Sparse categorical uses integer labels; categorical uses one-hot labels",
+      "KL divergence compares distributions (used in VAEs); loss should match output type"
+    ]
+  },
+  {
+    "question": "What is gradient descent and what are its variants?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Updates parameters opposite the loss gradient: w = w - lr * gradient",
+      "Batch: whole dataset, stable but slow and memory-heavy",
+      "SGD: one sample, fast and noisy; can escape shallow minima",
+      "Mini-batch balances both and is the standard for deep learning"
+    ]
+  },
+  {
+    "question": "What is the learning rate and what happens if it is too high or too low?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Step size for each weight update",
+      "Too high: overshoots, oscillates or diverges",
+      "Too low: very slow training or stuck in a poor solution",
+      "Found by experimentation, often with decay schedules or adaptive optimizers"
+    ]
+  },
+  {
+    "question": "Define epoch, batch, batch size and iteration.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Epoch: one full pass through the training set",
+      "Batch: subset of samples used for one weight update; batch size is its length",
+      "Iteration: one update; iterations per epoch = samples / batch size",
+      "Example: 10,000 samples with batch 100 gives 100 iterations per epoch"
+    ]
+  },
+  {
+    "question": "What are overfitting and underfitting in neural networks, and how do you address them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Overfitting: high training accuracy, low validation accuracy (memorizes noise)",
+      "Underfitting: poor on both; model too simple or undertrained",
+      "Overfitting fixes: dropout, L1/L2, early stopping, augmentation, more data, smaller model",
+      "Underfitting fixes: more capacity, better features, longer training, less regularization"
+    ]
+  },
+  {
+    "question": "What is dropout and why does it help?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Randomly disables a fraction of neurons each training step (typically 20 to 50 percent)",
+      "Prevents co-adaptation so the network learns redundant, robust features",
+      "All neurons are active at inference with outputs scaled",
+      "Too much dropout causes underfitting"
+    ]
+  },
+  {
+    "question": "What are early stopping and L1/L2 regularization?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Early stopping halts training when validation loss stops improving; keep the best checkpoint",
+      "L1 adds absolute-weight penalty and promotes sparsity",
+      "L2 (weight decay) adds squared-weight penalty and shrinks weights smoothly",
+      "All reduce overfitting and are often combined"
+    ]
+  },
+  {
+    "question": "What is batch normalization and what are its benefits?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Normalizes layer inputs per mini-batch (zero mean, unit variance), then applies learnable scale and shift",
+      "Stabilizes and speeds up training, allows higher learning rates",
+      "Less sensitive to weight initialization",
+      "Mild regularizing effect; uses running statistics at inference"
+    ]
+  },
+  {
+    "question": "What is data normalization and which techniques are used?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rescales features so none dominates because of larger magnitude",
+      "Min-max scaling to [0,1]; mean normalization; z-score standardization",
+      "Speeds convergence and stabilizes gradient updates",
+      "Fit scaling on training data only and apply the same transform at inference"
+    ]
+  },
+  {
+    "question": "What are hyperparameters and how do they differ from parameters?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hyperparameters are set before training: learning rate, batch size, layers, dropout rate, optimizer",
+      "Parameters (weights, biases) are learned from data",
+      "Tuned with grid, random or Bayesian search on validation data",
+      "Poor choices cause underfitting, overfitting or unstable training"
+    ]
+  },
+  {
+    "question": "How should weights be initialized, and why can't all weights start at zero?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identical weights make every neuron compute and learn the same thing (symmetry problem)",
+      "Biases can safely start at zero",
+      "Xavier/Glorot suits sigmoid and tanh; He suits ReLU",
+      "Good initialization avoids vanishing or exploding gradients"
+    ]
+  },
+  {
+    "question": "What are vanishing and exploding gradients, and how are they handled?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vanishing: gradients shrink backward so early layers barely learn (common with sigmoid/tanh)",
+      "Exploding: gradients grow, causing unstable updates or NaN loss",
+      "Fixes: ReLU, careful initialization, batch norm, residual connections, LSTM/GRU",
+      "Gradient clipping caps gradient magnitude for the exploding case"
+    ]
+  },
+  {
+    "question": "What is a tensor in deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Multi-dimensional array generalizing scalars, vectors and matrices",
+      "Core data structure in PyTorch and TensorFlow for inputs, weights and activations",
+      "Has a shape and a single data type",
+      "GPU-friendly operations on tensors drive training speed"
+    ]
+  },
+  {
+    "question": "How does a convolutional neural network work, and what are kernels, stride, padding and pooling?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Kernels slide over the input producing feature maps that detect edges, textures and shapes",
+      "Stride is the step size; larger stride gives smaller outputs",
+      "Padding (valid/same) controls output size and border handling",
+      "Pooling (max, average, global) downsamples and adds translation invariance; ends with fully connected layers"
+    ]
+  },
+  {
+    "question": "What is a recurrent neural network and what are its limitations?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains a hidden state across time steps for sequential data",
+      "Shares weights across steps; used for text, speech and time series",
+      "Vanishing or exploding gradients hinder long-term dependencies",
+      "Sequential processing is slow; LSTM, GRU and transformers address these limits"
+    ]
+  },
+  {
+    "question": "What is an LSTM and how do its gates work?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RNN variant with a cell state for long-term memory",
+      "Forget gate discards information; input gate adds new information; output gate selects what is exposed",
+      "Mitigates vanishing gradients",
+      "Used for translation, speech recognition and forecasting"
+    ]
+  },
+  {
+    "question": "What is transfer learning and why is it useful?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuse a model pre-trained on a large dataset for a related task",
+      "Freeze early layers and train the new head, optionally fine-tune later layers",
+      "Needs less data, time and compute; often higher accuracy",
+      "Example: ImageNet CNN for medical imaging"
+    ]
+  },
+  {
+    "question": "What is an autoencoder and what is it used for?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unsupervised network that reconstructs its input via an encoder, a latent code and a decoder",
+      "Bottleneck forces compression of the most important features",
+      "Uses: dimensionality reduction, denoising, anomaly detection, feature extraction",
+      "Compression is lossy and data-specific"
+    ]
+  },
+  {
+    "question": "What is the difference between a shallow and a deep neural network?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Shallow has one or two hidden layers; deep has many",
+      "Deep networks learn hierarchical features (pixels to edges to objects)",
+      "Deep nets fit complex functions with fewer parameters than very wide shallow nets",
+      "Need more data, compute and tricks such as normalization and residuals"
+    ]
+  },
+  {
+    "question": "What is the difference between multi-class and multi-label classification?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Multi-class: exactly one of several mutually exclusive classes (softmax)",
+      "Multi-label: each sample can have several labels at once (sigmoid per class)",
+      "Multi-class uses categorical cross-entropy; multi-label uses binary cross-entropy per label",
+      "Example: one animal per photo versus several animals in one photo"
+    ]
+  },
+  {
+    "question": "What is data augmentation and what techniques are used?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates label-preserving variations to enlarge and diversify training data",
+      "Images: rotate, flip, crop, scale, brightness and color jitter, noise",
+      "Text: synonym replacement, back-translation; time series: jitter, scaling, window slicing",
+      "Reduces overfitting; avoid transformations that change the label"
+    ]
+  },
+  {
+    "question": "Why are GPUs used for deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Thousands of cores run parallel matrix and tensor operations",
+      "Training is dramatically faster than on CPUs",
+      "Frameworks such as PyTorch and TensorFlow use GPU acceleration automatically",
+      "CPUs can suit small models or low-latency inference"
+    ]
+  },
+  {
+    "question": "What are the advantages and disadvantages of neural networks?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Advantages: model non-linear data, handle images, text and audio, scale with data, fast inference once trained",
+      "Disadvantages: black-box, hard to interpret",
+      "Need large data and expensive compute; tuning and debugging are hard",
+      "Choose them when the data and task justify the cost"
+    ]
+  },
+  {
+    "question": "What are word embeddings and tokens in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tokens are text units (words, subwords, characters) fed to a model",
+      "Embeddings map tokens to dense vectors that capture meaning",
+      "Similar words land close together; Word2Vec and GloVe are classic methods",
+      "Denser and lower-dimensional than one-hot encoding"
+    ]
+  },
+
+  {
+    "question": "How do PyTorch and TensorFlow/Keras differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "PyTorch uses dynamic graphs and is easy to debug; popular in research",
+      "TensorFlow has strong production and serving tooling",
+      "Keras is a high-level API for fast prototyping on top of TensorFlow",
+      "Both provide tensors, autograd, GPU support, layers and optimizers"
+    ]
+  },
+  {
+    "question": "What are the common applications of deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Computer vision: image classification, object detection, face recognition, medical imaging",
+      "NLP: translation, chatbots, sentiment analysis, summarization",
+      "Speech recognition and synthesis, recommendation systems",
+      "Fraud and anomaly detection, autonomous driving, generative content"
+    ]
+  },
+  {
+    "question": "What are the main types of deep neural networks and what is each used for?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Feedforward networks and MLPs for tabular and general prediction tasks",
+      "CNNs for images and video",
+      "RNN, LSTM and GRU for sequences; Transformers for large-scale language and sequence work",
+      "Autoencoders for compression and anomaly detection; GANs and diffusion models for generation"
+    ]
+  },
+  {
+    "question": "Why are neural networks often called black boxes, and how can you open them up?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Millions of interacting weights make it hard to trace why an output was produced",
+      "Techniques: feature importance, SHAP, LIME, saliency maps and Grad-CAM, attention visualization",
+      "Interpretability matters for trust, debugging, bias detection and regulation",
+      "Simpler models are easier to interpret when transparency is critical"
+    ]
+  },
+  {
+    "question": "How are the hidden layer values computed from the input layer in a multilayer perceptron?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "h = f(W x + b): matrix multiplication of weights with inputs, plus bias",
+      "A non-linear activation f is applied element-wise",
+      "Weight matrix shape is (hidden units x input features); batches use matrix-matrix multiplication",
+      "Each layer repeats this with the previous layer's output as input"
+    ]
+  },
+  {
+    "question": "Which deep learning approaches are best for face detection and recognition?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CNN-based models dominate",
+      "Detection finds face locations (e.g. MTCNN, RetinaFace, YOLO-style detectors)",
+      "Recognition models such as FaceNet, ArcFace and CosFace produce embeddings compared by distance",
+      "Quality depends on data diversity, lighting and alignment"
+    ]
+  },
+  {
+    "question": "What is the function of deep learning frameworks?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Provide tensors, layers, losses and optimizers for building and training networks",
+      "Automatic differentiation computes gradients",
+      "GPU/TPU acceleration and distributed training support",
+      "Examples: TensorFlow, Keras, PyTorch; tools for saving, deploying and serving models"
+    ]
+  },
+  {
+    "question": "How do speech recognition and video recognition differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Speech recognition converts audio into text (spectrograms with RNN or transformer models)",
+      "Video recognition analyzes frames over time for objects, actions and tracking (CNNs plus temporal modeling)",
+      "Different data: audio waveforms versus image sequences",
+      "Both depend on large labeled datasets and sequence modeling"
+    ]
+  },
+  {
+    "question": "How do RNNs work, why do they struggle with long sequences, and what is Backpropagation Through Time?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RNNs process sequences step by step, carrying a hidden state that acts as memory",
+      "BPTT unrolls the network across time steps and backpropagates through them with shared weights",
+      "Gradients shrink (vanishing) or grow (exploding) over many steps, so long-range dependencies are hard to learn",
+      "Fixes: LSTM/GRU gating, gradient clipping, and ultimately attention-based transformers"
+    ]
+  }
+]

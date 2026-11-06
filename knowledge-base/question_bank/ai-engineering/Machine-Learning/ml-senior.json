@@ -1,0 +1,465 @@
+[
+  {
+    "question": "How would you deploy and monitor a machine learning model in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Serialize the model and serve via REST or gRPC (FastAPI, TensorFlow Serving, managed endpoints), containerized with Docker",
+      "Version models, data and code; support rollback and gradual rollout or A/B tests",
+      "Monitor latency, throughput, prediction and input distributions, and business metrics",
+      "Alert on drift and automate retraining pipelines"
+    ]
+  },
+  {
+    "question": "What are MLOps best practices, and how does CI/CD apply to machine learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Version control for code, data and models; experiment tracking (MLflow) and reproducibility",
+      "CI: automated tests for data validation, preprocessing and training code",
+      "CD: automated validated deployment with canary or A/B rollout",
+      "Continuous monitoring and retraining; security and compliance"
+    ]
+  },
+  {
+    "question": "How do you detect and respond to data drift and concept drift in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compare production and training feature distributions with PSI, KL divergence or statistical tests",
+      "Track performance metrics when ground truth arrives; use proxy business metrics otherwise",
+      "Stream detectors such as ADWIN and DDM",
+      "Respond with scheduled or triggered retraining, online learning or adaptive models"
+    ]
+  },
+  {
+    "question": "You inherit a model that performs poorly in production. How do you debug it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Confirm the symptom: which metric dropped, when, and for which segments",
+      "Check data issues first: drift, broken feature pipeline, schema changes, upstream labeling errors",
+      "Check training-serving skew and leakage",
+      "Isolate the cause, fix, and validate before full rollout; add monitoring to catch it earlier"
+    ]
+  },
+  {
+    "question": "When would you choose Random Forest versus XGBoost in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Random Forest: easy to tune, robust to noise, parallel training, a strong default",
+      "XGBoost: often more accurate on tabular data but needs careful tuning and can overfit small data",
+      "Consider training time and retraining frequency (boosting is sequential)",
+      "Consider inference latency, memory and interpretability needs"
+    ]
+  },
+  {
+    "question": "What is Bayesian optimization and how does it differ from grid and random search?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Builds a surrogate model (e.g. Gaussian process) of performance versus hyperparameters",
+      "An acquisition function (e.g. expected improvement) picks the next trial, balancing exploration and exploitation",
+      "Uses past results, so needs fewer evaluations than grid or random search",
+      "Suited to expensive models; tools include Optuna and HyperOpt"
+    ]
+  },
+  {
+    "question": "What is the difference between semi-supervised and self-supervised learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Semi-supervised combines a small labeled set with a large unlabeled set",
+      "Self-supervised creates labels from the data itself via pretext tasks (masked words, predicting image patches)",
+      "Self-supervised pretraining underlies modern language and vision models",
+      "Both reduce the need for costly manual labels"
+    ]
+  },
+ 
+  {
+    "question": "How does the Transformer architecture work, and what are attention and positional encoding?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Self-attention weights every token against every other, capturing long-range dependencies",
+      "Processes sequences in parallel, unlike RNNs, so trains faster",
+      "Positional encoding (sinusoidal or learned) injects token order",
+      "Basis of BERT (bidirectional encoder, masked language modeling) and GPT (decoder)"
+    ]
+  },
+  {
+    "question": "What is an LLM context window, and how do you handle tasks that exceed it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maximum tokens the model can consider at once; longer prompts raise cost and latency",
+      "Information in the middle of long context can be missed",
+      "Chunk documents and retrieve relevant parts (RAG)",
+      "Use hierarchical summarization for a global view and retrieve details on demand"
+    ]
+  },
+  {
+    "question": "How do you mitigate hallucinations in large language models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ground answers in retrieved trusted documents (RAG)",
+      "Prompting: chain-of-thought, verified few-shot examples, instruct to say when unsure",
+      "Self-consistency or confidence checks across multiple samples",
+      "Guardrails and output verification against rules or sources"
+    ]
+  },
+  {
+    "question": "When would you choose RAG over fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RAG for fresh or private knowledge that changes often; cheaper and more traceable",
+      "Fine-tuning for style, format or domain behavior and jargon; bakes in knowledge but does not fix knowledge cutoff",
+      "Hybrid: fine-tune for behavior, RAG for facts",
+      "Compare on data freshness, cost, latency and evaluation results"
+    ]
+  },
+  {
+    "question": "How do you optimize LLM inference speed in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization (FP16 to INT8 or INT4) to cut memory and compute",
+      "KV-cache management such as PagedAttention (vLLM) for higher throughput",
+      "Speculative decoding with a small draft model verified by the large model",
+      "Batching, distillation and efficient serving hardware"
+    ]
+  },
+  {
+    "question": "How do you evaluate generative AI models when there is no single ground truth?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LLM-as-a-judge scoring on helpfulness, safety and coherence",
+      "RAG metrics such as faithfulness and answer relevance (RAGAS)",
+      "Human evaluation and pairwise comparison (Elo-style ratings)",
+      "Task-specific test sets and A/B tests on real usage"
+    ]
+  },
+  {
+    "question": "Explain model compression: quantization, pruning and knowledge distillation.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization lowers numeric precision (float32 to int8); post-training or quantization-aware",
+      "Pruning removes low-importance weights, neurons or channels",
+      "Distillation trains a small student to mimic a large teacher's soft predictions (e.g. DistilBERT)",
+      "Goal: smaller, faster models for edge and latency-sensitive use with minimal accuracy loss"
+    ]
+  },
+  {
+    "question": "How do you design a latency-sensitive ML application and optimize a model for real-time inference?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use lighter architectures, pruning, quantization or distillation",
+      "Serve with optimized runtimes (TensorFlow Serving, TorchServe, ONNX) on GPUs or accelerators",
+      "Cache frequent predictions and precompute features",
+      "Deploy close to users or on the edge; measure p95 latency"
+    ]
+  },
+  {
+    "question": "Explain distributed training: data parallelism, model parallelism and the parameter server architecture.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Data parallelism: model replicated on each device, batches split, gradients synchronized",
+      "Model parallelism: different model parts on different devices for very large models",
+      "Parameter server: servers hold global parameters, workers push gradients; sync or async updates",
+      "Hybrid parallelism for models like large transformers"
+    ]
+  },
+  {
+    "question": "How do you handle big data in machine learning pipelines?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Distributed processing with Spark or Dask",
+      "Columnar storage formats (Parquet, ORC) and streaming or sampling where appropriate",
+      "Feature engineering at scale; combine batch training with online or incremental updates",
+      "Orchestrate with tools like Airflow and use scalable storage such as S3"
+    ]
+  },
+  {
+    "question": "What is federated learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Devices train locally on private data and send only model updates to a central server",
+      "Server aggregates updates into a global model",
+      "Preserves privacy and avoids centralizing raw data",
+      "Challenges: communication cost, heterogeneous data and synchronization"
+    ]
+  },
+  {
+    "question": "How do you ensure fairness and address bias in machine learning models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Evaluate metrics across subgroups to detect bias",
+      "Pre-processing: rebalance or reweight data; in-processing: fairness-aware training; post-processing: adjust outputs",
+      "Audit data sources for historical bias",
+      "Tools: Fairlearn, AIF360; document and monitor after deployment"
+    ]
+  },
+  {
+    "question": "What are adversarial attacks on ML models and how can they be defended against?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Evasion attacks: tiny input perturbations that cause misclassification",
+      "Poisoning attacks: malicious training data that corrupts the model",
+      "Defenses: adversarial training, input preprocessing or denoising, robust architectures",
+      "Monitor inputs and validate data sources"
+    ]
+  },
+  {
+    "question": "What is causal inference and how does it differ from correlation-based ML?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Estimates cause-and-effect: what happens if we intervene on X",
+      "Randomized controlled trials are the gold standard",
+      "Observational methods: propensity score matching, instrumental variables, causal graphs",
+      "Needed for decisions like marketing impact; correlation alone can mislead"
+    ]
+  },
+  {
+    "question": "Explain GANs and Variational Autoencoders.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "GAN: a generator creates fake data and a discriminator tells real from fake; trained adversarially",
+      "VAE: encoder maps input to a latent distribution, decoder reconstructs from sampled latents",
+      "VAE loss = reconstruction loss + KL divergence",
+      "GANs produce sharper samples but train unstably; VAEs give a smooth latent space"
+    ]
+  },
+  {
+    "question": "What is a Markov Decision Process and what is the Bellman equation?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "MDP: states, actions, transition probabilities, rewards and a policy, with the Markov property",
+      "Bellman equation expresses a state's value as immediate reward plus discounted value of the next state",
+      "Discount factor gamma balances immediate and future rewards",
+      "Foundation for value iteration and Q-learning; an optimal policy maximizes expected cumulative reward"
+    ]
+  },
+  {
+    "question": "Compare Q-learning and SARSA, and explain Deep Q-Networks.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Q-learning is off-policy: updates toward the max next-state Q-value",
+      "SARSA is on-policy: updates using the action actually taken, so it is more conservative",
+      "DQN replaces the Q-table with a neural network for large or continuous state spaces",
+      "Experience replay and target networks stabilize DQN training"
+    ]
+  },
+  {
+    "question": "What is the difference between on-policy and off-policy learning, and between model-free and model-based RL?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "On-policy: behavior policy equals the policy being updated (SARSA)",
+      "Off-policy: learns a target policy from a different behavior policy (Q-learning)",
+      "Model-free learns directly from interaction; model-based learns or uses environment dynamics for planning",
+      "Model-based is more sample-efficient but needs an accurate model"
+    ]
+  },
+  {
+    "question": "Explain exploration versus exploitation in reinforcement learning.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Exploration tries new actions to discover better rewards",
+      "Exploitation picks the best-known action to maximize reward now",
+      "Too little exploration gets stuck in suboptimal policies",
+      "Strategies: epsilon-greedy with decay, softmax or UCB, entropy bonuses"
+    ]
+  },
+  {
+    "question": "Explain policy gradient methods, REINFORCE and actor-critic.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Directly optimize policy parameters by gradient ascent on expected return",
+      "REINFORCE uses full-episode returns: simple but high variance (baselines help)",
+      "Actor-critic: the actor updates the policy, the critic estimates value to lower variance",
+      "Handles continuous action spaces and stochastic policies"
+    ]
+  },
+  {
+    "question": "What is Proximal Policy Optimization (PPO) and why is it popular?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Policy gradient method that limits how far each update moves the policy",
+      "Uses a clipped surrogate objective on the probability ratio",
+      "More stable and easier to tune than TRPO",
+      "Widely used in robotics, games and RLHF for language models"
+    ]
+  },
+  {
+    "question": "What is the difference between value-based and policy-based methods, and between value iteration and policy iteration?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Value-based learns value functions and derives a policy (Q-learning)",
+      "Policy-based optimizes the policy directly (policy gradients)",
+      "Value iteration repeatedly applies the Bellman optimality update, then extracts the policy",
+      "Policy iteration alternates policy evaluation and policy improvement until the policy is stable; both are dynamic programming and need a known model"
+    ]
+  },
+  {
+    "question": "How would you design a recommendation system for an e-commerce or social platform?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define the business goal and metric; collect interaction data (clicks, purchases, ratings)",
+      "Collaborative, content-based or hybrid models; handle cold start and sparsity",
+      "Real-time serving with caching and a streaming pipeline",
+      "Evaluate offline (precision@k, hit rate) then A/B test; monitor drift and fairness"
+    ]
+  },
+  {
+    "question": "How would you design a scalable ML pipeline and a real-time prediction architecture?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Distributed data processing (Spark), orchestration (Airflow) and scalable storage (S3)",
+      "Feature store for training-serving consistency; experiment tracking and model registry",
+      "Real-time path: event streaming (Kafka), model API (REST or gRPC), cache (Redis)",
+      "Kubernetes for scaling; monitoring and automated retraining"
+    ]
+  },
+  {
+    "question": "What is a Hidden Markov Model and where is it used?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Models sequences with hidden states and observable emissions",
+      "Defined by transition and emission probabilities",
+      "Inference with Forward-Backward and Viterbi algorithms; parameters learned with EM (Baum-Welch)",
+      "Applications: speech recognition, bioinformatics, POS tagging"
+    ]
+  },
+  {
+    "question": "What is gradient clipping and when is it needed?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Caps gradient magnitude to prevent exploding gradients",
+      "Norm clipping rescales the whole gradient; value clipping bounds each element",
+      "Common in RNN, LSTM and transformer training",
+      "Stabilizes training with high learning rates or long sequences"
+    ]
+  }
+]

@@ -15,8 +15,8 @@ from typing import Literal, Optional
 DIFFICULTY_LADDERS: dict[str, list[str]] = {
     "graduate-trainee": ["general"],
     "nysc-trainee": ["general"],
-    "uiux": ["entry", "advanced", "expert"],
-    "copywriting": ["entry", "expert"],
+    # "uiux": ["entry", "advanced", "expert"],
+    # "copywriting": ["entry", "expert"],
 }
 DEFAULT_LADDER = ["junior", "mid", "senior"]
 

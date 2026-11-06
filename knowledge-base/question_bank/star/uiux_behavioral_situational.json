@@ -1,0 +1,607 @@
+[
+  {
+    "question": "Tell me about yourself and why you chose a career in UX/UI design.",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Concise overview of background, education or experience",
+      "Genuine motivation for entering design",
+      "Links skills such as empathy and problem-solving to UX",
+      "Connects interest to the role"
+    ]
+  },
+  {
+    "question": "Why do you want to work for our company?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Shows research into company values and products",
+      "Aligns personal goals with the company mission",
+      "Specific about what excites them",
+      "Explains how they will add value"
+    ]
+  },
+  {
+    "question": "Where do you see yourself in five years as a designer?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Realistic growth direction: specialisation or leadership",
+      "Ties goals to the role and company",
+      "Shows commitment to continuous learning",
+      "Self-aware about skills to build"
+    ]
+  },
+  {
+    "question": "How do you stay up to date with design trends and tools?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Specific sources: newsletters, communities, courses",
+      "Experiments through personal projects",
+      "Evaluates trends before adopting them",
+      "Shares learning with peers"
+    ]
+  },
+  {
+    "question": "How do you handle negative feedback or criticism on your projects?",
+    "category": "general",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Listens without defensiveness and asks clarifying questions",
+      "Separates feedback from self-worth",
+      "Checks feedback against user goals and data",
+      "Iterates and gives a real example"
+    ]
+  },
+  {
+    "question": "Do you consider yourself a team player? How do you collaborate with others?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Describes a concrete collaboration and their role",
+      "Open to different viewpoints",
+      "Communicates and shares work early",
+      "Explains what the team gained"
+    ]
+  },
+  {
+    "question": "How would you hand over your designs to developers?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Organised files with clear naming and specs",
+      "Annotations, states and edge cases documented",
+      "Walkthrough or handoff meeting",
+      "Stays available during implementation",
+      "Open to feasibility feedback"
+    ]
+  },
+  {
+    "question": "Tell me about a bad user experience you have had. How would you fix it?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes the problem from the user's perspective",
+      "Identifies the root cause",
+      "Proposes a specific user-centred solution",
+      "Explains how they would validate it"
+    ]
+  },
+  {
+    "question": "Describe a challenging design project and how you overcame the obstacles.",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Clear problem and context using STAR",
+      "Research and process followed",
+      "Specific actions taken",
+      "Measurable result and lessons learned"
+    ]
+  },
+  {
+    "question": "Tell me about a project that did not go as planned or a design that failed. What did you learn?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Honest about what went wrong",
+      "Takes ownership without blaming others",
+      "Explains the learning",
+      "Shows how they changed their approach afterwards"
+    ]
+  },
+  {
+    "question": "Tell me about a design that improved a business or product metric.",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "States the problem and baseline metric",
+      "Explains specific design changes",
+      "Quantifies the result",
+      "Shows their personal contribution"
+    ]
+  },
+  {
+    "question": "Tell me about a time user research changed your design direction.",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "ux-researcher",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Initial assumption stated",
+      "Research method and finding",
+      "Willingness to change course",
+      "Resulting design change and impact"
+    ]
+  },
+  {
+    "question": "Tell me about a time you identified a significant UX problem no one else had noticed.",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "How the problem was discovered",
+      "Evidence gathered to show impact",
+      "Communicated it to the right people",
+      "Outcome after the fix"
+    ]
+  },
+  {
+    "question": "How do you prioritise tasks when working on multiple design projects?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Assess urgency, impact and deadlines",
+      "Communicates trade-offs with stakeholders",
+      "Uses tools to track work",
+      "Protects focus on high-impact tasks"
+    ]
+  },
+  {
+    "question": "Tell me about a time you disagreed with a product manager or product decision.",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Seeks to understand the other view",
+      "Uses evidence or a quick test",
+      "Keeps disagreement constructive",
+      "Outcome and learning"
+    ]
+  },
+  {
+    "question": "Tell me about a time you worked with a difficult or resistant developer.",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Seeks to understand technical constraints",
+      "Improves communication and early involvement",
+      "Adapts designs to existing components",
+      "Result: smoother delivery and trust"
+    ]
+  },
+  {
+    "question": "How do you explain a design decision to a non-designer stakeholder?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Plain language without jargon",
+      "Ties the decision to user and business value",
+      "Uses evidence, prototypes or data",
+      "Listens to concerns"
+    ]
+  },
+  {
+    "question": "A stakeholder says 'I don't like this design'. What do you do?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks what specifically concerns them",
+      "Identifies the underlying goal or concern",
+      "Reconnects the discussion to user needs and data",
+      "Offers alternatives or a quick test"
+    ]
+  },
+  {
+    "question": "How do you handle conflicting feedback from stakeholders, developers and users?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Understands the concerns behind each opinion",
+      "Prioritises user goals and business objectives",
+      "Uses data and tests where possible",
+      "Facilitates alignment"
+    ]
+  },
+  {
+    "question": "A product manager asks you to skip user research because of the deadline. What do you do?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Understands the time pressure",
+      "Proposes lightweight research such as guerrilla testing or analytics review",
+      "Explains risk in business terms",
+      "Instruments the design to measure outcomes if research is skipped"
+    ]
+  },
+  {
+    "question": "A stakeholder wants to add many features to the homepage and you believe it will become cluttered. How do you respond?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks what business problem the features solve",
+      "Uses research and usability principles to explain impact",
+      "Suggests prioritising or relocating features",
+      "Offers to test alternatives"
+    ]
+  },
+  {
+    "question": "A developer says your design interaction is too complex or expensive to build. How do you respond?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Understands the exact constraint",
+      "Separates essential from enhancement elements",
+      "Proposes simpler alternatives that preserve user value",
+      "Updates specs and informs the team"
+    ]
+  },
+  {
+    "question": "You have only one week to redesign an important flow before launch. How do you prioritise?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Focus on critical user-journey problems",
+      "Use existing data instead of new large research",
+      "Build a focused prototype and test key interactions",
+      "Collaborate with developers on feasibility"
+    ]
+  },
+  {
+    "question": "You must design with incomplete or unclear requirements. What do you do?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks clarifying questions about users, goals and success",
+      "Aligns with PM, engineering and customer-facing staff",
+      "States assumptions and validates them",
+      "Iterates as clarity improves"
+    ]
+  },
+  {
+    "question": "Project requirements change midway. How do you handle it?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Reassesses impact on design and timeline",
+      "Communicates with stakeholders",
+      "Updates documents and prototypes",
+      "Maintains quality and flexibility"
+    ]
+  },
+  {
+    "question": "Users are abandoning a signup form halfway. How do you find the cause and improve it?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Reviews analytics, recordings and feedback",
+      "Checks field count, labels, validation and steps",
+      "Designs a simpler version and tests it",
+      "Uses A/B testing to measure results"
+    ]
+  },
+  {
+    "question": "Your design works on desktop but users struggle on mobile. What do you investigate?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Navigation, touch targets, hierarchy and content",
+      "Loading time and form inputs",
+      "Redesign the mobile flow instead of shrinking desktop",
+      "Test on different devices"
+    ]
+  },
+  {
+    "question": "A key feature is not accessible to users with disabilities. What steps do you take?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Audit against WCAG",
+      "Fix contrast, text, keyboard and screen reader issues",
+      "Test with users with disabilities",
+      "Build accessibility into the process"
+    ]
+  },
+  {
+    "question": "Both design options you tested failed in usability testing. What would you do?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Analyse why each failed",
+      "Identify patterns and unmet needs",
+      "Iterate or ideate a new concept",
+      "Retest and communicate findings to the team"
+    ]
+  },
+  {
+    "question": "There is not enough time to do research. What do you do?",
+    "category": "uiux",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Prioritise the riskiest assumptions",
+      "Use quick methods: guerrilla testing, analytics, support tickets",
+      "Communicate the trade-offs",
+      "Plan validation after launch"
+    ]
+  },
+  {
+    "question": "How would you sell the ROI of investing in UX design?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "communication",
+    "reference_points": [
+      "Link UX to conversion, retention and support cost",
+      "Use data or case examples",
+      "Frame in business language",
+      "Propose measurable metrics"
+    ]
+  },
+  {
+    "question": "Tell me about a time you advocated for the user against business pressure.",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Documented evidence of user harm or risk",
+      "Proposed an alternative that served both sides",
+      "Validated with a prototype or test",
+      "Outcome with measurable results"
+    ]
+  },
+  {
+    "question": "How do you influence product decisions without direct authority?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Anchors decisions in data and research",
+      "Frames design in business impact",
+      "Builds relationships early with PMs and engineers",
+      "Presents options with trade-offs",
+      "Uses prototypes to show, not tell"
+    ]
+  },
+  {
+    "question": "How do you mentor other designers and give feedback?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Specific, kind and focused on the work",
+      "Tied to goals and user outcomes",
+      "Regular critique and coaching",
+      "Encourages growth and autonomy"
+    ]
+  },
+  {
+    "question": "How do you adapt your leadership style and foster innovation within your design team?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Adjusts style to the team and situation",
+      "Creates psychological safety",
+      "Provides time and process for experiments",
+      "Balances exploration and execution"
+    ]
+  },
+  {
+    "question": "Tell me about a time you had to pivot your research or design approach mid-project.",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "What prompted the change",
+      "How the new approach was chosen",
+      "Communication with stakeholders",
+      "Outcome and lessons"
+    ]
+  },
+  {
+    "question": "Your usability results contradict a design direction championed by the CEO. What do you do?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Document findings rigorously",
+      "Present data objectively without blaming",
+      "Acknowledge what works in the current direction",
+      "Propose alternatives and instrument the outcome"
+    ]
+  },
+  {
+    "question": "A stakeholder challenges your qualitative study's sample size. How do you respond?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains purpose of qualitative research: depth, not statistics",
+      "Cites pattern saturation",
+      "Offers to complement with quantitative data",
+      "Stays confident and respectful"
+    ]
+  },
+  {
+    "question": "Your research contradicts a senior stakeholder's assumptions or the product roadmap. How do you handle it?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Presents evidence first, such as clips and quotes",
+      "Acknowledges what validates the roadmap",
+      "Frames the finding as risk",
+      "Does not soften findings to protect relationships"
+    ]
+  },
+  {
+    "question": "A key metric dropped after your redesign launched. What do you do?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Confirm the drop and isolate the affected flow",
+      "Review analytics, recordings and feedback",
+      "Fix or roll back quickly",
+      "Share learnings with the team"
+    ]
+  },
+  {
+    "question": "How do you balance user needs, business goals and technical constraints?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Understands each constraint fully",
+      "Finds overlap between user value and business goals",
+      "Uses MVP thinking",
+      "Quantifies user cost of compromises",
+      "Escalates ethical concerns"
+    ]
+  },
+  {
+    "question": "You are designing a payment flow for users with limited digital literacy. How do you approach it?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Field research in the target community",
+      "Icons plus text, minimal steps, local language",
+      "Audio or confirmation cues",
+      "Test on actual devices with real users"
+    ]
+  },
+  {
+    "question": "Your team wants to collect more user data for personalisation, but it may harm trust. How do you handle this from a UX perspective?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Explains clearly what data is collected and why",
+      "Requests permission gradually",
+      "Gives users control",
+      "Builds trust and transparency"
+    ]
+  }
+]

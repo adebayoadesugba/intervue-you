@@ -16,33 +16,7 @@
       "Mentions handling offline state and message queue buffering"
     ]
   },
-  {
-    "question": "Your CV highlights an optimization that improved API response times by 40%. Walk me through the exact bottle-neck you identified and how you measured the improvement.",
-    "category": "backend",
-    "subcategory": "optimization",
-    "difficulty": "senior",
-    "stack": "python",
-    "question_type": "resume_based",
-    "competency": "technical_depth",
-    "reference_points": [
-      "Identifies specific bottleneck (e.g., N+1 query, unindexed database search, synchronous I/O)",
-      "Describes benchmarking tools used before and after optimization",
-      "Explains concrete engineering solution implemented"
-    ]
-  },
-  {
-    "question": "You mentioned leading a migration to TypeScript on your CV. What were the biggest hurdles your team faced and how did you enforce strict typing?",
-    "category": "frontend",
-    "subcategory": "codebase_health",
-    "difficulty": "junior",
-    "stack": "react",
-    "question_type": "resume_based",
-    "competency": "communication",
-    "reference_points": [
-      "Explains incremental adoption strategies (`allowJs`, module-by-module migration)",
-      "Discusses establishing team conventions around `any` types and strict compiler flags"
-    ]
-  },
+
   {
     "question": "What is the virtual DOM in React, and how does the reconciliation algorithm determine when to update the real DOM?",
     "category": "frontend",

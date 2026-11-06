@@ -1,0 +1,1108 @@
+[
+  {
+    "question": "How would you optimize a website's crawl budget?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Improve server response time and site speed",
+      "Block low-value URLs via robots.txt, fix redirect chains and broken links",
+      "Consolidate duplicate or thin content; maintain accurate XML sitemaps",
+      "Strengthen internal linking; monitor crawl stats and server logs. Matters most for large sites"
+    ]
+  },
+  {
+    "question": "How do you approach international SEO for a site targeting multiple countries?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Choose a structure: ccTLDs, subdirectories or subdomains",
+      "Implement hreflang correctly for language and region variants",
+      "Localize content, keywords, currency and cultural references rather than translating literally",
+      "Pursue local links and measure each market separately"
+    ]
+  },
+  {
+    "question": "How would you recover a site from a Google penalty or major ranking drop?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Diagnose first: manual action report in Search Console versus algorithm update, using traffic timing",
+      "Fix causes: unnatural links, thin or low-quality content, spam or policy violations",
+      "Disavow only when needed; improve content quality and E-E-A-T",
+      "For manual actions, submit a reconsideration request; monitor recovery over time"
+    ]
+  },
+  {
+    "question": "How would you plan and measure an off-page SEO and link-building campaign?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define goals and target pages; build linkable assets",
+      "Research relevant sites with tools such as Ahrefs or Semrush; run personalized outreach",
+      "Track quantity and quality of referring domains, rankings, referral traffic and conversions",
+      "Avoid manipulative tactics and report against baseline"
+    ]
+  },
+  {
+    "question": "How do you explain the limits of marketing attribution?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Attribution models are decision aids, not absolute truth",
+      "Explains what the source of truth can and cannot prove (cross-device, dark social, offline influence)",
+      "Uses consistent definitions and compares trends over time",
+      "Combines platform data with analytics or CRM outcomes and controlled tests"
+    ]
+  },
+  {
+    "question": "What would you put on a dashboard to track copy and content performance?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Leads with business outcomes: conversion rate, leads, revenue influence",
+      "Supporting metrics: CTR, email clicks, landing page CVR, organic clicks, engaged sessions, test lift",
+      "Each metric has a source, owner, cadence and action threshold",
+      "Includes content decay or refresh signals"
+    ]
+  },
+  {
+    "question": "How do you report campaign or copy performance to leadership?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Leads with the business result and the period and source",
+      "Explains the drivers, misses and learnings",
+      "Separates leading signals from final conversion",
+      "Ends with a clear recommendation: scale, fix, pause or test again"
+    ]
+  },
+  {
+    "question": "How do you decide which channels or content deserve time and budget?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weighs audience fit, unit economics, measurement quality and business priority",
+      "Compares cost, conversion rate and payback",
+      "Distinguishes demand creation from demand capture",
+      "Defines in advance what will stop if an experiment fails"
+    ]
+  },
+  {
+    "question": "How would you build a structured copy-testing program for a team?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains a prioritized hypothesis backlog tied to business metrics",
+      "Standardizes test briefs: variant, metric, sample size and duration",
+      "Prioritizes tests by expected learning and impact, not variant count",
+      "Documents learnings in a shared repository and feeds them into messaging guidelines"
+    ]
+  },
+  {
+    "question": "What would you audit and improve in a copy or content role in the first 90 days?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits top landing pages, ad and email copy, message hierarchy, CTA clarity, style guide and brief quality",
+      "Checks data and tracking quality",
+      "Picks one high-impact gap and fixes it with a before-and-after metric",
+      "Documents the process so the improvement lasts"
+    ]
+  },
+  {
+    "question": "How would you create or update a documentation style guide?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits existing content to find inconsistencies and gaps",
+      "Builds on an established guide (e.g. Microsoft or Google) and adds company-specific rules and a glossary",
+      "Gets buy-in from engineering, product and support",
+      "Automates enforcement with linters and templates, and versions the guide"
+    ]
+  },
+  {
+    "question": "How do you approach documenting products in regulated industries such as healthcare or finance?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies applicable regulations and required content (warnings, disclosures, traceability)",
+      "Works with legal, compliance and quality teams; follows formal review and approval",
+      "Maintains version control, audit trails and change records",
+      "Uses precise, verified language"
+    ]
+  },
+  {
+    "question": "How does documenting enterprise software differ from consumer products, and what is specific to SaaS?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Enterprise: multiple roles, admin and security tasks, integrations, deployment and configuration depth",
+      "Consumer: simpler tasks, onboarding, in-product help and quick answers",
+      "SaaS: continuous releases require frequent updates, versioned or evergreen docs and in-app help",
+      "Tailors structure and delivery to each audience"
+    ]
+  },
+  {
+    "question": "How would you use AI-assisted tools in documentation while protecting quality?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses AI for drafts, summaries, restructuring and style checks, not as a source of truth",
+      "Verifies every technical claim against the product or an SME",
+      "Handles confidentiality and licensing: does not paste sensitive material into public tools",
+      "Defines review gates and keeps human accountability"
+    ]
+  },
+  {
+    "question": "What is your approach to interactive documentation and embedded help?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offers contextual help in the UI: tooltips, guided tours and links to relevant topics",
+      "Interactive API consoles, runnable code samples and sandboxes",
+      "Reuses single-sourced content across in-app and help-center formats",
+      "Measures usage and feedback and keeps content current with the product"
+    ]
+  },
+  {
+    "question": "How do you plan content refreshes and pruning at scale for a large content library?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits by traffic, conversions, rankings, accuracy and age",
+      "Decision framework: update, consolidate, redirect or remove",
+      "Prioritizes by impact and effort, assigns owners and a refresh cadence",
+      "Tracks before-and-after performance and updates internal links"
+    ]
+  },
+  {
+    "question": "Can explain eloquently how you carry out competitor analysis and use it in your copy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reviews competitors' messaging, offers, proof, tone and gaps",
+      "Reads customer reviews for language and unmet needs",
+      "Uses findings to differentiate, not imitate",
+      "Notes legal and claim constraints"
+    ]
+  },
+  {
+    "question": "Tell me, how do you balance persuasion with honesty and transparency in your copy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Makes only claims that can be substantiated with proof",
+      "Avoids misleading urgency, hidden terms and exaggeration",
+      "Is transparent about price, limits and conditions",
+      "Works with legal on regulated claims; trust supports long-term conversion"
+    ]
+  },
+  {
+    "question": "How do you write landing page copy that converts?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Matches the message of the ad or link that brought the visitor (message match)",
+      "Clear headline and subhead, benefits, proof, objection handling and one primary CTA",
+      "Reduces friction in forms and wording",
+      "Is built to be tested and iterated"
+    ]
+  },
+  {
+    "question": "Organic traffic dropped about 30% right after a Google core update. How do you diagnose it and decide what to do?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Confirms the timing against update dates and rules out tracking errors, seasonality, migrations or technical faults",
+      "Segments losses by page type, query intent, device and country to find the pattern",
+      "Compares losing pages with winners for helpfulness, depth, E-E-A-T and intent match",
+      "Plans content and quality improvements rather than quick fixes, and sets realistic recovery expectations"
+    ]
+  },
+  {
+    "question": "You are planning an SEO strategy for a full site migration or redesign. What is your plan from audit to post-launch?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Benchmarks current rankings, traffic, top URLs and backlinks before any change",
+      "Builds a one-to-one URL map with 301 redirects; preserves titles, content, internal links and structured data",
+      "Tests on staging for crawlability, canonicals, robots rules and sitemaps",
+      "Monitors Search Console, logs and rankings after launch and fixes regressions quickly"
+    ]
+  },
+  {
+    "question": "A JavaScript-heavy site (client-side rendered) has pages that are not being indexed. How do you investigate and fix it?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses the URL Inspection tool and compares raw HTML with the rendered DOM",
+      "Checks that critical content, links and metadata are present after rendering and that resources are not blocked",
+      "Recommends server-side rendering, static generation or hybrid rendering for key pages",
+      "Verifies fixes by re-testing and tracking indexation over time"
+    ]
+  },
+  {
+    "question": "How do Core Web Vitals affect SEO, and how do you work with developers to improve them?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Understands LCP, INP and CLS and that they are a lightweight ranking signal and a user-experience factor",
+      "Uses field data (CrUX, Search Console) alongside lab tools such as Lighthouse",
+      "Prioritizes fixes by template and traffic, with concrete tickets (image optimization, script deferral, layout shifts)",
+      "Does not treat speed as a replacement for relevance and content quality"
+    ]
+  },
+  {
+    "question": "You are asked to scale thousands of programmatic SEO pages (location or product templates). How do you avoid thin or duplicate content?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validates search demand and intent for each template before building",
+      "Adds unique, useful data and content per page; avoids mere keyword substitution",
+      "Sets quality thresholds, indexation controls (noindex or consolidation) and internal linking structure",
+      "Monitors indexation, engagement and rankings and prunes weak pages"
+    ]
+  },
+  {
+    "question": "How would you build topical authority for a new site in a competitive niche?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maps the topic space and groups keywords into clusters by intent",
+      "Publishes pillar pages with supporting articles and strong internal linking",
+      "Targets lower-competition queries first and shows real expertise and original insight",
+      "Earns relevant links and measures cluster-level visibility rather than single keywords"
+    ]
+  },
+  {
+    "question": "An e-commerce site has faceted navigation creating thousands of parameter URLs. How do you manage crawling and indexing?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decides which facet combinations have search demand and deserve indexable pages",
+      "Uses canonicals, noindex, internal link control and robots.txt for the rest, knowing noindex requires crawl access",
+      "Avoids creating crawl traps; consolidates duplicates",
+      "Validates with log files and Search Console crawl and index reports"
+    ]
+  },
+  {
+    "question": "How do you plan and measure a structured data (schema) strategy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Chooses schema types that match visible page content and are eligible for rich results (Product, FAQ where eligible, Article, Organization)",
+      "Validates with the Rich Results Test and monitors Search Console enhancement reports",
+      "Tracks CTR and impressions before and after rollout",
+      "Does not mark up content that users cannot see; schema is not a guaranteed ranking boost"
+    ]
+  },
+  {
+    "question": "You have a long SEO backlog and limited developer time. How do you prioritize?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Scores items by expected impact, effort, confidence and dependencies",
+      "Groups fixes by template to maximize reach per ticket",
+      "Writes clear tickets with acceptance criteria and expected outcomes to win developer buy-in",
+      "Reviews results and re-prioritizes on a regular cadence"
+    ]
+  },
+  {
+    "question": "How do you forecast SEO impact and prove ROI to executives?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Builds forecasts from keyword volume, realistic ranking and CTR assumptions and conversion rates, with ranges rather than a single number",
+      "Ties organic results to revenue or leads using analytics and CRM data",
+      "Is transparent about uncertainty and long lead times",
+      "Reports against forecast and adjusts assumptions"
+    ]
+  },
+  {
+    "question": "How is AI-generated search (AI answers in results) changing your SEO and content strategy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Expects fewer clicks on some informational queries and measures impact on traffic and visibility",
+      "Focuses on original, expert, well-structured content that answers questions clearly and is worth citing",
+      "Strengthens brand, entity and E-E-A-T signals and targets queries where a click still matters",
+      "Avoids hype and tracks what is actually changing in their data"
+    ]
+  },
+  {
+    "question": "How would you run local SEO for a business with many locations?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Optimizes and verifies each Google Business Profile; keeps name, address and phone data consistent",
+      "Builds unique location pages with genuinely local content, not copy-paste",
+      "Manages reviews and local citations and links",
+      "Tracks local pack rankings, calls and direction requests by location"
+    ]
+  },
+  {
+    "question": "A page ranks well but does not convert. How do you work with SEO and CRO together?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Checks that the keyword intent matches the page offer and audience",
+      "Reviews on-page experience: message match, proof, CTA, layout and speed",
+      "Tests changes without harming rankings (keep key content and headings stable)",
+      "Measures conversion by landing page and query group"
+    ]
+  },
+  {
+    "question": "What do you look for in server log files, and what decisions do they inform?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Verifies real Googlebot activity and crawl frequency by section",
+      "Finds wasted crawl on parameters, redirects and error pages, and important pages rarely crawled",
+      "Spots status code problems and crawl spikes after releases",
+      "Turns findings into robots, linking, sitemap or redirect changes"
+    ]
+  },
+  {
+    "question": "Your content is syndicated on partner sites and outranks you in search. What do you do?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Asks partners to use rel=canonical pointing to the original or noindex the syndicated copy",
+      "Publishes first and ensures strong internal signals and links to the original",
+      "Considers delaying syndication or publishing modified versions",
+      "Remembers canonicals are hints and monitors the result"
+    ]
+  },
+  {
+    "question": "How do you run digital PR and link acquisition at scale without taking on link risk?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates assets journalists want: original data, studies, expert commentary",
+      "Prioritizes relevance and editorial links over volume; avoids paid or manipulative schemes",
+      "Audits the link profile and monitors anchor text patterns",
+      "Measures referring domains, referral traffic and ranking impact on target pages"
+    ]
+  },
+  {
+    "question": "You are launching a new domain for a new product. What does your first six months of SEO look like?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Month one: technical foundations (indexability, structure, analytics, Search Console) and keyword and competitor research",
+      "Builds core pages and a focused content plan for achievable, high-intent topics",
+      "Starts link and brand-building activities early and sets realistic timelines",
+      "Reviews data monthly and adjusts"
+    ]
+  },
+  {
+    "question": "How do you maintain quality when many writers or agencies contribute SEO content?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Standardizes briefs: intent, target keyword, outline, sources, internal links and examples",
+      "Defines a quality bar and checklist with an editorial review before publishing",
+      "Uses templates and style guidance; gives specific feedback",
+      "Tracks performance by writer or batch and refines the process"
+    ]
+  },
+  {
+    "question": "How do you do keyword research for a B2B product where search volumes are tiny or reported as zero?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Treats tool volume as an estimate; low-volume terms can still be high-value",
+      "Mines sales calls, support tickets, communities and competitor pages for real problem language",
+      "Prioritizes by intent and revenue potential, not volume",
+      "Measures with Search Console impressions and conversions"
+    ]
+  },
+  {
+    "question": "How do you measure the real impact of an SEO change when you cannot run a clean A/B test?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses SEO split tests on groups of similar pages where possible, with a control group",
+      "Otherwise uses before-and-after with a comparison set and accounts for seasonality and other changes",
+      "Allows enough time for recrawling and ranking adjustment",
+      "States confidence level and avoids claiming causation too early"
+    ]
+  },
+  {
+    "question": "You are leading a rebrand. How do you build a messaging framework and roll it out across teams?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Starts with positioning, audience research, competitors and brand values",
+      "Defines the core promise, pillars with proof points, voice principles and do and don't examples",
+      "Pilots on key assets, collects feedback, then trains teams and updates templates",
+      "Measures recall, conversion and consistency after rollout"
+    ]
+  },
+  {
+    "question": "You are asked to rewrite a high-traffic, high-converting page. How do you manage the risk?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Establishes baseline conversion and traffic sources and identifies what is working",
+      "Changes in stages and A/B tests against the control rather than replacing wholesale",
+      "Preserves SEO-critical elements and message match with inbound traffic",
+      "Sets success and rollback criteria in advance"
+    ]
+  },
+  {
+    "question": "How do you set up copy governance across teams, regions and agencies?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains a living voice and style guide with examples and a message library",
+      "Defines ownership, approval tiers and turnaround times, with lighter review for low-risk assets",
+      "Provides templates and a shared repository; trains contributors",
+      "Audits for consistency and updates the guide from real cases"
+    ]
+  },
+  {
+    "question": "How do you use sales calls, support tickets and win/loss data to shape messaging?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Collects verbatim customer language, objections and the triggers that led to purchase or loss",
+      "Looks for patterns across many conversations, not single anecdotes",
+      "Turns findings into messaging pillars, proof points and objection copy",
+      "Tests the new messaging and feeds results back to sales"
+    ]
+  },
+  {
+    "question": "How do you approach copy for a long B2B sales cycle with multiple decision-makers?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maps buying-committee roles and their different concerns (user, economic buyer, technical, legal)",
+      "Creates stage-appropriate assets: education, comparison, proof, risk reduction and enablement for sales",
+      "Keeps a consistent core story across touchpoints",
+      "Measures influence on pipeline and deal velocity, not just clicks"
+    ]
+  },
+  {
+    "question": "How would you design a full-funnel copy strategy from awareness to retention?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Defines audience mindset and job of copy at each stage: awareness, consideration, decision, onboarding, retention",
+      "Matches message, proof and CTA to each stage and channel",
+      "Ensures continuity between ad, page, email and product",
+      "Sets stage-specific metrics and a testing plan"
+    ]
+  },
+  {
+    "question": "How do you write and roll out a price increase or pricing page change?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Leads with value delivered and is transparent about what changes, when and why",
+      "Gives existing customers advance notice and clear options",
+      "Prepares FAQs and support and sales scripts; anticipates objections",
+      "Monitors churn, tickets and conversion after launch"
+    ]
+  },
+  {
+    "question": "How do you write customer communication during an outage, data incident or public mistake?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "States what happened, who is affected, what is being done and when the next update comes, in plain language",
+      "Takes responsibility without speculation or legal missteps; aligns with legal and leadership",
+      "Keeps a consistent tone across channels and updates promptly",
+      "Follows up with a post-incident summary"
+    ]
+  },
+  {
+    "question": "How do you evaluate, brief and give feedback to freelance or junior writers to keep quality high?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses paid test assignments and a clear scoring rubric",
+      "Writes complete briefs with audience, goal, voice, examples and constraints",
+      "Gives specific, actionable feedback tied to the brief and shares before-and-after edits",
+      "Tracks recurring issues and coaches or replaces as needed"
+    ]
+  },
+  {
+    "question": "How do you use AI tools in your copy workflow while protecting brand voice and accuracy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses AI for ideation, variants and first-draft support, not as the final authority",
+      "Provides voice guidelines and examples, and edits heavily for specificity and originality",
+      "Fact-checks every claim and handles confidentiality and licensing",
+      "Defines review gates and keeps human accountability"
+    ]
+  },
+  {
+    "question": "How do you approach naming a product, feature or tagline?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Starts with positioning and criteria: memorable, meaningful, pronounceable, distinct and available",
+      "Generates a wide set of candidates and narrows against the criteria",
+      "Checks trademark, domain, handles and cultural or language issues",
+      "Tests with the target audience"
+    ]
+  },
+  {
+    "question": "How do you collaborate with product and design on UX microcopy such as onboarding and error messages?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Joins design early and writes in context, within real flows and constraints",
+      "Creates microcopy principles: clear, helpful, human, consistent",
+      "Error messages say what happened and how to fix it, with no blame",
+      "Tests with users and measures completion, drop-off and support tickets"
+    ]
+  },
+  {
+    "question": "How do you test copy when traffic is too low for statistically significant A/B tests?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tests bigger, bolder changes and uses higher-traffic or upstream metrics",
+      "Uses qualitative methods: user interviews, five-second tests, surveys, session recordings",
+      "Runs sequential before-and-after tests with care about confounders",
+      "Applies learnings from higher-traffic channels"
+    ]
+  },
+  {
+    "question": "How do you evolve a brand voice over time while keeping it consistent between product and marketing?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Distinguishes core voice principles from tone flexed by context",
+      "Audits current usage across marketing, product, support and sales",
+      "Updates the guide with examples and rolls changes out gradually",
+      "Aligns writers and designers through shared principles and review"
+    ]
+  },
+  {
+    "question": "How do you substantiate claims and work with legal in regulated or high-risk categories?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains a claims register with evidence for each statement",
+      "Involves legal and compliance early with clear review timelines",
+      "Uses approved language and required disclaimers without burying the message",
+      "Prefers accurate specifics to superlatives; updates when evidence changes"
+    ]
+  },
+  {
+    "question": "How do you produce segmented or personalized copy at scale without losing quality?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Builds a modular message system: a core idea plus segment-specific hooks, proof and CTAs",
+      "Chooses segments that justify the effort by value and behavior",
+      "Uses dynamic content rules and fallbacks to avoid awkward or wrong personalization",
+      "Tests and measures lift by segment"
+    ]
+  },
+  {
+    "question": "How would you design a lifecycle or retention email program?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maps the customer lifecycle moments: onboarding, activation, engagement, upsell, win-back",
+      "Triggers messages from behavior and writes one clear goal per email",
+      "Manages frequency, deliverability and consent",
+      "Measures activation, retention, revenue and unsubscribe rates and iterates"
+    ]
+  },
+  {
+    "question": "How do you make the case for brand-building copy to a team focused on short-term performance metrics?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explains that brand messaging builds mental availability and trust that improve performance copy over time",
+      "Proposes leading indicators: branded search, direct traffic, recall surveys, conversion by returning visitors",
+      "Suggests a balanced mix and a bounded test",
+      "Avoids claiming precise attribution; admits measurement limits"
+    ]
+  },
+  {
+    "question": "A competitor launches a very similar feature. How do you respond in your messaging?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Re-examines the customer benefit and where the product is genuinely different",
+      "Avoids reactive naming or copying; reframes around outcomes, proof and fit",
+      "Updates comparison content and sales enablement with accurate claims",
+      "Monitors messaging impact on win rates and conversion"
+    ]
+  },
+  {
+    "question": "How do you set and enforce an objective quality standard for copy across a team?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates a scorecard: clarity, audience fit, accuracy, voice, proof, CTA and error-free",
+      "Calibrates reviewers with sample reviews so scores are consistent",
+      "Uses peer review and editors; tracks trends and common problems",
+      "Links quality to outcomes such as conversion and revision rates"
+    ]
+  },
+  {
+    "question": "You are starting documentation from scratch for a product that has almost none. How do you build the strategy?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies user types, top tasks and the biggest pain points from support, sales and product",
+      "Prioritizes a minimum useful set: quickstart, core tasks, key reference and troubleshooting",
+      "Chooses tooling and a workflow that fit the team, with templates and a style guide",
+      "Sets success metrics and a maintenance model"
+    ]
+  },
+  {
+    "question": "How would you plan a migration from a wiki or Word-based documentation system to docs-as-code?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits content and removes or consolidates outdated material before moving it",
+      "Selects the toolchain (Markdown, static site generator, Git, CI) and defines contribution and review workflows",
+      "Migrates in phases, preserves URLs with redirects and trains contributors",
+      "Plans for risks: lost formatting, broken links, SME resistance, search and rollback"
+    ]
+  },
+  {
+    "question": "How do you handle documentation for multiple product versions?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decides which versions are supported and keeps docs aligned with that policy",
+      "Uses branches or versioned folders with a visible version selector",
+      "Uses conditional content or reuse for shared parts; clearly labels deprecated versions",
+      "Automates builds and link checks to limit maintenance cost"
+    ]
+  },
+  {
+    "question": "How do you improve developer experience, such as time to first successful call, through documentation?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Creates a short quickstart with copy-paste working code and clear prerequisites",
+      "Walks through onboarding as a new developer and removes friction",
+      "Provides tested samples, SDK examples, authentication guidance and common-error help",
+      "Measures time to first call, drop-off and feedback"
+    ]
+  },
+  {
+    "question": "What metrics would you use to evaluate a documentation program, and how do you prove its value?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Usage and quality metrics: page views, search success and no-result queries, feedback ratings, task completion",
+      "Business metrics: support ticket deflection, onboarding time, adoption of features",
+      "Uses before-and-after comparisons for specific doc improvements",
+      "Reports impact in terms leadership understands, with honest caveats"
+    ]
+  },
+  {
+    "question": "How do you build review and quality workflows with engineering, including automated checks?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Includes docs in pull requests and the definition of done",
+      "Automates style linting (e.g. Vale), link checking and builds in CI",
+      "Defines SME review expectations and turnaround times",
+      "Gives engineers a lightweight way to contribute while the writer keeps editorial control"
+    ]
+  },
+  {
+    "question": "Engineering ships continuously and docs are falling behind. How do you reduce documentation debt?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantifies the debt: outdated, missing and high-traffic pages",
+      "Prioritizes by user impact and risk; fixes the worst first",
+      "Embeds docs work in release processes with change notifications from product",
+      "Retires obsolete content and tracks debt over time"
+    ]
+  },
+  {
+    "question": "How would you restructure the information architecture of a large, sprawling documentation set and improve search?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits content and analytics; uses card sorting or tree testing with real users",
+      "Organizes by user tasks and journeys, with consistent topic types and navigation",
+      "Improves metadata, titles and search configuration using real search queries",
+      "Migrates with redirects and measures findability after the change"
+    ]
+  },
+  {
+    "question": "How do you balance generated API reference docs (from OpenAPI) with hand-written guides?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generated reference keeps endpoint details accurate and in sync with the spec",
+      "Quality depends on good descriptions and examples in the spec itself",
+      "Hand-written guides cover concepts, workflows, authentication and use cases",
+      "Links the two and keeps them from contradicting each other"
+    ]
+  },
+  {
+    "question": "How do you lead a team of documentation writers and contractors?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sets standards through a style guide, templates and examples",
+      "Assigns work by skill and product area; runs editorial reviews with consistent feedback",
+      "Manages capacity and priorities with product teams",
+      "Develops writers through coaching and clear growth paths"
+    ]
+  },
+  {
+    "question": "How do you document security-sensitive features and avoid exposing sensitive details?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Works with the security team on what to disclose and what to withhold",
+      "Never includes real secrets or keys in examples; uses placeholders",
+      "Documents secure defaults, permissions, best practices and incident or disclosure processes",
+      "Reviews docs and screenshots for accidental leakage"
+    ]
+  },
+  {
+    "question": "How do you communicate deprecations and breaking changes, and write migration guides?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "States clearly what is changing, who is affected, when and what to do",
+      "Provides before-and-after code, a step-by-step migration path and a timeline",
+      "Marks deprecated content in docs and adds warnings in the product where possible",
+      "Notifies through changelogs and emails and tracks migration progress"
+    ]
+  },
+  {
+    "question": "How do you plan localization of documentation at scale while controlling cost?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prioritizes languages and content by market value and usage data",
+      "Writes translation-ready source and uses translation memory, glossaries and automation",
+      "Combines machine translation with human review where appropriate",
+      "Keeps versions in sync and measures quality and usage"
+    ]
+  },
+  {
+    "question": "How do you audit and improve the accessibility of a documentation site?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audits against WCAG using automated tools plus manual keyboard and screen-reader testing",
+      "Checks headings, contrast, link text, alt text, tables and code block accessibility",
+      "Builds accessibility into templates and authoring checklists",
+      "Tracks and fixes issues and trains contributors"
+    ]
+  },
+  {
+    "question": "How do you document an AI or machine-learning feature whose behavior is non-deterministic?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explains what the feature does, its inputs, outputs and intended use clearly",
+      "States limitations, possible errors and the need for human review",
+      "Provides example prompts or settings and guidance for data privacy",
+      "Plans frequent updates as model behavior changes"
+    ]
+  },
+  {
+    "question": "How do you influence product and engineering to improve UI text and error messages?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Gathers evidence from support tickets and usability findings that show confusing messages",
+      "Proposes message guidelines: what happened, why and how to fix",
+      "Reviews text in design and pull requests, offering fixes rather than only criticism",
+      "Shows impact through fewer tickets and better task completion"
+    ]
+  },
+  {
+    "question": "With a small team and a large backlog, how do you prioritize documentation work?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ranks by user impact, usage, support volume, release dates and risk",
+      "Aligns with product roadmap and stakeholders on what will not be done",
+      "Uses templates and reuse to speed delivery",
+      "Reviews priorities regularly and communicates trade-offs"
+    ]
+  },
+  {
+    "question": "When does content reuse help and when does it hurt documentation quality?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuse suits truly identical content: warnings, prerequisites, shared procedures",
+      "Overuse creates context-blind text, fragile dependencies and hard-to-maintain conditions",
+      "Governs reusable snippets with ownership and impact checks before editing",
+      "Keeps user context first; some duplication is better than confusing reuse"
+    ]
+  },
+  {
+    "question": "Subject matter experts are slow or unresponsive and a release is near. How do you get accurate documentation done?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reduces the ask: short, specific questions, recorded demos or async review of a draft",
+      "Learns from specs, test environments, code and tickets in the meantime",
+      "Escalates early through the manager or release owner with clear risk",
+      "Publishes verified content only and marks gaps to follow up"
+    ]
+  },
+  {
+    "question": "How do you use support tickets and user feedback to drive a continuous documentation improvement loop?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tags and analyzes tickets, community questions and search terms to find recurring gaps",
+      "Works with support to link answers to docs and flag outdated content",
+      "Prioritizes fixes by frequency and impact and tracks resulting ticket volume",
+      "Closes the loop by updating docs and informing support"
+    ]
+  }
+]

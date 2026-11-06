@@ -1,0 +1,398 @@
+[
+
+    {
+    "question": "What are word embeddings and tokens in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tokens are text units (words, subwords, characters) fed to a model",
+      "Embeddings map tokens to dense vectors that capture meaning",
+      "Similar words land close together; Word2Vec and GloVe are classic methods",
+      "Denser and lower-dimensional than one-hot encoding"
+    ]
+  }
+,
+  {
+    "question": "What is the difference between stemming and lemmatization?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stemming is rule-based chopping of word endings and may give non-words",
+      "Lemmatization uses vocabulary and morphology to return a valid base word",
+      "Stemming is faster; lemmatization is more accurate",
+      "Both normalize text and reduce vocabulary size"
+    ]
+  },
+  {
+    "question": "What is a corpus in NLP, and how do you obtain data for NLP projects?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A corpus is a large structured collection of text used for training or analysis",
+      "Sources: public datasets, transcripts, reviews, social media, web scraping, company documents",
+      "Check licensing, privacy and data quality",
+      "Clean, deduplicate and split into train, validation and test sets"
+    ]
+  },
+  {
+    "question": "What are the types of text summarization?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Extractive: selects and ranks the most important existing sentences or phrases",
+      "Abstractive: generates new sentences that capture the meaning",
+      "Abstractive is more fluent but can hallucinate; extractive is safer but less coherent",
+      "Modern abstractive systems use transformer models"
+    ]
+  },
+  {
+    "question": "Compare NLTK and spaCy, and name other useful NLP tools.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "NLTK: broad educational toolkit for tokenization, stemming, tagging and corpora",
+      "spaCy: fast, production-oriented pipeline with NER, dependency parsing and word vectors",
+      "Gensim for topic modeling and similarity; Hugging Face Transformers for pretrained models",
+      "Choose by speed, accuracy and whether the use is research or production"
+    ]
+  },
+  {
+    "question": "What is the relationship between chatbots and NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Chatbots use NLP to interpret user messages (intent, entities) and generate replies",
+      "Rule-based bots follow scripts; modern bots use ML or LLMs",
+      "Pipeline: preprocessing, understanding, dialogue management, response generation",
+      "Quality depends on training data, context handling and guardrails"
+    ]
+  },
+  {
+    "question": "What are regular expressions and regular grammar?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Regular expressions describe text patterns for matching, extracting and replacing",
+      "Regular grammar is the simplest class of formal grammar and defines the same languages as regular expressions and finite automata",
+      "Used in tokenization, validation and text cleaning",
+      "Limited: cannot handle nested structure such as balanced parentheses"
+    ]
+  },
+  {
+    "question": "What is the difference between NLP and NLU, and what are the main components of NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "NLP covers processing, analyzing and generating human language",
+      "NLU is the subset focused on meaning, intent and context",
+      "Components: language understanding, language generation, language processing (tokenization, lemmatization, POS tagging)",
+      "Tasks: translation, summarization, NER, sentiment analysis, question answering"
+    ]
+  }
+,
+  {
+    "question": "What is Natural Language Processing, and what are its core tasks and components?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "NLP enables computers to understand, interpret, and generate human language",
+      "Two components: Natural Language Understanding (meaning, intent, entities) and Natural Language Generation (producing text)",
+      "Common tasks: classification, NER, sentiment analysis, translation, summarization, question answering",
+      "Applications: chatbots, search, voice assistants, document analysis"
+    ]
+  },
+  {
+    "question": "What is the difference between syntax, semantics, and pragmatics in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Syntax: grammatical structure and word order (parsing, POS tagging)",
+      "Semantics: the meaning of words and sentences (WSD, NER, sentiment)",
+      "Pragmatics: meaning that depends on context and speaker intent, e.g., 'Can you pass the salt?' as a request",
+      "Pragmatic ambiguity arises when interpretation depends on situation rather than the literal words"
+    ]
+  },
+  {
+    "question": "What are the common text preprocessing steps in NLP, and how do the types of tokenization differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Typical steps: tokenization, lowercasing, removing noise/punctuation, stop word handling, stemming or lemmatization, normalization",
+      "Tokenization types: sentence, word, subword, and character level",
+      "Choices depend on the task; over-aggressive cleaning can remove useful signal (e.g., negation, casing for NER)",
+      "Apply the same preprocessing at training and inference time"
+    ]
+  },
+  {
+    "question": "What are stop words, and when should you not remove them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "High-frequency words like 'the', 'is', 'and' that carry little meaning for many tasks",
+      "Removal reduces noise and dimensionality and speeds up processing",
+      "Keep them for sentiment analysis (e.g., 'not'), translation, and modern transformer models that use full context",
+      "Stop word lists are task- and domain-specific; customize rather than using defaults blindly"
+    ]
+  },
+  {
+    "question": "What is the difference between stemming and lemmatization, and when would you use each?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stemming strips affixes using rules (Porter, Snowball); fast, but stems may not be real words (e.g., 'studies' to 'studi')",
+      "Lemmatization uses vocabulary, morphology, and POS to return a valid base form (e.g., 'studies' to 'study')",
+      "Stemming suits speed-critical tasks like search indexing; lemmatization suits accuracy-sensitive tasks",
+      "Both reduce vocabulary size but may lose nuance"
+    ]
+  },
+  {
+    "question": "What is the Bag of Words model, and what are its limitations?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Represents a document as an unordered vector of word counts over a fixed vocabulary",
+      "Simple, fast, and a useful baseline for classification and clustering",
+      "Ignores word order, context, and semantics (e.g., 'good' vs 'not good' look similar)",
+      "Produces high-dimensional sparse vectors and cannot represent unseen words"
+    ]
+  },
+  {
+    "question": "What is TF-IDF, and how does it improve on Bag of Words?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "TF measures how often a term appears in a document; IDF down-weights terms common across the corpus",
+      "TF-IDF = TF x IDF, highlighting terms distinctive to a document",
+      "Used for keyword extraction, search ranking, and classification features",
+      "Still ignores word order and semantic similarity between words"
+    ]
+  },
+  {
+    "question": "What are n-grams, and what are the limitations of n-gram language models?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Contiguous sequences of n tokens: unigrams, bigrams, trigrams",
+      "An n-gram model predicts the next word from the previous n-1 words using the Markov assumption",
+      "Limitations: data sparsity, large feature space, and no long-range context",
+      "Smoothing (Laplace, Kneser-Ney) helps with unseen n-grams"
+    ]
+  },
+  {
+    "question": "What are word embeddings, and how do Word2Vec, GloVe, and FastText differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dense vectors where semantically similar words are close; far smaller and richer than one-hot or BoW",
+      "Word2Vec learns from local context with CBOW (context predicts word) or Skip-gram (word predicts context)",
+      "GloVe uses global co-occurrence statistics across the corpus",
+      "FastText uses character n-grams, handling rare, misspelled, and unseen words"
+    ]
+  },
+  {
+    "question": "What are regular expressions, and how do re.match, re.search, re.findall, and re.split differ in Python?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Regular expressions are pattern-matching rules used for cleaning, tokenizing, and extracting text",
+      "re.match only matches at the beginning of a string; re.search finds the first match anywhere",
+      "re.findall returns all non-overlapping matches; re.split splits text on a pattern",
+      "Example: re.split(r'\\s', 'The Data Monk is cool') returns ['The', 'Data', 'Monk', 'is', 'cool']"
+    ]
+  },
+  {
+    "question": "What is Part-of-Speech (POS) tagging, and why is it useful?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Assigns each word a grammatical category (noun, verb, adjective) using its context",
+      "Approaches: rule-based, statistical (HMM, CRF), and neural/transformer taggers",
+      "Supports parsing, NER, lemmatization, and information extraction",
+      "Context matters for ambiguous words, e.g., 'book' as noun vs verb"
+    ]
+  },
+  {
+    "question": "What is Named Entity Recognition (NER), and where is it used?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies and classifies entities such as persons, organizations, locations, dates, and amounts",
+      "Is a sequence labeling task, often using BIO tags",
+      "Applications: information extraction, search, question answering, knowledge graph construction",
+      "Methods range from rules to CRFs, BiLSTM-CRF, and fine-tuned transformers"
+    ]
+  },
+  {
+    "question": "What is sentiment analysis, and what makes it difficult?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classifies text as positive, negative, or neutral (or finer-grained scores)",
+      "Challenges: sarcasm and irony, negation, context and domain dependence, slang, mixed sentiment",
+      "Approaches: lexicon-based, classical ML (Naive Bayes, SVM), and transformer models",
+      "Use F1 and per-class metrics, especially when classes are imbalanced"
+    ]
+  },
+  {
+    "question": "What is the difference between rule-based and statistical NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rule-based: handcrafted grammar rules, dictionaries, and patterns; precise and interpretable but brittle and costly to maintain",
+      "Statistical/ML-based: learn patterns from data; handle variation and scale better but need data",
+      "Neural/transformer models extend the statistical approach with learned representations",
+      "Hybrid systems combine rules for known patterns with models for generalization"
+    ]
+  },
+  {
+    "question": "What is the difference between supervised and unsupervised learning in NLP, and how do classification and clustering differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Supervised learning uses labeled data (sentiment, spam, NER); classification assigns predefined labels",
+      "Unsupervised learning finds structure in unlabeled text (clustering, topic modeling, embeddings)",
+      "Semi-supervised learning combines a small labeled set with large unlabeled data",
+      "Choose by label availability and goal; unsupervised results are harder to evaluate"
+    ]
+  },
+  {
+    "question": "What is a language model, and how is it used in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Assigns probabilities to sequences of words or predicts the next token given context",
+      "Evolved from n-gram models to RNNs/LSTMs to transformers",
+      "Used for text generation, speech recognition, translation, autocomplete, and as pretrained backbones",
+      "Perplexity is the standard intrinsic evaluation metric"
+    ]
+  },
+  {
+    "question": "What is a corpus, and why does dataset quality matter for NLP models?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A corpus is a large, structured collection of text or speech used to train, evaluate, and test models",
+      "Quality factors: size, diversity and representativeness, label accuracy, cleanliness, and balance",
+      "Noisy or biased data produces inaccurate or unfair models",
+      "Data should match the target task and domain"
+    ]
+  },
+
+  {
+    "question": "What is a hyperparameter, and how does it differ from a model parameter?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hyperparameters are set before training (learning rate, batch size, layers, dropout, optimizer choice)",
+      "Parameters (weights, biases) are learned from data during training",
+      "Hyperparameters strongly affect convergence, accuracy, and overfitting",
+      "Tune with a validation set via grid search, random search, or Bayesian optimization"
+    ]
+  },
+  {
+    "question": "How do NLTK, spaCy, and Hugging Face Transformers differ, and when would you use each?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "NLTK: educational, broad toolkit for tokenizing, stemming, tagging, and corpora; slower, research-oriented",
+      "spaCy: fast, production-oriented pipelines for tokenization, POS, NER, and dependency parsing",
+      "Hugging Face Transformers: pretrained transformer models, tokenizers, and fine-tuning for modern NLP tasks",
+      "Choose by task, performance needs, and deployment requirements"
+    ]
+  },
+    {
+        "question": "What is the difference between BERT and GPT, and between encoder-only, decoder-only and encoder-decoder transformers?",
+        "category": "ai-engineering",
+        "difficulty": "junior",
+        "stack": "nlp",
+        "question_type": "technical",
+        "competency": "technical_depth",
+        "reference_points": [
+        "BERT: encoder-only, bidirectional, masked language modeling; good for understanding tasks",
+        "GPT: decoder-only, causal next-token prediction; good for generation",
+        "Encoder-decoder (T5, original Transformer) suits translation and summarization",
+        "Choose by task: classification and NER versus text generation"
+        ]
+    }
+]

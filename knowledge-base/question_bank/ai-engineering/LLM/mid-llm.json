@@ -13,5 +13,313 @@
       "Memory grows with context length and concurrent sequences",
       "Limits batch size and throughput for long contexts"
     ]
+  },
+  {
+    "question": "What is the difference between prefill and decode phases of LLM inference, and which metrics matter?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prefill processes the whole prompt in parallel and is compute-bound; decode generates tokens one at a time and is memory-bound",
+      "Time to First Token reflects prefill and perceived responsiveness",
+      "Time Per Output Token reflects decode speed and streaming smoothness",
+      "Throughput (tokens or requests per second) measures scalability"
+    ]
+  },
+  {
+    "question": "How do static and continuous batching differ, and what is the throughput versus latency trade-off?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Larger batches raise GPU utilization and throughput but increase per-request latency",
+      "Static batching waits for the longest sequence, wasting GPU time",
+      "Continuous (iteration-level) batching swaps finished requests for new ones each step",
+      "Interactive apps prioritize latency; offline batch jobs prioritize throughput"
+    ]
+  },
+  {
+    "question": "How do you handle the large memory requirements of the KV cache during inference?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "KV cache grows linearly with sequence length and batch size",
+      "PagedAttention manages the cache in blocks to reduce fragmentation",
+      "GQA and MQA reduce the number of key/value heads to shrink the cache",
+      "KV cache quantization, offloading to CPU memory, and sliding-window attention"
+    ]
+  },
+  {
+    "question": "Why is attention scaled by the square root of the key dimension, what does softmax do, and how are multiple heads combined?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Large dot products saturate softmax and cause tiny gradients; scaling stabilizes training",
+      "Softmax turns scores into weights that sum to one, forming a weighted sum of values",
+      "Multi-head attention runs attention in parallel subspaces so heads capture different relationships",
+      "Head outputs are concatenated and passed through a linear projection"
+    ]
+  },
+  {
+    "question": "How do masked self-attention and cross-attention differ from regular self-attention, and where is each used?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Regular self-attention (encoder) lets each token attend to all tokens bidirectionally",
+      "Masked (causal) self-attention blocks future positions by setting their scores to negative infinity before softmax",
+      "Cross-attention takes queries from the decoder and keys/values from the encoder output",
+      "Masking enforces autoregressive generation"
+    ]
+  },
+  {
+    "question": "What roles do residual connections, layer normalization, and the feed-forward sublayer play in a Transformer, and how do they address vanishing gradients?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Residual connections provide a direct gradient path and let layers learn additive updates",
+      "Layer normalization stabilizes activation scale; Pre-LN is more stable than Post-LN",
+      "Position-wise feed-forward network adds non-linearity and capacity per token",
+      "Attention gives short gradient paths between tokens, unlike RNNs"
+    ]
+  },
+  {
+    "question": "How do Rotary Position Embeddings (RoPE) differ from sinusoidal encodings, and why did RoPE become standard?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sinusoidal encodings are fixed vectors added to embeddings",
+      "RoPE rotates query and key vectors by position-dependent angles so attention depends on relative distance",
+      "Supports better length extrapolation and interpolation for extending context",
+      "Used in Llama, Mistral, and Qwen"
+    ]
+  },
+  {
+    "question": "What are scaling laws in LLM pretraining, and how do they guide training decisions?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Performance improves predictably (power law) with model size, data size, and compute",
+      "Diminishing returns appear as scale increases",
+      "Guide the optimal balance of parameters and tokens (e.g., Chinchilla-style compute-optimal training)",
+      "Help forecast performance before expensive training runs"
+    ]
+  },
+  {
+    "question": "What is catastrophic forgetting, and how do PEFT and other techniques mitigate it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fine-tuning on new data overwrites previously learned capabilities",
+      "PEFT (LoRA, adapters, prefix tuning) freezes base weights and trains a small set of parameters",
+      "Other methods: replay or rehearsal data, Elastic Weight Consolidation, low learning rate, modular adapters",
+      "Evaluate general capability before and after fine-tuning; merged adapters lose the isolation guarantee"
+    ]
+  },
+  {
+    "question": "How would you fine-tune an LLM on hardware with limited GPU memory, and how can you speed up fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use LoRA or QLoRA to train few parameters on a (quantized) frozen base",
+      "Gradient accumulation simulates larger batches without extra memory",
+      "Mixed precision (FP16/BF16), shorter sequences, smaller micro-batches, gradient checkpointing",
+      "Distributed training across GPUs for speed"
+    ]
+  },
+  {
+    "question": "Compare preference alignment methods: RLHF, DPO, RLAIF, ORPO, and KTO.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RLHF: reward model plus PPO; powerful but complex and unstable",
+      "DPO: optimizes directly on preference pairs without a reward model; simpler and stable but data-quality dependent",
+      "RLAIF: uses AI feedback to reduce human labeling cost",
+      "ORPO combines the SFT and preference loss; KTO uses binary good/bad labels"
+    ]
+  },
+  {
+    "question": "How do quantization and mixed precision affect inference speed, memory, and accuracy?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization lowers weight precision (FP32 to FP16, INT8, INT4), shrinking memory by roughly 2-8x",
+      "Lower-precision arithmetic is faster on supporting hardware, such as Tensor Cores",
+      "Small accuracy loss that grows below INT8; may need calibration or quantization-aware training",
+      "FP16/BF16 is usually safe; INT8/INT4 requires validation on your tasks"
+    ]
+  },
+  {
+    "question": "What are the prefill and decode phases of LLM inference, and which metrics (TTFT, TPOT, throughput) matter?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prefill processes the whole prompt in parallel and is compute-bound; decode generates tokens one at a time and is memory-bound",
+      "Time to First Token reflects prefill and perceived responsiveness",
+      "Time Per Output Token reflects decode speed and streaming smoothness",
+      "Throughput (tokens or requests per second) measures scalability"
+    ]
+  },
+  {
+    "question": "How do static and continuous batching differ, and what is the throughput versus latency trade-off?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Larger batches raise GPU utilization and throughput but increase per-request latency",
+      "Static batching waits for the longest sequence, wasting GPU time",
+      "Continuous (iteration-level) batching swaps finished requests for new ones each step",
+      "Interactive apps prioritize latency; offline batch jobs prioritize throughput"
+    ]
+  },
+  {
+    "question": "How do you handle the large memory requirements of the KV cache during inference?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "KV cache grows linearly with sequence length and batch size",
+      "PagedAttention manages the cache in blocks to reduce fragmentation",
+      "GQA and MQA reduce the number of key/value heads to shrink the cache",
+      "KV cache quantization, offloading to CPU memory, and sliding-window attention"
+    ]
+  },
+  {
+    "question": "How do you choose few-shot examples, and how does self-consistency prompting improve reasoning?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Example selection: random, diversity-based, or similarity-based (embedding retrieval of nearest examples)",
+      "Examples should be correct, representative, and consistently formatted",
+      "Self-consistency samples multiple reasoning paths and takes the majority answer",
+      "Cost trade-off: more tokens and calls for improved accuracy"
+    ]
+  },
+  {
+    "question": "How do you evaluate an LLM using metrics such as perplexity, BLEU, ROUGE, and benchmarks?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Perplexity measures prediction confidence for language modeling",
+      "BLEU (translation) and ROUGE (summarization) measure overlap with references and miss meaning",
+      "Benchmarks: MMLU (knowledge), HumanEval (code), TruthfulQA (factuality), GPQA (expert QA)",
+      "Combine with human evaluation, task-specific tests, and production metrics like latency and hallucination rate"
+    ]
+  },
+  {
+    "question": "How do you detect hallucinations in LLM outputs, and how do knowledge-based and logic-based hallucinations differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Knowledge-based: missing or outdated facts; fix with retrieval, verified sources, or domain data",
+      "Logic-based: reasoning errors despite correct facts; fix with structured prompting, verification steps, and targeted evals",
+      "Detection: SelfCheckGPT consistency sampling, NLI against sources, semantic entropy, LLM-as-judge",
+      "Combine automated checks with human review for high-risk use"
+    ]
+  },
+  {
+    "question": "How do you evaluate and mitigate bias in language models?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Counterfactual testing: vary demographic attributes while keeping context fixed",
+      "Benchmarks such as CrowS-Pairs and StereoSet; compare sentiment and quality across groups",
+      "Mitigate through balanced data, preference tuning, and output filters",
+      "Use diverse human reviewers and regular fairness audits"
+    ]
+  },
+  {
+    "question": "What are AI guardrails and LLM red teaming, and how do you implement them?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Guardrails monitor inputs and outputs: rule-based filters, classifiers, moderation, PII detection",
+      "Tools include Guardrails AI, NeMo Guardrails, and Llama Guard",
+      "Red teaming probes with adversarial prompts for jailbreaks, injection, bias, and leakage",
+      "Document findings, fix, and add them to regression tests"
+    ]
+  },
+  {
+    "question": "How do multimodal LLMs process text, images, and audio together?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Modality-specific encoders (e.g., ViT or CLIP for images) produce embeddings or tokens",
+      "Embeddings are aligned into a shared space or a single token sequence",
+      "Cross-attention or unified self-attention mixes modalities in the transformer",
+      "Natively multimodal training versus bolting encoders onto a text backbone"
+    ]
+  },{
+    "question": "When should you fine-tune a model versus use prompt engineering or RAG?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with prompt engineering: cheapest and fastest for format, tone and task instructions",
+      "Use RAG when knowledge is private, fresh or frequently changing, and when citations or fewer hallucinations are needed",
+      "Fine-tune to change consistent behaviour, style or output format, or to specialise a smaller model for cost and latency",
+      "Fine-tuning is poor for injecting facts; knowledge belongs in retrieval",
+      "Approaches combine well; decide by data availability, cost, maintenance and evaluation results"
+    ]
   }
 ]

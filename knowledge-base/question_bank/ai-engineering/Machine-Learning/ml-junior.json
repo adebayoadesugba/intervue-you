@@ -1,0 +1,534 @@
+[
+  {
+    "question": "What is the difference between Artificial Intelligence, Machine Learning, Deep Learning and Data Science?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "AI is the broad field of machines performing tasks that require human intelligence",
+      "ML is a subset of AI where models learn patterns from data instead of explicit rules",
+      "DL is a subset of ML using multi-layer neural networks",
+      "Data Science extracts insights from data using statistics, programming and ML"
+    ]
+  },
+  {
+    "question": "How is Machine Learning different from traditional programming?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Traditional programming: input plus hand-written rules produce output",
+      "ML: input plus expected output produce the rules (the model)",
+      "ML suits problems where rules are too complex or hidden in data",
+      "Models generalize from past data to unseen cases"
+    ]
+  },
+  {
+    "question": "What are supervised, unsupervised and reinforcement learning? Give an example of each.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Supervised: labeled data, e.g. spam detection or house price prediction",
+      "Unsupervised: unlabeled data to find structure, e.g. customer segmentation",
+      "Reinforcement: agent learns from rewards and penalties, e.g. game playing or robotics",
+      "Semi-supervised mixes a small labeled set with a large unlabeled set"
+    ]
+  },
+  {
+    "question": "What is the difference between classification and regression?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classification predicts discrete categories (spam or not spam)",
+      "Regression predicts continuous values (house price)",
+      "Classification metrics: accuracy, precision, recall, F1",
+      "Regression metrics: MAE, MSE, RMSE, R-squared"
+    ]
+  },
+  {
+    "question": "What are features and labels, and what is a target variable?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Features are the input variables used to make predictions",
+      "The label or target is the output the model learns to predict",
+      "Example: size, rooms and location are features; price is the target",
+      "Features can be numeric, categorical or derived"
+    ]
+  },
+  {
+    "question": "What are overfitting and underfitting, and how do you prevent each?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Overfitting: memorizes noise; high training accuracy, poor test accuracy",
+      "Underfitting: too simple; poor on both training and test data",
+      "Overfitting fixes: regularization, cross-validation, early stopping, dropout, more data, simpler model",
+      "Underfitting fixes: more complex model, better features, less regularization, train longer"
+    ]
+  },
+  {
+    "question": "What are training, validation and test sets, and why do we need all three?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Training set fits the model parameters",
+      "Validation set tunes hyperparameters and monitors overfitting",
+      "Test set gives a final unbiased estimate and is used once",
+      "Repeated tuning on validation data leaks information, so a separate test set is needed"
+    ]
+  },
+  {
+    "question": "What is the bias-variance tradeoff?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Bias is error from overly simple assumptions and causes underfitting",
+      "Variance is sensitivity to training data fluctuations and causes overfitting",
+      "Total error = bias squared + variance + irreducible error",
+      "Goal is the model complexity that minimizes total error"
+    ]
+  },
+  {
+    "question": "What is a confusion matrix and what metrics can be derived from it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Table of actual versus predicted classes: TP, TN, FP, FN",
+      "FP is a false alarm; FN is a missed positive",
+      "Derives accuracy, precision, recall and F1-score",
+      "Shows which classes the model confuses"
+    ]
+  },
+  {
+    "question": "Explain precision, recall and F1-score, and when each matters most.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Precision = TP / (TP + FP): how many predicted positives are correct",
+      "Recall = TP / (TP + FN): how many actual positives were found",
+      "F1 is the harmonic mean, balancing both",
+      "Favor precision when false positives are costly (spam); recall when misses are costly (disease screening)"
+    ]
+  },
+  {
+    "question": "Is accuracy always a good metric for classification?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "No: misleading on imbalanced data",
+      "A model always predicting the majority class can score 95 percent or more while being useless",
+      "Use precision, recall, F1, ROC-AUC or PR curves instead",
+      "Choose the metric from the real-world cost of errors"
+    ]
+  },
+  {
+    "question": "What are Type I and Type II errors?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Type I is a false positive: rejecting a true null hypothesis",
+      "Type II is a false negative: failing to reject a false null",
+      "Example: healthy patient flagged as sick (I) versus sick patient missed (II)",
+      "Both map directly onto the confusion matrix"
+    ]
+  },
+  {
+    "question": "What is cross-validation and why is it used?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Splits data into k folds, trains on k-1 and validates on the rest, rotating",
+      "Average score gives a more reliable estimate than a single split",
+      "Stratified k-fold preserves class ratios; leave-one-out uses k = number of samples",
+      "Helps detect overfitting and guides hyperparameter tuning"
+    ]
+  },
+  {
+    "question": "What is regularization, and how do L1 and L2 differ?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Adds a penalty on weights to the loss to reduce overfitting",
+      "L1 (Lasso) uses absolute weights and can zero out features, giving feature selection",
+      "L2 (Ridge) uses squared weights, shrinking them without eliminating features",
+      "Elastic Net combines both"
+    ]
+  },
+  {
+    "question": "What is the difference between normalization and standardization?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Normalization (min-max) rescales values to a fixed range such as 0 to 1",
+      "Standardization (z-score) gives mean 0 and standard deviation 1",
+      "Min-max is sensitive to outliers; standardization is more robust",
+      "Scaling matters for gradient descent and distance-based models (KNN, K-means, SVM)"
+    ]
+  },
+  {
+    "question": "How do you encode categorical data? Compare label encoding and one-hot encoding.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Label encoding maps each category to an integer and suits ordinal data",
+      "It can imply a false order for nominal data",
+      "One-hot creates a binary column per category and suits nominal data",
+      "One-hot increases dimensionality for high-cardinality features; target encoding is an alternative"
+    ]
+  },
+  {
+    "question": "How do you handle missing values in a dataset?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Drop rows or columns if missingness is small or a column is mostly empty",
+      "Impute with mean, median or mode",
+      "Forward or backward fill for time series; KNN or model-based imputation",
+      "Add a missing-indicator flag; analyze why data is missing first"
+    ]
+  },
+  {
+    "question": "What are outliers and how do you detect and handle them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Points that differ significantly from other observations",
+      "Detect with box plot or IQR rule, z-score above 3, scatter plots",
+      "Handle by removing errors, capping (winsorizing), transforming (log) or using robust models",
+      "Sometimes outliers are the signal, e.g. fraud"
+    ]
+  },
+  {
+    "question": "What is feature engineering, and how does it differ from feature selection?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Feature engineering creates or transforms features (e.g. age from date of birth)",
+      "Feature selection keeps the most relevant features and drops redundant or noisy ones",
+      "Good features often beat switching to a fancier algorithm",
+      "Selection reduces dimensionality, overfitting and training time"
+    ]
+  },
+  {
+    "question": "What is linear regression and what are its assumptions?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Predicts a continuous target by fitting a linear relationship",
+      "Assumes linearity and independence of observations",
+      "Homoscedasticity: constant variance of residuals",
+      "Normally distributed residuals and no multicollinearity"
+    ]
+  },
+  {
+    "question": "How does logistic regression work, and why is it called regression if it is used for classification?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Applies the sigmoid function to a linear combination of features to output a probability between 0 and 1",
+      "A threshold (e.g. 0.5) converts the probability to a class",
+      "Named regression because it regresses log-odds, but its output is used for classification",
+      "Multi-class via one-vs-rest or softmax"
+    ]
+  },
+  {
+    "question": "What is gradient descent and what are its variants?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Iteratively updates parameters opposite the gradient of the loss: theta = theta - alpha * gradient",
+      "Batch uses the full dataset: stable but slow",
+      "Stochastic uses one sample: fast but noisy",
+      "Mini-batch balances both and is most common; learning rate controls step size"
+    ]
+  },
+  {
+    "question": "What are loss and cost functions? Name common examples.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Loss is error for one sample; cost is the average over the dataset (plus penalties)",
+      "Regression: MSE, MAE, Huber",
+      "Classification: cross-entropy (log loss), hinge loss for SVM",
+      "Training minimizes the cost function"
+    ]
+  },
+  {
+    "question": "Explain epoch, batch, batch size and iteration.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Epoch: one full pass through the training data",
+      "Batch: subset of samples used for one parameter update",
+      "Iteration: one update; iterations per epoch = samples / batch size",
+      "Example: 10,000 samples, batch 500 gives 20 iterations per epoch"
+    ]
+  },
+  {
+    "question": "How does the K-Nearest Neighbors algorithm work, and why is it called a lazy learner?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Finds the K closest training points by a distance metric and takes the majority class or the average",
+      "Lazy: no training phase; stores all data and computes at prediction time",
+      "Small K overfits and is noisy; large K underfits; choose K with cross-validation",
+      "Needs feature scaling and is slow on large datasets"
+    ]
+  },
+  {
+    "question": "How does a decision tree work? What are entropy and information gain?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Recursively splits data on feature values to separate classes",
+      "Entropy measures impurity: 0 when pure, high when classes are mixed",
+      "Information gain is the entropy reduction from a split; Gini index is an alternative",
+      "Easy to interpret but prone to overfitting unless pruned or depth-limited"
+    ]
+  },
+  {
+    "question": "What is Naive Bayes and why is it called naive?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classifier based on Bayes' theorem: posterior from prior and likelihood",
+      "Naive because it assumes features are independent given the class",
+      "Fast and a strong baseline, especially for text and spam",
+      "Variants: Gaussian, Multinomial, Bernoulli"
+    ]
+  },
+  {
+    "question": "How does K-means clustering work and what are its limitations?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Initialize K centroids, assign points to nearest, recompute centroids, repeat until convergence",
+      "Choose K with elbow method or silhouette score",
+      "Assumes spherical, similarly sized clusters; sensitive to outliers and initialization",
+      "K-means++ improves initialization"
+    ]
+  },
+  {
+    "question": "How do Support Vector Machines work? What are support vectors and the kernel trick?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Finds the hyperplane that maximizes the margin between classes",
+      "Support vectors are the points closest to the boundary and define it",
+      "Kernel trick (linear, polynomial, RBF) separates non-linear data in a higher-dimensional space without explicit mapping",
+      "Soft margin (parameter C) tolerates some errors"
+    ]
+  },
+  {
+    "question": "What are hyperparameters, and how do they differ from model parameters?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hyperparameters are set before training (learning rate, tree depth, K)",
+      "Parameters are learned from data (weights, biases)",
+      "Tune with grid search, random search or Bayesian optimization",
+      "Tune on validation data, not the test set"
+    ]
+  },
+  {
+    "question": "What is the difference between bagging and boosting?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Bagging trains models in parallel on bootstrap samples and averages or votes; reduces variance",
+      "Boosting trains models sequentially, each correcting prior errors; reduces bias",
+      "Bagging example: Random Forest; boosting examples: AdaBoost, XGBoost",
+      "Boosting can overfit if not controlled"
+    ]
+  },
+  {
+    "question": "What is an activation function and why do neural networks need non-linearity?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Applies a non-linear transform to a neuron's output",
+      "Without it, stacked layers collapse into a linear model",
+      "Common: sigmoid, tanh, ReLU, Leaky ReLU, softmax",
+      "ReLU is cheap and eases vanishing gradients"
+    ]
+  },
+  {
+    "question": "What is dropout and how does it reduce overfitting in neural networks?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Randomly disables a fraction of neurons each training step (typically 20 to 50 percent)",
+      "Prevents co-adaptation so the network learns robust features",
+      "Turned off at inference time",
+      "Early stopping and weight regularization are complementary techniques"
+    ]
+  },
+  {
+    "question": "What is the difference between parametric and non-parametric models?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Parametric: assumes a functional form with a fixed number of parameters (linear regression)",
+      "Non-parametric: no fixed form; complexity grows with data (KNN, decision trees)",
+      "Parametric is efficient but less flexible",
+      "Non-parametric is flexible but needs more data and compute"
+    ]
+  },
+    {
+        "question": "What is the difference between online and batch learning?",
+        "category": "ai-engineering",
+        "difficulty": "junior",
+        "stack": "ml",
+        "question_type": "technical",
+        "competency": "technical_depth",
+        "reference_points": [
+        "Batch learning trains on the entire dataset at once; requires all data in memory",
+        "Online learning updates the model incrementally as new data arrives; suitable for streaming or large datasets",
+        "Online can adapt to changing distributions (concept drift)",
+        "Batch is simpler and often more accurate if data is static"
+        ]
+    },
+  {
+    "question": "What are the pros and cons of decision trees?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pros: easy to interpret, handle numeric and categorical data, need little preprocessing, robust to feature scaling",
+      "Cons: prone to overfitting and unstable to small data changes",
+      "Pruning, depth limits or ensembles (Random Forest, boosting) mitigate overfitting",
+      "Axis-aligned splits can struggle with complex boundaries"
+    ]
+  },
+  {
+    "question": "What does binarizing data mean?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Convert values to 0 or 1 using a threshold",
+      "Values above the threshold become 1, others 0",
+      "Used in feature engineering and image thresholding to separate objects from background",
+      "scikit-learn provides a Binarizer transformer"
+    ]
+  },
+  {
+    "question": "What is data mining and where is it applied?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Discovering patterns and insights in large datasets using statistics and ML",
+      "Healthcare: outcome prediction and fraud detection; finance: credit scoring and fraud",
+      "Retail: buying patterns and recommendations",
+      "Relates to ML but emphasizes knowledge discovery"
+    ]
+  }
+]

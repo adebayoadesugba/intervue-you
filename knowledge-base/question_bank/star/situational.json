@@ -1,10 +1,289 @@
 [
-
+  {
+    "question": "Leadership wants an LLM feature launched quickly, while the team is worried about safety and data privacy. How do you align everyone?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Translates risks into business terms: legal, trust, reputation",
+      "Proposes a phased rollout with guardrails, monitoring and human review",
+      "Involves legal, security and product early",
+      "Documents agreed risk acceptance and success metrics"
+    ]
+  },
+  {
+    "question": "Your team's experiments are inconsistently tracked and results are hard to reproduce. How do you improve this without slowing people down?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Involves the team in choosing lightweight standards",
+      "Introduces experiment tracking, data and prompt versioning",
+      "Provides templates and automates where possible",
+      "Leads by example in reviews and shares benefits"
+    ]
+  },
+  {
+    "question": "Two teams are building similar models or pipelines separately. How do you coordinate them?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Meets both teams to understand goals and constraints",
+      "Identifies shared components and potential reuse",
+      "Proposes a clear ownership and interface model",
+      "Builds trust through transparent communication and shared goals"
+    ]
+  },
+  {
+    "question": "Researchers and engineers disagree about productionising a promising prototype. How do you bridge the gap?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Understands research goals and engineering constraints",
+      "Defines production requirements: latency, reliability, cost, monitoring",
+      "Plans an incremental path from prototype to production",
+      "Creates joint ownership and clear handoffs"
+    ]
+  },
+  {
+    "question": "After a production incident where an LLM output harmful content, teams start blaming each other. How do you lead the response?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Focuses on immediate mitigation and communication",
+      "Runs a blameless post-mortem to find system-level causes",
+      "Defines actions: evaluation, guardrails, monitoring, incident process",
+      "Rebuilds trust and shared responsibility across teams"
+    ]
+  },
+  {
+    "question": "A senior developer leaves several critical comments on your first React pull request, and you disagree with one of them. How do you respond?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Reads all feedback calmly and treats it as a learning opportunity",
+      "Asks clarifying questions to understand the reasoning",
+      "Explains own approach respectfully, ideally with docs or a small example",
+      "Accepts the team's convention if the disagreement remains and updates the PR"
+    ]
+  },
+  {
+    "question": "You have been stuck on a state-related bug in a component for three hours and your teammates are busy. What do you do?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Timeboxes own effort and documents what has been tried",
+      "Prepares a clear question with reproduction steps, error messages and code",
+      "Asks for help at a suitable moment, e.g. standup or a short message",
+      "Shares the fix afterwards so the team learns from it"
+    ]
+  },
+  {
+    "question": "You merged a change that broke a shared component, and a teammate's feature branch now fails. How do you handle it?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Acknowledges the mistake quickly and informs the team",
+      "Reverts or hotfixes to unblock others",
+      "Investigates the root cause, e.g. missing tests or review gap",
+      "Suggests prevention like tests or checks without blaming anyone"
+    ]
+  },
+  {
+    "question": "You and a teammate both edited the same React component and now have a messy merge conflict. What do you do?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Talks to the teammate to understand each side's intent",
+      "Resolves the conflict together or carefully, preserving both changes",
+      "Runs the app and tests after merging",
+      "Agrees on smaller PRs and better branch communication in future"
+    ]
+  },
+  {
+    "question": "The backend developer changes an API response shape without telling you, and your component breaks. How do you approach the situation?",
+    "category": "frontend",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Confirms the change with the backend developer instead of assuming",
+      "Keeps tone collaborative, not accusatory",
+      "Adapts the component and adds defensive handling or types",
+      "Suggests an agreed API contract or changelog to avoid repeats"
+    ]
+  },
+   {
+    "question": "Two teammates strongly disagree on whether to use Redux or Context/Zustand for a new feature. As a mid-level developer, how do you help the team decide?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Lets both sides explain their reasoning and needs",
+      "Compares options against project requirements: complexity, performance, team familiarity",
+      "Suggests a small spike or proof of concept if needed",
+      "Helps the team agree on a decision and documents it"
+    ]
+  },
+  {
+    "question": "The backend API for your feature is not ready, but the sprint ends in two days. How do you keep the team moving?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Agrees on the API contract with the backend developer early",
+      "Uses mock data, MSW or stubs so frontend work continues",
+      "Communicates risks and status to the PM",
+      "Plans integration testing as soon as the API lands"
+    ]
+  },
+  {
+    "question": "A teammate regularly skips tests and ignores code conventions in pull requests. How do you address it?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Raises it privately and respectfully with specific examples",
+      "Seeks to understand reasons, e.g. time pressure or unclear standards",
+      "Suggests shared linting, CI checks and a PR template",
+      "Escalates to the lead only if the pattern continues"
+    ]
+  },
+  {
+    "question": "Mid-sprint, the product manager adds a large request that affects the feature you are building. What do you do?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Clarifies the request and why it matters",
+      "Estimates impact on scope and timeline",
+      "Discusses trade-offs openly with the PM and team",
+      "Agrees what moves out of the sprint or is deferred"
+    ]
+  },
+  {
+    "question": "A designer asks for a heavy animation that hurts performance and accessibility on the page you built. How do you handle the disagreement?",
+    "category": "frontend",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Understands the design intent and user goal",
+      "Demonstrates the performance or accessibility impact with data",
+      "Proposes alternatives, e.g. lighter animation or reduced-motion support",
+      "Reaches a compromise with the designer and documents it"
+    ]
+  },
+{
+    "question": "Your team wants to migrate from Create React App to Vite or Next.js, but deadlines are tight and some members resist. How do you drive alignment?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Defines the problem and benefits clearly: build time, DX, performance",
+      "Listens to concerns and risks from the team and product",
+      "Proposes an incremental migration plan with measurable milestones",
+      "Gets buy-in from stakeholders and shares ownership of the work"
+    ]
+  },
+  {
+    "question": "Several developers use useEffect inconsistently and component patterns vary across the codebase. How do you improve consistency without being heavy-handed?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "react",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Involves the team in defining conventions",
+      "Documents guidelines with examples and a lint config",
+      "Uses code reviews and pairing to teach, not police",
+      "Revisits standards regularly based on team feedback"
+    ]
+  },
+  {
+    "question": "Another team's change to the shared component library breaks your application days before release. How do you resolve it?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Contacts the owning team and fixes the immediate issue together",
+      "Avoids blame and focuses on unblocking the release",
+      "Proposes versioning, changelogs and visual or contract tests",
+      "Establishes a clear contribution and release process"
+    ]
+  },
+  {
+    "question": "The product manager wants to ship a feature with known performance and accessibility issues to hit a date. What do you do?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Explains the risks and user or business impact with evidence",
+      "Identifies the minimum fixes required before launch",
+      "Proposes a phased release or documented follow-up tickets",
+      "Escalates respectfully if the risk is unacceptable"
+    ]
+  },
+  {
+    "question": "A junior developer is struggling while a strong teammate dominates code reviews and discourages others. How do you handle both situations?",
+    "category": "frontend",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Supports the junior with pairing, clear tasks and feedback",
+      "Speaks privately to the dominant reviewer about tone and impact",
+      "Sets review guidelines that encourage constructive feedback",
+      "Rotates reviewers and builds a psychologically safe team culture"
+    ]
+  },
  {
     "question": "Your React application is rendering sluggishly on mobile devices when loading a large list. How would you diagnose and fix this?",
     "category": "frontend",
     "subcategory": "performance",
-    "difficulty": "junior",
+    "difficulty": "any",
     "stack": "react",
     "question_type": "situational",
     "competency": "problem_solving",
@@ -19,7 +298,7 @@
     "category": "backend",
     "subcategory": "resilience",
     "difficulty": "mid",
-    "stack": "python",
+    "stack": "core",
     "question_type": "situational",
     "competency": "problem_solving",
     "reference_points": [
@@ -33,9 +312,9 @@
     "category": "backend",
     "subcategory": "system_design",
     "difficulty": "senior",
-    "stack": "node",
+    "stack": "core",
     "question_type": "situational",
-    "competency": "problem_solving",
+    "competency": "teamwork",
     "reference_points": [
       "Uses the Strangler Fig pattern to incrementally extract services",
       "Implements API Gateway routing and distributed tracing",
@@ -49,7 +328,7 @@
     "difficulty": "mid",
     "stack": "core",
     "question_type": "situational",
-    "competency": "communication",
+    "competency": "problem_solving",
     "reference_points": [
       "Immediately alerts engineering lead and security contact",
       "Advocates for delaying release or hotfixing the vulnerability before deployment",
@@ -382,6 +661,104 @@
       "Gave constructive feedback and encouraged independence",
       "Measured progress by what the teammate could do afterward",
       "Reflects on what they learned about explaining technical trade-offs"
+    ]
+  },
+  {
+    "question": "If you multiply the loss for one class by a very large factor, which class will the model learn faster?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Scaling a class's loss scales its gradient, so the optimizer prioritizes that class",
+      "It effectively raises the learning rate for that class's contribution",
+      "An extreme factor can destabilize training and hurt the other class",
+      "Use sensible class weights or focal loss tuned on validation data"
+    ]
+  },
+  {
+    "question": "When should you fine-tune a pretrained model versus use it as a frozen feature extractor, and what does freezing the head mean?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Frozen extractor: cheap and safe for small data or a similar domain",
+      "Fine-tuning: better fit when the domain differs and enough data exists; costs more and can overfit",
+      "Freezing the head means its weights are not updated, while backbone layers may be trained",
+      "Usually train a new head first, then unfreeze gradually at a low learning rate"
+    ]
+  },
+  {
+    "question": "How would you implement a training loop for an object detection model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dataset returns images with boxes and class labels in a consistent format; use a custom collate function",
+      "Loss combines localization (box) and classification terms",
+      "Apply augmentation that transforms boxes correctly; track mAP on validation",
+      "Diagnose issues by visualizing predictions, checking label format and coordinates, and verifying the learning rate"
+    ]
+  },
+  {
+    "question": "At a high level, how do you build a large language model?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Collect, clean and deduplicate large text data; train a tokenizer",
+      "Decoder-only transformer pretrained on next-token prediction with distributed training",
+      "Alignment: supervised fine-tuning, then RLHF or preference optimization",
+      "Evaluate on benchmarks and safety tests; optimize and serve with quantization and batching"
+    ]
+  },
+  {
+    "question": "A system must search 12 million face embeddings for a new face quickly. How do you do it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Brute-force distance to all vectors is too slow",
+      "Use approximate nearest neighbor indexes: HNSW, IVF, Annoy, LSH, FAISS",
+      "Trade a small recall loss for large latency gains; shard and use GPUs if needed",
+      "Apply a distance threshold for match decisions and re-rank top candidates"
+    ]
+  },
+  {
+    "question": "How does a speech-to-text model like Whisper work, and how does it differ from text-to-speech?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Audio is converted to log-Mel spectrograms and fed to a transformer encoder-decoder",
+      "The decoder generates text tokens autoregressively",
+      "Trained on large multilingual, weakly supervised audio-text data",
+      "TTS runs the opposite direction: text to acoustic features to waveform (vocoder)"
+    ]
+  },
+  {
+    "question": "How would you build a super-resolution pipeline to enhance image quality?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Create training pairs by downsampling high-resolution images",
+      "Architectures: SRCNN-style CNNs, residual networks, GAN-based (ESRGAN) or diffusion models",
+      "Losses: pixel (L1/L2), perceptual and adversarial",
+      "Evaluate with PSNR, SSIM and LPIPS plus visual checks; watch for hallucinated detail"
     ]
   }
 ]

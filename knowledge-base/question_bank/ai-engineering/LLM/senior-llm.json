@@ -252,5 +252,214 @@
       "Escalate to humans on low confidence or repeated failures",
       "Roll out in shadow mode then canary; track resolution, policy compliance, CSAT, latency, cost"
     ]
+  },
+  {
+    "question": "Compare state-space models (e.g., Mamba) with Transformers. What are the trade-offs and when would you use each?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Transformers: strong in-context learning and copying, mature ecosystem, but O(n^2) attention",
+      "SSMs: linear-time, fast on long sequences with a small fixed state",
+      "SSMs are weaker at precise retrieval and copying, with a less mature ecosystem",
+      "Transformers remain the default; hybrids and SSMs suit long-context or streaming workloads"
+    ]
+  },
+  {
+    "question": "How do diffusion language models differ from autoregressive LLMs, and when might they be preferable for latency?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Autoregressive models generate token by token sequentially",
+      "Diffusion LMs start from noise or masked sequences and iteratively refine many tokens in parallel",
+      "Parallel refinement can lower time per output token for long generations",
+      "Each denoising step is heavier; the technology is less mature and quality and tooling must be validated"
+    ]
+  },
+  {
+    "question": "What is FlashAttention, and how does it reduce memory bottlenecks?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Exact attention with an IO-aware algorithm; same math, better memory access",
+      "Tiling computes attention in blocks in fast on-chip SRAM instead of repeatedly using slower HBM",
+      "Never materializes the full n x n attention matrix",
+      "Big speed and memory savings, especially for long sequences, in training and inference"
+    ]
+  },
+  {
+    "question": "What are the challenges of distributed training and inference across multiple GPUs, and how does model parallelism help?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model parallelism splits layers (pipeline) or tensors across devices when a model does not fit on one GPU",
+      "Communication overhead and synchronization add latency",
+      "Workload balancing and pipeline bubbles can leave GPUs idle",
+      "Prefill is compute-bound and decode is memory-bound, complicating resource allocation"
+    ]
+  },
+  {
+    "question": "How would you design a scalable LLM inference system for real-time applications, and how do you choose an inference engine?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Engines: vLLM (PagedAttention, continuous batching), TensorRT-LLM (peak NVIDIA performance), TGI, llama.cpp for edge",
+      "Use continuous batching, KV cache management, quantization, and optimized kernels",
+      "Autoscale on queue depth and latency; cache prefixes and frequent prompts",
+      "Track TTFT, TPOT, throughput, and cost per token under realistic load"
+    ]
+  },
+  {
+    "question": "What role does KL divergence play in LLM alignment, and what happens if the KL penalty is mis-set?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "KL penalty keeps the tuned policy close to a frozen reference model in RLHF",
+      "DPO derives from the same KL-regularized reward objective without an RL loop",
+      "Distillation also minimizes KL to the teacher's distribution",
+      "Too low a coefficient risks reward hacking and drift; too high prevents improvement"
+    ]
+  },
+  {
+    "question": "How do reasoning models differ from standard LLMs, and what are the trade-offs?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Trained (often with RL) to generate long internal chain-of-thought before answering",
+      "Better at math, code debugging, and multi-step problems",
+      "Higher latency and token cost, with different prompting needs",
+      "Reasoning traces may not be faithful to the model's actual computation"
+    ]
+  },
+  {
+    "question": "How can LLM interpretability be approached, and what are its limits?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Attention visualization, saliency maps, and LIME or SHAP-style attribution",
+      "Mechanistic interpretability studies circuits such as induction heads",
+      "Attention weights are not guaranteed to be explanations",
+      "Explanations are approximations; important for trust, debugging, bias detection, and accountability"
+    ]
+  },
+  {
+    "question": "What are the trade-offs of a large vocabulary, and how do embedding gradients and output-layer techniques like Adaptive Softmax relate?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Large vocabularies cut token fragmentation but enlarge embedding and output layers and softmax cost",
+      "Embedding gradients are sparse by row (only tokens in the batch update)",
+      "Tied input/output embeddings save parameters",
+      "Adaptive Softmax uses frequency clusters to cut cost; less necessary with 32k-256k subword vocabularies"
+    ]
+  },
+  {
+    "question": "An LLM begins producing offensive or factually incorrect outputs. How do you diagnose and fix it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reproduce and categorize failures; record model version, prompts, and sampling parameters",
+      "Check recent changes: model, prompt, retrieval corpus, data, or configuration",
+      "Fixes: grounding with retrieval, data rebalancing, preference tuning, safety classifiers, prompt constraints",
+      "Build an evaluation set, run red-team tests, and add monitoring and human review for high-risk cases"
+    ]
+  },
+  {
+    "question": "How are context windows extended, and why does performance often degrade well before the advertised limit?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Position interpolation and scaling techniques (e.g., RoPE interpolation, YaRN, NTK scaling), sliding-window and sparse attention",
+      "Longer contexts raise KV cache memory and attention cost",
+      "'Lost in the middle': information in the center of long prompts is underused",
+      "Prefer curated, relevant context and retrieval; validate with needle-in-a-haystack and task evals"
+    ]
+  },
+  {
+    "question": "Why are decoder-only models dominant today, and what are the trade-offs compared with encoder-decoder models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Simple next-token objective scales cleanly with data and compute",
+      "One architecture handles generation, instruction following, and in-context learning",
+      "Encoder-decoder models excel at structured seq2seq tasks such as translation and summarization",
+      "Encoder-only models remain strong for embeddings, retrieval, and classification"
+    ]
+  },
+  {
+    "question": "Explain how to mitigate hallucinations in large language models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ground answers in retrieved trusted documents (RAG)",
+      "Prompting: chain-of-thought, verified few-shot examples, instruct to say when unsure",
+      "Self-consistency or confidence checks across multiple samples",
+      "Guardrails and output verification against rules or sources"
+    ]
+  }, {
+    "question": "How do you optimize LLM inference speed in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization (FP16 to INT8 or INT4) to cut memory and compute",
+      "KV-cache management such as PagedAttention (vLLM) for higher throughput",
+      "Speculative decoding with a small draft model verified by the large model",
+      "Batching, distillation and efficient serving hardware"
+    ]
+  },{
+    "question": "What are LoRA and QLoRA, and how do they reduce training memory?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "llm",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LoRA freezes pretrained weights and trains small low-rank matrices (delta W = B x A) added to selected layers",
+      "Only a tiny fraction of parameters train, so gradients and optimizer states shrink drastically",
+      "Adapters are small, swappable per task and can be merged into the base model for inference",
+      "QLoRA quantizes the frozen base model to 4-bit (NF4) and trains LoRA adapters in higher precision",
+      "Extra savings from double quantization and paged optimizers, enabling large models on a single GPU"
+    ]
   }
 ]

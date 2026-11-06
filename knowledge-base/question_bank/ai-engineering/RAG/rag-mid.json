@@ -629,6 +629,20 @@
       "Use regional routing for data residency and restrict access to prompts and logs",
       "Keep audit logs and retention limits; follow applicable regulations"
     ]
+  },  {
+    "question": "When should you fine-tune a model versus use prompt engineering or RAG?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with prompt engineering: cheapest and fastest for format, tone and task instructions",
+      "Use RAG when knowledge is private, fresh or frequently changing, and when citations or fewer hallucinations are needed",
+      "Fine-tune to change consistent behaviour, style or output format, or to specialise a smaller model for cost and latency",
+      "Fine-tuning is poor for injecting facts; knowledge belongs in retrieval",
+      "Approaches combine well; decide by data availability, cost, maintenance and evaluation results"
+    ]
   }
 
 ]

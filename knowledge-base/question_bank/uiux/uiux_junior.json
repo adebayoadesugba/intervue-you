@@ -1,0 +1,452 @@
+[
+  {
+    "question": "What is the difference between UI and UX design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "UX is the overall experience: usability, flow and user satisfaction",
+      "UI is the visual and interactive layer: colour, typography, buttons, layout",
+      "UI is one part of UX; UX is the broader discipline",
+      "Example: styling a button is UI; making sure it helps users finish the task is UX"
+    ]
+  },
+  {
+    "question": "What is the UX design process?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "User-centred stages: research, define, ideate, design, prototype, test, iterate",
+      "Not strictly linear; earlier stages are revisited based on feedback",
+      "Decisions are validated with users instead of assumptions",
+      "Ends with developer handoff and post-launch evaluation"
+    ]
+  },
+  {
+    "question": "What is user research and why is it important?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Understanding user needs, behaviours and pain points through interviews, surveys and observation",
+      "Replaces assumptions with evidence",
+      "Reveals the real problem before a solution is designed",
+      "Even testing with about five users gives valuable insight"
+    ]
+  },
+  {
+    "question": "What is the difference between a wireframe, a mockup and a prototype?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Wireframe: low-fidelity structure and layout, no colour or real typography",
+      "Mockup: high-fidelity static design with colours, fonts and imagery",
+      "Prototype: linked screens that simulate real interactions for testing",
+      "Fidelity increases from wireframe to mockup to prototype"
+    ]
+  },
+  {
+    "question": "What is usability testing?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Observing real users complete tasks with a product or prototype",
+      "Identifies confusion, errors and navigation problems",
+      "Measures things like task success and time on task",
+      "Findings feed into design iterations"
+    ]
+  },
+  {
+    "question": "What are user personas and why do designers use them?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fictional archetypes built from real research data",
+      "Capture goals, behaviours, needs and pain points",
+      "Keep the team focused on specific users instead of everyone",
+      "Must be research-based, not invented"
+    ]
+  },
+  {
+    "question": "What is information architecture (IA)?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Organising and labelling content so users can find it easily",
+      "Covers hierarchy, navigation, categorisation and search",
+      "Poor IA breaks usability even when the UI looks good",
+      "Validated with methods like card sorting and sitemaps"
+    ]
+  },
+  {
+    "question": "What tools do UI/UX designers commonly use and what is each used for?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Figma: UI design, prototyping and real-time collaboration",
+      "Sketch and Adobe XD: interface design and prototyping",
+      "Miro or FigJam: workshops, user flows and affinity mapping",
+      "Maze, Hotjar or UserTesting: usability testing and behaviour insights"
+    ]
+  },
+  {
+    "question": "What are the common usability principles in UX design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clarity and consistency across screens",
+      "Simplicity to reduce cognitive load",
+      "Feedback on every user action",
+      "Error prevention and easy recovery",
+      "Learnability and accessibility"
+    ]
+  },
+  {
+    "question": "What is a design system and why is it important?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reusable components, design tokens and usage guidelines",
+      "Single source of truth for designers and developers",
+      "Improves consistency and speeds up delivery",
+      "Examples: Material Design, Apple HIG, IBM Carbon"
+    ]
+  },
+  {
+    "question": "What is card sorting and when would you use it?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Participants group content labels into categories",
+      "Open sort: users create their own category names",
+      "Closed sort: users place items into predefined categories",
+      "Used to design or validate navigation and IA"
+    ]
+  },
+  {
+    "question": "What is a user journey map and when would you use one?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Visualises the steps a user takes to reach a goal",
+      "Layers in thoughts, emotions and pain points per stage",
+      "Includes touchpoints outside the product",
+      "Used to find drop-off points and opportunities and align teams"
+    ]
+  },
+  {
+    "question": "What is typographic hierarchy and how do you apply it in a UI?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Guides the eye from most to least important content",
+      "Built with size, weight, colour and spacing",
+      "Typically 3 to 4 type styles: headline, body, caption",
+      "Supports readability and scannability"
+    ]
+  },
+  {
+    "question": "How do you choose a colour palette for a UI project?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start from brand colours for the primary palette",
+      "Add secondary, neutral and semantic colours (success, error, warning)",
+      "Check contrast against WCAG AA (4.5:1 for normal text)",
+      "Choices tied to context and accessibility, not personal taste"
+    ]
+  },
+  {
+    "question": "What is the 8pt grid system and why do designers use it?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "All spacing and sizing are multiples of 8 (some teams use a 4pt base)",
+      "Gives consistent rhythm and alignment",
+      "Scales cleanly across screen densities without blurry rendering",
+      "Simplifies designer-developer communication"
+    ]
+  },
+  {
+    "question": "What is responsive design and why is it important?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layouts adapt to different screen sizes and devices",
+      "Uses fluid grids, flexible images and breakpoints",
+      "Keeps key content accessible on small screens",
+      "Improves usability and accessibility across devices"
+    ]
+  },
+  {
+    "question": "What are the key principles of visual design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Balance, contrast, alignment and proximity",
+      "Repetition for consistency and visual hierarchy",
+      "White space to reduce clutter and aid readability",
+      "Applied to guide attention and support usability"
+    ]
+  },
+  {
+    "question": "What is a sitemap?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Diagram showing how pages or screens are organised and connected",
+      "High-level view of the information architecture",
+      "Helps plan navigation and content hierarchy early",
+      "Used for communication with stakeholders and developers"
+    ]
+  },
+  {
+    "question": "What makes a UI/UX design accessible?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sufficient colour contrast and readable type",
+      "Keyboard navigation and visible focus states",
+      "Screen reader support: alt text, headings, labels",
+      "Not relying on colour alone to convey meaning",
+      "Follows WCAG guidelines"
+    ]
+  },
+  {
+    "question": "What are microinteractions and why do they matter?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Small animations or responses to a single action, e.g. a like or toggle",
+      "Give instant feedback and communicate system status",
+      "Make the interface feel responsive and engaging",
+      "Guide users subtly without extra instructions"
+    ]
+  },
+  {
+    "question": "What is Hick's Law and how does it affect design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Decision time grows with the number of choices",
+      "Reduce options in menus and screens",
+      "Use clear primary calls to action",
+      "Group or progressively reveal choices"
+    ]
+  },
+  {
+    "question": "What are Gestalt principles and how are they used in UI design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Describe how people perceive visual elements as groups",
+      "Key principles: proximity, similarity, closure, continuity",
+      "Used to group related items and create intuitive layouts",
+      "Reduces need for explicit borders or labels"
+    ]
+  },
+  {
+    "question": "What is the difference between UI design and graphic design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "UI design focuses on interactive digital products and usability",
+      "Graphic design covers visual communication across print and digital",
+      "UI considers states, interactions and user flows",
+      "Both use typography, colour and layout, but goals differ"
+    ]
+  },
+  {
+    "question": "What is an MVP in the context of UX?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Product with just enough features to deliver core value",
+      "Lets teams test assumptions with real users early",
+      "Prioritises essential user needs over nice-to-haves",
+      "Iterates based on validated feedback"
+    ]
+  },
+  {
+    "question": "What does design thinking mean and what is the empathise stage?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Human-centred, iterative problem-solving approach",
+      "Stages: empathise, define, ideate, prototype, test",
+      "Empathise means understanding users through interviews and observation",
+      "Prevents designing from assumptions"
+    ]
+  },
+  {
+    "question": "How would you conduct a competitive analysis?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Select direct and indirect competitors",
+      "Compare features, UX, pricing, positioning and audience",
+      "Document with screenshots and notes",
+      "Identify gaps and opportunities rather than copying"
+    ]
+  },
+  {
+    "question": "What is interaction design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Designing how users interact with a product",
+      "Covers flows, controls, animations and feedback",
+      "Aims for efficient, intuitive and enjoyable task completion",
+      "Closely tied to usability and micro-interactions"
+    ]
+  },
+  {
+    "question": "How do you approach designing for mobile applications?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prioritise essential content and features for small screens",
+      "Touch-friendly targets and gestures",
+      "Simple, thumb-reachable navigation",
+      "Follow platform guidelines and test on real devices"
+    ]
+  },
+  {
+    "question": "How would you explain UX design to a child?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses a simple, relatable example such as a toy or game",
+      "Explains that designers make products easy and fun to use",
+      "Mentions talking to users to understand what they want",
+      "Clear, concise, jargon-free language"
+    ]
+  },
+  {
+    "question": "What are some common mistakes to avoid in UX design?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Designing from assumptions without user research",
+      "Ignoring business constraints and stakeholder needs",
+      "Overcomplicating interfaces or neglecting accessibility",
+      "Skipping usability testing and iteration"
+    ]
+  },
+  {
+    "question": "What are some examples of good UX and what makes them good?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Names specific products and explains why they work",
+      "Cites clarity, hierarchy, consistency and feedback, not just looks",
+      "Connects the design to user goals",
+      "Mentions business impact such as conversion or retention"
+    ]
+  },
+  {
+    "question": "How do you create a user persona and what does it include?",
+    "category": "uiux",
+    "difficulty": "junior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Based on patterns from real interviews and data",
+      "Includes goals, pain points, behaviours and tech comfort level",
+      "May include demographics and a representative quote",
+      "Validated and updated over time"
+    ]
+  }
+]

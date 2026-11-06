@@ -545,5 +545,19 @@
       "Batch embedding and queue-based workers; keep an embedding-version tag on each index",
       "Monitor ingestion lag, failures, and index freshness; invalidate caches on change"
     ]
+  },
+  {
+    "question": "Briefly explain model compression: quantization, pruning and knowledge distillation.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization lowers numeric precision (float32 to int8); post-training or quantization-aware",
+      "Pruning removes low-importance weights, neurons or channels",
+      "Distillation trains a small student to mimic a large teacher's soft predictions (e.g. DistilBERT)",
+      "Goal: smaller, faster models for edge and latency-sensitive use with minimal accuracy loss"
+    ]
   }
 ]

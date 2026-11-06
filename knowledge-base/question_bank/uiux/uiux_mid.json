@@ -1,0 +1,536 @@
+[
+  {
+    "question": "How do you conduct a usability test from start to finish?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define objectives and tasks to evaluate",
+      "Recruit about 5 to 8 participants matching the target users",
+      "Write scenario-based, non-leading tasks",
+      "Observe with think-aloud and note errors and hesitation",
+      "Rate issues by severity, report and iterate"
+    ]
+  },
+  {
+    "question": "What is the difference between qualitative and quantitative research and when do you use each?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Qualitative explains why: interviews, usability tests, observation",
+      "Quantitative measures what and how many: surveys, analytics, A/B tests",
+      "Use qualitative to explore problems and form hypotheses",
+      "Use quantitative to validate at scale and track performance",
+      "Best results combine both"
+    ]
+  },
+  {
+    "question": "What is the difference between formative and summative usability testing?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Formative: early and iterative to find issues and guide design",
+      "Summative: on near-final designs to evaluate overall performance",
+      "Formative is mostly qualitative; summative uses metrics like task success and time",
+      "Used at different project stages"
+    ]
+  },
+  {
+    "question": "What is the difference between generative and evaluative research?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generative: discover needs and opportunities before solutions exist",
+      "Evaluative: test whether a solution works",
+      "Examples: interviews and contextual inquiry vs usability testing",
+      "Choose based on project stage and question"
+    ]
+  },
+  {
+    "question": "What is the difference between moderated and unmoderated usability testing?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Moderated: facilitator guides and probes in real time",
+      "Unmoderated: users complete tasks alone, often through tools like Maze",
+      "Moderated gives richer insight; unmoderated is faster and scales",
+      "Choice depends on goals, budget and timeline"
+    ]
+  },
+  {
+    "question": "How do you recruit the right participants for research?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define target criteria from personas",
+      "Use screener surveys to filter participants",
+      "Channels: user databases, social media, agencies, communities",
+      "Aim for diversity to avoid biased results"
+    ]
+  },
+  {
+    "question": "How do you set goals for a research study and write a discussion guide that avoids bias?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with a decision the research will inform",
+      "Ask about past behaviour instead of hypothetical opinions",
+      "Avoid leading questions and use neutral probes",
+      "Pilot the guide before running sessions"
+    ]
+  },
+  {
+    "question": "How do you analyse qualitative data from multiple interviews without losing nuance?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Transcribe or organise notes per session",
+      "Code observations and build an affinity diagram",
+      "Let themes emerge from data, not preset categories",
+      "Separate observed behaviour from participant interpretation",
+      "Support themes with quotes and frequency"
+    ]
+  },
+  {
+    "question": "How do you prioritise feedback from different user groups?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weigh impact, frequency and alignment with business goals",
+      "Fix issues blocking core tasks first",
+      "Look for patterns across participants",
+      "Support priorities with data"
+    ]
+  },
+  {
+    "question": "How do you conduct a heuristic evaluation and use the results?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Review the interface against heuristics such as Nielsen's",
+      "Document and rate usability issues by severity",
+      "Ideally use multiple evaluators",
+      "Complements, does not replace, user testing",
+      "Turn findings into actionable recommendations"
+    ]
+  },
+  {
+    "question": "What are Nielsen's usability heuristics?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Visibility of system status",
+      "Match between system and the real world",
+      "User control and freedom",
+      "Consistency and standards",
+      "Error prevention and easy error recovery",
+      "Also: recognition over recall, flexibility, minimalist design, help"
+    ]
+  },
+  {
+    "question": "How do you ensure designs are accessible and meet WCAG?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Contrast ratios and readable type",
+      "Keyboard navigation and focus indicators",
+      "Alt text, semantic structure and form labels",
+      "Test with screen readers and contrast checkers",
+      "Build accessibility in from the start"
+    ]
+  },
+  {
+    "question": "How do you design for colour-blind users?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Never rely on colour alone; add icons, text or patterns",
+      "Use sufficient contrast",
+      "Test with colour-blindness simulators",
+      "Use accessible palettes for charts and status states"
+    ]
+  },
+  {
+    "question": "What minimum touch target size do you design for on mobile and why?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Roughly 44x44pt on iOS and 48x48dp on Android",
+      "Prevents accidental taps and aids motor accessibility",
+      "Add adequate spacing between targets",
+      "Especially important on small or low-end devices"
+    ]
+  },
+  {
+    "question": "What is A/B testing and how does it help UI/UX design?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compares two versions to see which performs better",
+      "Define a hypothesis and success metric first",
+      "Randomise users so groups are comparable",
+      "Gives data-driven decisions on clicks, conversion or task completion"
+    ]
+  },
+  {
+    "question": "What does a high bounce rate indicate about a design and how would you investigate?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Users leave quickly but the metric does not say why",
+      "Possible causes: expectation mismatch, slow load, poor IA, cluttered layout",
+      "Review session recordings and behaviour data",
+      "Add qualitative research before concluding"
+    ]
+  },
+  {
+    "question": "What is user-centred design and why is it important?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Involves users throughout research, design and testing",
+      "Based on real needs, not assumptions",
+      "Reduces usability problems",
+      "Improves satisfaction and retention"
+    ]
+  },
+  {
+    "question": "What are design patterns and how do you use them?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reusable solutions to common design problems, e.g. navigation, forms, onboarding",
+      "Leverage familiar mental models",
+      "Improve consistency and learnability",
+      "Adapt to project context rather than copy blindly"
+    ]
+  },
+  {
+    "question": "How do you measure the success of a UI/UX design?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Usability metrics: task success, time on task, error rate",
+      "Behaviour metrics: conversion, drop-off, retention, engagement",
+      "Satisfaction: SUS, NPS, feedback",
+      "Support tickets and business outcomes",
+      "Define metrics before designing"
+    ]
+  },
+  {
+    "question": "How do you design empty, error and loading states?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Empty: friendly copy, illustration and a clear next action",
+      "Error: specific message explaining what happened and how to fix it",
+      "Loading: skeleton screens to reduce perceived wait",
+      "These states prevent confusion and abandonment"
+    ]
+  },
+  {
+    "question": "What are the differences between designing for iOS and Android (HIG vs Material Design)?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "iOS follows Apple HIG; Android follows Material Design",
+      "Different navigation patterns: tab bar and swipe-back vs back button and app bars",
+      "Different components: action sheets vs snackbars and FABs",
+      "Use platform-native patterns so users find them familiar"
+    ]
+  },
+  {
+    "question": "How do you design for dark mode?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use dark greys rather than pure black",
+      "Maintain WCAG contrast for text",
+      "Adapt colour tokens, images and icons",
+      "Keep brand consistency across themes"
+    ]
+  },
+  {
+    "question": "How do you design for different screen sizes and devices?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Mobile-first and responsive grids with breakpoints",
+      "Prioritise content hierarchy per screen size",
+      "Touch-friendly targets on mobile",
+      "Redesign flows for each device instead of shrinking desktop",
+      "Test on real devices"
+    ]
+  },
+  {
+    "question": "Which Figma features should every UI/UX designer master?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Auto Layout for responsive components",
+      "Components and variants for states",
+      "Variables and design tokens, including light/dark modes",
+      "Interactive prototyping and Smart Animate",
+      "Dev Mode and shared libraries for handoff"
+    ]
+  },
+  {
+    "question": "How do you organise Figma files for team collaboration and developer handoff?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Separate pages for cover, components, flows and archive",
+      "Descriptive frame and layer names",
+      "Consistent naming like platform/screen/state",
+      "Version history with meaningful labels",
+      "Annotated specs and states for developers"
+    ]
+  },
+  {
+    "question": "What is atomic design and how does it differ from traditional approaches?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Builds interfaces from atoms, molecules, organisms, templates and pages",
+      "Promotes reusable, consistent components",
+      "Scales better for design systems",
+      "Traditional approach designs full screens without a component structure"
+    ]
+  },
+  {
+    "question": "What is progressive disclosure?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Show only essential information first and reveal more on demand",
+      "Reduces cognitive load",
+      "Makes complex features approachable",
+      "Example: advanced options hidden until requested"
+    ]
+  },
+  {
+    "question": "How do you apply Fitts's Law in UI design?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Time to reach a target depends on its size and distance",
+      "Make primary actions larger and easier to reach",
+      "Keep frequent actions close to the user's focus",
+      "Space touch targets to avoid mis-taps"
+    ]
+  },
+  {
+    "question": "What is the role of cognitive psychology in UX design?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reduce cognitive load",
+      "Design for scanning and visual hierarchy",
+      "Use familiar patterns and mental models",
+      "Apply laws like Hick's and Fitts's",
+      "Give clear feedback"
+    ]
+  },
+  {
+    "question": "How do you design for internationalisation and localisation?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Allow for text expansion and different scripts",
+      "Support right-to-left layouts where needed",
+      "Adapt date, time and currency formats",
+      "Avoid culturally biased icons, colours and imagery",
+      "Test with users from target regions"
+    ]
+  },
+  {
+    "question": "How do you prioritise features when you cannot build everything?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start from user needs and business goals",
+      "Use impact vs effort or RICE scoring",
+      "Check technical feasibility with engineers",
+      "Define an MVP and iterate",
+      "Collaborate with stakeholders to align"
+    ]
+  },
+  {
+    "question": "How do you approach information architecture for a content-heavy product?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audit content and understand user mental models",
+      "Use card sorting and tree testing",
+      "Create clear hierarchy, labels and navigation",
+      "Add search where needed",
+      "Iterate with user testing"
+    ]
+  },
+  {
+    "question": "When would you use a low-fidelity prototype versus a high-fidelity prototype?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Low-fidelity early to test concepts, flows and structure quickly",
+      "High-fidelity later to test interactions and visual details",
+      "High-fidelity also helps stakeholder buy-in and handoff",
+      "Going high-fidelity too early wastes effort and anchors on visuals"
+    ]
+  },
+  {
+    "question": "How do you use AI tools in your design process and where do they fall short?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use for first drafts, research synthesis, ideation and copy",
+      "Always review and validate the output",
+      "Limits: generic results, bias, accessibility gaps, made-up content",
+      "Human judgment and user testing remain essential"
+    ]
+  },
+  {
+    "question": "How do you turn research findings into design decisions?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Connect a specific insight to a specific design change",
+      "Write insight statements with implications",
+      "Prioritise by impact and feasibility",
+      "Validate changes with retesting"
+    ]
+  },
+  {
+    "question": "How do you prioritise usability issues found in testing?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rate by severity and frequency",
+      "Core task blockers come first",
+      "Weigh effort and impact",
+      "Communicate with clear evidence like clips and metrics"
+    ]
+  },
+  {
+    "question": "What are the risks of biased research and how do you avoid them?",
+    "category": "uiux",
+    "difficulty": "mid",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Confirmation bias, leading questions and sampling bias",
+      "Leads to building the wrong features",
+      "Use neutral questions and diverse participants",
+      "Look for disconfirming evidence",
+      "Triangulate multiple methods"
+    ]
+  }
+]

@@ -1,0 +1,604 @@
+[
+  {
+    "question": "How do you handle imbalanced datasets?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Resample: oversample the minority (random or SMOTE) or undersample the majority",
+      "Use class weights or cost-sensitive learning; focal loss for deep models",
+      "Evaluate with precision, recall, F1, PR-AUC instead of accuracy",
+      "Resample only the training folds to avoid leakage"
+    ]
+  },
+  {
+    "question": "How does SMOTE work and what are its drawbacks?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Picks a minority sample, finds its k nearest minority neighbors, interpolates a synthetic point between them",
+      "Avoids plain duplication of samples",
+      "Can amplify noise or create overlapping samples",
+      "Apply inside cross-validation folds only"
+    ]
+  },
+  {
+    "question": "What is data leakage and how do you prevent it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Using information at training time that would not exist at prediction time",
+      "Types: target leakage, train-test contamination, temporal leakage, duplicates across splits",
+      "Split first, then fit scalers, encoders and selectors on training data only",
+      "Use pipelines and time-based splits; suspiciously high scores are a red flag"
+    ]
+  },
+  {
+    "question": "What is multicollinearity and how do you detect and fix it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Independent features highly correlated with each other",
+      "Causes unstable coefficients and inflated variance, hurting interpretability",
+      "Detect with correlation matrix or VIF = 1 / (1 - R squared); above 5 to 10 is a concern",
+      "Fix by dropping or combining features, PCA or Ridge regularization"
+    ]
+  },
+  {
+    "question": "What are the main feature selection techniques?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Filter: correlation, chi-square, ANOVA F-test, mutual information",
+      "Wrapper: forward selection, backward elimination, recursive feature elimination",
+      "Embedded: Lasso, tree-based feature importance",
+      "Reduces overfitting and training cost and improves interpretability"
+    ]
+  },
+  {
+    "question": "How does PCA work, and why does it maximize variance?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Standardize, compute covariance matrix, find eigenvectors and eigenvalues, keep top components, project",
+      "Eigenvectors give directions; eigenvalues give variance explained",
+      "Variance is treated as information, so high-variance directions are kept",
+      "Linear, sensitive to scaling, components are hard to interpret"
+    ]
+  },
+  {
+    "question": "Compare PCA, LDA, t-SNE and UMAP for dimensionality reduction.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "PCA: unsupervised, linear, maximizes variance",
+      "LDA: supervised, maximizes class separability",
+      "t-SNE: non-linear, preserves local structure, for visualization, slow and varies with perplexity",
+      "UMAP: faster and preserves more global structure than t-SNE"
+    ]
+  },
+  {
+    "question": "What is the curse of dimensionality and how do you address it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Data becomes sparse as features grow; distances lose meaning",
+      "Hurts KNN and clustering; raises overfitting risk and compute cost",
+      "Needs exponentially more data to keep coverage",
+      "Fix with feature selection, PCA or other reduction, regularization"
+    ]
+  },
+  {
+    "question": "How does a Random Forest work, and how does it ensure diversity among trees?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ensemble of decision trees trained on bootstrap samples",
+      "Random feature subset at each split decorrelates trees",
+      "Majority vote for classification, average for regression",
+      "Provides feature importance and out-of-bag error estimates"
+    ]
+  },
+  {
+    "question": "Which hyperparameters in a Random Forest help prevent overfitting?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "max_depth, min_samples_split, min_samples_leaf, max_leaf_nodes limit tree complexity",
+      "max_features adds randomness",
+      "max_samples and bootstrap control sampling diversity",
+      "More trees stabilize predictions but do not by themselves fix overfitting"
+    ]
+  },
+  {
+    "question": "What is out-of-bag (OOB) error?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Each bootstrap sample leaves out roughly one third of the data",
+      "Left-out samples are predicted by trees that did not see them",
+      "Gives an unbiased estimate of generalization error",
+      "Reduces the need for a separate validation set"
+    ]
+  },
+  {
+    "question": "Why are random forests more robust to outliers than a single decision tree?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A single tree can overfit to extreme values in its splits",
+      "Averaging many trees on different samples dilutes outlier influence",
+      "Reduces variance overall",
+      "Tree splits depend on ordering, not magnitude"
+    ]
+  },
+  {
+    "question": "Explain AdaBoost, Gradient Boosting and XGBoost, and how LightGBM and CatBoost differ.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "AdaBoost reweights misclassified samples and combines weak learners by weighted vote",
+      "Gradient Boosting fits each tree to the residuals of the previous ensemble by gradient descent on a loss",
+      "XGBoost adds L1/L2 regularization, parallelism, pruning and missing-value handling",
+      "LightGBM is histogram-based and fast; CatBoost handles categorical features natively with ordered boosting"
+    ]
+  },
+  {
+    "question": "How do you prevent overfitting in decision trees? What is pruning?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Limit max_depth, min_samples_split and min_samples_leaf",
+      "Pre-pruning stops growth early; post-pruning removes weak branches (cost-complexity pruning)",
+      "Use ensembles such as Random Forest or boosting",
+      "Monitor with cross-validation"
+    ]
+  },
+  {
+    "question": "How do ID3 and CART differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ID3 is classification only and uses entropy and information gain",
+      "CART handles classification and regression",
+      "CART uses Gini index for classification and MSE for regression",
+      "CART always creates binary splits"
+    ]
+  },
+  {
+    "question": "How do you choose the optimal number of clusters, and what is the difference between K-means and KNN?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Elbow method on within-cluster sum of squares; silhouette score; gap statistic; domain sense",
+      "K-means is unsupervised clustering of unlabeled data",
+      "KNN is supervised classification or regression using labeled neighbors",
+      "Check cluster stability across random initializations"
+    ]
+  },
+  {
+    "question": "Explain hierarchical clustering and linkage methods.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Agglomerative (bottom-up) merges closest clusters; divisive (top-down) splits",
+      "Dendrogram shows merges and can be cut to choose cluster count",
+      "Single linkage chains; complete gives compact clusters; average balances; Ward minimizes within-cluster variance",
+      "Computationally expensive on large data"
+    ]
+  },
+  {
+    "question": "How does DBSCAN work and when is it better than K-means?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Density-based: core points have at least minPts neighbors within eps",
+      "Finds arbitrary-shaped clusters and labels noise points",
+      "No need to pre-set the number of clusters",
+      "Sensitive to eps and minPts and struggles with varying densities (OPTICS helps)"
+    ]
+  },
+  {
+    "question": "What are Gaussian Mixture Models and how does the EM algorithm work?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Models data as a mixture of Gaussians and gives soft cluster probabilities",
+      "E-step: compute the probability each point belongs to each component",
+      "M-step: update means, covariances and mixing weights to maximize likelihood",
+      "Can converge to local optima and is sensitive to initialization"
+    ]
+  },
+  {
+    "question": "What are the common SVM kernels, and what do C and gamma control?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Linear for high-dimensional or text data; polynomial for curved boundaries; RBF is the common default",
+      "C trades margin width against misclassification (soft margin)",
+      "Gamma sets the reach of each support vector: too high overfits, too low underfits",
+      "SVMs also support regression (SVR) and need feature scaling"
+    ]
+  },
+  {
+    "question": "What assumptions does Naive Bayes make, and what are its variants?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Features are conditionally independent given the class",
+      "Gaussian for continuous, Multinomial for counts, Bernoulli for binary features",
+      "Laplace smoothing avoids zero probabilities",
+      "Works well in high dimensions despite the unrealistic assumption"
+    ]
+  },
+  {
+    "question": "Explain the ROC curve and AUC.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Plots true positive rate against false positive rate across thresholds",
+      "AUC is the probability a random positive is ranked above a random negative",
+      "AUC 1 is perfect, 0.5 is random",
+      "On heavily imbalanced data, PR curves are often more informative"
+    ]
+  },
+  {
+    "question": "How do you choose a classification threshold?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Default 0.5 is not always optimal",
+      "Use precision-recall or ROC curves to pick the operating point",
+      "Base it on the relative cost of false positives and false negatives",
+      "Tune on validation data and calibrate probabilities if needed"
+    ]
+  },
+  {
+    "question": "How do you evaluate a regression model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "MAE is robust to outliers; MSE and RMSE penalize large errors (RMSE is in target units)",
+      "R-squared is variance explained; adjusted R-squared penalizes extra predictors",
+      "Inspect residual plots for patterns and assumption violations",
+      "Residuals are actual minus predicted values"
+    ]
+  },
+  {
+    "question": "Which cross-validation approach suits time-series data, and why?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use forward-chaining (expanding window) splits",
+      "The test set must come after the training set in time",
+      "Random k-fold leaks future information into training",
+      "Fit scalers and features on past data only"
+    ]
+  },
+  {
+    "question": "Compare grid search, random search and Bayesian optimization for hyperparameter tuning.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Grid search tests all combinations: exhaustive but expensive",
+      "Random search samples combinations and is often more efficient in large spaces",
+      "Bayesian optimization uses a surrogate model and acquisition function to pick promising settings",
+      "Evaluate each candidate with cross-validation"
+    ]
+  },
+  {
+    "question": "How do you fix a model with low bias and high variance, and one with high bias and low variance?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "High variance: regularization, bagging, more data, fewer features, simpler model",
+      "High bias: more complex model, more or better features, reduce regularization, train longer",
+      "Diagnose with learning curves",
+      "Verify with cross-validation"
+    ]
+  },
+  {
+    "question": "Explain backpropagation in neural networks.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Forward pass computes predictions and loss",
+      "Backward pass computes gradients of loss with respect to each weight via the chain rule",
+      "Optimizer (SGD, Adam) updates weights using the gradients",
+      "Repeated over batches and epochs"
+    ]
+  },
+  {
+    "question": "Why use convolutions for images instead of fully connected layers?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Preserve and exploit spatial structure",
+      "Weight sharing sharply reduces parameters (a 250x250x3 image into 1000 dense units needs 187.5M weights)",
+      "Filters give partial translation invariance",
+      "Learn hierarchical features: edges, textures, objects"
+    ]
+  },
+  {
+    "question": "How does convolution work, what determines output shape, and why use small kernels and pooling?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Kernel slides over input computing element-wise products and sums, producing a feature map",
+      "RGB input uses a kernel with depth 3",
+      "Output size depends on kernel size, number of kernels, stride, padding and dilation",
+      "Stacked small kernels (e.g. 3x3) give the same receptive field with fewer parameters and more non-linearity; pooling reduces compute"
+    ]
+  },
+  {
+    "question": "What is batch normalization and why does it help?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Normalizes layer inputs per mini-batch to zero mean and unit variance, then applies learnable scale and shift",
+      "Stabilizes and speeds training",
+      "Reduces sensitivity to initialization and allows higher learning rates",
+      "Acts as mild regularization"
+    ]
+  },
+  {
+    "question": "How do RNN, LSTM and GRU differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RNN keeps a hidden state to model sequences but suffers vanishing gradients",
+      "LSTM uses forget, input and output gates plus a cell state for long-term memory",
+      "GRU merges gates and has no separate cell state: fewer parameters and faster",
+      "Transformers have largely replaced them for long sequences"
+    ]
+  },
+  {
+    "question": "What is transfer learning and when should you use it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuse a model pre-trained on a large dataset for a related task",
+      "Freeze early layers and fine-tune later ones, or use the model as a feature extractor",
+      "Ideal for small datasets; cuts training time and compute",
+      "Examples: ResNet for medical imaging, BERT for sentiment analysis"
+    ]
+  },
+  {
+    "question": "How do you train a CNN when you have a small dataset?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use transfer learning from a pre-trained model and fine-tune the last layers",
+      "Apply data augmentation (flip, rotate, crop, noise, color jitter)",
+      "Add regularization such as dropout and early stopping",
+      "Keep the architecture small"
+    ]
+  },
+  {
+    "question": "What is the difference between stemming and lemmatization?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stemming crudely chops affixes and may produce non-words (changing to chang)",
+      "Lemmatization uses vocabulary and morphology to return a valid base word (better to good)",
+      "Stemming is faster; lemmatization is more accurate and costlier",
+      "Both normalize text to reduce vocabulary size"
+    ]
+  },
+  {
+    "question": "Compare content-based and collaborative filtering recommenders.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Content-based recommends items similar in features to what the user liked; needs no other users",
+      "Collaborative uses user-item interactions (user-based or item-based)",
+      "Content-based handles new items but struggles with new users; collaborative suffers cold start for both",
+      "Hybrids combine both; evaluate with precision@k and A/B tests"
+    ]
+  },
+  {
+    "question": "What is anomaly detection and which techniques are used?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Identifies rare observations that deviate from normal behavior (fraud, intrusion, faults)",
+      "Methods: z-score or IQR, Isolation Forest, One-Class SVM, autoencoders, clustering",
+      "One-Class SVM learns a boundary around normal data; tune with the nu parameter",
+      "Use precision and recall since anomalies are rare"
+    ]
+  },
+  {
+    "question": "What is model drift, and how do data drift and concept drift differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model performance degrades because the world changes after training",
+      "Data drift: input feature distribution changes",
+      "Concept drift: the relationship between inputs and target changes",
+      "Detect via performance monitoring and statistical tests (PSI, KL divergence); fix by retraining"
+    ]
+  },
+  {
+    "question": "How do you interpret a model's predictions? Explain feature importance, SHAP and LIME.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Model-based importance (tree impurity decrease) and permutation importance",
+      "SHAP uses Shapley values for global and local feature contributions",
+      "LIME fits a simple local surrogate model around one prediction",
+      "Prefer inherently interpretable models in regulated domains"
+    ]
+  },
+  {
+    "question": "What is association rule mining? Explain support, confidence, lift and Apriori.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Finds items that co-occur in transactions (market basket analysis)",
+      "Support: frequency of an itemset; confidence: P(consequent given antecedent); lift: strength versus independence",
+      "Apriori generates candidate itemsets level by level using a minimum support",
+      "FP-Growth uses an FP-tree and avoids candidate generation"
+    ]
+  },
+  {
+    "question": "Explain ARIMA, SARIMA and exponential smoothing for time series forecasting.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ARIMA(p,d,q): autoregression, differencing to make the series stationary, moving average of errors",
+      "SARIMA adds seasonal terms (P,D,Q,m)",
+      "Exponential smoothing weights recent observations more: simple, Holt (trend), Holt-Winters (trend and seasonality)",
+      "Check stationarity and handle outliers and missing values"
+    ]
+  },
+  {
+    "question": "What is the difference between generative and discriminative models?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generative models learn P(X,Y) and can synthesize data (Naive Bayes, GMM, HMM, GANs)",
+      "Discriminative models learn P(Y|X) or the decision boundary directly (logistic regression, SVM, trees)",
+      "Discriminative models usually classify more accurately with enough data",
+      "Generative models handle missing data and generation tasks"
+    ]
+  },
+  {
+    "question": "How do you choose the right machine learning algorithm for a problem?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Consider problem type, data size and quality, feature types and labels available",
+      "Weigh interpretability and compute or latency constraints",
+      "Start with simple baselines and run EDA",
+      "Confirm choices with cross-validation, not guesswork"
+    ]
+  }
+]

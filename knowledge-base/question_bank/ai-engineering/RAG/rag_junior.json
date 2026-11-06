@@ -334,5 +334,19 @@
       "Final logits go through a sampling strategy, then detokenization and streaming",
       "Production wraps this with system prompts, guardrails, and cost logging"
     ]
+  },{
+    "question": "How do LLMs actually generate text?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Input text is split into tokens and converted to embeddings",
+      "Transformer layers with self-attention produce a probability distribution over the next token",
+      "Generation is autoregressive: pick a token, append it, repeat until a stop token or length limit",
+      "Decoding settings like temperature, top-k and top-p control randomness versus determinism",
+      "Trained on next-token prediction at scale, then instruction-tuned or aligned (e.g. RLHF)"
+    ]
   }
 ]

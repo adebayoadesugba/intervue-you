@@ -1,0 +1,186 @@
+[
+
+    {
+    "question": "How do you prevent catastrophic forgetting when fine-tuning a pretrained transformer on a small dataset?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Lower learning rate and freeze most layers or use LoRA/adapters",
+      "Mix in some general data (replay) and use regularization",
+      "Early stopping and evaluate on both domain and general benchmarks",
+      "Fine-tune only as much as the task requires"
+    ]
+  },
+  {
+    "question": "What techniques optimize LLM inference speed in production?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization (FP16 to INT8/INT4) to shrink memory and compute",
+      "KV-cache management such as PagedAttention for throughput",
+      "Speculative decoding with a small draft model verified by the large one",
+      "Batching, distillation and efficient attention implementations"
+    ]
+  },
+  {
+    "question": "How do you handle LLM hallucinations and long-context limits, and when do you choose RAG over fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ground answers with retrieval (RAG), chunking and verified context",
+      "Prompting, self-consistency and guardrails reduce unsupported claims",
+      "RAG for fresh or private knowledge; fine-tuning for style, format and behavior",
+      "Check context limits, truncation and retrieval quality when long context fails"
+    ]
+  },
+  {
+    "question": "How do diffusion language models work, and how do they compare with autoregressive generation?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generate text by iteratively denoising or unmasking tokens, often many positions in parallel",
+      "Autoregressive models generate strictly left to right, one token at a time",
+      "Diffusion can use bidirectional context and may speed up generation",
+      "Autoregressive models remain the dominant, best-understood approach; compare on quality, speed and controllability"
+    ]
+  },
+  {
+    "question": "How do tensor shapes, dtypes and devices change from tokenizer output to model logits?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tokenizer gives input_ids and attention_mask of shape (batch, seq) as integer tensors, padded to equal length",
+      "Embedding layer produces (batch, seq, hidden) floating-point tensors",
+      "Final layer yields logits of shape (batch, seq, vocab)",
+      "Inputs and model must be on the same device; masks prevent attention to padding"
+    ]
+  }
+,
+  {
+    "question": "How do you deploy an NLP model to production and scale it for high-throughput applications?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Wrap the model in an API (FastAPI/Flask), containerize with Docker, serve behind a load balancer; use TorchServe or Triton for high traffic",
+      "Real-time inference needs small or optimized models and caching; batch inference can use larger models offline",
+      "Scale with replicas, async inference, model parallelism, and efficient models like DistilBERT",
+      "Reduce latency with quantization and distillation, and verify the accuracy impact"
+    ]
+  },
+  {
+    "question": "What does monitoring an NLP system in production look like?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Operational metrics: latency, throughput, and error rates",
+      "Model signals: confidence score distributions, input length histograms, prediction distribution drift",
+      "Watch input vocabulary and topic shift, which can degrade performance before labeled evaluation catches it",
+      "Sample outputs for human review; define retraining triggers and alerts"
+    ]
+  },
+  {
+    "question": "How would you design a data pipeline for continuous text ingestion?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use a message queue or stream (Kafka, Pub/Sub) to buffer incoming text",
+      "Preprocess in parallel workers; make jobs idempotent and retryable",
+      "Store raw and processed versions separately so reprocessing is easy when logic changes",
+      "Handle deduplication, language detection, schema validation, and monitoring of lag"
+    ]
+  },
+  {
+    "question": "How do you decide between a classical ML model, a fine-tuned transformer, and LLM prompting for a text task?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classical models (logistic regression or SVM on TF-IDF): small data, tight latency or compute, strong interpretable baselines",
+      "Fine-tuned BERT-style models: enough labeled data and a stable task needing high accuracy at low per-request cost",
+      "LLM prompting: little labeled data, changing or open-ended tasks; costlier, slower, and less predictable",
+      "Benchmark all options on your own evaluation set for accuracy, latency, cost, and maintainability"
+    ]
+  },
+  {
+    "question": "What are the trade-offs between prompt tuning and full fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Fine-tuning updates all weights: strongest performance but needs compute and a model copy per task",
+      "Prompt tuning learns soft prompt embeddings with the model frozen: very parameter-efficient and easy to serve many tasks",
+      "Prompt tuning tends to lag full fine-tuning at smaller model scales and converges closer at large scale",
+      "Related options: prefix tuning, adapters, and LoRA"
+    ]
+  },
+  {
+    "question": "What role does reinforcement learning play in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Optimizes sequence-level objectives that are not differentiable, using reward signals",
+      "Uses: dialogue systems, summarization, machine translation, and text generation quality",
+      "RLHF aligns models to human preferences; alternatives include DPO and RLAIF",
+      "Challenges: reward design, reward hacking, training instability, and cost"
+    ]
+  },
+  {
+    "question": "How do you connect NLP model performance to business outcomes?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Translate model metrics into business impact (e.g., F1 gain means fewer misrouted support tickets)",
+      "Define success metrics and cost of errors with stakeholders before building",
+      "Track online outcomes (resolution rate, conversion, handling time) alongside offline metrics",
+      "Use impact to prioritize improvements and decide when quality is good enough"
+    ]
+  },
+  {
+    "question": "How do you process documents longer than a transformer's token limit, and what are efficient transformer variants?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BERT-style models cap input at about 512 tokens; naive truncation loses information",
+      "Strategies: chunk with overlap and aggregate predictions, hierarchical models, summarize first, or retrieve relevant passages",
+      "Efficient architectures use sparse or windowed attention (Longformer, BigBird) or low-rank/approximate attention (Linformer, Reformer)",
+      "Self-attention cost grows quadratically with length; choose by accuracy needs and compute budget"
+    ]
+  }
+]

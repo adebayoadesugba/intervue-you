@@ -1,0 +1,447 @@
+[
+  {
+    "question": "How do you manage design consistency across a product with multiple teams or squads?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Centralised design system with a clear owner",
+      "Documented design principles for decisions",
+      "Regular cross-squad design critiques",
+      "Contribution model: propose, review, document, publish",
+      "Shared libraries propagate updates"
+    ]
+  },
+  {
+    "question": "How do you build and govern a design system at scale?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define components, tokens, documentation and usage guidelines",
+      "Treat the system as a product with users and a roadmap",
+      "Governance and contribution process",
+      "Align with engineering through shared tokens",
+      "Measure adoption and maintain continuously"
+    ]
+  },
+  {
+    "question": "How do you decide whether to create a new component or adapt an existing one?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Check if an existing component can meet the need",
+      "Consider reuse across multiple teams",
+      "Avoid fragmentation and component bloat",
+      "Follow the contribution and review process",
+      "Document states and variants"
+    ]
+  },
+  {
+    "question": "How do you document component states and design tokens for developers?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define default, hover, focus, disabled, error and loading states",
+      "Map tokens to code for colour, spacing and type",
+      "Annotate behaviour and accessibility",
+      "Use Dev Mode or specs for handoff",
+      "Keep design and code libraries in sync"
+    ]
+  },
+  {
+    "question": "How do you run a design sprint?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Five days: Map, Sketch, Decide, Prototype, Test",
+      "Individual sketching before group voting",
+      "Build a realistic prototype quickly",
+      "Test with about five users on the final day",
+      "Result: validated learning without building the product"
+    ]
+  },
+  {
+    "question": "How do you define and measure UX success beyond basic task completion?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Satisfaction: SUS and NPS",
+      "Retention and engagement",
+      "Efficiency for internal tools",
+      "Business impact: conversion, revenue, support costs",
+      "Set KPIs aligned to business goals upfront"
+    ]
+  },
+  {
+    "question": "How do you combine quantitative and qualitative data to inform design decisions?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantitative shows what is happening and where",
+      "Qualitative explains why",
+      "Use analytics to find problem areas then research to understand causes",
+      "Validate qualitative hypotheses with A/B tests",
+      "Triangulate for a holistic view"
+    ]
+  },
+  {
+    "question": "What is design debt and how do you manage it?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Accumulated inconsistencies and suboptimal decisions from shortcuts",
+      "Identify through design audits",
+      "Add it to the backlog and prioritise with product and engineering",
+      "Educate stakeholders on long-term cost",
+      "Prevent with design systems and regular reviews"
+    ]
+  },
+  {
+    "question": "How do you design for complex enterprise or specialised systems?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Deep user research: contextual inquiry and domain experts",
+      "Map workflows and mental models",
+      "Use progressive disclosure and modular design",
+      "Optimise for efficiency for power users",
+      "Continuous feedback loops"
+    ]
+  },
+  {
+    "question": "How would you design a system that serves both novice and expert users?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Layered complexity with progressive disclosure",
+      "Clear guidance for beginners",
+      "Shortcuts and power features for experts",
+      "Customisable interfaces",
+      "Adaptive suggestions as skill grows"
+    ]
+  },
+  {
+    "question": "How do you research a product for global or multicultural audiences?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Background research on cultures and digital behaviours",
+      "Partner with local researchers and translators",
+      "Adapt methods and materials to context",
+      "Avoid cultural bias and stereotypes",
+      "Compare findings across markets"
+    ]
+  },
+  {
+    "question": "When would you recommend a longitudinal study and what are the challenges?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "To observe behaviour or attitudes over time, e.g. long-term feature impact",
+      "Multiple touchpoints: diary studies, surveys, interviews",
+      "Challenges: participant attrition and cost",
+      "Mitigate with incentives and regular check-ins"
+    ]
+  },
+  {
+    "question": "How do you ensure personas stay accurate and decide how many to create?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validate with additional research and analytics",
+      "Update as new data arrives",
+      "Typically 3 to 5 distinct personas",
+      "Quality over quantity; prioritise by importance",
+      "Consider edge cases as extensions"
+    ]
+  },
+  {
+    "question": "How do you determine sample size for qualitative and quantitative studies?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Qualitative: about 5 to 8 per segment until patterns repeat",
+      "Quantitative: depends on confidence level and effect size",
+      "Consider segments and diversity",
+      "Explain the limits of each to stakeholders"
+    ]
+  },
+  {
+    "question": "What are the pros and cons of research democratisation?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pros: scales research and builds user empathy across teams",
+      "Cons: inconsistent quality and risk of biased methods",
+      "Mitigate with training, templates and researcher oversight",
+      "Researchers focus on strategic work"
+    ]
+  },
+  {
+    "question": "How do you manage and mitigate your own bias during research?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use neutral, non-leading questions",
+      "Predefine research questions and analysis approach",
+      "Involve a second analyst",
+      "Seek disconfirming evidence",
+      "Reflect on assumptions"
+    ]
+  },
+  {
+    "question": "How do remote and in-person research differ and how do you adapt?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Remote widens recruitment and is convenient",
+      "Challenges: tech issues, less environmental context",
+      "In-person gives richer observation",
+      "Adapt tasks, tools and session length",
+      "Choose based on goals and participants"
+    ]
+  },
+  {
+    "question": "What ethical considerations apply to user research?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Informed consent and transparency",
+      "Data privacy and anonymisation",
+      "Fair compensation",
+      "Protect vulnerable participants",
+      "Avoid bias and misrepresentation"
+    ]
+  },
+  {
+    "question": "What are mental models and how do you use them in research?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Users' internal beliefs about how a system works",
+      "Uncovered via interviews and card sorting",
+      "Compare with the actual system design",
+      "Inform IA and interface design",
+      "Vary across user groups and cultures"
+    ]
+  },
+  {
+    "question": "How would you approach designing an AI-powered feature?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Define the user problem first",
+      "Make outputs understandable and transparent",
+      "Give users control to edit, undo and give feedback",
+      "Test how users interpret and trust results",
+      "Plan for errors and limitations"
+    ]
+  },
+  {
+    "question": "What are the ethical risks in designing AI and ML-driven products?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Bias and unfair outcomes",
+      "Lack of transparency and explainability",
+      "Over-reliance and loss of user control",
+      "Fairness testing, recourse and monitoring",
+      "Designers advocate for responsible use"
+    ]
+  },
+  {
+    "question": "How do you design ethically and avoid dark patterns?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Be transparent about data and choices",
+      "Avoid manipulative design like hidden costs or forced actions",
+      "Quantify user trust cost to stakeholders",
+      "Escalate genuinely harmful requests",
+      "Prioritise privacy and consent"
+    ]
+  },
+  {
+    "question": "How do you balance innovation with usability and feasibility?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ground ideas in real user problems",
+      "Prototype and test early",
+      "Check feasibility with engineering",
+      "Iterate to refine",
+      "Avoid novelty for its own sake"
+    ]
+  },
+  {
+    "question": "How do you design for users on low bandwidth or low-end devices?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Confirm target devices and network conditions through research",
+      "Lightweight, text-first layouts and compressed images",
+      "Skeleton loading states and offline support",
+      "Test with throttled networks",
+      "Prioritise core tasks"
+    ]
+  },
+  {
+    "question": "How do you design for users with low digital literacy, including USSD or feature-phone contexts?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Field research in the user's own context",
+      "Icons plus text and minimal steps",
+      "Familiar mental models like USSD-style flows",
+      "Local language support and audio cues",
+      "Test with real target users"
+    ]
+  },
+  {
+    "question": "How do you measure the impact of your research on product decisions?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ux-researcher",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Adoption: findings referenced in roadmaps and PRDs",
+      "Influence: decisions changed or delayed because of research",
+      "Outcomes: improved metrics from research-informed features",
+      "Share impact with leadership regularly"
+    ]
+  },
+  {
+    "question": "What is ecosystem mapping and what does it reveal?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maps actors, systems and touchpoints and how they interact",
+      "Shows interdependencies and risks",
+      "Reveals how changes ripple through stakeholders",
+      "Supports systems thinking beyond individual screens"
+    ]
+  },
+  {
+    "question": "How do you design a seamless experience across mobile, web and other devices?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Consistent design language and data sync",
+      "Allow users to continue tasks across devices",
+      "Adapt interaction patterns per device",
+      "Prioritise content per context",
+      "Test cross-device journeys"
+    ]
+  },
+  {
+    "question": "How do you design personalisation without making the interface inconsistent or overwhelming?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "product-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Keep layout and navigation stable",
+      "Personalise content and recommendations only",
+      "Give users control over settings",
+      "Be transparent about why content is shown",
+      "Test for comprehension"
+    ]
+  },
+  {
+    "question": "How do you communicate reading order and accessibility labels to developers?",
+    "category": "uiux",
+    "difficulty": "senior",
+    "stack": "ui-designer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Annotate focus order and heading structure",
+      "Provide alt text and ARIA labels",
+      "Specify keyboard interactions",
+      "Use accessibility annotation tools or plugins",
+      "Verify with screen reader testing"
+    ]
+  }
+]

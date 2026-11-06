@@ -1,0 +1,509 @@
+[
+
+ {
+    "question": "What is the difference between BERT and GPT, and between encoder-only, decoder-only and encoder-decoder transformers?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BERT: encoder-only, bidirectional, masked language modeling; good for understanding tasks",
+      "GPT: decoder-only, causal next-token prediction; good for generation",
+      "Encoder-decoder (T5, original Transformer) suits translation and summarization",
+      "Choose by task: classification and NER versus text generation"
+    ]
+  },
+ 
+  {
+    "question": "How does text generation work in a transformer language model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tokenize the prompt, embed tokens and add positional information",
+      "Self-attention layers produce contextual representations; final layer yields logits over the vocabulary",
+      "Decoding strategy picks the next token: greedy, temperature, top-k, top-p",
+      "Autoregressive: append the token and repeat until a stop condition"
+    ]
+  }
+,
+  {
+    "question": "What is the difference between static and contextual word embeddings, and what are the limitations of Word2Vec?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Static embeddings (Word2Vec, GloVe, FastText) give one fixed vector per word regardless of context",
+      "Contextual embeddings (ELMo, BERT, GPT) produce different vectors based on surrounding words, handling polysemy such as 'bank'",
+      "Word2Vec limitations: polysemy, no OOV handling (unlike FastText), and no sentence-level context",
+      "Contextual models are costlier but significantly stronger on most tasks"
+    ]
+  },
+  {
+    "question": "How do LSTM and GRU networks address the vanishing gradient problem, and how do they differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LSTM uses a cell state with input, forget, and output gates controlling what to store, discard, and expose",
+      "GRU simplifies this with reset and update gates and no separate cell state",
+      "Gating gives gradients a more stable path, enabling longer-range dependencies",
+      "GRUs are lighter and faster; LSTMs can be more expressive; transformers have largely replaced both for many tasks"
+    ]
+  },
+  {
+    "question": "How do sequence-to-sequence encoder-decoder models work, and how does attention improve machine translation?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encoder compresses the input sequence; decoder generates the output token by token",
+      "Basic models squeeze everything into one fixed context vector, which bottlenecks long inputs",
+      "Attention lets the decoder weight different encoder states at each step, aligning source and target words",
+      "Applications: translation, summarization, dialogue, speech recognition"
+    ]
+  },
+  {
+    "question": "What is BERT, and how do you fine-tune it for a downstream task such as text classification?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BERT is a bidirectional transformer encoder pretrained with masked language modeling on large corpora",
+      "Fine-tuning adds a task-specific head (e.g., classification layer on the [CLS] representation)",
+      "Train on labeled data with a small learning rate, updating pretrained weights",
+      "Needs far less labeled data than training from scratch; watch for overfitting on small datasets"
+    ]
+  },
+  {
+    "question": "Compare BERT, GPT, and T5 in terms of architecture, pretraining objective, and best use cases.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BERT: encoder-only, masked LM; best for understanding tasks like classification, NER, QA",
+      "GPT: decoder-only, causal LM; best for generation and in-context learning",
+      "T5: encoder-decoder, text-to-text framework with span-corruption pretraining; handles translation, summarization, classification in one format",
+      "Pick by task type: understanding, generation, or sequence-to-sequence"
+    ]
+  },
+  {
+    "question": "What was Next Sentence Prediction in BERT, and why did later models drop it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "NSP is a binary task: is sentence B the actual next sentence of A (50%) or a random one (50%)?",
+      "Intended to teach inter-sentence relationships for tasks like QA and inference",
+      "RoBERTa and others found it adds little or nothing and trained better without it using longer contiguous text",
+      "ALBERT replaced it with Sentence Order Prediction, a harder and more useful task"
+    ]
+  },
+  {
+    "question": "How do BPE, WordPiece, and Unigram subword tokenization differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BPE iteratively merges the most frequent adjacent symbol pairs to build the vocabulary",
+      "WordPiece (BERT) selects merges that maximize training-data likelihood rather than raw frequency",
+      "Unigram starts with a large vocabulary and prunes tokens by their loss contribution, allowing probabilistic segmentation (SentencePiece)",
+      "All handle rare words well; tokenizer choice affects efficiency, especially for non-English text"
+    ]
+  },
+  {
+    "question": "What is the difference between dependency parsing and constituency parsing?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dependency parsing links words to heads via grammatical relations (subject, object, modifier)",
+      "Constituency parsing builds a hierarchical phrase-structure tree (noun phrase, verb phrase)",
+      "Dependency trees are compact and common in information extraction and relation extraction",
+      "Approaches: transition-based, graph-based, and neural parsers (spaCy, Stanza)"
+    ]
+  },
+  {
+    "question": "What is Word Sense Disambiguation, and how does it differ from Named Entity Recognition?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "WSD selects the correct meaning of an ambiguous word from context (e.g., 'bank' as institution vs riverbank)",
+      "NER detects and classifies named entities, not word meanings",
+      "WSD methods: knowledge-based (WordNet), supervised, and unsupervised; contextual embeddings help",
+      "Useful for translation, search, and semantic analysis"
+    ]
+  },
+  {
+    "question": "What is coreference resolution, and why does it matter?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Links mentions that refer to the same entity (pronouns and noun phrases)",
+      "Example: 'Sundar Pichai leads Google. He joined in 2004.' links 'He' to 'Sundar Pichai'",
+      "Types: pronominal and nominal resolution",
+      "Important for summarization, question answering, and information extraction across sentences"
+    ]
+  },
+  {
+    "question": "What is topic modeling, and how do LDA, NMF, LSA, and BERTopic differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unsupervised discovery of themes in a document collection",
+      "LDA: probabilistic model of documents as topic mixtures and topics as word distributions",
+      "NMF and LSA/LSI factorize the document-term matrix (LSA via SVD), capturing latent relationships between terms",
+      "BERTopic uses transformer embeddings plus clustering for richer topics; applications include trend analysis and organization"
+    ]
+  },
+  {
+    "question": "How would you build and evaluate a Named Entity Recognition system?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Annotate data with entity labels (BIO scheme); handle ambiguous or overlapping entities",
+      "Model options: rules, CRF, BiLSTM-CRF, or fine-tuned transformers such as BERT",
+      "Evaluate with entity-level precision, recall, and F1 rather than token-level accuracy alone",
+      "Address rare entity types and domain-specific terminology with more data or augmentation"
+    ]
+  },
+  {
+    "question": "What is the difference between text classification and sequence labeling?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Text classification assigns one label to an entire text (spam, sentiment, topic)",
+      "Sequence labeling assigns a label to every token (NER, POS tagging)",
+      "Sequence labeling models must capture dependencies between neighboring labels (CRF, BiLSTM, transformers)",
+      "Evaluation differs: document-level metrics vs token- or entity-level metrics"
+    ]
+  },
+  {
+    "question": "How would you build a text classification system end to end, and which algorithms would you consider?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pipeline: collect and label data, clean, vectorize (TF-IDF or embeddings), train, evaluate, deploy",
+      "Classical models: Naive Bayes, logistic regression, SVM (strong on sparse TF-IDF), and tree ensembles",
+      "Neural options: CNNs, LSTMs, and fine-tuned transformers",
+      "Handle class imbalance, high dimensionality, and ambiguity; evaluate with a held-out set using F1 and confusion matrix"
+    ]
+  },
+  {
+    "question": "How does a CNN differ from an RNN for text processing?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CNNs apply filters over word windows to detect local n-gram-like patterns; highly parallelizable",
+      "RNNs process tokens sequentially with a hidden state to model order and longer context",
+      "CNNs are fast and strong for classification and phrase detection; RNNs suit sequence modeling and generation",
+      "Transformers have largely superseded both through self-attention and parallelism"
+    ]
+  },
+  {
+    "question": "How do you measure text similarity (cosine similarity, Jaccard, edit distance, Word Mover's Distance)?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Cosine similarity compares the angle between TF-IDF or embedding vectors",
+      "Jaccard measures overlap between word sets: |A ∩ B| / |A ∪ B|",
+      "Levenshtein distance counts character edits; used for spell checking and fuzzy matching",
+      "Word Mover's Distance uses word embeddings to measure the cost of moving one document's words to another's, capturing paraphrases"
+    ]
+  },
+  {
+    "question": "What is the difference between extractive and abstractive text summarization?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Extractive selects important sentences from the source (TF-IDF, TextRank, embedding clustering); faithful but can be disjointed",
+      "Abstractive generates new text with seq2seq or transformer models (BART, T5, PEGASUS); fluent but may hallucinate",
+      "Evaluate with ROUGE, BERTScore, and human review for factual consistency",
+      "Choose by tolerance for hallucination versus need for fluency"
+    ]
+  },
+  {
+    "question": "What are the main approaches to machine translation: rule-based, statistical, and neural?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Rule-based: linguistic rules and dictionaries; precise on structured text but labor-intensive",
+      "Statistical: phrase tables learned from parallel corpora; more flexible but limited fluency",
+      "Neural: encoder-decoder with attention and transformers; fluent and context-aware",
+      "NMT needs large data and compute and can hallucinate; evaluate with BLEU and human judgment"
+    ]
+  },
+  {
+    "question": "What is information extraction, and what are its components?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Converts unstructured text into structured data",
+      "Components: NER, relation extraction (e.g., founder-of), and event extraction",
+      "Often feeds knowledge graphs, search, and analytics",
+      "Distinguish from information retrieval, which returns relevant documents to the user"
+    ]
+  },
+  {
+    "question": "Your sentiment model performs poorly on slang-heavy social media text. How do you diagnose and improve it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with error analysis to find which slang, emojis, or abbreviations fail",
+      "Use subword tokenizers and normalize noise such as elongated words, hashtags, and mentions",
+      "Collect and label domain-specific data and fine-tune a pretrained model",
+      "Address domain shift and class imbalance; validate on a representative holdout set"
+    ]
+  },
+  {
+    "question": "What data augmentation techniques exist for NLP?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Back-translation, synonym replacement, paraphrasing, entity replacement, and noise injection",
+      "Generative models can create synthetic examples for minority classes",
+      "Useful with small or imbalanced datasets",
+      "Risks: label drift or unnatural text, so validate augmented data and never leak into the test set"
+    ]
+  },
+  {
+    "question": "How do you approach NLP problems with limited labeled data?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Transfer learning: fine-tune a pretrained model on the small labeled set",
+      "Semi-supervised learning with pseudo-labeling; active learning to label the most informative examples",
+      "Data augmentation and few-shot prompting",
+      "Unsupervised or domain-adaptive pretraining on unlabeled in-domain text"
+    ]
+  },
+  {
+    "question": "How do you handle multilingual and low-resource languages in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use multilingual pretrained models such as mBERT, XLM-R, or mT5 for cross-lingual transfer",
+      "Detect language, and check tokenization quality since tokenizers trained on English can over-segment other languages",
+      "Fine-tune per language where performance is critical; consider translation-based approaches",
+      "Challenges: data scarcity, structural differences, domain mismatch, and cultural nuance"
+    ]
+  },
+  {
+    "question": "How would you build a chatbot using NLP techniques?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Components: preprocessing, intent classification, entity extraction (NER), dialogue management, response generation",
+      "Responses can be retrieval-based, generative, or hybrid",
+      "Add fallbacks, context tracking, and knowledge integration (retrieval or knowledge graphs)",
+      "Evaluate with intent accuracy, task completion rate, and user satisfaction; iterate with feedback"
+    ]
+  },
+  {
+    "question": "How do ensemble methods help in NLP, and how do bagging and boosting differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Combine multiple models (e.g., logistic regression, random forest, SVM) to reduce variance, bias, and noise",
+      "Bagging trains models independently on bootstrap samples and averages them (random forest)",
+      "Boosting trains models sequentially, focusing on previous errors (gradient boosting, XGBoost)",
+      "Costs: more compute and complexity for typically better accuracy"
+    ]
+  },
+  {
+    "question": "What is knowledge distillation, and how is it used to compress NLP models such as BERT?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A small student model learns to match a large teacher's output distribution (soft labels), not just hard labels",
+      "DistilBERT retains about 97% of BERT's performance with roughly 40% fewer parameters and about 60% faster inference",
+      "Enables low-latency or on-device deployment",
+      "Often combined with quantization and pruning; evaluate quality loss on the target task"
+    ]
+  },
+  {
+    "question": "What are autoencoders, and how are they used in NLP?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encoder compresses input to a latent representation; decoder reconstructs the input; trained with a reconstruction loss",
+      "Unsupervised: no labels needed",
+      "NLP uses: learning text representations, denoising (e.g., BART), and variational autoencoders for generation",
+      "Differs from autoregressive models, which generate sequentially token by token"
+    ]
+  },
+  {
+    "question": "How is NLP applied in search engines, recommendation systems, and question answering?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Search: query processing, semantic search with embeddings, entity recognition, re-ranking, conversational search",
+      "Recommendation: embeddings of item descriptions, sentiment from reviews, topic modeling, intent from queries",
+      "QA: extractive (span selection with BERT), generative, knowledge-graph, and conversational QA",
+      "Domain-specific QA benefits from fine-tuning on specialized data"
+    ]
+  },
+  {
+    "question": "How do you build an end-to-end NLP pipeline, and how do you approach feature selection for text?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stages: ingestion, cleaning, preprocessing, representation, training, evaluation, deployment",
+      "Keep preprocessing reproducible and versioned across environments",
+      "Classical feature selection: chi-squared, mutual information, TF-IDF thresholds; deep models learn features implicitly",
+      "Domain knowledge helps separate signal from noise"
+    ]
+  },
+  {
+    "question": "How do you perform error analysis on an NLP model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sample and manually inspect misclassified examples to find systematic patterns",
+      "Slice by domain, text length, vocabulary, and label ambiguity; use a confusion matrix",
+      "Use LIME or SHAP to see which tokens drove predictions (attention weights alone can mislead)",
+      "Decide the fix: more data, better preprocessing, a different model, or cleaner labels"
+    ]
+  },
+  {
+    "question": "How do sentence embeddings (e.g., Sentence-BERT) enable semantic search, and how do they differ from word embeddings?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sentence-BERT fine-tunes BERT with siamese/contrastive training to produce one vector per sentence",
+      "Similar sentences get high cosine similarity, enabling fast search over precomputed vectors",
+      "Raw BERT [CLS] or averaged token vectors perform poorly for similarity without this training",
+      "Applications: semantic search, clustering, deduplication, retrieval"
+    ]
+  },
+  {
+    "question": "What is the difference between multi-class and multi-label text classification, and how do you handle multi-label cases?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Multi-class: exactly one label per text (softmax output)",
+      "Multi-label: a text can carry several labels (independent sigmoid outputs, binary cross-entropy)",
+      "Alternatives: binary relevance, classifier chains, label powerset",
+      "Evaluate with micro/macro F1, Hamming loss, and per-label thresholds"
+    ]
+  },
+  {
+    "question": "How do BERT variants such as RoBERTa, DistilBERT, and ALBERT differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RoBERTa: more data, longer training, dynamic masking, no NSP; stronger accuracy",
+      "DistilBERT: distilled, smaller and faster with modest accuracy loss",
+      "ALBERT: parameter sharing and factorized embeddings to cut parameters; Sentence Order Prediction instead of NSP",
+      "Choose by accuracy, latency, and memory constraints"
+    ]
+  },
+  {
+    "question": "Why was self-supervised learning so important for NLP progress?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Training signals come from the text itself (masked tokens, next-token prediction), so no human labels are needed",
+      "Enables pretraining on massive corpora",
+      "Pretrained models can be fine-tuned with small labeled datasets or prompted directly",
+      "Shifted NLP from task-specific models to general-purpose foundation models"
+    ]
+  }
+]

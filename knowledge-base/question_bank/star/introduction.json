@@ -86,6 +86,7 @@
    {
     "question": "Tell me about yourself and walk me through your key professional experience relevant to this role.",
     "category": "general",
+    "subcategory": "icebreaker",
     "stack": "core",
     "difficulty": "any",
     "question_type": "introduction",
@@ -264,7 +265,7 @@
     "subcategory": "stakeholder_comm",
     "difficulty": "any",
     "stack": "core",
-    "question_type": "behavioral",
+    "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
       "Used clear analogies without overly dense jargon",
@@ -277,12 +278,95 @@
     "category": "backend",
     "difficulty": "any",
     "stack": "core",
-    "question_type": "behavioral",
+    "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
       "Used clear analogies without overly dense jargon",
       "Verified understanding through feedback loops or Q&A",
       "Focused on business value rather than lower-level implementation details"
+    ]
+  },
+  {
+    "question": "Can you describe your favorite machine learning algorithm and when you would choose it.",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Explains the algorithm simply and correctly",
+      "Justifies the choice with a real example from work or study",
+      "Compares it with alternatives and states its trade-offs",
+      "Communicates clearly in under a minute"
+    ]
+  },
+  {
+    "question": "Explain the AI and ML tools and libraries you are familiar with, and how have you used them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Names specific tools (e.g. scikit-learn, PyTorch, TensorFlow, pandas, MLflow) with concrete usage",
+      "Distinguishes tools used hands-on from tools only read about",
+      "Connects tool choice to project needs",
+      "Shows willingness to learn the team's stack"
+    ]
+  },  {
+    "question": "What machine learning projects have you worked on?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Picks a concrete project and states the problem, data and goal clearly",
+      "Explains their own role, models used and key decisions",
+      "Reports a measurable result or what was learned",
+      "Shows honesty about limitations and what they would improve"
+    ]
+  },
+  {
+    "question": "What deep learning projects have you worked on?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Picks a concrete project and states the problem, data and goal clearly",
+      "Explains their own role, models used and key decisions",
+      "Reports a measurable result or what was learned",
+      "Shows honesty about limitations and what they would improve"
+    ]
+  },
+  {
+    "question": "What is your experience with deep learning frameworks such as TensorFlow, Keras and PyTorch, and what have you built with them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "deep-learning",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Describes specific models or pipelines built, not just familiarity",
+      "Explains why a framework was chosen (research flexibility, production support, speed of prototyping)",
+      "Mentions challenges hit and how they were solved",
+      "Honest about depth of experience"
+    ]
+  },
+  {
+    "question": "Where do you usually source datasets for your projects?",
+    "category": "ai-engineering",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Names real sources (e.g. Kaggle, public repositories, company data, APIs)",
+      "Considers licensing, privacy and data quality",
+      "Describes checking for bias, duplicates and label quality",
+      "Shows independent projects or initiative"
     ]
   }
 ]

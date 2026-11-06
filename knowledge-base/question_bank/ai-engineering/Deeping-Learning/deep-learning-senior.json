@@ -1,0 +1,702 @@
+[
+      {
+    "question": "Kindly explain the difference between semi-supervised and self-supervised learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Semi-supervised combines a small labeled set with a large unlabeled set",
+      "Self-supervised creates labels from the data itself via pretext tasks (masked words, predicting image patches)",
+      "Self-supervised pretraining underlies modern language and vision models",
+      "Both reduce the need for costly manual labels"
+    ]
+  },
+  {
+    "question": "Can you state the differences between CNNs, RNNs, and Transformers, and when would you use each?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CNNs excel at spatial data (images) with local receptive fields and weight sharing",
+      "RNNs handle sequential data (text, time series) but struggle with long-range dependencies",
+      "Transformers use self-attention to capture global context and scale well to large datasets",
+      "Choice depends on data type, sequence length, and computational resources"
+    ]
+  },
+   {
+    "question": "How would you explain contrastive learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Learns representations by pulling similar (positive) pairs together and pushing dissimilar (negative) pairs apart",
+      "Positives often come from augmentations of the same sample",
+      "Uses losses such as InfoNCE or triplet loss",
+      "Used in SimCLR and CLIP, and for embeddings and one-shot learning (Siamese networks)"
+    ]
+  },
+  {
+    "question": "What are the differences between generative and discriminative models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generative models learn the joint distribution p(x, y) and can generate new samples (e.g., GANs, VAEs)",
+      "Discriminative models learn the conditional distribution p(y|x) and focus on classification or regression (e.g., logistic regression, SVMs)",
+      "Generative models are more flexible but harder to train; discriminative models often achieve better predictive performance"
+    ]
+  },
+  {
+    "question": "Explain what LLM context window means, and how do you handle tasks that exceed it?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maximum tokens the model can consider at once; longer prompts raise cost and latency",
+      "Information in the middle of long context can be missed",
+      "Chunk documents and retrieve relevant parts (RAG)",
+      "Use hierarchical summarization for a global view and retrieve details on demand"
+    ]
+  },
+  {
+    "question": "Explain you can reduce hallucinations in large language models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Ground answers in retrieved trusted documents (RAG)",
+      "Prompting: chain-of-thought, verified few-shot examples, instruct to say when unsure",
+      "Self-consistency or confidence checks across multiple samples",
+      "Guardrails and output verification against rules or sources"
+    ]
+  },
+  {
+    "question": "What task would require you to choose RAG over fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RAG for fresh or private knowledge that changes often; cheaper and more traceable",
+      "Fine-tuning for style, format or domain behavior and jargon; bakes in knowledge but does not fix knowledge cutoff",
+      "Hybrid: fine-tune for behavior, RAG for facts",
+      "Compare on data freshness, cost, latency and evaluation results"
+    ]
+  },
+  {
+    "question": "As a Senior Engineer, how would you evaluate generative AI models when there is no single ground truth?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LLM-as-a-judge scoring on helpfulness, safety and coherence",
+      "RAG metrics such as faithfulness and answer relevance (RAGAS)",
+      "Human evaluation and pairwise comparison (Elo-style ratings)",
+      "Task-specific test sets and A/B tests on real usage"
+    ]
+  },
+  {
+    "question": "Quickly explain model compression: quantization, pruning and knowledge distillation.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Quantization lowers numeric precision (float32 to int8); post-training or quantization-aware",
+      "Pruning removes low-importance weights, neurons or channels",
+      "Distillation trains a small student to mimic a large teacher's soft predictions (e.g. DistilBERT)",
+      "Goal: smaller, faster models for edge and latency-sensitive use with minimal accuracy loss"
+    ]
+  },
+  {
+    "question": "Explain distributed training: data parallelism, model parallelism and the parameter server architecture.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Data parallelism: model replicated on each device, batches split, gradients synchronized",
+      "Model parallelism: different model parts on different devices for very large models",
+      "Parameter server: servers hold global parameters, workers push gradients; sync or async updates",
+      "Hybrid parallelism for models like large transformers"
+    ]
+  },
+  {
+    "question": "How do you handle big data in machine learning pipelines?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Distributed processing with Spark or Dask",
+      "Columnar storage formats (Parquet, ORC) and streaming or sampling where appropriate",
+      "Feature engineering at scale; combine batch training with online or incremental updates",
+      "Orchestrate with tools like Airflow and use scalable storage such as S3"
+    ]
+  },
+  {
+    "question": "What is federated learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Devices train locally on private data and send only model updates to a central server",
+      "Server aggregates updates into a global model",
+      "Preserves privacy and avoids centralizing raw data",
+      "Challenges: communication cost, heterogeneous data and synchronization"
+    ]
+  },
+
+  {
+    "question": " Briefly explain GANs and Variational Autoencoders.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "GAN: a generator creates fake data and a discriminator tells real from fake; trained adversarially",
+      "VAE: encoder maps input to a latent distribution, decoder reconstructs from sampled latents",
+      "VAE loss = reconstruction loss + KL divergence",
+      "GANs produce sharper samples but train unstably; VAEs give a smooth latent space"
+    ]
+  },
+  {
+    "question": "How would you design a training infrastructure for models too large for a single GPU?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Data parallelism replicates the model and shards data; gradients are synchronized",
+      "Model or pipeline parallelism splits layers or parameters across devices",
+      "Hybrid parallelism for very large models; frameworks such as PyTorch DDP and Horovod",
+      "Checkpointing and fault tolerance so long runs survive hardware failures"
+    ]
+  },
+  {
+    "question": "What would you check when investigating degraded performance or trade-offs in multi-GPU training?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Communication overhead and gradient synchronization costs",
+      "Data loading bottlenecks and load imbalance across devices",
+      "Effective batch size changes require learning-rate adjustment",
+      "Profile before changing the architecture"
+    ]
+  },
+  {
+    "question": "How do you design a low-latency, high-throughput serving system for a deep learning model?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Optimize the model: quantization, operator fusion, optimized runtimes",
+      "Dynamic request batching to improve GPU utilization within the latency budget",
+      "Autoscaling on real traffic; monitor latency and prediction quality",
+      "Profile preprocessing, inference and post-processing to find the real bottleneck"
+    ]
+  },
+  {
+    "question": "Explain model compression: pruning, quantization and knowledge distillation.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pruning removes low-importance weights, neurons or filters (structured pruning suits hardware)",
+      "Quantization lowers precision (FP32 to INT8): post-training or quantization-aware",
+      "Distillation trains a small student on a large teacher's soft outputs",
+      "Benchmark accuracy against latency, memory and cost; too much compression hurts accuracy"
+    ]
+  },
+  {
+    "question": "How do you export and optimize a trained model for production (ONNX, TensorRT, serving)?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Export to a portable format (ONNX, SavedModel, TorchScript) for cross-framework deployment",
+      "TensorRT applies layer fusion, FP16/INT8 calibration and kernel auto-tuning on NVIDIA GPUs",
+      "Serve with TensorFlow Serving, TorchServe or an API; containerize with Docker and scale with Kubernetes",
+      "Version models and keep rollback ability"
+    ]
+  },
+  {
+    "question": "How do you monitor a deployed deep learning model and catch silent failures?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Track input distribution drift and prediction distribution drift",
+      "Use delayed ground truth or business outcomes to validate real accuracy",
+      "Monitor latency, cost, errors and per-segment quality",
+      "Set alerts and a retraining or rollback plan"
+    ]
+  },
+  {
+    "question": "A model scored well offline but performs poorly in production. How do you investigate?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Compare production inputs to training data for distribution shift",
+      "Check preprocessing and feature mismatches between training and serving",
+      "Look for leakage that inflated offline metrics (e.g. future data in features)",
+      "Inspect misclassified production samples and fix data or pipeline before changing the architecture"
+    ]
+  },
+  {
+    "question": "How do you safely roll out an updated model without regressions?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Offline evaluation first, including edge cases and subgroups",
+      "Shadow testing on live traffic without serving predictions",
+      "Canary release to a small traffic share with close monitoring",
+      "Fast rollback to the prior model version"
+    ]
+  },
+  {
+    "question": "How do you handle continual learning and catastrophic forgetting?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Forgetting: learning new data overwrites earlier knowledge",
+      "Regularization approaches such as Elastic Weight Consolidation",
+      "Replay of stored or synthetic old examples; parameter isolation or network expansion",
+      "Keep an evaluation set covering old and new distributions"
+    ]
+  },
+  {
+    "question": "How do you detect and mitigate bias and ensure fairness in deep learning systems?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Evaluate metrics per subgroup; use fairness metrics such as demographic parity and equalized odds",
+      "Audit data collection and balance underrepresented groups",
+      "Mitigate via data rebalancing, fairness-aware training or post-processing",
+      "Fixing data usually beats post-hoc patching; monitor after deployment"
+    ]
+  },
+  {
+    "question": "What is explainable AI and which techniques do you use for deep models?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Explain why a model made a prediction to build trust, debug and meet regulation",
+      "Model-agnostic: SHAP, LIME, counterfactuals; model-specific: Grad-CAM, attention visualization",
+      "Attention weights are a diagnostic, not a guaranteed explanation",
+      "State limitations; do not oversell explanations"
+    ]
+  },
+  {
+    "question": "What are adversarial attacks and how can models be defended?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Small crafted perturbations cause misclassification; white-box versus black-box attacks",
+      "Poisoning attacks corrupt training data",
+      "Defenses: adversarial training, input preprocessing, defensive distillation, robust architectures",
+      "Broader ML security risks include data leakage and model extraction"
+    ]
+  },
+  {
+    "question": "Explain federated learning and its challenges.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Devices train locally; only model updates go to a central server for aggregation",
+      "Keeps raw data private and reduces data transfer",
+      "Challenges: communication cost, non-identically distributed local data, synchronization",
+      "Use cases: mobile keyboards, hospitals"
+    ]
+  },
+  {
+    "question": "What are self-supervised and contrastive learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Self-supervised creates labels from the data itself (masked tokens, next-token prediction)",
+      "Contrastive learning pulls positive pairs together and pushes negatives apart in embedding space",
+      "Powers pretraining for language and vision models and embeddings",
+      "Reduces dependence on expensive manual labels"
+    ]
+  },
+  {
+    "question": "Explain zero-shot, few-shot and meta-learning.",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Zero-shot: predict unseen classes using semantic embeddings or prompts",
+      "Few-shot: learn from very few labeled examples (Siamese, prototypical networks, MAML)",
+      "Meta-learning trains models to adapt quickly to new tasks",
+      "Related to transfer learning and prompt-based learning in large models"
+    ]
+  },
+  {
+    "question": "What are diffusion models and how do they compare with GANs?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Learn to reverse a gradual noising process, generating data by iterative denoising",
+      "Training is stable and gives diverse, high-quality samples",
+      "GANs sample fast but are unstable and prone to mode collapse",
+      "Diffusion sampling is slower, requiring acceleration techniques"
+    ]
+  },
+  {
+    "question": "What are foundation models and when should you train from scratch, fine-tune, or use a third-party API?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Foundation models are large pretrained models adaptable to many tasks",
+      "Training from scratch needs huge data and compute; rarely justified",
+      "Fine-tune or use parameter-efficient methods when you have domain data and control needs",
+      "APIs suit speed and low volume; weigh cost, latency, privacy and vendor dependence"
+    ]
+  },
+  {
+    "question": "How do LoRA and adapters differ, and when would you use parameter-efficient fine-tuning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "PEFT updates a small number of parameters while freezing the base model",
+      "LoRA adds low-rank update matrices that can merge into weights, adding no inference latency",
+      "Adapters insert small bottleneck modules between layers, which can add inference overhead",
+      "Use for limited compute and memory, many task-specific variants, and reduced forgetting"
+    ]
+  },
+  {
+    "question": "How do mixture-of-experts models work and what are the trade-offs?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Router sends each token to a few experts; only those and shared layers run",
+      "Many total parameters with far less compute per token",
+      "All expert weights still need memory; load balancing across experts is needed",
+      "Routing adds training and serving complexity"
+    ]
+  },
+  {
+    "question": "How do multimodal models and vision-language models process different data types?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Separate encoders (e.g. vision encoder, text encoder) map inputs into embeddings",
+      "Embeddings are aligned or fused (contrastive alignment or cross-attention) in a shared space",
+      "A language model decoder can generate text conditioned on visual tokens",
+      "Challenges: alignment quality, latency and evaluation"
+    ]
+  },
+  {
+    "question": "How would you choose between a CNN and a transformer (Vision Transformer) for a vision task?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CNNs: efficient local pattern learning with strong inductive bias; good with less data",
+      "ViT splits images into patch tokens and uses self-attention for global context",
+      "Transformers shine with large data or pretrained models but self-attention cost grows quadratically with patches",
+      "Decide using data size, compute, latency and benchmark results"
+    ]
+  },
+  {
+    "question": "What are the limits of CNNs, RNNs and transformers, and when would you use another architecture?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "CNNs: local focus, need depth for global context; RNNs: sequential, weak long dependencies",
+      "Transformers: quadratic attention cost with sequence length and heavy data needs",
+      "Graph networks for relational data; boosted trees for tabular; state-space models for very long sequences",
+      "Compare against a simple baseline before committing"
+    ]
+  },
+  {
+    "question": "What are graph neural networks and how are they trained?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Process graph data: nodes aggregate features from neighbors via message passing",
+      "Types: GCN, GAT, GraphSAGE",
+      "Tasks: node classification, link prediction, graph classification",
+      "Large graphs need neighbor sampling or mini-batching"
+    ]
+  },
+  {
+    "question": "How does deep reinforcement learning work (DQN, policy gradients, RLHF)?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Agent learns from rewards by interacting with an environment; neural networks approximate value functions or policies",
+      "DQN uses experience replay and target networks for stability",
+      "Policy-gradient and actor-critic methods (e.g. PPO) optimize the policy directly",
+      "RLHF tunes language models using a reward model built from human preferences"
+    ]
+  },
+  {
+    "question": "What sources of nondeterminism exist when training on GPUs and how do you mitigate them?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Non-deterministic GPU kernels and atomic operations, parallel reduction order",
+      "Data loader worker ordering and library or driver version differences",
+      "Set seeds, enable deterministic algorithm flags and pin environments",
+      "Accept some variance and compare across multiple seeds"
+    ]
+  },
+  {
+    "question": "How do you build a fair experiment comparing two model architectures?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Hold data, preprocessing, tuning budget and evaluation constant",
+      "Run multiple seeds and report variance",
+      "Use ablations to isolate what causes improvement",
+      "Compare accuracy with latency, memory and cost"
+    ]
+  },
+  {
+    "question": "How do you manage the trade-off between accuracy and inference cost in a large-scale system?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Set quantified accuracy, latency and cost targets from business needs",
+      "Use distillation, quantization, smaller architectures or cascaded models",
+      "Run ablations on expensive features or components",
+      "Choose with deployment constraints, not accuracy alone"
+    ]
+  },
+  {
+    "question": "How do you address poor label quality and build a data strategy for deep learning at scale?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Audit labels, sample disagreements and define clear labeling guidelines",
+      "Models can learn label noise with high confidence, so clean data before scaling the model",
+      "Active learning labels the most informative examples first",
+      "Invest in governed labeling pipelines; data is often the real bottleneck"
+    ]
+  },
+  {
+    "question": "How would you defend a deep learning project decision in a senior review?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Show the problem framing, data, metric and why a simpler baseline was or was not enough",
+      "Present error analysis, subgroup results and architecture rationale",
+      "Cover cost, latency, monitoring and rollback plans",
+      "Be honest about limitations and risks"
+    ]
+  },
+  {
+    "question": "When is deep learning the wrong choice, and how do you decide organization-wide?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Start with the simplest approach that meets requirements (rules, classical ML)",
+      "Escalate when evidence shows simpler methods cannot capture the complexity and data volume justifies it",
+      "Weigh compute, maintenance, interpretability and team expertise",
+      "Build this evaluation into project scoping"
+    ]
+  },
+   {
+    "question": "What are capsule networks and what problem do they aim to solve?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Capsules output vectors encoding feature presence and pose, instead of scalars",
+      "Routing-by-agreement sends lower-level capsule outputs to compatible higher-level capsules",
+      "Aims to preserve spatial hierarchies and handle viewpoint changes better than CNNs with pooling",
+      "Remain computationally heavy and less used in practice"
+    ]
+  },
+  {
+    "question": "What are spiking neural networks and neuromorphic computing?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Neurons communicate with discrete spikes; timing carries information",
+      "Event-driven and asynchronous, giving high energy efficiency",
+      "Neuromorphic hardware (e.g. Intel Loihi, IBM TrueNorth) runs them natively",
+      "Training is harder because spikes are non-differentiable; surrogate gradients help"
+    ]
+  },
+  {
+    "question": "How does causal inference relate to deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Standard deep learning learns correlations; causal inference asks what happens under intervention",
+      "Tools: randomized trials, propensity matching, instrumental variables, causal graphs",
+      "Causal ideas help with robustness, distribution shift and fairness",
+      "Needed for decisions such as treatment or marketing impact"
+    ]
+  },
+  {
+    "question": "What are world models in deep learning?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Learned models of environment dynamics that predict future states from current state and action",
+      "Often operate in a compressed latent space",
+      "Agents can plan or train inside the model's imagined rollouts (e.g. Dreamer)",
+      "Reduce costly real-world interaction; errors can compound over long horizons"
+    ]
+  },
+  {
+    "question": "How would you combine an autoencoder and an LSTM for anomaly detection?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Train an LSTM encoder-decoder autoencoder on normal sequences only",
+      "Anomalies produce high reconstruction error",
+      "Set the threshold from validation error distribution (e.g. percentile) and handle drift",
+      "Use sliding windows for time series; evaluate precision and recall"
+    ]
+  },
+  {
+    "question": "How is a PyTorch model lowered from a high-level graph to hardware-specific code?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Capture the model as a graph (e.g. torch.compile via TorchDynamo, or export to ONNX)",
+      "Compiler passes fuse operators and optimize memory",
+      "Backends such as TorchInductor generate kernels (Triton/C++); TensorRT or XLA target specific hardware",
+      "Validate numerical equivalence and benchmark latency"
+    ]
+  },
+  {
+    "question": "Why might diffusion models outperform autoregressive generation for some modalities?",
+    "category": "ai-engineering",
+    "difficulty": "senior",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Continuous data such as images and audio suits iterative denoising better than fixed-order token prediction",
+      "Refine the whole sample at each step, giving global coherence",
+      "Stable training and diverse outputs compared with GANs",
+      "Costly multi-step sampling; neither approach is universally better"
+    ]
+  }
+]

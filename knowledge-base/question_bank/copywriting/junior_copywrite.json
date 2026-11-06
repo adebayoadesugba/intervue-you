@@ -1,0 +1,520 @@
+[
+  {
+    "question": "What is your process for writing a compelling headline?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Starts from the single biggest benefit, stated specifically and credibly",
+      "Writes several options in different formats (benefit, how-to, curiosity, number or result, question)",
+      "Tests each for clarity at a glance and a specific claim rather than a generic one",
+      "Uses power words, numbers and audience language without overpromising"
+    ]
+  },
+  {
+    "question": "How do you make sure your copy matches a brand's voice and tone?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Studies the style guide, tone documents and existing brand content first",
+      "Notes formality, humor, vocabulary and preferred terminology",
+      "Applies the voice consistently across channels",
+      "Asks stakeholders for feedback to fine-tune"
+    ]
+  },
+  {
+    "question": "What steps do you take to understand the target audience before writing?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Researches demographics, psychographics, pain points and goals",
+      "Uses surveys, interviews, reviews, social listening and competitor analysis",
+      "Writes in the customer's own language",
+      "Validates assumptions with data rather than guessing"
+    ]
+  },
+  {
+    "question": "How do you adapt your writing for different platforms such as websites, social media, blogs and email?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Social: short, attention-grabbing, built for fast scrolling",
+      "Blogs: in-depth and structured for search",
+      "Email: personal, single-action, strong subject line",
+      "Applies each platform's norms and constraints while keeping the core message consistent"
+    ]
+  },
+  {
+    "question": "What are the key elements of an effective call to action?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clear, action-oriented wording that states exactly what happens next",
+      "Communicates the benefit to the reader",
+      "Prominent placement with one primary action per page or email",
+      "May add urgency or risk reversal honestly; tested and refined"
+    ]
+  },
+  {
+    "question": "How do you research a topic you are not familiar with?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Starts broad with reliable sources, then narrows to specifics",
+      "Cross-references facts and checks source quality and dates",
+      "Talks to subject experts and reads customer and competitor content",
+      "Organizes and synthesizes findings before writing"
+    ]
+  },
+  {
+    "question": "Walk me through your editing and proofreading process.",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sets the draft aside, then rereads with fresh eyes against the brief and voice",
+      "Cuts words that add no meaning and prefers active voice",
+      "Reads aloud, uses grammar tools, and checks facts, links and names",
+      "Gets a second reader where possible"
+    ]
+  },
+  {
+    "question": "How do you overcome writer's block?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Recognizes the cause: unclear brief, low interest, fatigue or burnout",
+      "Uses techniques such as short breaks, Pomodoro, changing environment or freewriting",
+      "Revisits research, outline or customer language for inspiration",
+      "Talks the problem through with a colleague and keeps a repeatable process"
+    ]
+  },
+  {
+    "question": "How do you ensure your work is original and free of plagiarism?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Draws on diverse sources and customer language, then writes in own words",
+      "Attributes quotes and statistics properly",
+      "Runs plagiarism-detection tools before delivery",
+      "Brainstorms unique angles instead of copying competitors"
+    ]
+  },
+  {
+    "question": "How do you make complex or technical information accessible to a general audience?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses plain language and explains necessary terms",
+      "Uses analogies and concrete examples",
+      "Structures content logically with short sentences, headings and lists",
+      "Checks readability and understanding with a non-expert"
+    ]
+  },
+  {
+    "question": "What metrics do you use to measure the success of your copy?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Email: open rate, click-through rate, conversions",
+      "Web: conversion rate, time on page, bounce rate, scroll depth",
+      "Ads and social: CTR, engagement, cost per result",
+      "Compares against a baseline and uses A/B tests to attribute change"
+    ]
+  },
+  {
+    "question": "Which tools and software do you use in your writing and editing workflow?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Writing and collaboration: Google Docs or Word",
+      "Editing and readability: Grammarly, Hemingway",
+      "SEO: Semrush, Ahrefs, Yoast, Search Console",
+      "Explains how each tool supports quality or speed, not just names them"
+    ]
+  },
+  {
+    "question": "Describe your writing process from concept to final draft.",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clarifies the brief, audience, goal and constraints first",
+      "Researches, outlines, drafts and edits in distinct passes",
+      "Reviews against brand voice and proofreads before delivery",
+      "Incorporates feedback and revises; communicates with stakeholders throughout"
+    ]
+  },
+  {
+    "question": "What is the difference between copywriting and content writing?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Copywriting is persuasive writing aimed at a conversion or action (ads, landing pages, emails)",
+      "Content writing informs or educates (articles, guides, blogs) and builds trust and search visibility",
+      "Different metrics: conversion rate versus engagement and organic traffic",
+      "The two overlap and often work together"
+    ]
+  },
+  {
+    "question": "How do you balance features and benefits in your copy?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Features describe what the product is or does; benefits describe what the reader gains",
+      "Leads with the outcome that matters to the buyer and supports it with features as proof",
+      "Translates features into use cases and results",
+      "Avoids long feature lists that bury the promise"
+    ]
+  },
+  {
+    "question": "How do you make your writing inclusive and accessible to a diverse audience?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses inclusive language and avoids stereotypes and idioms that may not translate",
+      "Writes in clear, simple language at a suitable reading level",
+      "Considers accessibility: alt text, descriptive links, headings and screen-reader compatibility",
+      "Reviews with diverse perspectives"
+    ]
+  },
+  {
+    "question": "How would you explain SEO to someone who has never heard of it?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "SEO means Search Engine Optimization",
+      "Improving a website so it appears higher in unpaid search results",
+      "Goal is more qualified organic traffic",
+      "Combines helpful content, site structure and quality links; explained in plain language"
+    ]
+  },
+  {
+    "question": "What is the difference between on-page and off-page SEO?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "On-page: content, titles, meta descriptions, headings, internal links, images",
+      "Off-page: backlinks, brand mentions, reviews and other external signals of authority",
+      "Both work together to improve rankings",
+      "Gives concrete examples of each"
+    ]
+  },
+  {
+    "question": "Why do meta titles and meta descriptions matter for SEO, and how do you write them?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Title tag is a ranking signal and the main clickable headline in results",
+      "Meta description does not directly rank but influences click-through rate",
+      "Include the primary keyword naturally and keep within display length",
+      "Write a unique, benefit-led summary with a reason to click"
+    ]
+  },
+  {
+    "question": "How do you use keywords naturally without keyword stuffing?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Writes for the reader and search intent first",
+      "Places the primary keyword in the title, a heading and early in the copy where it fits",
+      "Uses synonyms and related terms rather than repetition",
+      "Keyword density is not a target; overuse hurts readability and can hurt rankings"
+    ]
+  },
+  {
+    "question": "What is internal linking and how do you use it in your copy?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Links between pages on the same site help users and crawlers navigate",
+      "Spreads authority to important pages",
+      "Uses descriptive, natural anchor text",
+      "Links to relevant pages only; avoids broken links and over-linking"
+    ]
+  },
+  {
+    "question": "Why does image alt text matter and how should it be written?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Describes the image for screen-reader users and when images fail to load",
+      "Helps search engines understand image content",
+      "Concise and descriptive; keyword only where it fits naturally",
+      "Skips alt text for purely decorative images"
+    ]
+  },
+  {
+    "question": "What is the difference between dofollow and nofollow links?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dofollow is the default; search engines may treat it as an endorsement that passes authority",
+      "Nofollow (rel=nofollow) tells crawlers not to count it as an endorsement; used for paid, sponsored or user-generated links",
+      "A healthy link profile includes a mix",
+      "Quality and relevance matter more than the attribute alone"
+    ]
+  },
+  {
+    "question": "What are robots.txt and an XML sitemap, and why do they matter?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "robots.txt tells crawlers which paths they may or may not crawl",
+      "XML sitemap lists important URLs to help discovery and indexing",
+      "robots.txt does not guarantee a page stays out of the index; noindex does that",
+      "Submitted and monitored via Google Search Console"
+    ]
+  },
+  {
+    "question": "How do you use Google Search Console for SEO?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reviews queries, clicks, impressions, CTR and average position",
+      "Finds pages with high impressions but low CTR to improve titles and descriptions",
+      "Checks indexing status, sitemaps and mobile or crawl errors",
+      "Tracks changes after content updates"
+    ]
+  },
+  {
+    "question": "What is E-E-A-T and why does it matter for content?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "seo-specialist",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Experience, Expertise, Authoritativeness and Trustworthiness",
+      "A framework from Google's quality guidelines for assessing helpful content, not a direct ranking factor",
+      "Show real experience, cite sources, credit authors and keep content accurate and current",
+      "Especially important for health, finance and other sensitive topics"
+    ]
+  },
+  {
+    "question": "What are the characteristics of good technical writing?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clear, concise, accurate and complete",
+      "Written for a defined audience at the right technical level",
+      "Consistent terminology and structure; easy to scan and navigate",
+      "Task-focused and tested against the real product"
+    ]
+  },
+  {
+    "question": "What types of technical documentation have you worked with?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "User guides, how-tos, tutorials, FAQs and knowledge base articles",
+      "API and developer documentation, release notes, SOPs and installation guides",
+      "Explains how each type serves a different audience and purpose",
+      "Gives concrete examples from own experience"
+    ]
+  },
+  {
+    "question": "What is topic-based authoring?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Content is written as self-contained topics (concept, task, reference) instead of long linear documents",
+      "Topics can be reused and recombined across outputs",
+      "Improves consistency, maintenance and searchability",
+      "Often paired with structured authoring such as DITA"
+    ]
+  },
+  {
+    "question": "Can you explain the Document Development Lifecycle?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Typical stages: planning and analysis, research, design and outline, drafting, review, revision, publishing, maintenance",
+      "Reviews include SME technical review, editing and usability checks",
+      "Identifies deliverables, owners and deadlines up front",
+      "Includes post-release updates and feedback"
+    ]
+  },
+  {
+    "question": "How do you determine your target audience and their technical level?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Analyzes who uses the product, their roles, goals and tasks",
+      "Gathers input from support, product, sales, SMEs and user feedback",
+      "Builds user personas and checks existing usage data",
+      "Adjusts depth, terminology and examples to match the audience"
+    ]
+  },
+  {
+    "question": "Which style guides have you used, and how do you ensure adherence to one?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Examples: Microsoft Writing Style Guide, Google developer documentation style guide, Chicago Manual of Style, company guides",
+      "Keeps the guide at hand and applies checklists or linters",
+      "Uses peer review and automated style checks",
+      "Documents decisions for cases the guide does not cover"
+    ]
+  },
+  {
+    "question": "How do you ensure consistency in style and terminology across documentation?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Maintains a glossary and a terminology list",
+      "Follows a style guide and uses templates",
+      "Reuses content instead of rewriting; uses automated style checks",
+      "Reviews related documents together when terminology changes"
+    ]
+  },
+  {
+    "question": "How do you ensure your documentation is accurate and complete?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Tests the steps against the actual product",
+      "Gets SME technical review and sign-off",
+      "Uses checklists to confirm all features, prerequisites and edge cases are covered",
+      "Verifies after each release or product change"
+    ]
+  },
+  {
+    "question": "How do you interview subject matter experts to get the information you need?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Prepares by reading existing material and listing focused questions",
+      "Respects the expert's time, uses short sessions and asks for demos",
+      "Asks open and clarifying questions and confirms understanding by summarizing",
+      "Follows up in writing and requests a review of the draft"
+    ]
+  },
+  {
+    "question": "How do you create documentation that is accessible and uses inclusive language?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Clear headings and structure, descriptive link text and alt text for images",
+      "Does not rely on color alone; supports screen readers and keyboard navigation",
+      "Uses plain language and gender-neutral wording",
+      "Follows accessibility guidelines such as WCAG"
+    ]
+  },
+  {
+    "question": "When and how do you use visual aids such as diagrams and screenshots in documentation?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Uses visuals where they clarify more than text (workflows, architecture, UI steps)",
+      "Keeps screenshots minimal, cropped and annotated; adds alt text",
+      "Plans for updating visuals as the UI changes",
+      "Tools include Snagit, Figma, draw.io or Mermaid"
+    ]
+  }
+]

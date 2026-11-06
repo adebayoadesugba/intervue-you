@@ -1,0 +1,1077 @@
+[
+{
+    "question": "Can you explain backpropagation in neural networks.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Forward pass computes predictions and loss",
+      "Backward pass computes gradients of loss with respect to each weight via the chain rule",
+      "Optimizer (SGD, Adam) updates weights using the gradients",
+      "Repeated over batches and epochs"
+    ]
+  },
+  {
+    "question": "Briefly explain an activation function and why do neural networks need non-linearity?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Activation functions introduce non-linearity, allowing the network to learn complex patterns",
+      "Common functions: ReLU, Sigmoid, Tanh, Softmax",
+      "Without non-linearity, the network would be equivalent to a single linear transformation"
+    ]
+  },
+  {
+    "question": "What is dropout and how does it reduce overfitting in neural networks?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Dropout randomly sets a fraction of activations to zero during training, preventing co-adaptation of neurons",
+      "Reduces overfitting by forcing the network to learn redundant representations",
+      "During inference, all neurons are used but scaled by the dropout rate"
+    ]
+  }  
+  ,{
+    "question": "Can you explain the vanishing and exploding gradient problems and how are they mitigated?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vanishing: gradients shrink through layers so early layers barely learn",
+      "Exploding: gradients grow and make training unstable",
+      "Mitigate with ReLU, careful initialization (Xavier/He), batch norm, residual connections, LSTM/GRU",
+      "Gradient clipping addresses exploding gradients"
+    ]
+  },
+  {
+    "question": "What is your opinion on why ReLU is preferred over sigmoid in hidden layers, and when do you use softmax versus sigmoid?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ReLU is cheap and does not saturate for positive inputs, reducing vanishing gradients",
+      "Gives sparse activations; watch for dying ReLU (use Leaky ReLU)",
+      "Sigmoid for binary or independent multi-label outputs",
+      "Softmax for exclusive multi-class outputs; probabilities sum to 1"
+    ]
+  },
+  {
+    "question": "Can you kindly explain what logits, cross-entropy and KL divergence are?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Logits are raw, unnormalized model outputs before softmax or sigmoid",
+      "Cross-entropy measures the gap between predicted probabilities and true labels",
+      "KL divergence measures how one distribution differs from another",
+      "Cross-entropy = entropy of truth + KL divergence"
+    ]
+  },
+  {
+    "question": "Why  will you use convolutions for images instead of fully connected layers?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Preserve and exploit spatial structure",
+      "Weight sharing sharply reduces parameters (a 250x250x3 image into 1000 dense units needs 187.5M weights)",
+      "Filters give partial translation invariance",
+      "Learn hierarchical features: edges, textures, objects"
+    ]
+  },
+  {
+    "question": "How does convolution work, what determines output shape, and why use small kernels and pooling?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Kernel slides over input computing element-wise products and sums, producing a feature map",
+      "RGB input uses a kernel with depth 3",
+      "Output size depends on kernel size, number of kernels, stride, padding and dilation",
+      "Stacked small kernels (e.g. 3x3) give the same receptive field with fewer parameters and more non-linearity; pooling reduces compute"
+    ]
+  },
+  {
+    "question": "What is batch normalization and why does it help?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Normalizes layer inputs per mini-batch to zero mean and unit variance, then applies learnable scale and shift",
+      "Stabilizes and speeds training",
+      "Reduces sensitivity to initialization and allows higher learning rates",
+      "Acts as mild regularization"
+    ]
+  },
+  {
+    "question": "How do RNN, LSTM and GRU differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RNN keeps a hidden state to model sequences but suffers vanishing gradients",
+      "LSTM uses forget, input and output gates plus a cell state for long-term memory",
+      "GRU merges gates and has no separate cell state: fewer parameters and faster",
+      "Transformers have largely replaced them for long sequences"
+    ]
+  },
+  {
+    "question": "What is transfer learning and when should you use it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuse a model pre-trained on a large dataset for a related task",
+      "Freeze early layers and fine-tune later ones, or use the model as a feature extractor",
+      "Ideal for small datasets; cuts training time and compute",
+      "Examples: ResNet for medical imaging, BERT for sentiment analysis"
+    ]
+  },
+  {
+    "question": "How do you train a CNN when you have a small dataset?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use transfer learning from a pre-trained model and fine-tune the last layers",
+      "Apply data augmentation (flip, rotate, crop, noise, color jitter)",
+      "Add regularization such as dropout and early stopping",
+      "Keep the architecture small"
+    ]
+  },
+  {
+    "question": "What are word embeddings, and how do they compare with bag-of-words and TF-IDF?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Embeddings are dense vectors capturing semantic similarity (Word2Vec, GloVe, FastText)",
+      "Bag-of-words counts words and ignores order and meaning, giving sparse high-dimensional vectors",
+      "TF-IDF weights term frequency by inverse document frequency to highlight distinctive words",
+      "Cosine similarity compares vectors by angle"
+    ]
+  },
+  {
+    "question": "How do RNN, LSTM and GRU differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "RNN keeps a hidden state to model sequences but suffers vanishing gradients",
+      "LSTM uses forget, input and output gates plus a cell state for long-term memory",
+      "GRU merges gates and has no separate cell state: fewer parameters and faster",
+      "Transformers have largely replaced them for long sequences"
+    ]
+  },
+  {
+    "question": "What is transfer learning and when should you use it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Reuse a model pre-trained on a large dataset for a related task",
+      "Freeze early layers and fine-tune later ones, or use the model as a feature extractor",
+      "Ideal for small datasets; cuts training time and compute",
+      "Examples: ResNet for medical imaging, BERT for sentiment analysis"
+    ]
+  },
+  {
+    "question": "How do you train a CNN when you have a small dataset?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use transfer learning from a pre-trained model and fine-tune the last layers",
+      "Apply data augmentation (flip, rotate, crop, noise, color jitter)",
+      "Add regularization such as dropout and early stopping",
+      "Keep the architecture small"
+    ]
+  },
+  {
+    "question": "What are word embeddings, and how do they compare with bag-of-words and TF-IDF?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Embeddings are dense vectors capturing semantic similarity (Word2Vec, GloVe, FastText)",
+      "Bag-of-words counts words and ignores order and meaning, giving sparse high-dimensional vectors",
+      "TF-IDF weights term frequency by inverse document frequency to highlight distinctive words",
+      "Cosine similarity compares vectors by angle"
+    ]
+  },
+  {
+    "question": "Which activation functions suit hidden layers, and what are the dead ReLU problem and alternatives?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sigmoid and tanh saturate and cause vanishing gradients, so they are avoided in deep hidden layers",
+      "ReLU is cheap and non-saturating for positive inputs",
+      "Dead ReLU: neurons stuck at zero output receive no gradient",
+      "Leaky ReLU, ELU and GELU/Swish keep gradient flow; GELU is common in transformers"
+    ]
+  },
+  {
+    "question": "Compare Xavier and He weight initialization.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Both keep activation and gradient variance stable across layers",
+      "Xavier/Glorot scales by fan-in plus fan-out; suits sigmoid and tanh",
+      "He scales by fan-in with variance 2/n; suits ReLU variants",
+      "Poor initialization causes vanishing or exploding gradients"
+    ]
+  },
+  {
+    "question": "Explain momentum, Nesterov accelerated gradient and adaptive optimizers (Adagrad, RMSProp, Adam).",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Momentum accumulates past gradients as velocity to smooth updates (beta around 0.9)",
+      "Nesterov evaluates the gradient at the look-ahead position",
+      "Adagrad scales per-parameter by gradient history and can stall; RMSProp uses a moving average",
+      "Adam combines momentum and RMSProp with bias correction; a common default (e.g. AdamW)"
+    ]
+  },
+  {
+    "question": "How do you choose and schedule the learning rate?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use a learning-rate range test to find a sensible starting range",
+      "Schedules: step, exponential, cosine annealing, warmup, cyclical, warm restarts",
+      "Higher early for exploration, lower later for fine-tuning",
+      "Validate on held-out data and plot the loss curve"
+    ]
+  },
+  {
+    "question": "How do you select a batch size?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Largest size that fits GPU memory gives stable gradients and good utilization",
+      "Larger batches usually need a larger learning rate",
+      "Small batches add noise that can help generalization but train slower",
+      "Confirm with validation performance, not speed alone"
+    ]
+  },
+  {
+    "question": "What is the difference between batch normalization and layer normalization?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "BatchNorm normalizes each feature across the batch; depends on batch statistics",
+      "LayerNorm normalizes across features within one sample; batch-size independent",
+      "LayerNorm suits transformers and RNNs and small or variable batches",
+      "BatchNorm uses running statistics at inference"
+    ]
+  },
+  {
+    "question": "How do you handle class imbalance when training a deep learning classifier?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weighted loss, focal loss, oversampling or undersampling, augmentation of the minority class",
+      "Evaluate with precision, recall, F1 and per-class metrics, not accuracy",
+      "Tune the decision threshold",
+      "Collect more minority examples where possible"
+    ]
+  },
+  {
+    "question": "Which loss and metrics do you use for a multi-label classification problem?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Sigmoid outputs with binary cross-entropy applied per label",
+      "Softmax and categorical cross-entropy assume exclusive classes, so they are inappropriate",
+      "Metrics: per-class precision and recall, threshold-tuned F1, mean average precision",
+      "Tune a threshold per label if needed"
+    ]
+  },
+  {
+    "question": "How do you tell from training and validation curves whether a network is overfitting or underfitting?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Overfitting: training loss keeps falling while validation loss plateaus or rises",
+      "Underfitting: both losses stay high",
+      "Fix overfitting with regularization, data and early stopping; underfitting with capacity and training time",
+      "Also check for train/validation leakage and distribution mismatch"
+    ]
+  },
+  {
+    "question": "A network's loss is flat from the first epoch or becomes NaN. How do you debug it?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Check data pipeline, labels, input scaling and that loss matches the output layer",
+      "Check learning rate, initialization and gradient magnitudes; clip gradients if they explode",
+      "Try overfitting a tiny batch: if it cannot memorize it, there is a bug",
+      "For NaN, look for bad inputs, numerical precision and activation ranges"
+    ]
+  },
+  {
+    "question": "Training loss decreases smoothly but validation loss is noisy. What could be the cause?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Validation set may be too small, giving noisy estimates",
+      "Learning rate may be too high",
+      "Check batch normalization behavior and train/validation distribution differences",
+      "Use smoothing, LR schedules and checkpointing of the best model"
+    ]
+  },
+  {
+    "question": "Why use CNNs instead of fully connected networks for images, and how do you compute convolution output size?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Weight sharing and local connectivity cut parameters and preserve spatial structure",
+      "Partial translation invariance, strengthened by pooling",
+      "Output = (N - F + 2P) / S + 1; e.g. 28x28 input, 7x7 kernel, stride 1, no padding gives 22x22",
+      "Small stacked kernels (e.g. 3x3) match a large receptive field with fewer parameters"
+    ]
+  },
+  {
+    "question": "What is the receptive field in a CNN, and what are dilated convolutions?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Receptive field is the input region that influences a neuron's output",
+      "Grows with depth, larger kernels, stride and pooling",
+      "Dilated convolutions insert gaps in the kernel to widen it without extra parameters",
+      "Useful for segmentation and audio (e.g. WaveNet)"
+    ]
+  },
+  {
+    "question": "What are residual networks and skip connections, and why do they help?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Skip connection adds the input to a block's output: y = F(x) + x",
+      "Gradients flow directly through shortcuts, easing vanishing gradients",
+      "Layers learn residual corrections, making very deep networks trainable",
+      "Used in ResNets and transformers (with LayerNorm)"
+    ]
+  },
+  {
+    "question": "What is the difference between object detection and image segmentation, and how do YOLO and R-CNN compare?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Detection predicts boxes and labels; segmentation labels every pixel (semantic or instance)",
+      "YOLO is one-stage and fast, good for real-time and edge",
+      "R-CNN family is two-stage (proposals then classification), often more accurate",
+      "Compare on accuracy (especially small objects), latency and hardware"
+    ]
+  },
+  {
+    "question": "How does backpropagation through time work, and what RNN input-output architectures exist?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Unroll the RNN across time, sum losses, and backpropagate gradients through each step",
+      "Shared weights get accumulated gradients; truncated BPTT limits the unroll length",
+      "One-to-many (captioning), many-to-one (sentiment), many-to-many aligned or encoder-decoder",
+      "Long unrolls cause vanishing or exploding gradients"
+    ]
+  },
+  {
+    "question": "Compare RNN, LSTM, GRU and bidirectional models.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vanilla RNN is simple but weak on long-range dependencies",
+      "LSTM: three gates plus cell state; strongest long memory, more parameters",
+      "GRU: update and reset gates, no cell state; faster with similar accuracy on many tasks",
+      "Bidirectional variants read both directions; good for tagging and NER where future context helps"
+    ]
+  },
+  {
+    "question": "What is an encoder-decoder (seq2seq) architecture?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "nlp",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Encoder compresses input sequence into a representation; decoder generates the output sequence",
+      "Handles inputs and outputs of different lengths (translation, summarization)",
+      "Attention lets the decoder look at relevant input positions instead of one fixed vector",
+      "Teacher forcing in training; beam search at inference"
+    ]
+  },
+  {
+    "question": "How does the attention mechanism work and what types exist?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Scores each input element's relevance, softmax gives weights, then forms a weighted sum (context vector)",
+      "Scaled dot-product uses queries, keys and values with division by sqrt of key dimension",
+      "Self-attention, cross-attention, multi-head, global versus local",
+      "Captures long-range dependencies without sequential processing"
+    ]
+  },
+  {
+    "question": "Explain the Transformer architecture, including positional encoding, layer normalization and residual connections.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Self-attention and multi-head attention plus position-wise feed-forward layers",
+      "Positional encoding (sinusoidal or learned) injects token order since processing is parallel",
+      "Residual connections and layer norm stabilize training of deep stacks",
+      "Encoder-decoder structure; parallel training; basis of BERT and GPT"
+    ]
+  },
+  {
+    "question": "What do pre-training and fine-tuning mean, and how do transfer learning and fine-tuning differ?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Pre-training learns general representations on large data; fine-tuning adapts to a specific task",
+      "Transfer learning (feature extraction) freezes the backbone and trains a new head",
+      "Fine-tuning also updates some or all pretrained layers, usually at a low learning rate",
+      "Fine-tuning needs more data and compute and risks forgetting"
+    ]
+  },
+  {
+    "question": "How would you fine-tune a pretrained model on a small domain-specific dataset?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Replace the head; train it first with the backbone frozen",
+      "Gradually unfreeze later layers with a lower learning rate",
+      "Use augmentation, regularization and early stopping to limit overfitting",
+      "Check preprocessing matches the pretrained model; validate against a baseline"
+    ]
+  },
+  {
+    "question": "Compare the types of autoencoders and explain how a VAE works.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Vanilla, denoising, sparse, convolutional, contractive and variational variants",
+      "VAE encodes inputs to a mean and variance, samples a latent vector with the reparameterization trick",
+      "VAE loss = reconstruction loss + KL divergence to a Gaussian prior",
+      "Can generate new samples; autoencoders learn non-linear compression, unlike linear PCA"
+    ]
+  },
+  {
+    "question": "Explain the architecture of a GAN, its variants, and mode collapse.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Generator maps noise to fake data; discriminator separates real from fake; trained adversarially",
+      "Variants: conditional GAN, DCGAN, WGAN, CycleGAN, StyleGAN",
+      "Mode collapse: generator produces limited variety that fools the discriminator",
+      "Instability from the minimax game and vanishing gradients; mitigate with WGAN, balanced training, spectral normalization"
+    ]
+  },
+  {
+    "question": "How do you load and train on a dataset larger than available RAM?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Stream data in batches with data generators or loaders instead of loading everything",
+      "Memory-mapped arrays or efficient formats avoid full loads",
+      "Use parallel workers and prefetching to keep the GPU fed",
+      "Keep batch size manageable for GPU memory"
+    ]
+  },
+  {
+    "question": "How do you track experiments and make deep learning runs reproducible?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Log code version, data version, hyperparameters, metrics, seeds and artifacts",
+      "Use tools such as MLflow or Weights & Biases with consistent naming and tagging",
+      "Pin library versions and environments; set random seeds",
+      "GPU nondeterminism can still cause small differences"
+    ]
+  },
+  {
+    "question": "How would you validate a deep model on temporal data such as time series or logs?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use time-based splits: train on earlier data, validate on later data",
+      "Random splits leak future information and inflate metrics",
+      "Check whether the data distribution shifts over time",
+      "Fit scalers and features on training periods only"
+    ]
+  },
+  {
+    "question": "How do you interpret what a trained CNN has learned?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Grad-CAM and saliency maps show influential image regions",
+      "Inspect early-layer filters (edges, color gradients)",
+      "Analyze misclassified examples and per-segment accuracy",
+      "Reveals spurious correlations the model may rely on"
+    ]
+  },
+  {
+    "question": "How do you reduce training time without hurting accuracy much?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Mixed-precision training on modern GPUs",
+      "Profile the input pipeline: data loading is often the bottleneck",
+      "Distributed multi-GPU training, caching, a smaller model, early stopping",
+      "Confirm evaluation is unchanged after each speed-up"
+    ]
+  },
+  {
+    "question": "When would you choose deep learning over tree-based models for tabular data?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Gradient boosting often wins on tabular data; benchmark it first",
+      "Deep models help with very large data, embeddings, multimodal inputs or end-to-end pipelines",
+      "Consider interpretability, training cost and latency",
+      "Adopt deep learning only if it clearly improves the target metric"
+    ]
+  },
+  {
+    "question": "How do you choose an architecture for your data, and how do you decide the number of layers and neurons?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Match architecture to data: CNN for images, transformers or RNNs for text and sequences, MLP for tabular",
+      "Start simple and grow depth or width only when validation performance plateaus",
+      "Use proven blocks (ResNet, transformer layers) or transfer learning",
+      "Tune with random or Bayesian search; watch compute and overfitting"
+    ]
+  },
+  {
+    "question": "What is the universal approximation theorem and what are its limits?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A network with one hidden layer and enough neurons with non-linear activation can approximate any continuous function on a bounded domain",
+      "It is an existence result, not a guarantee of efficiency or learnability",
+      "Width needed may be impractically large; depth is often more efficient",
+      "Does not guarantee generalization outside the training range"
+    ]
+  },
+  {
+    "question": "How do you evaluate a deep learning model beyond accuracy?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Classification: precision, recall, F1, ROC-AUC, confusion matrix; regression: MSE, MAE",
+      "Task-specific metrics: BLEU or ROUGE for language, IoU for segmentation, FID for generation",
+      "Evaluate per segment and error category; test on held-out data",
+      "Align the metric and threshold with the cost of errors"
+    ]
+  },
+  {
+    "question": "What are logits and how do they relate to probabilities?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Logits are raw unnormalized model outputs",
+      "Softmax or sigmoid converts logits to probabilities",
+      "Logit is the log-odds of a probability",
+      "Pass logits to numerically stable loss functions (e.g. BCEWithLogits) instead of applying softmax first"
+    ]
+  },{
+    "question": "What is end-to-end learning and when is it appropriate?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "One model maps raw input directly to the desired output, trained jointly with no hand-built intermediate stages",
+      "Removes manual feature engineering and can lower bias",
+      "Examples: audio to transcript, camera frames to steering",
+      "Needs lots of data and is harder to debug or interpret"
+    ]
+  },
+  {
+    "question": "Why is training done in mini-batches, and how important is shuffling?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "The full dataset will not fit in memory and full-batch updates are slow",
+      "Mini-batches give noisy but useful gradient estimates and efficient GPU use",
+      "Shuffle each epoch for SGD or mini-batch training to avoid ordering bias",
+      "For full-batch gradient descent, shuffling makes little difference"
+    ]
+  },
+  {
+    "question": "Walk through one training step in PyTorch, including gradient flow and validation.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Zero gradients, forward pass, compute loss, loss.backward(), optimizer.step()",
+      "Gradients accumulate unless cleared with zero_grad",
+      "Validation uses model.eval() and torch.no_grad() so no gradients or dropout/BN updates apply",
+      "Move data and model to the same device"
+    ]
+  },
+  {
+    "question": "What is autograd and how does automatic differentiation work in PyTorch?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Records operations on tensors with requires_grad into a dynamic computation graph",
+      "backward() traverses the graph in reverse applying the chain rule",
+      "Gradients are stored in each tensor's .grad attribute",
+      "Frees manual derivative coding; detach and no_grad stop tracking"
+    ]
+  },
+  {
+    "question": "What is a computational graph and why does it matter in deep learning frameworks?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Nodes are operations and edges are tensors flowing between them",
+      "Enables automatic differentiation by reverse traversal",
+      "Static graphs (TensorFlow 1.x style) allow optimization; dynamic graphs (PyTorch eager) are easier to debug",
+      "Graph compilers can fuse operations for speed"
+    ]
+  },
+  {
+    "question": "Why does matrix multiplication sit at the core of neural network computation?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A dense layer is Y = XW + b, applied to a whole batch at once",
+      "Shapes must align: (batch x in) times (in x out)",
+      "GPUs and TPUs are optimized for parallel matrix operations",
+      "Convolutions and attention also reduce to matrix multiplications"
+    ]
+  },
+  {
+    "question": "What is parameter sharing in deep learning and where is it used?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "The same weights are reused across positions or time steps",
+      "CNN filters slide across the image; RNNs reuse weights at every step",
+      "Cuts parameter count and builds in translation or time invariance",
+      "Improves generalization and efficiency"
+    ]
+  },
+  {
+    "question": "What is representation learning and why is it useful?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Models learn useful features from raw data instead of relying on hand-engineered ones",
+      "Examples: CNN features, word embeddings, autoencoder codes, pretrained transformer representations",
+      "Representations transfer to downstream tasks with little labeled data",
+      "Enables transfer learning and self-supervised pretraining"
+    ]
+  },
+  {
+    "question": "What is latent space?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A compressed, lower-dimensional space of learned features",
+      "Similar inputs land near each other",
+      "Autoencoders, VAEs, GANs and embeddings all use latent spaces",
+      "Sampling or interpolating in latent space enables generation and exploration"
+    ]
+  },
+  {
+    "question": "What is the difference between deterministic and probabilistic models?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Deterministic models give one fixed output for each input",
+      "Probabilistic models output distributions and capture uncertainty",
+      "Examples: Bayesian neural networks, VAEs, mixture models, MC dropout",
+      "Uncertainty estimates matter in medicine, finance and safety-critical systems"
+    ]
+  },
+  {
+    "question": "What are Boltzmann machines, RBMs and Deep Belief Networks?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Boltzmann machine: stochastic energy-based network with binary units that learns a probability distribution",
+      "RBM restricts connections to between a visible and a hidden layer only",
+      "DBN stacks RBMs with layer-wise pretraining then fine-tuning",
+      "Historically important for feature learning and now largely superseded by other architectures"
+    ]
+  },
+  {
+    "question": "When is multi-task learning preferred and how is it implemented?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "One model learns several related tasks with shared layers and task-specific heads",
+      "Helps when data per task is small and tasks share structure",
+      "Reduces overfitting and improves data efficiency",
+      "Balance task losses carefully to avoid one task dominating"
+    ]
+  },
+  {
+    "question": "If you use ReLU in hidden layers and sigmoid in the output layer, can the network still learn?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Yes: this is a standard design for binary classification",
+      "ReLU outputs are non-negative but weights and biases in the output layer can produce any logit",
+      "Sigmoid then maps the logit to a probability",
+      "Use BCE loss and check for dead ReLUs or saturation if training stalls"
+    ]
+  },
+  {
+    "question": "How can you generate data on the fly for models when the dataset does not fit in memory?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Use data generators or loaders (Keras Sequence, tf.data, PyTorch DataLoader) that yield batches",
+      "Multiple worker processes load and preprocess in parallel",
+      "Prefetching overlaps data loading with GPU computation",
+      "Avoids memory overflow and long start-up times"
+    ]
+  },
+  {
+    "question": "Can you apply batch normalization in an RNN?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Batch statistics are awkward with variable-length sequences and recurrent steps",
+      "Layer normalization is the usual alternative: it works per sample and is batch-size independent",
+      "Variants such as batch-normalized LSTMs exist but are less common",
+      "Layer norm is standard in transformers"
+    ]
+  },
+  {
+    "question": "Do Adam and RMSProp perform gradient clipping?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "No: they rescale updates per parameter using gradient statistics",
+      "Gradient clipping caps gradient norm or value at a fixed threshold",
+      "They can be used together",
+      "Clipping targets exploding gradients, especially in RNNs and transformers"
+    ]
+  },
+  {
+    "question": "How do you identify exploding gradients in your model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Loss spikes, oscillates wildly, or becomes NaN or inf",
+      "Log gradient norms per layer; very large values signal the problem",
+      "Weights grow large or overflow",
+      "Fix with gradient clipping, lower learning rate, better initialization and normalization"
+    ]
+  },
+  {
+    "question": "What is the difference between LSTMs and Transformers?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "LSTMs process tokens sequentially with gated memory; training is hard to parallelize",
+      "Transformers use self-attention over the whole sequence in parallel",
+      "Transformers capture long-range dependencies better and scale with data and compute",
+      "LSTMs can still suit small data, streaming or constrained settings; attention cost grows quadratically with length"
+    ]
+  },
+  {
+    "question": "Explain self-attention and masked self-attention.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Each token attends to all tokens in the same sequence using query, key and value projections",
+      "Scores are scaled dot products turned into weights by softmax",
+      "Masked (causal) attention blocks attention to future tokens for next-token prediction",
+      "Decoder-only models such as GPT use masked self-attention"
+    ]
+  },
+  {
+    "question": "What are query, key and value vectors in attention?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Learned linear projections of token representations",
+      "Query asks what to look for; key describes what each token offers; value carries the content",
+      "Attention weight = softmax(QK^T / sqrt(d_k)); output is a weighted sum of values",
+      "Multi-head attention runs several sets in parallel"
+    ]
+  },
+  {
+    "question": "What are the advantages and limitations of transformer models?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Advantages: parallel training, long-range dependencies, transfer learning and scaling",
+      "Limitations: quadratic attention cost in sequence length and heavy memory use",
+      "Large data and compute needs; context length limits",
+      "Mitigations: efficient attention, sparse patterns, chunking and retrieval"
+    ]
+  },
+  {
+    "question": "How do you tokenize image data for a vision transformer?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Split the image into fixed-size patches",
+      "Flatten and linearly project each patch into an embedding",
+      "Add positional embeddings and often a class token",
+      "Feed the sequence to a transformer encoder"
+    ]
+  },
+  {
+    "question": "How does FaceNet work and how can it recognize people it was not trained on?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "A CNN maps a face to an embedding vector trained with triplet loss so same-person faces are close",
+      "Recognition compares embedding distance against a threshold",
+      "New people are enrolled by storing their embeddings as references: no retraining needed",
+      "Works as one-shot or few-shot identification; needs good alignment and diverse training data"
+    ]
+  },
+  {
+    "question": "How does CTC greedy decoding turn per-time-step predictions into text?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Take the highest-probability token at each time step",
+      "Collapse consecutive repeated tokens, then remove blank tokens",
+      "Blanks separate genuine repeats (e.g. double letters) from repeated frames",
+      "CTC aligns audio frames to shorter text without frame-level labels"
+    ]
+  },
+  {
+    "question": "How would you source training data for a speech-to-text model?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Public corpora (e.g. LibriSpeech, Common Voice) plus recorded domain audio with accurate transcripts",
+      "Typical formats: WAV or FLAC at a consistent sample rate (e.g. 16 kHz) with text transcripts",
+      "Cover accents, noise and speakers; augment with noise and speed changes",
+      "Check licensing and consent; evaluate with word error rate"
+    ]
+  },
+  {
+    "question": "Compare autoencoder-based compression with ZIP.",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "ZIP is lossless and general-purpose",
+      "Autoencoders learn data-specific, lossy compression",
+      "Autoencoders can achieve strong compression on the data type they were trained on but not on unrelated data",
+      "Autoencoders need training and compute; ZIP needs no training"
+    ]
+  }
+]

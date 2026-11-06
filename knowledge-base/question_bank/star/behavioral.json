@@ -1,10 +1,10 @@
 [
 
 {
-    "question": "Describe a situation where you had a strong technical disagreement with a teammate. How did you resolve it?",
+    "question": "Describe a situation where you had a strong disagreement with a teammate. How did you resolve it?",
     "category": "general",
     "subcategory": "conflict_resolution",
-    "difficulty": "junior",
+    "difficulty": "any",
     "stack": "core",
     "question_type": "behavioral",
     "competency": "teamwork",
@@ -145,7 +145,7 @@
   {
     "question": "Tell me about a situation where a product manager or ui designer proposed a spec that you felt was technically unfeasible within the deadline. How did you navigate the conversation?",
     "category": "frontend",
-    "stack": "react",
+    "stack": "core",
     "difficulty": "any",
     "question_type": "behavioral",
     "competency": "teamwork",
@@ -244,6 +244,860 @@
       "Critical Thinking: Articulates a well-reasoned critique of industry hype versus production reality (e.g., massive context windows vs. structured RAG)",
       "Pragmatism: Demonstrates empirical, data-driven decision-making rather than blindly adopting emerging trends",
       "Impact: Explains how pivoting architectural strategies improved system performance, developer velocity, or system stability"
+    ]
+  },
+  {
+    "question": "Can you generate new samples from a trained autoencoder's decoder?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "A plain autoencoder's latent space is not regularized, so random latent vectors often decode to garbage",
+      "A VAE regularizes latent space toward a Gaussian, so sampling and decoding yields realistic outputs",
+      "Interpolating between encoded points can also generate samples",
+      "GANs and diffusion models are alternatives for generation"
+    ]
+  },
+  {
+    "question": "How do you export a trained PyTorch (.pth) model to another format?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "deep-learning",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Load the state dict into the model class, switch to eval mode",
+      "Export with torch.onnx.export using an example input, or TorchScript via tracing/scripting",
+      "Validate the exported model against the original outputs",
+      "Run it with ONNX Runtime or TensorRT for deployment"
+    ]
+  },
+  {
+    "question": "Tell me about your background and what led you to copywriting or technical writing.",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Gives a concise, relevant career story",
+      "Explains motivation and what draws them to the craft",
+      "Highlights skills and experience that fit the role",
+      "Ties interest to the company or audience"
+    ]
+  },
+  {
+    "question": "Why are you interested in this role and our company, and what makes you a strong fit?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Shows research into the company's products, audience, values and content",
+      "Links own strengths to the role's needs with specific evidence",
+      "Genuine and specific rather than generic praise",
+      "Shows how they would add value"
+    ]
+  },
+  {
+    "question": "Describe one of the most challenging projects you worked on. What were the challenges and how did you resolve them?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Uses a clear situation, action and result structure",
+      "Names specific obstacles such as unclear briefs, limited access to experts or changing scope",
+      "Explains the reasoning behind the actions taken",
+      "Reports the outcome and lessons learned"
+    ]
+  },
+  {
+    "question": "Tell me about a time you and your team worked under a tight deadline or with limited information. How did you handle it?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Prioritized core messages and scope",
+      "Gathered missing information quickly from stakeholders",
+      "Communicated risks and progress early",
+      "Delivered on time with acceptable quality and reflected on the process"
+    ]
+  },
+  {
+    "question": "Describe a time you and your team missed a deadline. What happened and what did you learn?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Takes ownership without blaming others",
+      "Explains what caused the delay and how they communicated it",
+      "Describes the recovery plan",
+      "Names concrete process changes such as better estimates, buffers or earlier escalation"
+    ]
+  },
+  {
+    "question": "How do you handle feedback and criticism on your writing?",
+    "category": "copywriting",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Listens and asks clarifying questions without defensiveness",
+      "Separates ego from the work and focuses on the goal",
+      "Applies feedback and confirms alignment",
+      "Gives an example of improvement that resulted"
+    ]
+  },
+  {
+    "question": "Tell me about a time you collaborated with designers, marketers, developers or other cross-functional teams.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Defines shared goals and roles up front",
+      "Sets up regular communication and feedback loops",
+      "Explains their own contribution and how copy and design or product fit together",
+      "Describes the outcome and what made the collaboration work"
+    ]
+  },
+  {
+    "question": "Describe a time you worked with a difficult subject matter expert or disagreed with a colleague about content. How did you handle it?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "technical-writer",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Listens to understand their concerns and constraints",
+      "Respects their time and builds credibility by being prepared",
+      "Finds common ground focused on the user or goal",
+      "Escalates only if needed; maintains the relationship"
+    ]
+  },
+  {
+    "question": "How do you manage multiple projects with competing deadlines?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Prioritizes by urgency, impact and dependencies",
+      "Uses calendars, task trackers and time blocking",
+      "Communicates trade-offs and renegotiates deadlines early when needed",
+      "Protects quality while meeting commitments"
+    ]
+  },
+  {
+    "question": "Tell me about a time you had to learn a new technology, tool or industry quickly to complete a project.",
+    "category": "copywriting",
+    "difficulty": "any",
+    "stack": "technical-writer",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Builds a structured learning plan using documentation, hands-on trials and experts",
+      "Identifies the minimum needed to write accurately",
+      "Validates understanding with SMEs",
+      "Delivered a successful result and notes the learning method reused later"
+    ]
+  },
+  {
+    "question": "Tell me about a time your copy did not perform as expected. What did you learn?",
+    "category": "copywriting",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Owns the miss and describes the goal and result honestly",
+      "Diagnoses with data: audience, message, offer, channel, tracking",
+      "Describes the fix or test run next",
+      "States a concrete lesson applied afterward"
+    ]
+  },
+  {
+    "question": "Tell me about a time you simplified highly complex information for a non-expert audience.",
+    "category": "copywriting",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Identifies the audience and what they needed to understand",
+      "Used analogies, plain language and structure",
+      "Checked comprehension with a reader or SME",
+      "Reports the positive impact"
+    ]
+  },
+  {
+    "question": "Tell me about a time you had to manage unexpected changes or revisions on a project.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Stays calm and clarifies the new requirements and priorities",
+      "Re-scopes and re-plans with stakeholders and flags impact on timing",
+      "Preserves what can be reused",
+      "Delivers while maintaining quality and relationships"
+    ]
+  },
+  {
+    "question": "Tell me about a time you used creative or unconventional thinking to solve a writing problem or overcome a block.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains the specific problem",
+      "Looked in unusual places for insight (customer reviews, communities, the product itself)",
+      "Describes the idea and why it worked",
+      "Measured or observed the result"
+    ]
+  },
+  {
+    "question": "Tell me about a time you and your team worked with a tight budget or limited resources on a project.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Prioritized the highest-impact deliverables",
+      "Reused existing assets and used low-cost tools",
+      "Set expectations transparently with stakeholders",
+      "Delivered impact within constraints"
+    ]
+  },
+  {
+    "question": "Describe a time you advocated for the user when stakeholders wanted different content.",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Brings user evidence such as support tickets, feedback or usability findings",
+      "Frames the request in terms of the stakeholders' own goals",
+      "Proposes a compromise or a test",
+      "Documents the decision and outcome"
+    ]
+  },
+  {
+    "question": "Describe a time you identified a gap in existing documentation or content and how you addressed it.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "technical-writer",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Spotted the gap through feedback, search data or support tickets",
+      "Prioritized and researched the missing content",
+      "Created and published it with SME review",
+      "Measured impact such as fewer tickets or better ratings"
+    ]
+  },
+  {
+    "question": "How do you communicate effectively with remote team members?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "technical-writer",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Uses written, asynchronous updates with clear context and deadlines",
+      "Chooses the right channel: chat, video or shared documents",
+      "Schedules regular check-ins and shares progress openly",
+      "Accounts for time zones and confirms understanding"
+    ]
+  },
+  {
+    "question": "Describe your experience working in an Agile or Scrum environment.",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "technical-writer",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Participates in planning, standups and retrospectives",
+      "Writes documentation in step with sprints and ties it to the definition of done",
+      "Works closely with developers and product owners on changing requirements",
+      "Adapts scope to iteration cycles"
+    ]
+  },
+  {
+    "question": "Do you prefer working independently or as part of a team, and how important is collaboration in this role?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "teamwork",
+    "reference_points": [
+      "Honest about preference while showing flexibility",
+      "Explains why collaboration with editors, designers, SMEs and marketers matters",
+      "Gives an example of working well alone and in a team",
+      "Shows communication habits"
+    ]
+  },
+  {
+    "question": "How do you stay up to date with copywriting, SEO and industry trends, and what have you learned recently?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Names specific blogs, newsletters, courses, communities or conferences",
+      "Gives a recent example of something learned and applied",
+      "Filters hype from useful developments",
+      "Shows a consistent habit"
+    ]
+  },
+  {
+    "question": "Tell me about a time your attention to detail prevented a mistake.",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes the specific error and its potential impact",
+      "Explains the checking process that caught it",
+      "Fixed it before publication and informed the right people",
+      "Added a checklist or process to prevent recurrence"
+    ]
+  },
+  {
+    "question": "Tell me about a time you stepped outside your comfort zone as a writer.",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Describes the unfamiliar format, topic or tool",
+      "Explains how they prepared and sought help",
+      "Shows what they delivered and learned",
+      "Reflects on growth"
+    ]
+  },
+  {
+    "question": "Which types of copy are your weakest, and what are you doing to improve?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Names a real weakness with self-awareness (e.g. short-form social, technical subjects)",
+      "Explains why it is hard for them",
+      "Describes tangible improvement steps: practice, courses, feedback, studying examples",
+      "Shows the weakness is not critical to the role or is being actively addressed"
+    ]
+  },
+  {
+    "question": "How do you define success in this role, and what motivates you?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "communication",
+    "reference_points": [
+      "Defines success by outcomes: reader or customer impact, goals met and quality",
+      "Shows motivation for the craft and for learning",
+      "Connects to team and company goals",
+      "Gives an example of when they felt that success"
+    ]
+  },
+  {
+    "question": "Describe how you handled negative feedback or a complaint from a client about your content.",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Listens, acknowledges and seeks specifics without defensiveness",
+      "Clarifies expectations and the brief",
+      "Makes tangible changes to the work or process",
+      "Rebuilds trust through proactive updates"
+    ]
+  },
+  {
+    "question": "How many words or pieces can you realistically produce in a workday, and how do you maintain quality at that pace?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Gives an honest range that depends on content type, research needs and complexity",
+      "Separates research, drafting and editing time",
+      "Uses templates, outlines and focused work blocks to go faster",
+      "Prioritizes quality and does not trade accuracy for volume"
+    ]
+  },
+  {
+    "question": "What do you think of our current website or documentation copy, and how would you improve it?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Reviews specific pages before answering and notes real strengths first",
+      "Gives constructive, specific observations on clarity, structure, tone, CTAs, proof and SEO",
+      "Prioritizes improvements by impact",
+      "Respectful tone; asks about goals and constraints rather than assuming"
+    ]
+  },
+  {
+    "question": "You are writing copy for a product similar to its competitors. How do you make it stand out?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Researches competitor claims and customer reviews to find unmet needs",
+      "Identifies a genuine differentiator, a specific audience or an angle",
+      "Backs claims with proof",
+      "Tests the angle against alternatives"
+    ]
+  },
+  {
+    "question": "A client wants to use industry jargon, but you know the audience will not understand it. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains the audience-comprehension risk using data or examples",
+      "Offers a compromise: use necessary terms with plain explanations",
+      "Proposes a quick test or reader check",
+      "Respects client expertise while protecting clarity"
+    ]
+  },
+  {
+    "question": "The data shows your recent email campaign underperformed. What steps do you take?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Confirms the metric, baseline and tracking",
+      "Diagnoses by funnel stage: deliverability, subject line, body, CTA, offer and segment",
+      "Forms hypotheses and runs a controlled test",
+      "Applies and documents learnings"
+    ]
+  },
+  {
+    "question": "You are asked to create a viral social post for a product that seems boring. What is your approach?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Finds the human angle, surprising use case or customer story",
+      "Matches platform format and culture",
+      "Sets realistic expectations: virality cannot be guaranteed, so aim for engagement",
+      "Tests concepts and measures shares, saves and clicks"
+    ]
+  },
+  {
+    "question": "A new compliance rule, or legal, rejects a claim in your copy. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Understands exactly what is restricted and why",
+      "Gathers proof for the claim or finds approved language",
+      "Rewrites to stay persuasive and compliant",
+      "Builds a claims checklist for future copy"
+    ]
+  },
+  {
+    "question": "You are writing for a brand whose values do not align with yours. How do you approach it?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Separates personal views from professional responsibility",
+      "Focuses on honest, accurate copy and the audience's needs",
+      "Raises genuine ethical concerns early with the right person",
+      "Declines work that requires misleading or harmful content"
+    ]
+  },
+  {
+    "question": "Your client wants to change the entire concept a day before the deadline. How do you manage it?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Clarifies the reason, constraints and what is truly required",
+      "Explains the impact on quality and timeline and offers options",
+      "Reuses research and approved elements; proposes a phased delivery if needed",
+      "Confirms the agreed scope in writing"
+    ]
+  },
+  {
+    "question": "A landing page gets traffic but converts poorly. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Checks traffic source, message match between ad and page, headline, offer, CTA, proof and form friction",
+      "Reviews analytics, scroll and session data for drop-off",
+      "Rewrites the weakest element and tests it",
+      "Documents the result and builds a page copy checklist"
+    ]
+  },
+  {
+    "question": "A stakeholder wants clever copy that hides the offer. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Aligns on the goal and the action required",
+      "Explains that clarity usually outperforms cleverness in conversion contexts",
+      "Offers options that keep the creative idea while stating the offer",
+      "Suggests a test"
+    ]
+  },
+  {
+    "question": "An ad gets clicks but produces poor leads. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Checks the promise in the ad against the landing page and offer",
+      "Reviews targeting and lead qualification criteria",
+      "Considers that the copy may attract the wrong audience",
+      "Revises the angle and tracks lead quality, not just CTR"
+    ]
+  },
+  {
+    "question": "An email subject line has high opens but low clicks. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Checks that the subject promise matches the email body",
+      "Reviews the offer, body length, clarity and CTA placement",
+      "Looks at segment fit and mobile display",
+      "Runs a new test aligning subject, body and CTA"
+    ]
+  },
+  {
+    "question": "A brand manager says your copy is off-tone. How do you respond?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks for specific examples and references the voice guide",
+      "Identifies the gap between the audience, channel and the guide",
+      "Revises tone without losing clarity",
+      "Updates notes or the guide to prevent repeat issues"
+    ]
+  },
+  {
+    "question": "A copy test loses badly. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Checks the test was valid: sample size, duration and traffic quality",
+      "Reviews the hypothesis and what the result suggests about the audience",
+      "Documents the learning and the next hypothesis",
+      "Treats a losing test as useful information"
+    ]
+  },
+  {
+    "question": "A client asks for copy that sounds like a competitor's. How do you handle it?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains the brand-differentiation and legal or plagiarism risk",
+      "Understands what they admire about the competitor's copy",
+      "Offers alternatives that capture the strength in the brand's own voice",
+      "Keeps the conversation collaborative"
+    ]
+  },
+  {
+    "question": "A client keeps adding more features to the copy although the brief focuses on one message. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Refers back to the agreed goal and primary action",
+      "Explains how extra points can dilute focus and conversion",
+      "Proposes testing the focused version first, with extra features on a secondary section",
+      "Frames it as a testing decision, not a dismissal"
+    ]
+  },
+  {
+    "question": "A stakeholder asks for keyword stuffing. How do you respond?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "seo-specialist",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Explains that search engines favor intent and quality and that stuffing hurts readability and rankings",
+      "Shows examples or data on natural keyword use",
+      "Offers a plan: optimized title, headings and related terms",
+      "Keeps the tone constructive"
+    ]
+  },
+  {
+    "question": "An editor cuts half of your draft. How do you react?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks for the reasoning without defensiveness",
+      "Looks for patterns such as repetition, off-brief content or weak value",
+      "Revises cleanly and applies the lesson to future drafts",
+      "Maintains a positive working relationship"
+    ]
+  },
+  {
+    "question": "One source conflicts with another while you research. What do you do?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "technical-writer",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Checks source authority, date and originality",
+      "Looks for the primary source or tests the product directly",
+      "Asks an SME to resolve the conflict",
+      "Documents the decision or states the uncertainty"
+    ]
+  },
+  {
+    "question": "The draft you wrote sounds generic. How do you improve it?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Adds specific details, examples, numbers and customer language",
+      "Does more research and gets original input from experts",
+      "Cuts filler and vague claims",
+      "Reads aloud and checks that every line carries weight"
+    ]
+  },
+  {
+    "question": "The brief is vague. What do you do before writing?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Asks focused questions about audience, goal, keyword, format, tone and examples",
+      "Reviews existing content and competitors",
+      "Confirms understanding in writing before drafting",
+      "Proposes a brief template for future requests"
+    ]
+  },
+  {
+    "question": "You are asked to produce 50 pieces of content per week. How do you respond?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Clarifies the type, length and quality bar of the pieces",
+      "Explains the trade-off between volume and quality with realistic estimates",
+      "Proposes systems: templates, briefs, batching, freelancers or editors, repurposing",
+      "Agrees on priorities and measures results"
+    ]
+  },
+  {
+    "question": "A product launches at the end of the month and you must write new client copy and update relevant website pages. How do you prioritize?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Lists deliverables and dependencies and ranks by launch-critical impact",
+      "Works backward from the date with milestones and review time",
+      "Gets product and legal sign-off early; reuses a message core",
+      "Flags risks to stakeholders"
+    ]
+  },
+  {
+    "question": "A product changes frequently and you must constantly update content. How do you manage this?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Keeps a flexible content calendar and a change-notification channel with product",
+      "Uses modular, reusable content and version control",
+      "Prioritizes high-traffic and high-risk pages",
+      "Schedules regular audits to catch stale content"
+    ]
+  },
+  {
+    "question": "You put real effort into a piece but your manager gives negative feedback. How do you respond?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Stays professional and asks for specifics",
+      "Focuses on the goal rather than the effort invested",
+      "Revises promptly and confirms alignment",
+      "Learns the pattern for future work"
+    ]
+  },
+  {
+    "question": "You must document a feature you cannot directly access, or information beyond your technical understanding. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "technical-writer",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Requests a test environment or a recorded demo; uses specs, code comments and tickets",
+      "Learns the basics and interviews engineers",
+      "Marks assumptions and gets SME verification",
+      "Does not publish unverified claims"
+    ]
+  },
+  {
+    "question": "The performance team wants many copy variants quickly. How do you handle it?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Defines hypotheses and traffic available to test",
+      "Prioritizes variants with clear learning value rather than volume",
+      "Uses modular copy elements to generate variants efficiently",
+      "Sets a review process for brand and accuracy"
+    ]
+  },
+  {
+    "question": "A page makes strong claims but has no proof. What do you do?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Collects evidence: customer quotes, data, reviews, case studies",
+      "Adds proof near the claim or softens unsupported claims",
+      "Checks permission and legal approval for testimonials",
+      "Tests the revised page"
+    ]
+  },
+  {
+    "question": "How would you change tone and language to attract a younger audience?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Researches how the audience actually communicates and which platforms they use",
+      "Uses a more casual, direct and relatable tone with relevant references",
+      "Avoids forced slang and keeps clarity and brand voice",
+      "Tests and iterates using engagement data"
+    ]
+  },
+  {
+    "question": "How would you respond if asked to complete an unpaid writing test?",
+    "category": "copywriting",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Is open to a reasonable, time-boxed sample to show skills",
+      "Asks about scope, length, criteria and whether it is paid",
+      "Is professional about boundaries and does not agree to extended free work",
+      "Uses the test to demonstrate process and not only the output"
+    ]
+  },
+  {
+    "question": "A client complains repeatedly about unsatisfactory content. How do you preserve the relationship while fixing the problem?",
+    "category": "copywriting",
+    "difficulty": "senior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "problem_solving",
+    "reference_points": [
+      "Meets with the client to understand the root dissatisfaction",
+      "Re-establishes the brief, examples and success criteria",
+      "Proposes a concrete improvement plan with checkpoints",
+      "Communicates proactively and documents agreements"
+    ]
+  },
+  {
+    "question": "How would you handle disagreeing with a client's or colleague's direction for the copy?",
+    "category": "copywriting",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Listens to understand their reasoning first",
+      "States concerns using goals, audience insight or data",
+      "Offers an alternative or a test to settle it",
+      "Commits to the final decision and keeps the relationship constructive"
     ]
   }
 ]
