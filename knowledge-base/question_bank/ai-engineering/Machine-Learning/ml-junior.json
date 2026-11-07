@@ -530,5 +530,19 @@
       "Retail: buying patterns and recommendations",
       "Relates to ML but emphasizes knowledge discovery"
     ]
+  },
+  {
+    "question": "Explain the AI and ML tools and libraries you are familiar with, and how have you used them?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "ml",
+    "question_type": "technical",
+    "competency": "technical_depth",
+    "reference_points": [
+      "Names specific tools (e.g. scikit-learn, PyTorch, TensorFlow, pandas, MLflow) with concrete usage",
+      "Distinguishes tools used hands-on from tools only read about",
+      "Connects tool choice to project needs",
+      "Shows willingness to learn the team's stack"
+    ]
   }
 ]

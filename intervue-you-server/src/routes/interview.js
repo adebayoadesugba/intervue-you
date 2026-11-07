@@ -14,7 +14,9 @@ function extractUserId(req) {
       const token = authHeader.split(" ")[1];
       if (token && process.env.JWT_SECRET) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        return decoded.id || decoded._id || decoded.userId || null;
+        // Returns user ID as string
+        const id = decoded.id || decoded._id || decoded.userId || decoded.sub || null;
+        return id ? String(id) : null;
       }
     } catch (e) {
       return null;
@@ -381,14 +383,15 @@ const evaluateHandler = async (req, res) => {
     const session = await Session.findById(req.params.id);
     if (!session) return res.status(404).json({ error: "Session not found" });
 
+    // Prepare transcript array if incoming turns exist
+    let formattedTranscript = session.transcript;
     const incomingTurns = req.body?.transcript;
     if (Array.isArray(incomingTurns) && incomingTurns.length > 0) {
-      session.transcript = incomingTurns.map((t) => ({
+      formattedTranscript = incomingTurns.map((t) => ({
         question: t.q,
         userAnswer: t.a,
         followUp: Boolean(t.followUp),
       }));
-      await session.save();
     }
 
     // Call FastAPI RAG endpoint (report_agent.py generation)
@@ -418,28 +421,37 @@ const evaluateHandler = async (req, res) => {
 
     const overallScore = reportData.overall_score ?? fastApiData.overallScore ?? 0;
 
-    // Save normalized objects in Mongo
-    session.report = reportData;
-    session.overallScore = overallScore;
-    session.scores = calculatedScores;
-    session.evaluation = {
+    const evaluationObject = {
       overallScore,
       scores: calculatedScores,
       report: reportData,
       feedback: fastApiData.feedback || reportData.feedback || [],
     };
-    session.status = "completed";
 
-    await session.save();
+    // Option A: Use findByIdAndUpdate for atomic update (bypasses __v version locking)
+    const updatedSession = await Session.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          transcript: formattedTranscript,
+          report: reportData,
+          overallScore: overallScore,
+          scores: calculatedScores,
+          evaluation: evaluationObject,
+          status: "completed",
+        },
+      },
+      { new: true } // Returns the updated document
+    );
 
-    return res.json({ session });
+    return res.json({ session: updatedSession });
   } catch (err) {
     console.error("❌ Express /evaluate error:", err);
     return res.status(500).json({ error: "Failed to retrieve Python scorecard" });
   }
 };
-router.post(["/session/:id/evaluate", "/interview/session/:id/evaluate"], evaluateHandler);
 
+router.post(["/session/:id/evaluate", "/interview/session/:id/evaluate"], evaluateHandler);
 // ==========================================
 // 7. COACH ROUTE
 // ==========================================

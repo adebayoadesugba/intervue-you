@@ -40,7 +40,7 @@ def load_questions() -> dict[str, Document]:
     warnings_count = 0
 
     for file_path in glob.glob(QUESTION_BANK_PATH, recursive=True):
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf-8") as f:       
             questions = json.load(f)
 
         for idx, q in enumerate(questions):

@@ -1,5 +1,35 @@
 [
-
+  {
+    "question": "Tell me about an AI or ML project you are proud of. What was the problem, your approach and the outcome?",
+    "category": "ai-engineering",
+    "subcategory": "project_overview",
+    "difficulty": "any",
+    "stack": "core",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Clearly states the problem and why it mattered",
+      "Explains own approach, tools and key decisions",
+      "Describes the result with a metric or concrete outcome",
+      "Is clear about personal contribution versus the team's",
+      "Mentions a challenge faced and what was learned"
+    ]
+  },
+  {
+    "question": "What tools, languages and frameworks do you work with most, and how did you become comfortable with them?",
+    "category": "ai-engineering",
+    "subcategory": "technical_background",
+    "difficulty": "any",
+    "stack": "rag",
+    "question_type": "introduction",
+    "competency": "communication",
+    "reference_points": [
+      "Lists relevant tools such as Python, PyTorch, TensorFlow, Hugging Face or vector databases",
+      "Explains where and how they were used in real work or projects",
+      "Describes the learning path honestly, including areas still developing",
+      "Shows understanding of why those tools were chosen"
+    ]
+  },
  {
     "question": "Can you give me a brief overview of your professional background and what drove you to software engineering?",
     "category": "frontend",
@@ -195,10 +225,10 @@
   },
 
   {
-    "question": "Could you give me a high-level summary of your journey so far, highlighting two or three key milestones that define your expertise?",
+    "question": "Could you give me a summary of your journey so far, highlighting one or two key milestones that define your expertise?",
     "category": "general",
     "stack": "core",
-    "difficulty": "senior",
+    "difficulty": "any",
     "question_type": "introduction",
     "competency": "communication",
     "reference_points": [
@@ -278,42 +308,15 @@
     "category": "backend",
     "difficulty": "any",
     "stack": "core",
-    "question_type": "introduction",
-    "competency": "communication",
+    "question_type": "behavioral",
+    "competency": "problem_solving",
     "reference_points": [
       "Used clear analogies without overly dense jargon",
       "Verified understanding through feedback loops or Q&A",
       "Focused on business value rather than lower-level implementation details"
     ]
   },
-  {
-    "question": "Can you describe your favorite machine learning algorithm and when you would choose it.",
-    "category": "ai-engineering",
-    "difficulty": "junior",
-    "stack": "ml",
-    "question_type": "introduction",
-    "competency": "communication",
-    "reference_points": [
-      "Explains the algorithm simply and correctly",
-      "Justifies the choice with a real example from work or study",
-      "Compares it with alternatives and states its trade-offs",
-      "Communicates clearly in under a minute"
-    ]
-  },
-  {
-    "question": "Explain the AI and ML tools and libraries you are familiar with, and how have you used them?",
-    "category": "ai-engineering",
-    "difficulty": "junior",
-    "stack": "ml",
-    "question_type": "introduction",
-    "competency": "communication",
-    "reference_points": [
-      "Names specific tools (e.g. scikit-learn, PyTorch, TensorFlow, pandas, MLflow) with concrete usage",
-      "Distinguishes tools used hands-on from tools only read about",
-      "Connects tool choice to project needs",
-      "Shows willingness to learn the team's stack"
-    ]
-  },  {
+   {
     "question": "What machine learning projects have you worked on?",
     "category": "ai-engineering",
     "difficulty": "junior",
@@ -353,20 +356,6 @@
       "Explains why a framework was chosen (research flexibility, production support, speed of prototyping)",
       "Mentions challenges hit and how they were solved",
       "Honest about depth of experience"
-    ]
-  },
-  {
-    "question": "Where do you usually source datasets for your projects?",
-    "category": "ai-engineering",
-    "difficulty": "any",
-    "stack": "core",
-    "question_type": "introduction",
-    "competency": "communication",
-    "reference_points": [
-      "Names real sources (e.g. Kaggle, public repositories, company data, APIs)",
-      "Considers licensing, privacy and data quality",
-      "Describes checking for bias, duplicates and label quality",
-      "Shows independent projects or initiative"
     ]
   }
 ]

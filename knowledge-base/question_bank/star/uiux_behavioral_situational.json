@@ -42,20 +42,6 @@
     ]
   },
   {
-    "question": "How do you stay up to date with design trends and tools?",
-    "category": "uiux",
-    "difficulty": "junior",
-    "stack": "core",
-    "question_type": "behavioral",
-    "competency": "communication",
-    "reference_points": [
-      "Specific sources: newsletters, communities, courses",
-      "Experiments through personal projects",
-      "Evaluates trends before adopting them",
-      "Shares learning with peers"
-    ]
-  },
-  {
     "question": "How do you handle negative feedback or criticism on your projects?",
     "category": "general",
     "difficulty": "any",

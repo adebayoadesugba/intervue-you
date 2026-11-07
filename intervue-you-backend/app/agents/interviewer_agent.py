@@ -68,18 +68,21 @@ def _build_query_text(session: InterviewSession, slot: AgendaSlot) -> str:
 WELCOME_EXAMPLES = [
     "Hello and welcome, I'm really glad you could join me today. This session is a {role} interview, and we'll go through a mix of questions about your background, your experience, and how you approach problems. Take your time with each answer, and let's start with a simple one.",
     "Hi there, and thank you for taking the time to be here today. We'll spend the next few minutes talking about your experience and skills for this {role} role, so please relax and answer as naturally as you can. To get us started, I'd like to know a bit about you.",
-    "Good to meet you, and welcome to your interview. Today's conversation is focused on {role} for {difficulty} Engineer, and there are no trick questions, I'm just interested in understanding how you think and work. Whenever you're ready, we'll begin with a short introduction.",
+    "Good to meet you, and welcome to your interview. Today's conversation is focused on {role}, and there are no trick questions, I'm just interested in understanding how you think and work. Whenever you're ready, we'll begin with a short introduction.",
     "Welcome, and thank you for joining me. I'll be walking you through a series of questions for this {role} interview, starting with some general ones before we get more specific. There's no rush at any point, so let's begin with you telling me about yourself.",
-    "Hello, it's a pleasure to have you here today. This is a {difficulty}-level {role} interview, and the goal is simply to learn more about your background and how you handle real situations. Let's ease into it with a first question.",
+    "Hello, it's a pleasure to have you here today. This is a {role} interview, and the goal is simply to learn more about your background and how you handle real situations. Let's ease into it with a first question.",
 ]
 
 def _get_transition_hint(session: InterviewSession, slot: AgendaSlot) -> str:
     """
     Generates transition hints ONLY when the question_type or stack changes.
     Maps 'core' stack to the role category instead of printing 'CORE'.
-    Uses structured welcoming templates for Turn 1.
+    Uses structured welcoming templates for Turn 1 (when candidate has answered 0 questions).
     """
-    if not session.questions_asked:
+    # Fix: Check if user has actually answered any question yet instead of relying strictly on questions_asked
+    user_has_answered = any(q.answer_text is not None for q in session.questions_asked)
+
+    if not user_has_answered:
         # Build clean role title (e.g., "Vue / React Frontend" or "Frontend")
         active_stacks = [s.upper() for s in session.stack if s not in ("core", "none", "universal")]
         if active_stacks:
@@ -139,16 +142,55 @@ def _phrase_question(raw_question: str, session: InterviewSession, slot: AgendaS
             last_user_answer = last_user_answer.replace("</last_candidate_answer>", "[/last_candidate_answer]")
             break
 
+    if last_user_answer:
+        bridge_rule = """
+NEUTRAL BRIDGE RULE
+- If the candidate provided a previous answer, open with ONE brief, neutral acknowledgment chosen at random from the pool below.
+- Keep the acknowledgment strictly neutral. NEVER praise ("Great job", "Excellent answer"), compliment, or judge the quality of the candidate's response.
+
+Example Neutral Bridges Pool (Choose/rotate dynamically):
+[Context: Standard Transitions]
+1. "Thank you for walking me through that."
+2. "Understood, thanks for breaking that down."
+3. "Got it, thank you for explaining your perspective."
+4. "Okay, I have a clear picture of your approach."
+5. "Alright, thanks for covering those details."
+
+[Context: Technical & Problem-Solving]
+6. "Thank you for detailing that implementation."
+7. "Okay, I see how you handled that technical scenario."
+8. "Understood, thanks for outlining your thought process."
+9. "Got it, that clarifies how you structured that solution."
+10. "Alright, thank you for walking through the architecture."
+
+[Context: Behavioral & Situational Teamwork]
+11. "Thank you for describing how you managed that situation."
+12. "Got it, I appreciate you sharing that with me."
+13. "Okay, thanks for explaining how you approached that."
+14. "Understood, thank you for summarizing the outcome."
+
+[Context: Short / Concise Bridges]
+15. "Understood, thank you."
+16. "Got it, thanks for that context."
+17. "Okay, thank you for sharing."
+18. "Alright, thanks for explaining."
+19. "Got it, I appreciate you sharing that with me."
+20. "Thank you for walking me through that."
+"""
+        user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
+    else:
+        bridge_rule = """
+FIRST TURN RULE:
+- Do NOT thank the candidate for a previous answer or pretend they answered a prior question.
+- Open directly using the FIRST TURN INSTRUCTION provided below.
+"""
+        user_prompt = f"Raw Question: {raw_question}"
+
     system_prompt = f"""
 You are conducting a {session.difficulty}-level {session.category} interview.
 Rephrase the raw question below into a single, natural, spoken interview question.
 
-NEUTRAL BRIDGE RULE
-- If the candidate provided a previous answer, start with a brief, neutral acknowledgment (e.g., "Thank you for walking me through that, I appreciate you sharing your perspective., 
-"Okay, I see how you approached that, and that gives me a clear picture of your thinking.,  
-Alright, thanks for explaining that in detail., 
-or Understood, thank you for laying that out. Let's move on to the next question.").
-- NEVER praise, compliment, or judge the quality of the candidate's answer").
+{bridge_rule}
 
 TRANSITION INSTRUCTION:
 {transition_instruction}
@@ -162,11 +204,6 @@ FORMAT INSTRUCTIONS:
 - Do NOT use markdown formatting (no bolding, no quotes surrounding the output).
 - Keep the phrasing under 3 sentences.
 """.strip()
-
-    if last_user_answer:
-        user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
-    else:
-        user_prompt = f"Raw Question: {raw_question}"
 
     response = client.chat.completions.create(
         model=MODEL,
@@ -197,16 +234,55 @@ def _phrase_question_stream(raw_question: str, session: InterviewSession, slot: 
             last_user_answer = last_user_answer.replace("</last_candidate_answer>", "[/last_candidate_answer]")
             break
 
+    if last_user_answer:
+        bridge_rule = """
+NEUTRAL BRIDGE RULE
+- If the candidate provided a previous answer, open with ONE brief, neutral acknowledgment chosen at random from the pool below.
+- Keep the acknowledgment strictly neutral. NEVER praise ("Great job", "Excellent answer"), compliment, or judge the quality of the candidate's response.
+
+Example Neutral Bridges Pool (Choose/rotate dynamically):
+[Context: Standard Transitions]
+1. "Thank you for walking me through that."
+2. "Understood, thanks for breaking that down."
+3. "Got it, thank you for explaining your perspective."
+4. "Okay, I have a clear picture of your approach."
+5. "Alright, thanks for covering those details."
+
+[Context: Technical & Problem-Solving]
+6. "Thank you for detailing that implementation."
+7. "Okay, I see how you handled that technical scenario."
+8. "Understood, thanks for outlining your thought process."
+9. "Got it, that clarifies how you structured that solution."
+10. "Alright, thank you for walking through the architecture."
+
+[Context: Behavioral & Situational Teamwork]
+11. "Thank you for describing how you managed that situation."
+12. "Got it, I appreciate you sharing that with me."
+13. "Okay, thanks for explaining how you approached that."
+14. "Understood, thank you for summarizing the outcome."
+
+[Context: Short / Concise Bridges]
+15. "Understood, thank you."
+16. "Got it, thanks for that context."
+17. "Okay, thank you for sharing."
+18. "Alright, thanks for explaining."
+19. "Got it, I appreciate you sharing that with me."
+20. "Thank you for walking me through that."
+"""
+        user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
+    else:
+        bridge_rule = """
+FIRST TURN RULE:
+- Do NOT thank the candidate for a previous answer or pretend they answered a prior question.
+- Open directly using the FIRST TURN INSTRUCTION provided below.
+"""
+        user_prompt = f"Raw Question: {raw_question}"
+
     system_prompt = f"""
 You are conducting a {session.difficulty}-level {session.category} interview.
 Rephrase the raw question below into a single, natural, spoken interview question.
 
-NEUTRAL BRIDGE RULE
-- If the candidate provided a previous answer, start with a brief, neutral acknowledgment (e.g., "Thank you for walking me through that, I appreciate you sharing your perspective., 
-"Okay, I see how you approached that, and that gives me a clear picture of your thinking.,  
-Alright, thanks for explaining that in detail., 
-or Understood, thank you for laying that out. Let's move on to the next area.").
-- NEVER praise, compliment, or judge the quality of the candidate's answer").
+{bridge_rule}
 
 TRANSITION INSTRUCTION:
 {transition_instruction}
@@ -220,11 +296,6 @@ FORMAT INSTRUCTIONS:
 - Do NOT use markdown formatting (no bolding, no quotes surrounding the output).
 - Keep the phrasing under 3 sentences.
 """.strip()
-
-    if last_user_answer:
-        user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
-    else:
-        user_prompt = f"Raw Question: {raw_question}"
 
     response = client.chat.completions.create(
         model=MODEL,

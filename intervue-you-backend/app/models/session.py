@@ -218,7 +218,7 @@ class InterviewSession:
         done = self._done_slot_ids()
         idx = self._next_open_slot_index()
 
-        if remaining < 150:
+        if remaining < 5:
             while idx < len(self.agenda):
                 slot = self.agenda[idx]
                 if slot.is_must_have and slot.slot_id not in done:

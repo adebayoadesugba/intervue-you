@@ -1,5 +1,145 @@
 [
   {
+    "question": "Your evaluation results for a model are much lower than the numbers a teammate reported earlier. How do you raise this with the team?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Rechecks own setup first: data split, metrics, preprocessing, seeds",
+      "Asks the teammate for their evaluation details in a non-accusatory way",
+      "Compares configurations side by side to find the difference",
+      "Shares findings openly and agrees on a common evaluation setup"
+    ]
+  },
+  {
+    "question": "While cleaning data for a project, you notice labelling inconsistencies in a dataset owned by another teammate. What do you do?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Documents specific examples of the inconsistencies",
+      "Informs the dataset owner respectfully instead of silently changing the data",
+      "Asks about labelling guidelines or intent",
+      "Agrees on a fix and versioning so the whole team uses the same data"
+    ]
+  },
+  {
+    "question": "A prompt change you made breaks a teammate's downstream feature. How do you respond?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Acknowledges the issue quickly and informs the team",
+      "Reverts or fixes to unblock the teammate",
+      "Finds the root cause, e.g. missing tests or untracked prompt changes",
+      "Proposes prompt versioning and regression tests"
+    ]
+  },
+  {
+    "question": "You have been stuck on an LLM hallucination problem for hours and everyone is busy. How do you ask for help?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Timeboxes own effort and records what has been tried",
+      "Prepares a clear question with examples, prompts and outputs",
+      "Chooses a good moment such as standup or a short message",
+      "Shares the solution afterwards for the team's benefit"
+    ]
+  },
+  {
+    "question": "A senior engineer suggests a different chunking strategy for your RAG pipeline after you already tested your own. How do you handle it?",
+    "category": "ai-engineering",
+    "difficulty": "junior",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Listens and asks for the reasoning behind the suggestion",
+      "Shares own test results objectively",
+      "Proposes comparing both approaches with the same evaluation set",
+      "Accepts the better-performing approach without taking it personally"
+    ]
+  },
+  {
+    "question": "A data scientist and a backend engineer disagree on whether a model should be served in batch or real time. How do you help the team decide?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Gathers requirements: latency, cost, freshness, traffic",
+      "Lets each person explain constraints and concerns",
+      "Compares trade-offs and suggests a small proof of concept if needed",
+      "Documents the decision and revisit criteria"
+    ]
+  },
+  {
+    "question": "A product manager promises a client a specific accuracy target without consulting the team. What do you do?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Raises concerns early and privately with the PM",
+      "Explains feasibility, data and evaluation limits with evidence",
+      "Proposes realistic metrics, milestones and a pilot",
+      "Aligns on communication with the client"
+    ]
+  },
+  {
+    "question": "A teammate wants to ship an LLM feature without proper evaluation or guardrails to meet a deadline. How do you respond?",
+    "category": "ai-engineering",
+    "difficulty": "any",
+    "stack": "llm",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Explains risks: hallucinations, safety, privacy, brand impact",
+      "Proposes a minimal evaluation set and basic guardrails",
+      "Suggests a limited or phased release",
+      "Escalates to the lead if the risk is unacceptable"
+    ]
+  },
+  {
+    "question": "The data engineering team changes a table schema and your training pipeline fails. How do you resolve this across teams?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "core",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Contacts the data team to understand and fix the immediate issue",
+      "Avoids blame and focuses on unblocking",
+      "Proposes data contracts, change notifications and pipeline tests",
+      "Documents the dependency"
+    ]
+  },
+  {
+    "question": "Your team is split between fine-tuning a model and using RAG for a new feature. How do you move the team forward?",
+    "category": "ai-engineering",
+    "difficulty": "mid",
+    "stack": "rag",
+    "question_type": "situational",
+    "competency": "teamwork",
+    "reference_points": [
+      "Defines success criteria and constraints: data, cost, latency, maintenance",
+      "Runs a quick comparison on a shared evaluation set",
+      "Ensures everyone's input is heard",
+      "Commits to a decision and plans how to revisit it"
+    ]
+  },
+  {
     "question": "Leadership wants an LLM feature launched quickly, while the team is worried about safety and data privacy. How do you align everyone?",
     "category": "ai-engineering",
     "difficulty": "senior",
