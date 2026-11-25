@@ -112,6 +112,7 @@ const createSessionStreamHandler = async (req, res) => {
                 pendingQuestion: data.question || completeQuestionText,
                 role: fastApiPayload.category,
                 experienceLevel: fastApiPayload.difficulty,
+                stack: Array.isArray(req.body.stack) && req.body.stack.length > 0 ? req.body.stack : ["core"],
                 timeframe: req.body.timeframe || "",
                 cv: req.body.cv || "",
                 mode: req.body.mode || "text",
@@ -249,6 +250,7 @@ const createSessionHandler = async (req, res) => {
       pendingQuestion: fastApiData.question,
       role: fastApiPayload.category,
       experienceLevel: fastApiPayload.difficulty,
+      stack: Array.isArray(req.body.stack) && req.body.stack.length > 0 ? req.body.stack : ["core"],
       timeframe: req.body.timeframe || "",
       cv: req.body.cv || "",
       mode: req.body.mode || "text",
@@ -470,9 +472,12 @@ const coachHandler = async (req, res) => {
     const systemContext = `
 You are Intervue You's expert AI Executive Interview Coach.
 Coaching candidate on their interview for "${session.role}".
-Python Calculated Scores: Overall ${session.overallScore}%. Tech: ${comps.technical_depth?.score ?? "N/A"}. Comm: ${comps.communication?.score ?? "N/A"}. Problem Solving: ${comps.problem_solving?.score ?? "N/A"}. Teamwork: ${comps.teamwork?.score ?? "N/A"}.
+Calculated Scores: Overall ${session.overallScore}%. Tech: ${comps.technical_depth?.score ?? "N/A"}. Comm: ${comps.communication?.score ?? "N/A"}. Problem Solving: ${comps.problem_solving?.score ?? "N/A"}. Teamwork: ${comps.teamwork?.score ?? "N/A"}.
 Executive Summary: ${report.overall_summary || "N/A"}
-Provide actionable coaching advice based strictly on their transcript and Python report.`;
+Provide actionable coaching advice based strictly on their transcript and report.
+Make sure it is well structured, short and concise, and clear recommendations. 
+Avoid generic advice. Focus on specific areas for improvement, strengths to leverage, 
+and practical next steps. Use a professional and encouraging tone. make everything about 5-6 lines`;
 
     const formattedHistory = chatHistory
       .map((c) => ({
@@ -481,16 +486,47 @@ Provide actionable coaching advice based strictly on their transcript and Python
       }))
       .filter((c) => c.content.trim().length > 0);
 
-    const response = await openai.chat.completions.create({
+    // 1. Add stream: true to the OpenAI call
+    const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [{ role: "system", content: systemContext }, ...formattedHistory, { role: "user", content: userMessage }],
       temperature: 0.7,
       max_tokens: 500,
+      stream: true, 
+      stream_options: { include_usage: true }
     });
 
-    return res.json({ reply: response.choices[0].message.content });
+    for await (const chunk of stream) {
+      // 👉 2. LOG THE USAGE WHEN THE LAST CHUNK ARRIVES
+      if (chunk.usage) {
+        console.log(`📊 [Coach AI] Tokens used - Prompt: ${chunk.usage.prompt_tokens} | Generated: ${chunk.usage.completion_tokens} | Total: ${chunk.usage.total_tokens}`);
+      }
+
+      const content = chunk.choices[0]?.delta?.content || "";
+      if (content) {
+        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+      }
+    }
+
+    // 2. Set up SSE Headers
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+
+    // 3. Stream the chunks to the frontend
+    for await (const chunk of stream) {
+      const content = chunk.choices[0]?.delta?.content || "";
+      if (content) {
+        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+      }
+    }
+    
+    res.write(`data: [DONE]\n\n`);
+    res.end();
   } catch (err) {
-    return res.status(500).json({ error: "Coach failed to respond" });
+    if (!res.headersSent) {
+      return res.status(500).json({ error: "Coach failed to respond" });
+    }
   }
 };
 router.post(["/session/:id/coach", "/interview/session/:id/coach"], coachHandler);

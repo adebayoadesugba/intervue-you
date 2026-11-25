@@ -14,8 +14,6 @@ const feedbackSchema = new mongoose.Schema({
   },
 });
 
-
-
 const SessionSchema = new mongoose.Schema(
   {
     userId: { type: String, default: null },
@@ -23,6 +21,7 @@ const SessionSchema = new mongoose.Schema(
     pendingQuestion: { type: String, default: "" },
     role: { type: String, required: true },
     experienceLevel: { type: String, default: "junior" },
+    stack: { type: [String], default: ["core"] },
     timeframe: { type: String, default: "" },
     cv: { type: String, default: "" },
     mode: { type: String, default: "text" },
@@ -38,7 +37,8 @@ const SessionSchema = new mongoose.Schema(
     ],
     overallScore: { type: Number, default: null },
     scores: { type: Object, default: {} },
-    feedback: { type: Array, default: [] },
+    feedback: { type: [feedbackSchema], default: [] },
+    
     evaluation: { type: Object, default: {} },
     report: { type: Object, default: {} },
   },

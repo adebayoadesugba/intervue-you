@@ -190,7 +190,6 @@ def evaluate_answer(
 
     client = _get_client()
 
-    # Fix 5: Robust API parsing and exception handling
     try:
         response = client.beta.chat.completions.parse(
             model=MODEL,
@@ -200,7 +199,8 @@ def evaluate_answer(
             ],
             response_format=AnswerEvaluationSchema,
         )
-
+        if response.usage:
+                print(f"📊 [Evaluation Report] Tokens used - Prompt: {response.usage.prompt_tokens} | Generated: {response.usage.completion_tokens} | Total: {response.usage.total_tokens}")
         msg = response.choices[0].message
         
         if msg.refusal:

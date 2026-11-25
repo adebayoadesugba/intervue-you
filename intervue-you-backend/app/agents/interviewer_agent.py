@@ -144,38 +144,29 @@ def _phrase_question(raw_question: str, session: InterviewSession, slot: AgendaS
 
     if last_user_answer:
         bridge_rule = """
+        CRITICAL INSTRUCTION:
+Do NOT use generic conversational filler."
+You MUST start your response by randomly picking exactly ONE of the following acknowledgment phrases, and 
+then immediately ask your question. Do not use the same phrase twice in a row use response like 1. "Thank you for walking me through that."
+"Understood, thanks for breaking that down."
+"Got it, thank you for explaining your perspective."
+"Okay, I have a clear picture of your approach."
+"Alright, thanks for covering those details."
+"Got it, I appreciate you sharing that with me."
+"Understood, thank you."
+"Got it, thanks for that context."
+"Okay, thank you for sharing."
+"Alright, thanks for explaining."
+"Got it, I appreciate you sharing that with me."
+"Thank you for walking me through that."
+
 NEUTRAL BRIDGE RULE
-- If the candidate provided a previous answer, open with ONE brief, neutral acknowledgment chosen at random from the pool below.
-- Keep the acknowledgment strictly neutral. NEVER praise ("Great job", "Excellent answer"), compliment, or judge the quality of the candidate's response.
+- If the candidate provided a previous answer, open with ONE brief, 
+neutral acknowledgment chosen at random from the pool below.
+- Keep the acknowledgment strictly neutral. NEVER praise 
+("Great job", "Excellent answer"), compliment, or judge the quality of the candidate's response.
 
-Example Neutral Bridges Pool (Choose/rotate dynamically):
-[Context: Standard Transitions]
-1. "Thank you for walking me through that."
-2. "Understood, thanks for breaking that down."
-3. "Got it, thank you for explaining your perspective."
-4. "Okay, I have a clear picture of your approach."
-5. "Alright, thanks for covering those details."
 
-[Context: Technical & Problem-Solving]
-6. "Thank you for detailing that implementation."
-7. "Okay, I see how you handled that technical scenario."
-8. "Understood, thanks for outlining your thought process."
-9. "Got it, that clarifies how you structured that solution."
-10. "Alright, thank you for walking through the architecture."
-
-[Context: Behavioral & Situational Teamwork]
-11. "Thank you for describing how you managed that situation."
-12. "Got it, I appreciate you sharing that with me."
-13. "Okay, thanks for explaining how you approached that."
-14. "Understood, thank you for summarizing the outcome."
-
-[Context: Short / Concise Bridges]
-15. "Understood, thank you."
-16. "Got it, thanks for that context."
-17. "Okay, thank you for sharing."
-18. "Alright, thanks for explaining."
-19. "Got it, I appreciate you sharing that with me."
-20. "Thank you for walking me through that."
 """
         user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
     else:
@@ -214,6 +205,8 @@ FORMAT INSTRUCTIONS:
         temperature=0.4,
         max_tokens=150,  # Enforce output length limit
     )
+    if response.usage:
+        print(f"📊 [Interviewer Agent Report] Tokens used - Prompt: {response.usage.prompt_tokens} | Generated: {response.usage.completion_tokens} | Total: {response.usage.total_tokens}")
 
     output = response.choices[0].message.content or raw_question
     # Clean quotes or markdown syntax from output
@@ -236,38 +229,26 @@ def _phrase_question_stream(raw_question: str, session: InterviewSession, slot: 
 
     if last_user_answer:
         bridge_rule = """
+                CRITICAL INSTRUCTION:
+                Do NOT use generic conversational filler."
+                You MUST start your response by randomly picking exactly ONE of the following acknowledgment phrases, and 
+                then immediately ask your question. Do not use the same phrase twice in a row use response like 
+                "Thank you for walking me through that."
+                "Understood, thanks for breaking that down."
+                "Got it, thank you for explaining your perspective."
+                "Okay, I have a clear picture of your approach."
+                "Alright, thanks for covering those details."
+                "Got it, I appreciate you sharing that with me."
+                "Understood, thank you."
+                "Got it, thanks for that context."
+                "Okay, thank you for sharing."
+                "Alright, thanks for explaining."
+                "Got it, I appreciate you sharing that with me."
+                "Thank you for walking me through that."
+ 
 NEUTRAL BRIDGE RULE
 - If the candidate provided a previous answer, open with ONE brief, neutral acknowledgment chosen at random from the pool below.
 - Keep the acknowledgment strictly neutral. NEVER praise ("Great job", "Excellent answer"), compliment, or judge the quality of the candidate's response.
-
-Example Neutral Bridges Pool (Choose/rotate dynamically):
-[Context: Standard Transitions]
-1. "Thank you for walking me through that."
-2. "Understood, thanks for breaking that down."
-3. "Got it, thank you for explaining your perspective."
-4. "Okay, I have a clear picture of your approach."
-5. "Alright, thanks for covering those details."
-
-[Context: Technical & Problem-Solving]
-6. "Thank you for detailing that implementation."
-7. "Okay, I see how you handled that technical scenario."
-8. "Understood, thanks for outlining your thought process."
-9. "Got it, that clarifies how you structured that solution."
-10. "Alright, thank you for walking through the architecture."
-
-[Context: Behavioral & Situational Teamwork]
-11. "Thank you for describing how you managed that situation."
-12. "Got it, I appreciate you sharing that with me."
-13. "Okay, thanks for explaining how you approached that."
-14. "Understood, thank you for summarizing the outcome."
-
-[Context: Short / Concise Bridges]
-15. "Understood, thank you."
-16. "Got it, thanks for that context."
-17. "Okay, thank you for sharing."
-18. "Alright, thanks for explaining."
-19. "Got it, I appreciate you sharing that with me."
-20. "Thank you for walking me through that."
 """
         user_prompt = f"Raw Question: {raw_question}\n\n<last_candidate_answer>\n{last_user_answer}\n</last_candidate_answer>"
     else:
@@ -306,11 +287,17 @@ FORMAT INSTRUCTIONS:
         temperature=0.4,
         max_tokens=150,
         stream=True,
+        stream_options={"include_usage": True}
     )
 
     for chunk in response:
+        if chunk.usage:
+            print(f"📊 Phrase Questions Tokens used - Prompt: {chunk.usage.prompt_tokens} | Generated: {chunk.usage.completion_tokens} | Total: {chunk.usage.total_tokens}")
+
         if chunk.choices and chunk.choices[0].delta.content:
             yield chunk.choices[0].delta.content
+
+    
 
 
 def _fetch_from_db(session: InterviewSession, slot: AgendaSlot) -> tuple[str, list[str], str]:

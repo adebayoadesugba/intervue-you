@@ -109,6 +109,8 @@ def extract_resume_profile(raw_cv: str, client: Optional[OpenAI] = None) -> Opti
             response_format=ResumeProfile,
             temperature=0.2  # Keep variance low for consistent extraction
         )
+        if response.usage:
+            print(f"📊 [Resume Agent ] Tokens used - Prompt: {response.usage.prompt_tokens} | Generated: {response.usage.completion_tokens} | Total: {response.usage.total_tokens}")
         
         parsed_profile = response.choices[0].message.parsed
         

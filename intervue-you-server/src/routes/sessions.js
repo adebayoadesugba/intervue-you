@@ -11,7 +11,7 @@ const authMiddleware = (req, res, next) => {
   const token = authHeader.split(" ")[1];
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = verified; // Contains { userId: "..." }
+    req.user = verified;
     next();
   } catch (err) {
     res.status(400).json({ error: "Invalid token." });
@@ -24,11 +24,14 @@ router.post("/", authMiddleware, async (req, res) => {
     const session = new Session({
       userId: req.user.userId,
       role: req.body.role,
-      experienceLevel: req.body.experienceLevel,
+      experienceLevel: req.body.experienceLevel || req.body.difficulty || "mid",
+      stack: Array.isArray(req.body.stack) ? req.body.stack : [req.body.stack || "core"],
       mode: req.body.mode,
       overallScore: req.body.overallScore,
       feedback: req.body.feedback,
-      transcript: req.body.transcript
+      transcript: req.body.transcript,
+      report: req.body.report,
+      evaluation: req.body.evaluation,
     });
 
     const savedSession = await session.save();

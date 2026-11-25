@@ -323,6 +323,8 @@ Teamwork Answers: {" ".join(transcripts_by_comp["teamwork"])}
             ],
             response_format=LLMReportTextSchema,
         )
+        if response.usage:
+            print(f"📊 [ Report Generator] Tokens used - Prompt: {response.usage.prompt_tokens} | Generated: {response.usage.completion_tokens} | Total: {response.usage.total_tokens}")
 
         msg = response.choices[0].message
         if msg.refusal:
