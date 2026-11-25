@@ -12,7 +12,7 @@ BACKEND_DIR = Path(__file__).resolve().parent.parent
 
 # Shared absolute vector store location
 DB_PATH = str(BACKEND_DIR / "vector_db")
-EMBEDDING_MODEL = "gemini-embedding-001"
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 ALLOWED_QUESTION_TYPES = {"introduction", "behavioral", "situational", "resume_based", "technical"}
 ALLOWED_COMPETENCIES = {"communication", "teamwork", "problem_solving", "technical_depth"}

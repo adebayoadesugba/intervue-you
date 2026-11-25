@@ -11,7 +11,7 @@ import random
 from typing import Optional
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 from app.config import DB_PATH, EMBEDDING_MODEL
 from app.models.session import InterviewSession
@@ -19,7 +19,7 @@ from app.models.session import InterviewSession
 logger = logging.getLogger(__name__)
 
 # Lazy-loaded singletons
-_embeddings: Optional[GoogleGenerativeAIEmbeddings] = None
+_embeddings: Optional[HuggingFaceEmbeddings] = None
 _vectorstore: Optional[Chroma] = None
 
 
@@ -27,8 +27,7 @@ def _get_vectorstore() -> Chroma:
     """Lazy initializer for vector store using absolute DB_PATH."""
     global _embeddings, _vectorstore
     if _vectorstore is None:
-        model_name = EMBEDDING_MODEL if EMBEDDING_MODEL.startswith("models/") else f"models/{EMBEDDING_MODEL}"
-        _embeddings = GoogleGenerativeAIEmbeddings(model=model_name)
+        _embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         _vectorstore = Chroma(persist_directory=DB_PATH, embedding_function=_embeddings)
     return _vectorstore
 
@@ -120,7 +119,6 @@ def get_relevant_questions(
 
     random.shuffle(filtered)
     return filtered[:k]
-
 
 def verify_session_agenda_fillable(session: InterviewSession) -> tuple[bool, str]:
     """

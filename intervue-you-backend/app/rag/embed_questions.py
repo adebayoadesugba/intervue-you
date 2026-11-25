@@ -17,18 +17,15 @@ import json
 import sys
 from pathlib import Path
 
-from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-
-load_dotenv()
+from langchain_huggingface import HuggingFaceEmbeddings
 
 QUESTION_BANK_PATH = str(Path(__file__).resolve().parent.parent.parent.parent / "knowledge-base" / "question_bank" / "**" / "*.json")
 BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
 DB_NAME = str(BACKEND_DIR / "vector_db")
-EMBEDDING_MODEL = "models/gemini-embedding-001"
-BATCH_SIZE = 100
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+BATCH_SIZE = 500
 
 ALLOWED_QUESTION_TYPES = {"introduction", "behavioral", "situational", "resume_based", "technical"}
 ALLOWED_COMPETENCIES = {"communication", "teamwork", "problem_solving", "technical_depth"}
@@ -120,7 +117,7 @@ def main():
         print("No questions found.")
         return
 
-    embeddings = GoogleGenerativeAIEmbeddings(model=EMBEDDING_MODEL)
+    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     store = Chroma(persist_directory=DB_NAME, embedding_function=embeddings)
 
     existing = store.get(include=["metadatas"]) or {}
