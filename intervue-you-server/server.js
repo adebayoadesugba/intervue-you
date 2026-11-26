@@ -45,9 +45,27 @@ app.use("/api/interview", interviewRouter);
 
 // Database Connection
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
-  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+  .connect(process.env.MONGO_URI, {
+    family: 4,                       // Force IPv4 (prevents Windows IPv6 stall/timeout)
+    maxPoolSize: 10,
+    minPoolSize: 1,
+    maxIdleTimeMS: 30000,
+    serverSelectionTimeoutMS: 30000, // Give Atlas M0 replica-set elections 30s to complete
+    connectTimeoutMS: 20000,
+    socketTimeoutMS: 45000,
+    retryWrites: true,
+    retryReads: true,
+  })
+  .then(() => {
+    console.log("✅ MongoDB Connected Successfully");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Error:", err);
+    process.exit(1);
+  });
 
 // Base Route
 app.get("/", (req, res) => {
