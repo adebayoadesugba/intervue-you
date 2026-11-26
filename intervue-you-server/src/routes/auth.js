@@ -14,7 +14,7 @@ function extractUserId(req) {
   const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith("Bearer ")) {
     try {
-      const token = authHeader.split(" ")[1];
+      const token = authHeader.split(" ")[1]?.replace(/^"|"$/g, "").trim();
       if (token && process.env.JWT_SECRET) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         return decoded.id || decoded._id || decoded.userId || null;
@@ -211,7 +211,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = Date.now() + 15 * 60 * 1000;
     await user.save();
 
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = process.env.PROD_ENV || "http://localhost:8080";
     const resetUrl = `${baseUrl}/reset-password?token=${resetToken}&id=${user._id}`;
 
     await transporter.sendMail({
